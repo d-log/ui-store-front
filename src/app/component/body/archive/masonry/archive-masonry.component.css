@@ -1,0 +1,31 @@
+@media only screen and (max-width: 500px) {
+  .grid-sizer,
+  ng-masonry-grid-item {
+    width: calc(100%);
+  }
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+  .grid-sizer,
+  ng-masonry-grid-item {
+    width: calc(50% - 3px);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1300px) {
+  .grid-sizer,
+  ng-masonry-grid-item {
+    width: calc(33.333% - 4px);
+  }
+}
+
+@media (min-width: 1300px) {
+  .grid-sizer,
+  ng-masonry-grid-item {
+    width: calc(25% - 6px);
+  }
+}
+
+app-archive-masonry-tile {
+  background-size: 100% auto;
+}

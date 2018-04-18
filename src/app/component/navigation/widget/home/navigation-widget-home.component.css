@@ -1,0 +1,17 @@
+#home {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--main-color);
+  pointer-events: auto;
+}
+
+.logo circle {
+  stroke: var(--highlight-color);
+}
+.logo text {
+  fill: var(--highlight-color);
+  font-family: 'Times New Roman', serif;
+  font-size: 35px;
+}

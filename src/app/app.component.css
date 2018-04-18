@@ -1,27 +1,11 @@
-@media only screen and (max-width: 500px) {
-  .grid-sizer,
-  ng-masonry-grid-item {
-    width: calc(100%);
-  }
+app-navigation {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  pointer-events: none;
 }
 
-@media (min-width: 500px) and (max-width: 900px) {
-  .grid-sizer,
-  ng-masonry-grid-item {
-    width: calc(50% - 3px);
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1300px) {
-  .grid-sizer,
-  ng-masonry-grid-item {
-    width: calc(33.333% - 4px);
-  }
-}
-
-@media (min-width: 1300px) {
-  .grid-sizer,
-  ng-masonry-grid-item {
-    width: calc(25% - 6px);
-  }
+.gap {
+  padding-top: 60px;
+  z-index: 0;
 }

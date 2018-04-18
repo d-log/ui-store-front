@@ -1,0 +1,14 @@
+<ng-masonry-grid
+  (onNgMasonryInit)="onNgMasonryInit($event)"
+  [masonryOptions]="{ transitionDuration: '0.8s', gutter: 6, columnWidth: '.grid-sizer', percentPosition: true}"
+  [useAnimation]="true"
+  [useImagesLoaded]="false"
+  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+  <!-- Masonry Grid Item -->
+  <div class="grid-sizer"></div>
+  <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let logModel of logModels; let i = index;"> <!-- (click)="removeItem($event)"> -->
+    <!-- Grid Content  -->
+    <!--<div style="height: 100px; width: 100%; background-color: aqua">hello</div>-->
+    <app-archive-masonry-tile [logModel]="logModel"></app-archive-masonry-tile>
+  </ng-masonry-grid-item>
+</ng-masonry-grid>

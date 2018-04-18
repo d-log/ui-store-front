@@ -1,3 +1,11 @@
 body {
+  background-color: var(--main-color);
   margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --main-color: #313131;
+  --highlight-color:#E18A07;
 }

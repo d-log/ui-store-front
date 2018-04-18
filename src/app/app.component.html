@@ -1,15 +1,19 @@
-<div (click)="appendItems()">append item</div>
-<div (click)="prependItems()">prepend item</div>
-<ng-masonry-grid
-  (onNgMasonryInit)="onNgMasonryInit($event)"
-  [masonryOptions]="{ transitionDuration: '0.8s', gutter: 6, columnWidth: '.grid-sizer', percentPosition: true}"
-  [useAnimation]="true"
-  [useImagesLoaded]="false"
-  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
-  <!-- Masonry Grid Item -->
-  <div class="grid-sizer"></div>
-  <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let item of masonryItems; let i = index;" (click)="removeItem($event)">
-    <!-- Grid Content  -->
-    <app-tedt></app-tedt>
-  </ng-masonry-grid-item>
-</ng-masonry-grid>
+<!--<div (click)="appendItems()">append item</div>-->
+<!--<div (click)="prependItems()">prepend item</div>-->
+<!--<ng-masonry-grid-->
+  <!--(onNgMasonryInit)="onNgMasonryInit($event)"-->
+  <!--[masonryOptions]="{ transitionDuration: '0.8s', gutter: 6, columnWidth: '.grid-sizer', percentPosition: true}"-->
+  <!--[useAnimation]="true"-->
+  <!--[useImagesLoaded]="false"-->
+  <!--[scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">-->
+  <!--&lt;!&ndash; Masonry Grid Item &ndash;&gt;-->
+  <!--<div class="grid-sizer"></div>-->
+  <!--<ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let item of masonryItems; let i = index;" (click)="removeItem($event)">-->
+    <!--&lt;!&ndash; Grid Content  &ndash;&gt;-->
+    <!--<div style="height: 100px; width: 100%; background-color: aqua">hello</div>-->
+  <!--</ng-masonry-grid-item>-->
+<!--</ng-masonry-grid>-->
+
+<app-navigation></app-navigation>
+<div class="gap"></div>
+<app-body></app-body>
