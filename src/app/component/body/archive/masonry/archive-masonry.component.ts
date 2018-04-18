@@ -24,7 +24,7 @@ export class ArchiveMasonryComponent implements OnInit {
 
   ngOnInit() {
     this.page = -1;
-    this.size = 10;
+    this.size = 5;
     this.moreLogsExist = true;
     this.millisecondThreshold = new Date().getTime();
     this.logModels = [];
