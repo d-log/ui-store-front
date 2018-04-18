@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import {NgMasonryGridModule} from 'ng-masonry-grid';
+import { TedtComponent } from './tedt/tedt.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TedtComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgMasonryGridModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
