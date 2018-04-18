@@ -20,6 +20,7 @@ import {NavigationComponent} from './component/navigation/navigation.component';
 import {LogModelService} from './service/log/log-model.service';
 import {CoreHttpService} from './service/core-http-service';
 import {HttpModule} from '@angular/http';
+import {FooterComponent} from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {HttpModule} from '@angular/http';
     ArchiveMasonryTileImageDefaultComponent,
     ArchiveMasonryTileVideoYoutubeDefaultComponent,
     ArchiveMasonryTileDefaultTileDefaultComponent,
+    FooterComponent,
     SafePipe,
   ],
   entryComponents: [

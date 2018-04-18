@@ -1,3 +1,4 @@
+<!-- Masonry Grid -->
 <!-- https://www.npmjs.com/package/ng-masonry-grid -->
 <!-- useImagesLoaded set to false bc order is not preserved -->
 <ng-masonry-grid
@@ -10,7 +11,6 @@
   <div class="grid-sizer"></div>
   <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let logModel of logModels; let i = index;"> <!-- (click)="removeItem($event)"> -->
     <!-- Grid Content  -->
-    <!--<div style="height: 100px; width: 100%; background-color: aqua">hello</div>-->
     <app-archive-masonry-tile [logModel]="logModel"></app-archive-masonry-tile>
   </ng-masonry-grid-item>
 </ng-masonry-grid>
