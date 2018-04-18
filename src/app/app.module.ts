@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {NgMasonryGridModule} from 'ng-masonry-grid';
 import {SafePipe} from './pipe/safe.pipe';
 import {ArchiveMasonryTileDefaultTileDefaultComponent} from './component/body/archive/masonry/tile/type/default-tile-default/archive-masonry-tile-default-tile-default.component';

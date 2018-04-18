@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {LogModel} from '../../../../service/log/model/log-model';
 import {LogModelService} from '../../../../service/log/log-model.service';
 import {Pageable} from '../../../../service/model/pageable';

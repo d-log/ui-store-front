@@ -29,3 +29,8 @@
 app-archive-masonry-tile {
   background-size: 100% auto;
 }
+
+ng-masonry-grid {
+  margin-left: 6px;
+  margin-right: 6px;
+}
