@@ -21,9 +21,8 @@ import {LogModelService} from './service/log/log-model.service';
 import {CoreHttpService} from './service/core-http-service';
 import {HttpModule} from '@angular/http';
 import {FooterComponent} from './component/footer/footer.component';
-import {TestOneComponent} from './component/test-one/test-one.component';
-import {TestTwoComponent} from './component/test-two/test-two.component';
 import {AppRoutingModule} from './app-routing.module';
+import {HeaderComponent} from './component/header/header.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +41,7 @@ import {AppRoutingModule} from './app-routing.module';
     ArchiveMasonryTileDefaultTileDefaultComponent,
     FooterComponent,
     SafePipe,
-    TestOneComponent,
-    TestTwoComponent,
+    HeaderComponent,
   ],
   entryComponents: [
     ArchiveMasonryTileDefaultTileDefaultComponent,
