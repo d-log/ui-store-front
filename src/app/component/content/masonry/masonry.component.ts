@@ -1,9 +1,7 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {LogModel} from '../../../service/log/model/log-model';
 import {Masonry} from 'ng-masonry-grid';
-import {LogModelService} from '../../../service/log/log-model.service';
-import {Pageable} from '../../../service/model/pageable';
-import {LogType} from '../../../service/log/model/extra/log-type';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-masonry',
@@ -11,43 +9,35 @@ import {LogType} from '../../../service/log/model/extra/log-type';
   styleUrls: ['./masonry.component.css']
 })
 export class MasonryComponent implements OnInit {
-  millisecondThreshold: number;
-  page: number;
-  size: number;
-  moreLogsExist: boolean;
-
-  constructor(private logLightService: LogModelService) {
+  @Input() set logModelsObservable(logModelsObservable: Observable<LogModel[]>) {
+    this._logModelsObservable = logModelsObservable;
+    this.getLogModels();
   }
+  private _logModelsObservable: Observable<LogModel[]>;
+
+  @Output() getMoreLogs = new EventEmitter<boolean>();
 
   _masonry: Masonry;
   logModels: LogModel[];
+  moreLogsExist: boolean;
 
   ngOnInit() {
-    this.page = -1;
-    this.size = 5;
-    this.moreLogsExist = true;
-    this.millisecondThreshold = new Date().getTime();
     this.logModels = [];
-    this.getLogModels();
+    this.moreLogsExist = true;
   }
 
   onNgMasonryInit($event: Masonry) {
     this._masonry = $event;
   }
 
-  getLogModels(): void {
-    if (this.moreLogsExist) {
-      this.page++;
-
-      this.logLightService.theGetterList(this.millisecondThreshold, new Pageable(this.page, this.size), LogType.TILE)
-        .subscribe(logModels => {
-          if (logModels.length === 0) {
-            this.moreLogsExist = false;
-          } else {
-            this.appendItems(logModels);
-          }
-        });
-    }
+  getLogModels() {
+    this._logModelsObservable.subscribe(logModels => {
+        if (logModels.length === 0) {
+          this.moreLogsExist = false;
+        } else {
+          this.appendItems(logModels);
+        }
+      });
   }
 
   appendItems(logModels: LogModel[]) {
@@ -60,7 +50,9 @@ export class MasonryComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if ((window.innerHeight + window.scrollY) >= document.body.clientHeight) {
-      this.getLogModels();
+      if (this.moreLogsExist) {
+        this.getMoreLogs.emit(true);
+      }
     }
   }
 }
