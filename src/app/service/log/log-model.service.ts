@@ -6,7 +6,7 @@ import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
 import {Pageable} from '../model/pageable';
-import {LogType} from './model/log-type';
+import {LogType} from './model/extra/log-type';
 
 @Injectable()
 export class LogModelService {

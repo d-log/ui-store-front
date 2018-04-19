@@ -2,7 +2,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {LogModel} from '../../../../service/log/model/log-model';
 import {LogModelService} from '../../../../service/log/log-model.service';
 import {Pageable} from '../../../../service/model/pageable';
-import {LogType} from '../../../../service/log/model/log-type';
+import {LogType} from '../../../../service/log/model/extra/log-type';
 import {Masonry} from 'ng-masonry-grid';
 
 @Component({

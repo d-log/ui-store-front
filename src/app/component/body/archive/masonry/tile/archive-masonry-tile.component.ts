@@ -3,11 +3,11 @@ import {ArchiveMasonryTileImageDefaultComponent} from './type/image-default/arch
 import {ArchiveMasonryTileVideoYoutubeDefaultComponent} from './type/video-youtube-default/archive-masonry-tile-video-youtube-default.component';
 import {ArchiveMasonryTileTextPlainDefaultComponent} from './type/text-plain-default/archive-masonry-tile-text-plain-default.component';
 import {ArchiveMasonryTileComponentTwo} from './type/archive-masonry-tile-component-two';
-import {ImageInternalLogData} from '../../../../../service/log/model/logdata/impl/image-internal-log-data';
-import {VideoYouTubeLogData} from '../../../../../service/log/model/logdata/impl/video-youtube-log-data';
-import {TextPlainLogData} from '../../../../../service/log/model/logdata/impl/text-plain-log-data';
+import {ImageInternalLogData} from '../../../../../service/log/model/extra/logdata/impl/image-internal-log-data';
+import {VideoYouTubeLogData} from '../../../../../service/log/model/extra/logdata/impl/video-youtube-log-data';
+import {TextPlainLogData} from '../../../../../service/log/model/extra/logdata/impl/text-plain-log-data';
 import {LogModel} from '../../../../../service/log/model/log-model';
-import {LogData} from '../../../../../service/log/model/logdata/log-data';
+import {LogData} from '../../../../../service/log/model/extra/logdata/log-data';
 import {ArchiveMasonryTileDefaultTileDefaultComponent} from './type/default-tile-default/archive-masonry-tile-default-tile-default.component';
 
 @Component({
