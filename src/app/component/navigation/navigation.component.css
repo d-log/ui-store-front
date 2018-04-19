@@ -1,4 +1,9 @@
 .grid-container {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  pointer-events: none;
+
   height: 50px;
   display: grid;
   grid-template-columns: 50px 50px auto;
@@ -7,4 +12,9 @@
 }
 
 .grid-item {
+}
+
+.gap {
+  padding-top: 60px;
+  z-index: 0;
 }

@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ArchiveMasonryTileDefaultTileDefaultComponent} from './archive-masonry-tile-default-tile-default.component';
+import {MasonryTileImageDefaultComponent} from './masonry-tile-image-default.component';
 
 describe('ArchiveMasonryTileImageExternalDefaultComponent', () => {
-  let component: ArchiveMasonryTileDefaultTileDefaultComponent;
-  let fixture: ComponentFixture<ArchiveMasonryTileDefaultTileDefaultComponent>;
+  let component: MasonryTileImageDefaultComponent;
+  let fixture: ComponentFixture<MasonryTileImageDefaultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchiveMasonryTileDefaultTileDefaultComponent ]
+      declarations: [ MasonryTileImageDefaultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArchiveMasonryTileDefaultTileDefaultComponent);
+    fixture = TestBed.createComponent(MasonryTileImageDefaultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

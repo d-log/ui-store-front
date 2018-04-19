@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/log/model/log-model';
+import {LogModel} from '../../../../../../service/log/model/log-model';
 
 @Component({
-  selector: 'app-archive-masonry-item-image-default',
-  templateUrl: './archive-masonry-tile-image-default.component.html',
-  styleUrls: ['./archive-masonry-tile-image-default.component.css']
+  selector: 'app-masonry-tile-image-default',
+  templateUrl: './masonry-tile-image-default.component.html',
+  styleUrls: ['./masonry-tile-image-default.component.css']
 })
-export class ArchiveMasonryTileImageDefaultComponent implements OnInit {
+export class MasonryTileImageDefaultComponent implements OnInit {
 
   @Input() logModel: LogModel;
 

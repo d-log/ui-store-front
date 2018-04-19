@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ArchiveMasonryComponent} from './archive-masonry.component';
+import {MasonryTileComponent} from './masonry-tile.component';
 
-describe('ArchiveMasonryComponent', () => {
-  let component: ArchiveMasonryComponent;
-  let fixture: ComponentFixture<ArchiveMasonryComponent>;
+describe('MasonryTileComponentTwo', () => {
+  let component: MasonryTileComponent;
+  let fixture: ComponentFixture<MasonryTileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchiveMasonryComponent ]
+      declarations: [ MasonryTileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArchiveMasonryComponent);
+    fixture = TestBed.createComponent(MasonryTileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

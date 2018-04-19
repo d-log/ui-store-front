@@ -1,16 +1,16 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {LogModel} from '../../../../service/log/model/log-model';
-import {LogModelService} from '../../../../service/log/log-model.service';
-import {Pageable} from '../../../../service/model/pageable';
-import {LogType} from '../../../../service/log/model/extra/log-type';
+import {LogModel} from '../../../service/log/model/log-model';
 import {Masonry} from 'ng-masonry-grid';
+import {LogModelService} from '../../../service/log/log-model.service';
+import {Pageable} from '../../../service/model/pageable';
+import {LogType} from '../../../service/log/model/extra/log-type';
 
 @Component({
-  selector: 'app-masonry-archive',
-  templateUrl: './archive-masonry.component.html',
-  styleUrls: ['./archive-masonry.component.css']
+  selector: 'app-masonry',
+  templateUrl: './masonry.component.html',
+  styleUrls: ['./masonry.component.css']
 })
-export class ArchiveMasonryComponent implements OnInit {
+export class MasonryComponent implements OnInit {
   millisecondThreshold: number;
   page: number;
   size: number;
