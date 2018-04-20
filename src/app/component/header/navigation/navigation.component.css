@@ -1,20 +1,13 @@
 .grid-container {
+  pointer-events: none;
+  position: sticky;
+  top: 0;
   z-index: 1;
   width: 100%;
-  position: fixed;
-  pointer-events: none;
-
   height: 50px;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 50px 50px auto;
   grid-gap: 5px;
   padding: 5px;
-}
-
-.grid-item {
-}
-
-.gap {
-  padding-top: 60px;
-  z-index: 0;
+  margin-bottom: 1px;
 }

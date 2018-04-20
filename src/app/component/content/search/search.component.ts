@@ -7,6 +7,9 @@ import {Observable} from 'rxjs/Observable';
 import {GetterRequest} from '../../../service/log/getter-request';
 import {ActivatedRoute} from '@angular/router';
 
+/**
+ * TODO add filters and sort by options
+ */
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -20,7 +23,7 @@ export class SearchComponent implements OnInit {
   page: number;
   size: number;
   moreLogsExist: boolean;
-  searchString: string;
+  searchString: string; // should only be set within ngOnInit
 
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute) {}
