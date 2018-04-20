@@ -5,8 +5,8 @@ import {of} from 'rxjs/observable/of';
 import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
-import {Pageable} from '../model/pageable';
 import {LogType} from './model/extra/log-type';
+import {GetterRequest} from './getter-request';
 
 @Injectable()
 export class LogModelService {
@@ -19,12 +19,22 @@ export class LogModelService {
    * `?page=0&size=10`
    * @returns {Observable<LogModel[]>}
    */
-  theGetterList(millisecondThreshold: number, pageable: Pageable, logType: LogType): Observable<LogModel[]> {
+  theGetter(getterRequest: GetterRequest): Observable<LogModel[]> {
+    const logType = getterRequest.logType;
+    const pageable = getterRequest.pageable;
+    const millisecondThreshold = getterRequest.millisecondThreshold;
+    const searchString = getterRequest.searchString;
+
     let url = this.logModelsURL;
     if (logType !== null) {
       url += LogType[LogType.TILE];
     }
     url = url + '?page=' + pageable.page + '&size=' + pageable.size + '&millisecond-threshold=' + millisecondThreshold;
+    // Returns false for null,undefined,0,000,"",false.
+    // Returns true for string "0" and whitespace " "
+    if (!!searchString) {
+      url = url + '&search=' + encodeURIComponent(searchString);
+    }
     return this.http
       .get(url)
       .map((response: Response) => {

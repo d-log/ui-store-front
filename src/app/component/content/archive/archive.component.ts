@@ -4,6 +4,7 @@ import {LogType} from '../../../service/log/model/extra/log-type';
 import {Pageable} from '../../../service/model/pageable';
 import {Observable} from 'rxjs/Observable';
 import {LogModel} from '../../../service/log/model/log-model';
+import {GetterRequest} from '../../../service/log/getter-request';
 
 @Component({
   selector: 'app-archive',
@@ -31,7 +32,11 @@ export class ArchiveComponent implements OnInit {
 
   getMoreLogs() {
     this.page++;
-    console.log('page number: ' + this.page);
-    this.logModelsObservable = this.logLightService.theGetterList(this.millisecondThreshold, new Pageable(this.page, this.size), LogType.TILE);
+
+    const getterRequest = new GetterRequest();
+    getterRequest.millisecondThreshold = this.millisecondThreshold;
+    getterRequest.pageable = new Pageable(this.page, this.size);
+    getterRequest.logType = LogType.TILE;
+    this.logModelsObservable = this.logLightService.theGetter(getterRequest);
   }
 }
