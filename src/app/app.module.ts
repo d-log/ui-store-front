@@ -22,10 +22,10 @@ import {SearchComponent} from './component/content/search/search.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 import {LogPageComponent} from './component/content/log-page/log-page.component';
 import {HomeComponent} from './component/content/home/home.component';
-import {NavigationWidgetSettingComponent} from './component/header/navigation/widget/setting/navigation-widget-setting.component';
-import {NavigationWidgetSearchComponent} from './component/header/navigation/widget/search/navigation-widget-search.component';
-import {NavigationWidgetHomeComponent} from './component/header/navigation/widget/home/navigation-widget-home.component';
-import {NavigationComponent} from './component/header/navigation/navigation.component';
+import {NavigationWidgetSettingComponent} from './component/navigation/widget/setting/navigation-widget-setting.component';
+import {NavigationWidgetSearchComponent} from './component/navigation/widget/search/navigation-widget-search.component';
+import {NavigationWidgetHomeComponent} from './component/navigation/widget/home/navigation-widget-home.component';
+import {NavigationComponent} from './component/navigation/navigation.component';
 
 @NgModule({
   declarations: [
