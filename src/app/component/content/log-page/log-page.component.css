@@ -1,0 +1,12 @@
+/* center vc_container horizontally */
+.vc_container_container {
+  width: 100%;
+}
+.vc_container {
+  display: table;
+  margin: 0 auto;
+}
+
+.vc_container {
+  max-width: 600px;
+}

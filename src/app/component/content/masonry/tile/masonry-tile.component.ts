@@ -49,4 +49,8 @@ export class MasonryTileComponent implements OnInit {
     const componentRef = this._container.createComponent(componentFactory);
     (<MasonryTileComponentTwo>componentRef.instance).logModel = logModel;
   }
+
+  loadLogPage() {
+    window.location.href = '/log-page/' + this.logModel.id;
+  }
 }

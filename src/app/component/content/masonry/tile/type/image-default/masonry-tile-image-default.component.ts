@@ -18,7 +18,6 @@ export class MasonryTileImageDefaultComponent implements OnInit {
   ngOnInit() {
     const data = this.logModel.logDatas[0].data;
     this.img_src = data.imageURL;
-    debugger;
     this.padding_bottom_percentage = data.imageMetaData.heightDivideWidth * 100;
   }
 
