@@ -35,15 +35,15 @@ export class SearchComponent implements OnInit {
     this.size = 5;
     this.moreLogsExist = true;
     this.millisecondThreshold = new Date().getTime();
-    this.isEmptyResponse = true;
+    this.isEmptyResponse = false;
 
     // grab value of url param `q` in `localhost:4200/search?q=something
     this.searchString = this.activatedRoute.snapshot.queryParams['q'];
     if (!!this.searchString) {
       this.getMoreLogs();
       this.logModelsObservable.subscribe(logModels => {
-        if (!(logModels.length === 0 && this.page === 0)) {
-          this.isEmptyResponse = false;
+        if (logModels.length === 0 && this.page === 0) {
+          this.isEmptyResponse = true;
         }});
     }
   }

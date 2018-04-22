@@ -4,12 +4,19 @@
   max-width: 450px;
 }
 
+label {
+  pointer-events: none;
+  width: 100%;
+}
+
 .search-icon {
+  transition: color 0.6s;
   position: relative;
   top: 7px;
   left: -41px;
   color: var(--highlight-color);
   font-size: 25px;
+  margin-right: -25px; /* gets rid of extra space for mobile screen */
   pointer-events: none;
 }
 
@@ -27,6 +34,15 @@
   background: rgb(200, 200, 200);
   color: var(--main-color);
 }
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+
+.search-box:focus + .search-icon {
+  color: var(--main-color);
+  cursor: pointer;
+  pointer-events: auto; /* allow click */
+}
 
 .search-box {
   transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
@@ -36,4 +52,5 @@
   border: none;
   cursor: pointer;
   background: var(--main-color);
+  pointer-events: auto;
 }
