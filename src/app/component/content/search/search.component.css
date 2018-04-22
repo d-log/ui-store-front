@@ -1,0 +1,16 @@
+.no-results-found-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+
+.no-results-found {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+
+  text-align: center;
+  font-size: 50px;
+  color: var(--highlight-color);
+}

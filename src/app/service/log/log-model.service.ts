@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {LogModel} from './model/log-model';
 import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
 import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
@@ -20,6 +19,23 @@ export class LogModelService {
    * @returns {Observable<LogModel[]>}
    */
   theGetter(getterRequest: GetterRequest): Observable<LogModel[]> {
+    return this.http
+      .get(this.generateURL(getterRequest))
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection;
+      });
+  }
+
+  theGetterHateoas(getterRequest: GetterRequest): Observable<HateoasResponse> {
+    return this.http
+      .get(this.generateURL(getterRequest))
+      .map((response: Response) => {
+        return <HateoasResponse>response.json();
+      });
+  }
+
+  generateURL(getterRequest: GetterRequest) {
     const logType = getterRequest.logType;
     const pageable = getterRequest.pageable;
     const millisecondThreshold = getterRequest.millisecondThreshold;
@@ -35,31 +51,7 @@ export class LogModelService {
     if (!!searchString) {
       url = url + '&search=' + encodeURIComponent(searchString);
     }
-    return this.http
-      .get(url)
-      .map((response: Response) => {
-        const hateoasResponse = <HateoasResponse>response.json();
-        return hateoasResponse._embedded.collection;
-      });
-  }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+    return url;
   }
 }

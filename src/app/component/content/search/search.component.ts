@@ -25,6 +25,8 @@ export class SearchComponent implements OnInit {
   moreLogsExist: boolean;
   searchString: string; // should only be set within ngOnInit
 
+  isEmptyResponse: boolean;
+
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute) {}
 
@@ -33,11 +35,16 @@ export class SearchComponent implements OnInit {
     this.size = 5;
     this.moreLogsExist = true;
     this.millisecondThreshold = new Date().getTime();
+    this.isEmptyResponse = true;
 
     // grab value of url param `q` in `localhost:4200/search?q=something
     this.searchString = this.activatedRoute.snapshot.queryParams['q'];
     if (!!this.searchString) {
       this.getMoreLogs();
+      this.logModelsObservable.subscribe(logModels => {
+        if (!(logModels.length === 0 && this.page === 0)) {
+          this.isEmptyResponse = false;
+        }});
     }
   }
 

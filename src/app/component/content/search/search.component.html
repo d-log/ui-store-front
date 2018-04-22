@@ -1,1 +1,10 @@
-<app-masonry [logModelsObservable]="logModelsObservable" (getMoreLogs)="getMoreLogs()"></app-masonry>
+<div *ngIf="isEmptyResponse; else templateName">
+  <div class="no-results-found-container">
+    <div class="no-results-found">
+      NO RESULTS FOUND
+    </div>
+  </div>
+</div>
+<ng-template #templateName>
+  <app-masonry [logModelsObservable]="logModelsObservable" (getMoreLogs)="getMoreLogs()"></app-masonry>
+</ng-template>
