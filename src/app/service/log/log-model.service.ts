@@ -10,7 +10,7 @@ import {GetterRequest} from './getter-request';
 @Injectable()
 export class LogModelService {
 
-  private logModelsURL = 'http://192.168.1.2:8888/api/log/the-getter/';  // URL to web api
+  private logModelsURL = 'http://192.168.1.2:8888/api/log/';  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -20,28 +20,33 @@ export class LogModelService {
    */
   theGetter(getterRequest: GetterRequest): Observable<LogModel[]> {
     return this.http
-      .get(this.generateURL(getterRequest))
+      .get(this.generateTheGetterURL(getterRequest))
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection;
       });
   }
 
+  /**
+   * page information included in return
+   * @param {GetterRequest} getterRequest
+   * @returns {Observable<HateoasResponse>}
+   */
   theGetterHateoas(getterRequest: GetterRequest): Observable<HateoasResponse> {
     return this.http
-      .get(this.generateURL(getterRequest))
+      .get(this.generateTheGetterURL(getterRequest))
       .map((response: Response) => {
         return <HateoasResponse>response.json();
       });
   }
 
-  generateURL(getterRequest: GetterRequest) {
+  generateTheGetterURL(getterRequest: GetterRequest) {
     const logType = getterRequest.logType;
     const pageable = getterRequest.pageable;
     const millisecondThreshold = getterRequest.millisecondThreshold;
     const searchString = getterRequest.searchString;
 
-    let url = this.logModelsURL;
+    let url = this.logModelsURL + 'the-getter/';
     if (logType !== null) {
       url += LogType[LogType.TILE];
     }
@@ -53,5 +58,18 @@ export class LogModelService {
     }
 
     return url;
+  }
+
+  findOne(id: string): Observable<LogModel> {
+    if (!!id) {
+      return this.http
+        .get(this.logModelsURL + id)
+        .map((response: Response) => {
+          const hateoasResponse = <HateoasResponse>response.json();
+          return hateoasResponse._embedded.collection[0];
+        });
+    } else {
+      return null;
+    }
   }
 }

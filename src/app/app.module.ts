@@ -26,6 +26,9 @@ import {NavigationWidgetSettingComponent} from './component/navigation/widget/se
 import {NavigationWidgetSearchComponent} from './component/navigation/widget/search/navigation-widget-search.component';
 import {NavigationWidgetHomeComponent} from './component/navigation/widget/home/navigation-widget-home.component';
 import {NavigationComponent} from './component/navigation/navigation.component';
+import {LogDataVideoYoutubeDefaultComponent} from './component/content/log-page/log-data/video-youtube-default/log-data-video-youtube-default.component';
+import {LogDataTextPlainDefaultComponent} from './component/content/log-page/log-data/text-plain-default/log-data-text-plain-default.component';
+import {LogDataImageDefaultComponent} from './component/content/log-page/log-data/image-default/log-data-image-default.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +51,18 @@ import {NavigationComponent} from './component/navigation/navigation.component';
     FooterComponent,
     SafePipe,
     HeaderComponent,
+    LogDataVideoYoutubeDefaultComponent,
+    LogDataTextPlainDefaultComponent,
+    LogDataImageDefaultComponent,
   ],
   entryComponents: [
     MasonryTileDefaultTileDefaultComponent,
     MasonryTileImageDefaultComponent,
     MasonryTileTextPlainDefaultComponent,
     MasonryTileVideoYoutubeDefaultComponent,
+    LogDataVideoYoutubeDefaultComponent,
+    LogDataTextPlainDefaultComponent,
+    LogDataImageDefaultComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {MasonryTileVideoYoutubeDefaultComponent} from './masonry-tile-video-youtube-default.component';
+import {LogDataVideoYoutubeDefaultComponent} from './log-data-video-youtube-default.component';
 
 describe('LogDataVideoYoutubeDefaultComponent', () => {
-  let component: MasonryTileVideoYoutubeDefaultComponent;
-  let fixture: ComponentFixture<MasonryTileVideoYoutubeDefaultComponent>;
+  let component: LogDataVideoYoutubeDefaultComponent;
+  let fixture: ComponentFixture<LogDataVideoYoutubeDefaultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MasonryTileVideoYoutubeDefaultComponent ]
+      declarations: [ LogDataVideoYoutubeDefaultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MasonryTileVideoYoutubeDefaultComponent);
+    fixture = TestBed.createComponent(LogDataVideoYoutubeDefaultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

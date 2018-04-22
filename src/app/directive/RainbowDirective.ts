@@ -1,7 +1,4 @@
-import {
-  Directive,
-  HostBinding,
-  HostListener } from '@angular/core';
+import {Directive, HostBinding, HostListener} from '@angular/core';
 
 // Example Use
 // make sure to add directive to module
