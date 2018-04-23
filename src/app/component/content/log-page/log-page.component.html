@@ -1,5 +1,23 @@
 <div class="vc_container_container">
   <div class="vc_container">
+    <div class="meta_data">
+      <div>Title: {{title}}</div>
+      <div>Description: {{description}}</div>
+      <div>Created: {{createdDateString}}</div>
+      <div>Updated: {{lastUpdatedDateString}}</div>
+      <div>Tags:
+        <div *ngFor="let model of tagModels">
+          -
+          <a href="/search?tag-id={{model.id}}">{{model.name}}</a>
+        </div>
+      </div>
+      <div>Directories:
+        <div *ngFor="let model of directoryModels">
+          -
+          <a href="/search?directory-id={{model.id}}">{{model.name}}</a>
+        </div>
+      </div>
+    </div>
     <div #vc></div>
   </div>
 </div>

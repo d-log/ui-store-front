@@ -50,7 +50,14 @@ export class LogModelService {
     if (logType !== null) {
       url += LogType[LogType.TILE];
     }
+    // page and millisecondThreshold always required, maybe we could also have default value for millisecondThreshold
     url = url + '?page=' + pageable.page + '&size=' + pageable.size + '&millisecond-threshold=' + millisecondThreshold;
+    if (!!getterRequest.directoryID) {
+      url += '&directory-id=' + getterRequest.directoryID;
+    }
+    if (!!getterRequest.tagID) {
+      url += '&tag-id=' + getterRequest.tagID;
+    }
     // Returns false for null,undefined,0,000,"",false.
     // Returns true for string "0" and whitespace " "
     if (!!searchString) {
@@ -60,10 +67,11 @@ export class LogModelService {
     return url;
   }
 
-  findOne(id: string): Observable<LogModel> {
+  findOne(id: string, logType: LogType): Observable<LogModel> {
     if (!!id) {
+      const url = this.logModelsURL + id + '/' + LogType[logType];
       return this.http
-        .get(this.logModelsURL + id)
+        .get(url)
         .map((response: Response) => {
           const hateoasResponse = <HateoasResponse>response.json();
           return hateoasResponse._embedded.collection[0];

@@ -9,6 +9,9 @@ import {LogDataImageDefaultComponent} from './log-data/image-default/log-data-im
 import {LogDataTextPlainDefaultComponent} from './log-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataVideoYoutubeDefaultComponent} from './log-data/video-youtube-default/log-data-video-youtube-default.component';
 import {LogDataComponentTwo} from './log-data/log-data-component-two';
+import {LogType} from '../../../service/log/model/extra/log-type';
+import {TagModel} from '../../../service/tag/model/tag-model';
+import {DirectoryModel} from '../../../service/directory/model/directory-model';
 
 @Component({
   selector: 'app-log-page',
@@ -20,21 +23,35 @@ export class LogPageComponent implements OnInit {
 
   logModel: LogModel;
 
+  title: string;
+  description: string;
+  createdDateString: string;
+  lastUpdatedDateString: string;
   isEmptyResponse: boolean;
   id: string;
+  directoryModels: DirectoryModel[];
+  tagModels: TagModel[];
 
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
+    this.directoryModels = [];
+    this.tagModels = [];
     this.isEmptyResponse = false;
     // grab value of url param `id` in `localhost:4200/log-page/:id
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (!!this.id) {
-      this.logLightService.findOne(this.id).subscribe(logModel => {
+      this.logLightService.findOne(this.id, LogType.PAGE).subscribe(logModel => {
         if (logModel !== null) {
           this.logModel = logModel;
+          this.title = logModel.title;
+          this.description = logModel.description;
+          this.createdDateString = new Date(logModel.metadata.created).toDateString();
+          this.lastUpdatedDateString = new Date(logModel.metadata.lastUpdated).toDateString();
+          this.directoryModels = logModel.directoryModels;
+          this.tagModels = logModel.tagModels;
           this.displayLog(logModel);
         }});
     }

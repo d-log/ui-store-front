@@ -19,43 +19,35 @@ export class SearchComponent implements OnInit {
 
   logModelsObservable: Observable<LogModel[]>;
 
-  millisecondThreshold: number;
-  page: number;
-  size: number;
+  getterRequest: GetterRequest;
   moreLogsExist: boolean;
-  searchString: string; // should only be set within ngOnInit
-
   isEmptyResponse: boolean;
 
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.page = -1;
-    this.size = 5;
     this.moreLogsExist = true;
-    this.millisecondThreshold = new Date().getTime();
     this.isEmptyResponse = false;
 
-    // grab value of url param `q` in `localhost:4200/search?q=something
-    this.searchString = this.activatedRoute.snapshot.queryParams['q'];
-    if (!!this.searchString) {
-      this.getMoreLogs();
-      this.logModelsObservable.subscribe(logModels => {
-        if (logModels.length === 0 && this.page === 0) {
-          this.isEmptyResponse = true;
-        }});
-    }
+    this.getterRequest = new GetterRequest();
+    this.getterRequest.millisecondThreshold = new Date().getTime();
+    this.getterRequest.pageable = new Pageable(-1, 5);
+    this.getterRequest.logType = LogType.TILE;
+    // grab value of url parameters (example `q` in `localhost:4200/search?q=something)
+    this.getterRequest.searchString = this.activatedRoute.snapshot.queryParams['q'];
+    this.getterRequest.directoryID = this.activatedRoute.snapshot.queryParams['directory-id'];
+    this.getterRequest.tagID = this.activatedRoute.snapshot.queryParams['tag-id'];
+
+    this.getMoreLogs();
+    this.logModelsObservable.subscribe(logModels => {
+      if (logModels.length === 0) {
+        this.isEmptyResponse = true;
+      }});
   }
 
   getMoreLogs() {
-    this.page++;
-
-    const getterRequest = new GetterRequest();
-    getterRequest.millisecondThreshold = this.millisecondThreshold;
-    getterRequest.pageable = new Pageable(this.page, this.size);
-    getterRequest.logType = LogType.TILE;
-    getterRequest.searchString = this.searchString;
-    this.logModelsObservable = this.logLightService.theGetter(getterRequest);
+    this.getterRequest.pageable.page++;
+    this.logModelsObservable = this.logLightService.theGetter(this.getterRequest);
   }
 }

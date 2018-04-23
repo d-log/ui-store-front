@@ -6,4 +6,6 @@ export class GetterRequest {
   pageable: Pageable;
   logType: LogType;
   searchString: string;
+  directoryID: string;
+  tagID: string;
 }

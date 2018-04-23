@@ -6,7 +6,18 @@
   display: table;
   margin: 0 auto;
 }
+.meta_data {
+  color: var(--highlight-color);
+}
 
-.vc_container {
-  max-width: 600px;
+@media only screen and (max-width: 800px) {
+  .vc_container {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .vc_container {
+    width: 800px;
+  }
 }
