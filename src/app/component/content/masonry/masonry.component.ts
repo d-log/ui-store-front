@@ -13,6 +13,7 @@ export class MasonryComponent implements OnInit {
     this._logModelsObservable = logModelsObservable;
     this.getLogModels();
   }
+
   private _logModelsObservable: Observable<LogModel[]>;
 
   @Output() getMoreLogs = new EventEmitter<boolean>();
@@ -32,12 +33,12 @@ export class MasonryComponent implements OnInit {
 
   getLogModels() {
     this._logModelsObservable.subscribe(logModels => {
-        if (logModels.length === 0) {
-          this.moreLogsExist = false;
-        } else {
-          this.appendItems(logModels);
-        }
-      });
+      if (logModels.length === 0) {
+        this.moreLogsExist = false;
+      } else {
+        this.appendItems(logModels);
+      }
+    });
   }
 
   appendItems(logModels: LogModel[]) {

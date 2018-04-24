@@ -20,7 +20,8 @@ export class ArchiveComponent implements OnInit {
   size: number;
   moreLogsExist: boolean;
 
-  constructor(private logLightService: LogModelService) {}
+  constructor(private logLightService: LogModelService) {
+  }
 
   ngOnInit() {
     this.page = -1;

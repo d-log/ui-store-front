@@ -8,9 +8,9 @@ describe('LogDataComponentTwo', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MasonryTileComponent ]
+      declarations: [MasonryTileComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

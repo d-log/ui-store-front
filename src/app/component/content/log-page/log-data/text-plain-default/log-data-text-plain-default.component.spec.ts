@@ -8,9 +8,9 @@ describe('LogDataTextPlainDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogDataTextPlainDefaultComponent ]
+      declarations: [LogDataTextPlainDefaultComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

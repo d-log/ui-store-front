@@ -9,7 +9,8 @@
   [scrollAnimationOptions]="{ animationEffect: 'effect-1', minDuration : 4, maxDuration : 7 }">
   <!-- Masonry Grid Item -->
   <div class="grid-sizer"></div>
-  <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let logModel of logModels; let i = index;"> <!-- (click)="removeItem($event)"> -->
+  <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let logModel of logModels; let i = index;">
+    <!-- (click)="removeItem($event)"> -->
     <!-- Grid Content  -->
     <app-masonry-tile [logModel]="logModel"></app-masonry-tile>
   </ng-masonry-grid-item>

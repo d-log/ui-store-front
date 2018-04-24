@@ -7,7 +7,8 @@ export class CoreHttpService {
 
   protected baseUrl: 'http://localhost:8888/api';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+  }
 
   public get(relativeUrl: string): Observable<any> {
     return this.http.get(this.baseUrl + relativeUrl);

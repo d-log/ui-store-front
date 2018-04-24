@@ -34,7 +34,8 @@ export class LogPageComponent implements OnInit {
 
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) {}
+              private componentFactoryResolver: ComponentFactoryResolver) {
+  }
 
   ngOnInit() {
     this.directoryModels = [];
@@ -53,7 +54,8 @@ export class LogPageComponent implements OnInit {
           this.directoryModels = logModel.directoryModels;
           this.tagModels = logModel.tagModels;
           this.displayLog(logModel);
-        }});
+        }
+      });
     }
   }
 

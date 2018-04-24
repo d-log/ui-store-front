@@ -8,9 +8,9 @@ describe('LogDataVideoYoutubeDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogDataVideoYoutubeDefaultComponent ]
+      declarations: [LogDataVideoYoutubeDefaultComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

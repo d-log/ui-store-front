@@ -12,7 +12,8 @@ export class LogDataImageDefaultComponent implements OnInit {
   img_src: string;
   padding_bottom_percentage: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const data = this.logData.data;

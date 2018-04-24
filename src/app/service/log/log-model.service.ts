@@ -12,7 +12,8 @@ export class LogModelService {
 
   private logModelsURL = 'http://core.marcuschiu.com:8888/api/log/';  // URL to web api
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   /**
    * `?page=0&size=10`

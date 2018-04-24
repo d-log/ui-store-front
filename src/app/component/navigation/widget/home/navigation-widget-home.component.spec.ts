@@ -8,9 +8,9 @@ describe('ArchiveMasonryTileImageExternalDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavigationWidgetHomeComponent ]
+      declarations: [NavigationWidgetHomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

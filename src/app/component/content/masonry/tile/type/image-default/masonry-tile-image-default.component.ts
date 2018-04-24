@@ -13,7 +13,8 @@ export class MasonryTileImageDefaultComponent implements OnInit {
   img_src: string;
   padding_bottom_percentage: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const data = this.logModel.logDatas[0].data;

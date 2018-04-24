@@ -13,7 +13,8 @@ export class MasonryTileDefaultTileDefaultComponent implements OnInit {
   title: string;
   description: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.title = this.logModel.title;

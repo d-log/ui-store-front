@@ -11,7 +11,8 @@ export class LogDataTextPlainDefaultComponent implements OnInit {
 
   text: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const data = this.logData.data;

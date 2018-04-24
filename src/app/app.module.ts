@@ -76,4 +76,5 @@ import {LogDataImageDefaultComponent} from './component/content/log-page/log-dat
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

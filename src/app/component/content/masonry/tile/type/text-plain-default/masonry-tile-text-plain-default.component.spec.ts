@@ -8,9 +8,9 @@ describe('LogDataTextPlainDefaultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MasonryTileTextPlainDefaultComponent ]
+      declarations: [MasonryTileTextPlainDefaultComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

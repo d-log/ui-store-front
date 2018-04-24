@@ -24,7 +24,8 @@ export class SearchComponent implements OnInit {
   isEmptyResponse: boolean;
 
   constructor(private logLightService: LogModelService,
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.moreLogsExist = true;
@@ -43,7 +44,8 @@ export class SearchComponent implements OnInit {
     this.logModelsObservable.subscribe(logModels => {
       if (logModels.length === 0) {
         this.isEmptyResponse = true;
-      }});
+      }
+    });
   }
 
   getMoreLogs() {

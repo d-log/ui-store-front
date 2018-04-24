@@ -12,7 +12,8 @@ export class MasonryTileTextPlainDefaultComponent implements OnInit {
 
   text: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const data = this.logModel.logDatas[0].data;
