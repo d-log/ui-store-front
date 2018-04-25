@@ -29,6 +29,7 @@ import {NavigationComponent} from './component/navigation/navigation.component';
 import {LogDataVideoYoutubeDefaultComponent} from './component/content/log-page/log-data/video-youtube-default/log-data-video-youtube-default.component';
 import {LogDataTextPlainDefaultComponent} from './component/content/log-page/log-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataImageDefaultComponent} from './component/content/log-page/log-data/image-default/log-data-image-default.component';
+import {MarkdownModule} from 'ngx-md';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import {LogDataImageDefaultComponent} from './component/content/log-page/log-dat
   imports: [
     BrowserModule,
     NgMasonryGridModule,
+    MarkdownModule.forRoot(),
     HttpModule,
     AppRoutingModule,
   ],
