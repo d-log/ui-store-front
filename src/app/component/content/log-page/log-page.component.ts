@@ -3,7 +3,6 @@ import {LogModel} from '../../../service/log/model/log-model';
 import {ActivatedRoute} from '@angular/router';
 import {LogModelService} from '../../../service/log/log-model.service';
 import {LogData} from '../../../service/log/model/extra/logdata/log-data';
-import {MasonryTileDefaultTileDefaultComponent} from '../masonry/tile/type/default-tile-default/masonry-tile-default-tile-default.component';
 import 'rxjs/add/operator/switchMap';
 import {LogDataImageDefaultComponent} from './log-data/image-default/log-data-image-default.component';
 import {LogDataTextPlainDefaultComponent} from './log-data/text-plain-default/log-data-text-plain-default.component';
