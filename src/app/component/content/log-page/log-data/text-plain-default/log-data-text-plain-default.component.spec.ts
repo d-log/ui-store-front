@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LogDataTextPlainDefaultComponent} from './log-data-text-plain-default.component';
 
-describe('LogDataTextMarkdownDefaultComponent', () => {
+describe('MasonryTileTextMarkdownDefaultComponent', () => {
   let component: LogDataTextPlainDefaultComponent;
   let fixture: ComponentFixture<LogDataTextPlainDefaultComponent>;
 

@@ -14,6 +14,7 @@ import {TagModel} from '../../../service/tag/model/tag-model';
 import {DirectoryModel} from '../../../service/directory/model/directory-model';
 import {LogDataTextMarkdownDefaultComponent} from './log-data/text-markdown-default/log-data-text-markdown-default.component';
 import {LogDataDefaultDefaultComponent} from './log-data/default-default/log-data-default-default.component';
+import {LogDataTextQuoteDefaultComponent} from './log-data/text-quote-default/log-data-text-quote-default.component';
 
 @Component({
   selector: 'app-log-page',
@@ -81,6 +82,9 @@ export class LogPageComponent implements OnInit {
       }
       case 'TextMarkdownLogData': {
         return LogDataTextMarkdownDefaultComponent;
+      }
+      case 'TextQuoteLogData': {
+        return LogDataTextQuoteDefaultComponent;
       }
     }
     return LogDataDefaultDefaultComponent;

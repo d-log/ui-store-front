@@ -6,6 +6,8 @@ import {MasonryTileTextPlainDefaultComponent} from './type/text-plain-default/ma
 import {MasonryTileVideoYoutubeDefaultComponent} from './type/video-youtube-default/masonry-tile-video-youtube-default.component';
 import {MasonryTileDefaultTileDefaultComponent} from './type/default-tile-default/masonry-tile-default-tile-default.component';
 import {MasonryTileComponentTwo} from './type/masonry-tile-component-two';
+import {MasonryTileTextQuoteDefaultComponent} from './type/text-quote-default/masonry-tile-text-quote-default.component';
+import {MasonryTileTextMarkdownDefaultComponent} from './type/text-markdown-default/masonry-tile-text-markdown-default.component';
 
 @Component({
   selector: 'app-masonry-tile',
@@ -39,6 +41,12 @@ export class MasonryTileComponent implements OnInit {
       }
       case 'VideoYouTubeLogData': {
         return MasonryTileVideoYoutubeDefaultComponent;
+      }
+      case 'TextQuoteLogData': {
+        return MasonryTileTextQuoteDefaultComponent;
+      }
+      case 'TextMarkdownLogData': {
+        return MasonryTileTextMarkdownDefaultComponent;
       }
     }
     return MasonryTileDefaultTileDefaultComponent;

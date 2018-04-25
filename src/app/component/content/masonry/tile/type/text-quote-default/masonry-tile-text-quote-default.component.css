@@ -1,8 +1,9 @@
-.container {
+div {
+  overflow: hidden;
   border-radius: 5px;
   width: 100%;
   max-height: 100px;
   background-color: #e4e4e4;
-  overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
 }

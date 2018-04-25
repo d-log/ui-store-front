@@ -32,6 +32,9 @@ import {LogDataImageDefaultComponent} from './component/content/log-page/log-dat
 import {MarkdownModule} from 'ngx-md';
 import {LogDataTextMarkdownDefaultComponent} from './component/content/log-page/log-data/text-markdown-default/log-data-text-markdown-default.component';
 import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-data/default-default/log-data-default-default.component';
+import {MasonryTileTextQuoteDefaultComponent} from './component/content/masonry/tile/type/text-quote-default/masonry-tile-text-quote-default.component';
+import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log-data/text-quote-default/log-data-text-quote-default.component';
+import {MasonryTileTextMarkdownDefaultComponent} from './component/content/masonry/tile/type/text-markdown-default/masonry-tile-text-markdown-default.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-d
     MasonryTileImageDefaultComponent,
     MasonryTileVideoYoutubeDefaultComponent,
     MasonryTileDefaultTileDefaultComponent,
+    MasonryTileTextQuoteDefaultComponent,
+    MasonryTileTextMarkdownDefaultComponent,
     FooterComponent,
     SafePipe,
     HeaderComponent,
@@ -58,18 +63,22 @@ import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-d
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,
-    LogDataTextMarkdownDefaultComponent
+    LogDataTextMarkdownDefaultComponent,
+    LogDataTextQuoteDefaultComponent,
   ],
   entryComponents: [
     MasonryTileDefaultTileDefaultComponent,
     MasonryTileImageDefaultComponent,
     MasonryTileTextPlainDefaultComponent,
     MasonryTileVideoYoutubeDefaultComponent,
+    MasonryTileTextQuoteDefaultComponent,
+    MasonryTileTextMarkdownDefaultComponent,
     LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,
     LogDataTextMarkdownDefaultComponent,
+    LogDataTextQuoteDefaultComponent,
   ],
   imports: [
     BrowserModule,

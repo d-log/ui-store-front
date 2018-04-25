@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MasonryTileTextPlainDefaultComponent} from './masonry-tile-text-plain-default.component';
 
-describe('LogDataTextMarkdownDefaultComponent', () => {
+describe('MasonryTileTextMarkdownDefaultComponent', () => {
   let component: MasonryTileTextPlainDefaultComponent;
   let fixture: ComponentFixture<MasonryTileTextPlainDefaultComponent>;
 
