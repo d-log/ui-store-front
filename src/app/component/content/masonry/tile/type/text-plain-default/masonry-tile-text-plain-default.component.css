@@ -5,4 +5,5 @@ div {
   max-height: 100px;
   background-color: white;
   text-overflow: ellipsis;
+  white-space: pre-line; /* value `pre` does not wrap, luckily pre-line does */
 }

@@ -1,6 +1,6 @@
-div {
-  overflow: hidden;
+.text {
   width: 100%;
   background-color: white;
   text-overflow: ellipsis;
+  white-space: pre-line; /* value `pre` does not obey parent max-width, luckily pre-line does */
 }
