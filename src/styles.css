@@ -8,4 +8,6 @@ body {
   --main-color: #4e4e4e;
   --main-darker-color: #383838;
   --highlight-color: #ff4c10;
+  --text-color: white;
+  --text-background-color: #4e4e4e; /* same as --main-color */
 }
