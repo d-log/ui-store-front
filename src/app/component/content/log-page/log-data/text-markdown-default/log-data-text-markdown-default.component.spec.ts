@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {MasonryTileTextPlainDefaultComponent} from './masonry-tile-text-plain-default.component';
+import {LogDataTextMarkdownDefaultComponent} from './log-data-text-markdown-default.component';
 
 describe('LogDataTextMarkdownDefaultComponent', () => {
-  let component: MasonryTileTextPlainDefaultComponent;
-  let fixture: ComponentFixture<MasonryTileTextPlainDefaultComponent>;
+  let component: LogDataTextMarkdownDefaultComponent;
+  let fixture: ComponentFixture<LogDataTextMarkdownDefaultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MasonryTileTextPlainDefaultComponent]
+      declarations: [LogDataTextMarkdownDefaultComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MasonryTileTextPlainDefaultComponent);
+    fixture = TestBed.createComponent(LogDataTextMarkdownDefaultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

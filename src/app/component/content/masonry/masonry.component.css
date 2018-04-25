@@ -37,3 +37,10 @@ ng-masonry-grid {
   margin-right: 6px;
   /* margin-bottom: implicitly applied with item/tile */
 }
+
+.end {
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  color: var(--main-darker-color);
+}

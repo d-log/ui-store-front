@@ -30,6 +30,8 @@ import {LogDataVideoYoutubeDefaultComponent} from './component/content/log-page/
 import {LogDataTextPlainDefaultComponent} from './component/content/log-page/log-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataImageDefaultComponent} from './component/content/log-page/log-data/image-default/log-data-image-default.component';
 import {MarkdownModule} from 'ngx-md';
+import {LogDataTextMarkdownDefaultComponent} from './component/content/log-page/log-data/text-markdown-default/log-data-text-markdown-default.component';
+import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-data/default-default/log-data-default-default.component';
 
 @NgModule({
   declarations: [
@@ -52,18 +54,22 @@ import {MarkdownModule} from 'ngx-md';
     FooterComponent,
     SafePipe,
     HeaderComponent,
+    LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,
+    LogDataTextMarkdownDefaultComponent
   ],
   entryComponents: [
     MasonryTileDefaultTileDefaultComponent,
     MasonryTileImageDefaultComponent,
     MasonryTileTextPlainDefaultComponent,
     MasonryTileVideoYoutubeDefaultComponent,
+    LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,
+    LogDataTextMarkdownDefaultComponent,
   ],
   imports: [
     BrowserModule,

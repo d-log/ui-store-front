@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../service/log/model/extra/logdata/log-data';
 
 @Component({
-  templateUrl: './log-data-text-plain-default.component.html',
-  styleUrls: ['./log-data-text-plain-default.component.css']
+  templateUrl: './log-data-text-markdown-default.component.html',
+  styleUrls: ['./log-data-text-markdown-default.component.css']
 })
-export class LogDataTextPlainDefaultComponent implements OnInit {
+export class LogDataTextMarkdownDefaultComponent implements OnInit {
 
   @Input() logData: LogData;
 

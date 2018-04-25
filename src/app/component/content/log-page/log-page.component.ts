@@ -12,6 +12,8 @@ import {LogDataComponentTwo} from './log-data/log-data-component-two';
 import {LogType} from '../../../service/log/model/extra/log-type';
 import {TagModel} from '../../../service/tag/model/tag-model';
 import {DirectoryModel} from '../../../service/directory/model/directory-model';
+import {LogDataTextMarkdownDefaultComponent} from './log-data/text-markdown-default/log-data-text-markdown-default.component';
+import {LogDataDefaultDefaultComponent} from './log-data/default-default/log-data-default-default.component';
 
 @Component({
   selector: 'app-log-page',
@@ -62,15 +64,10 @@ export class LogPageComponent implements OnInit {
   displayLog(logModel: LogModel) {
     for (const logData of logModel.logDatas) {
       const component = this.getComponentFromData(logData);
-      if (component) {
-        this.loadComponent(logData, component);
-      } else {
-        console.log('component is null');
-      }
+      this.loadComponent(logData, component);
     }
   }
 
-  // TODO turn into service to map logData types to Masonry Tile Components
   public getComponentFromData(logData: LogData) {
     switch (logData.logDataType) {
       case 'ImageInternalLogData': {
@@ -82,8 +79,11 @@ export class LogPageComponent implements OnInit {
       case 'VideoYouTubeLogData': {
         return LogDataVideoYoutubeDefaultComponent;
       }
+      case 'TextMarkdownLogData': {
+        return LogDataTextMarkdownDefaultComponent;
+      }
     }
-    return MasonryTileDefaultTileDefaultComponent;
+    return LogDataDefaultDefaultComponent;
   }
 
   loadComponent(logData: LogData, component: any) {
