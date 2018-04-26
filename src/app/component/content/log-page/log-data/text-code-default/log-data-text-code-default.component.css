@@ -1,0 +1,12 @@
+/* TODO trying to allow horizontal scroll to obey parent max-width, however, we may need to resort to own media queries at this level like below */
+/*@media only screen and (max-width: 800px) {*/
+  /*pre.prettyprint {*/
+    /*width: 100vw;*/
+  /*}*/
+/*}*/
+
+/*@media (min-width: 800px) {*/
+  /*pre.prettyprint {*/
+    /*width: 800px;*/
+  /*}*/
+/*}*/

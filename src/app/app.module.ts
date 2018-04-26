@@ -36,6 +36,7 @@ import {MasonryTileTextQuoteDefaultComponent} from './component/content/masonry/
 import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log-data/text-quote-default/log-data-text-quote-default.component';
 import {MasonryTileTextMarkdownDefaultComponent} from './component/content/masonry/tile/type/text-markdown-default/masonry-tile-text-markdown-default.component';
 import {DisqusComponent} from './component/comment/disqus/disqus.component';
+import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {DisqusComponent} from './component/comment/disqus/disqus.component';
     LogDataImageDefaultComponent,
     LogDataTextMarkdownDefaultComponent,
     LogDataTextQuoteDefaultComponent,
+    LogDataTextCodeDefaultComponent,
     DisqusComponent,
   ],
   entryComponents: [
@@ -81,6 +83,7 @@ import {DisqusComponent} from './component/comment/disqus/disqus.component';
     LogDataImageDefaultComponent,
     LogDataTextMarkdownDefaultComponent,
     LogDataTextQuoteDefaultComponent,
+    LogDataTextCodeDefaultComponent,
   ],
   imports: [
     BrowserModule,
