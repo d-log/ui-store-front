@@ -20,6 +20,7 @@ export class LogDataTextCodeDefaultComponent implements OnInit, AfterViewChecked
 
   ngOnInit() {
     this.code = this.logData.data.code;
+    debugger;
     this.startingLineNumber = this.logData.data.startingLineNumber;
     this.language = this.logData.data.language;
     if (this.logData.data.maxHeight >= 0) {

@@ -3,13 +3,7 @@
   <!-- prettyprint - tells google's prettyprint to prettify it, when done it would append class prettified -->
   <!-- linenums - tells google's prettify which line number to start -->
   <!-- lang-{{language}} - tells google prettyprint which style to syntax highlight, if not found it will guess -->
-  <pre class="prettyprint linenums:{{startingLineNumber}} lang-{{language}}" [ngStyle]="{'max-height': maxHeight}">
-    <!-- language-{{language}} is just for HTML5 best practices, not used within application -->
-    <code class="language-{{language}}" [innerHtml]="code"></code>
-  </pre>
-
-  <!-- TODO testing horizontal scroll overflow - NOTE the div used instead of code tag -->
-  <!--<pre class="prettyprint linenums:{{startingLineNumber}}"><div class="language-java" [innerHtml]="code"></div></pre>-->
+  <pre class="prettyprint linenums:{{startingLineNumber}} lang-{{language}}" [ngStyle]="{'max-height': maxHeight}"><code>{{code}}</code></pre>
   <figcaption></figcaption>
 </figure>
 
