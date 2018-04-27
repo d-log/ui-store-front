@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 declare var marked: any;
 
+/**
+ * TODO could we use this as directive?
+ * Using https://github.com/markedjs/marked
+ */
 @Injectable()
 export class MarkdownService {
 

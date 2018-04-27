@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {LogModelService} from '../../../service/log/log-model.service';
-import {LogType} from '../../../service/log/model/extra/log-type';
-import {Pageable} from '../../../service/model/pageable';
+import {LogModelService} from '../../../service/core/log/log-model.service';
+import {LogType} from '../../../service/core/log/model/extra/log-type';
+import {Pageable} from '../../../service/core/model/pageable';
 import {Observable} from 'rxjs/Observable';
-import {LogModel} from '../../../service/log/model/log-model';
-import {GetterRequest} from '../../../service/log/getter-request';
+import {LogModel} from '../../../service/core/log/model/log-model';
+import {GetterRequest} from '../../../service/core/log/getter-request';
 
 @Component({
   selector: 'app-archive',

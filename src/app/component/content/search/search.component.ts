@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {LogType} from '../../../service/log/model/extra/log-type';
-import {Pageable} from '../../../service/model/pageable';
-import {LogModel} from '../../../service/log/model/log-model';
-import {LogModelService} from '../../../service/log/log-model.service';
+import {LogType} from '../../../service/core/log/model/extra/log-type';
+import {Pageable} from '../../../service/core/model/pageable';
+import {LogModel} from '../../../service/core/log/model/log-model';
+import {LogModelService} from '../../../service/core/log/log-model.service';
 import {Observable} from 'rxjs/Observable';
-import {GetterRequest} from '../../../service/log/getter-request';
+import {GetterRequest} from '../../../service/core/log/getter-request';
 import {ActivatedRoute} from '@angular/router';
 
 /**

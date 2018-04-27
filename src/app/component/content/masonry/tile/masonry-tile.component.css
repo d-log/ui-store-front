@@ -1,4 +1,9 @@
 .vc_container {
+  overflow: hidden;
+  border-radius: 5px;
+
+  background-color: var(--main-darker-color);
+
   width: 100%;
   height: auto;
 

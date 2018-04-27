@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../service/log/model/log-model';
+import {LogModel} from '../../../../../../service/core/log/model/log-model';
 import {MarkdownService} from '../../../../../../service/markdown/markdown.service';
 
 @Component({

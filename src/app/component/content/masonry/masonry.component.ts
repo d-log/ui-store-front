@@ -1,5 +1,5 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
-import {LogModel} from '../../../service/log/model/log-model';
+import {LogModel} from '../../../service/core/log/model/log-model';
 import {Masonry} from 'ng-masonry-grid';
 import {Observable} from 'rxjs/Observable';
 

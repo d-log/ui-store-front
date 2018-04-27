@@ -5,8 +5,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {NgMasonryGridModule} from 'ng-masonry-grid';
 import {SafePipe} from './pipe/safe.pipe';
-import {LogModelService} from './service/log/log-model.service';
-import {CoreHttpService} from './service/core-http-service';
+import {LogModelService} from './service/core/log/log-model.service';
 import {HttpModule} from '@angular/http';
 import {FooterComponent} from './component/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -37,6 +36,7 @@ import {MasonryTileTextMarkdownDefaultComponent} from './component/content/mason
 import {DisqusComponent} from './component/comment/disqus/disqus.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
 import {MarkdownService} from './service/markdown/markdown.service';
+import {CoreHttpService} from './service/core/core-http-service';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,4 @@
 .markdown-container {
-  overflow: hidden;
-  border-radius: 5px;
-  max-height: 100px;
   background-color: white;
   width: 100%;
   /*overflow: auto; !* too account for any possible margin-bottom *!*/
