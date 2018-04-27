@@ -5,9 +5,9 @@ body {
 }
 
 :root {
-  --main-color: #4e4e4e;
-  --main-darker-color: #383838;
-  --highlight-color: #ff4c10;
-  --text-color: white;
-  --text-background-color: #4e4e4e; /* same as --main-color */
+  --main-color: white;
+  --main-darker-color: #cbcbcb;
+  --highlight-color: #373737;
+  --text-color: #373737;
+  --text-background-color: white; /* same as --main-color */
 }

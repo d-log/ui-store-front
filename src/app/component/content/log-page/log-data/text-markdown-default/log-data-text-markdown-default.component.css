@@ -1,5 +1,4 @@
 .markdown-container {
   width: 100%;
   overflow: auto; /* too account for any possible margin-bottom */
-  background-color: white;
 }

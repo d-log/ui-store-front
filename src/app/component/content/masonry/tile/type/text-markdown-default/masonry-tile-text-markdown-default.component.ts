@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LogModel} from '../../../../../../service/log/model/log-model';
+import {MarkdownService} from '../../../../../../service/markdown/markdown.service';
 
 @Component({
   templateUrl: './masonry-tile-text-markdown-default.component.html',
@@ -9,13 +10,13 @@ export class MasonryTileTextMarkdownDefaultComponent implements OnInit {
 
   @Input() logModel: LogModel;
 
-  text: string;
+  innerHTML: string;
 
-  constructor() {
+  constructor(private markdownService: MarkdownService) {
   }
 
   ngOnInit() {
-    this.text = this.logModel.logDatas[0].data.text;
+    this.innerHTML = this.markdownService.marked(this.logModel.logDatas[0].data.text);
   }
 
 }

@@ -12,7 +12,7 @@ export class LogDataTextCodeDefaultComponent implements OnInit, AfterViewChecked
 
   code: string; // code snippet
   language: string; // such as java, html, javascript
-  startingLineNumber: number;
+  startingLineNumber: string;
   maxHeight: string; // can either be 'auto' or (number-here)px
 
   constructor() {
@@ -20,8 +20,10 @@ export class LogDataTextCodeDefaultComponent implements OnInit, AfterViewChecked
 
   ngOnInit() {
     this.code = this.logData.data.code;
-    debugger;
-    this.startingLineNumber = this.logData.data.startingLineNumber;
+
+    if (this.logData.data.showLineNumber) {
+      this.startingLineNumber = 'linenums:' + this.logData.data.startingLineNumber;
+    }
     this.language = this.logData.data.language;
     if (this.logData.data.maxHeight >= 0) {
       this.maxHeight = this.logData.data.maxHeight + 'px';

@@ -29,7 +29,6 @@ import {NavigationComponent} from './component/navigation/navigation.component';
 import {LogDataVideoYoutubeDefaultComponent} from './component/content/log-page/log-data/video-youtube-default/log-data-video-youtube-default.component';
 import {LogDataTextPlainDefaultComponent} from './component/content/log-page/log-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataImageDefaultComponent} from './component/content/log-page/log-data/image-default/log-data-image-default.component';
-import {MarkdownModule} from 'ngx-md';
 import {LogDataTextMarkdownDefaultComponent} from './component/content/log-page/log-data/text-markdown-default/log-data-text-markdown-default.component';
 import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-data/default-default/log-data-default-default.component';
 import {MasonryTileTextQuoteDefaultComponent} from './component/content/masonry/tile/type/text-quote-default/masonry-tile-text-quote-default.component';
@@ -37,6 +36,7 @@ import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log
 import {MasonryTileTextMarkdownDefaultComponent} from './component/content/masonry/tile/type/text-markdown-default/masonry-tile-text-markdown-default.component';
 import {DisqusComponent} from './component/comment/disqus/disqus.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
+import {MarkdownService} from './service/markdown/markdown.service';
 
 @NgModule({
   declarations: [
@@ -88,13 +88,13 @@ import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-
   imports: [
     BrowserModule,
     NgMasonryGridModule,
-    MarkdownModule.forRoot(),
     HttpModule,
     AppRoutingModule,
   ],
   providers: [
     LogModelService,
     CoreHttpService,
+    MarkdownService,
   ],
   bootstrap: [AppComponent]
 })

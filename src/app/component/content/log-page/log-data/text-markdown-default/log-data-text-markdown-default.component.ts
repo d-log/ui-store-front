@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../service/log/model/extra/logdata/log-data';
+import {MarkdownService} from '../../../../../service/markdown/markdown.service';
 
 @Component({
   templateUrl: './log-data-text-markdown-default.component.html',
@@ -9,13 +10,13 @@ export class LogDataTextMarkdownDefaultComponent implements OnInit {
 
   @Input() logData: LogData;
 
-  text: string;
+  innerHTML: string;
 
-  constructor() {
+  constructor(private markdownService: MarkdownService) {
   }
 
   ngOnInit() {
-    this.text = this.logData.data.text;
+    this.innerHTML = this.markdownService.marked(this.logData.data.text);
   }
 
 }

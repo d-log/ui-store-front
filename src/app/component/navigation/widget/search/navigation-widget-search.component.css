@@ -21,7 +21,7 @@ label {
 }
 
 .search-box:hover {
-  box-shadow: 0 0 0 5px rgb(255, 0, 0);
+  box-shadow: 0 0 0 5px var(--highlight-color);
 }
 
 .search-box:focus {
