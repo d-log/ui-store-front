@@ -16,7 +16,6 @@ import {LogDataImageDefaultComponent} from './component/content/log-page/log-dat
 import {LogDataTextMarkdownDefaultComponent} from './component/content/log-page/log-data/text-markdown-default/log-data-text-markdown-default.component';
 import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-data/default-default/log-data-default-default.component';
 import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log-data/text-quote-default/log-data-text-quote-default.component';
-import {DisqusComponent} from './component/comment/disqus/disqus.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
 import {MarkdownService} from './service/markdown/markdown.service';
 import {CoreHttpService} from './service/core/core-http-service';
@@ -35,6 +34,7 @@ import {DirectoryModelService} from './service/core/directory/directory-model.se
 import {NavigationTopComponent} from './component/navigation-top/navigation-top.component';
 import {SideNavigationLeftToolbarComponent} from './component/navigation-side-left/toolbar/side-navigation-left-toolbar.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
+import {DisqusModule} from 'ngx-disqus';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,6 @@ import {SideNavigationTopSearchComponent} from './component/navigation-top/navig
     LogDataTextMarkdownDefaultComponent,
     LogDataTextQuoteDefaultComponent,
     LogDataTextCodeDefaultComponent,
-    DisqusComponent,
   ],
   entryComponents: [
     MasonryTileDefaultTileDefaultComponent,
@@ -83,6 +82,7 @@ import {SideNavigationTopSearchComponent} from './component/navigation-top/navig
   imports: [
     BrowserModule,
     NgMasonryGridModule,
+    DisqusModule.forRoot('marcuschiu'),
     HttpModule,
     AppRoutingModule,
   ],

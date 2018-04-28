@@ -15,7 +15,6 @@ import {LogDataTextMarkdownDefaultComponent} from './log-data/text-markdown-defa
 import {LogDataDefaultDefaultComponent} from './log-data/default-default/log-data-default-default.component';
 import {LogDataTextQuoteDefaultComponent} from './log-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-data-text-code-default.component';
-import {DisqusComponent} from '../../comment/disqus/disqus.component';
 
 @Component({
   selector: 'app-log-page',
@@ -24,10 +23,8 @@ import {DisqusComponent} from '../../comment/disqus/disqus.component';
 })
 export class LogPageComponent {
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
-  @ViewChild(DisqusComponent) disqusComponent: DisqusComponent;
 
   logModel: LogModel;
-
   title: string;
   description: string;
   createdDateString: string;
@@ -60,33 +57,10 @@ export class LogPageComponent {
           this.directoryModels = logModel.directoryModels;
           this.tagModels = logModel.tagModels;
           this.displayLog(logModel);
-          this.disqusComponent.updateComments();
         }
       });
     }
   }
-
-  // ngOnInit() {
-  //   this.directoryModels = [];
-  //   this.tagModels = [];
-  //   this.isEmptyResponse = false;
-  //   // grab value of url param `id` in `localhost:4200/log-page/:id
-  //   this.id = this.activatedRoute.snapshot.paramMap.get('id');
-  //   if (!!this.id) {
-  //     this.logLightService.findOne(this.id, LogType.PAGE).subscribe(logModel => {
-  //       if (logModel !== null) {
-  //         this.logModel = logModel;
-  //         this.title = logModel.title;
-  //         this.description = logModel.description;
-  //         this.createdDateString = new Date(logModel.metadata.created).toDateString();
-  //         this.lastUpdatedDateString = new Date(logModel.metadata.lastUpdated).toDateString();
-  //         this.directoryModels = logModel.directoryModels;
-  //         this.tagModels = logModel.tagModels;
-  //         this.displayLog(logModel);
-  //       }
-  //     });
-  //   }
-  // }
 
   displayLog(logModel: LogModel) {
     this._container.clear();
