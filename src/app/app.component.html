@@ -1,3 +1,12 @@
-<app-header></app-header>
-<app-navigation></app-navigation>
-<router-outlet><!-- content here (some contains footer)--></router-outlet>
+<div id="navigation-top">
+  <app-navigation-top></app-navigation-top>
+</div>
+<div id="the-container">
+  <div id="the-side-nav">
+    <app-navigation-side-left></app-navigation-side-left>
+  </div>
+  <div id="the-content">
+    <router-outlet><!-- content here (some contains footer)--></router-outlet>
+  </div>
+</div>
+

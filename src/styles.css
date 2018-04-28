@@ -7,7 +7,12 @@ body {
 :root {
   --main-color: white;
   --main-darker-color: #cbcbcb;
+  --main-darker-2-color: #898989;
+  --main-darker-3-color: #585858;
   --highlight-color: #373737;
   --text-color: #373737;
+  --text-light-color: #585858;
+  --text-light-2-color: #898989;
+  --text-light-3-color: #cbcbcb;
   --text-background-color: white; /* same as --main-color */
 }

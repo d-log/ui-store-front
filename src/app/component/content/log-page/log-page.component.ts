@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
 import {LogModel} from '../../../service/core/log/model/log-model';
 import {ActivatedRoute} from '@angular/router';
 import {LogModelService} from '../../../service/core/log/log-model.service';
@@ -21,7 +21,7 @@ import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-
   templateUrl: './log-page.component.html',
   styleUrls: ['./log-page.component.css']
 })
-export class LogPageComponent implements OnInit {
+export class LogPageComponent {
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
 
   logModel: LogModel;
@@ -38,9 +38,10 @@ export class LogPageComponent implements OnInit {
   constructor(private logLightService: LogModelService,
               private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {
+    activatedRoute.params.subscribe(val => this.initialize());
   }
 
-  ngOnInit() {
+  initialize() {
     this.directoryModels = [];
     this.tagModels = [];
     this.isEmptyResponse = false;
@@ -62,7 +63,30 @@ export class LogPageComponent implements OnInit {
     }
   }
 
+  // ngOnInit() {
+  //   this.directoryModels = [];
+  //   this.tagModels = [];
+  //   this.isEmptyResponse = false;
+  //   // grab value of url param `id` in `localhost:4200/log-page/:id
+  //   this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  //   if (!!this.id) {
+  //     this.logLightService.findOne(this.id, LogType.PAGE).subscribe(logModel => {
+  //       if (logModel !== null) {
+  //         this.logModel = logModel;
+  //         this.title = logModel.title;
+  //         this.description = logModel.description;
+  //         this.createdDateString = new Date(logModel.metadata.created).toDateString();
+  //         this.lastUpdatedDateString = new Date(logModel.metadata.lastUpdated).toDateString();
+  //         this.directoryModels = logModel.directoryModels;
+  //         this.tagModels = logModel.tagModels;
+  //         this.displayLog(logModel);
+  //       }
+  //     });
+  //   }
+  // }
+
   displayLog(logModel: LogModel) {
+    this._container.clear();
     for (const logData of logModel.logDatas) {
       const component = this.getComponentFromData(logData);
       this.loadComponent(logData, component);

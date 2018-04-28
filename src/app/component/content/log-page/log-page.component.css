@@ -6,23 +6,25 @@
 .vc_container {
   display: table;
   margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
 }
 
 .meta_data {
   color: var(--text-color);
 }
 
-@media only screen and (max-width: 800px) {
-  .vc_container {
-    width: 100vw;
-  }
-}
+/*@media only screen and (max-width: 800px) {*/
+/*.vc_container {*/
+/*width: 100%;*/
+/*}*/
+/*}*/
 
-@media (min-width: 800px) {
-  .vc_container {
-    width: 800px;
-  }
-}
+/*@media (min-width: 800px) {*/
+/*.vc_container {*/
+/*width: 800px;*/
+/*}*/
+/*}*/
 
 .comment {
   margin-top: 50px;

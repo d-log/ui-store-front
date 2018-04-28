@@ -1,0 +1,20 @@
+.empty {
+  text-align: center;
+  color: var(--text-light-3-color);
+}
+
+.item {
+  width: 100%;
+  /*margin-top: 4px;*/
+  /*margin-bottom: 4px;*/
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item:hover {
+  color: white;
+  background-color: var(--main-darker-color);
+}
+

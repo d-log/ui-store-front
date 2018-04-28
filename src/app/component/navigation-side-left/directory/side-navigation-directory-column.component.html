@@ -1,0 +1,14 @@
+<div *ngIf="isEmptyChildDirectoryModels && isEmptyLogModels; else templateName">
+  <div class="empty">
+    EMPTY
+  </div>
+</div>
+<ng-template #templateName>
+  <div class="item directory" *ngFor="let directoryModel of childrenDirectoryModels, let i = index;"
+       (click)="selectChildDirectory(i)">
+    {{directoryModel.name}}
+  </div>
+  <div class="item log" *ngFor="let logModel of logModels, let i = index;" (click)="selectLog(logModel.id)">
+    {{logModel.title}}
+  </div>
+</ng-template>

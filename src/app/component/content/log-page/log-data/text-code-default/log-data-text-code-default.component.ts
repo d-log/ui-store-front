@@ -1,5 +1,6 @@
 import {AfterViewChecked, Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-data';
+
 declare var PR: any;
 
 @Component({

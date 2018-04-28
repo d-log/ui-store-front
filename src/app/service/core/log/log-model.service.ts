@@ -42,27 +42,31 @@ export class LogModelService {
   }
 
   generateTheGetterURL(getterRequest: GetterRequest) {
-    const logType = getterRequest.logType;
     const pageable = getterRequest.pageable;
-    const millisecondThreshold = getterRequest.millisecondThreshold;
     const searchString = getterRequest.searchString;
 
-    let url = this.logModelsURL + 'the-getter/';
-    if (logType !== null) {
-      url += LogType[LogType.TILE];
+    let url = this.logModelsURL + 'the-getter';
+    if (!!getterRequest.logType) {
+      url += '/' + LogType[getterRequest.logType];
     }
-    // page and millisecondThreshold always required, maybe we could also have default value for millisecondThreshold
-    url = url + '?page=' + pageable.page + '&size=' + pageable.size + '&millisecond-threshold=' + millisecondThreshold;
+    const urlParameters: string[] = [];
+    if (!!getterRequest.pageable) {
+      urlParameters.push('page=' + pageable.page + '&size=' + pageable.size);
+    }
     if (!!getterRequest.directoryID) {
-      url += '&directory-id=' + getterRequest.directoryID;
+      urlParameters.push('directory-id=' + getterRequest.directoryID);
     }
     if (!!getterRequest.tagID) {
-      url += '&tag-id=' + getterRequest.tagID;
+      urlParameters.push('tag-id=' + getterRequest.tagID);
     }
-    // Returns false for null,undefined,0,000,"",false.
-    // Returns true for string "0" and whitespace " "
+    if (!!getterRequest.millisecondThreshold) {
+      urlParameters.push('millisecond-threshold=' + getterRequest.millisecondThreshold);
+    }
     if (!!searchString) {
-      url = url + '&search=' + encodeURIComponent(searchString);
+      urlParameters.push('search=' + encodeURIComponent(searchString));
+    }
+    if (urlParameters.length > 0) {
+      url += '?' + urlParameters.join('&');
     }
 
     return url;

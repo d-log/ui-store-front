@@ -1,0 +1,25 @@
+#navigation-top {
+  height: 50px;
+  overflow: hidden;
+}
+
+#the-container {
+  height: calc(100vh - 50px);
+  display: flex;
+}
+
+#the-side-nav {
+  float: left;
+  width: 250px;
+  height: 100%;
+  overflow: hidden;
+
+  border-right: 2px solid var(--main-darker-color);
+}
+
+#the-content {
+  float: left;
+  flex: 1;
+  height: 100%;
+  overflow: scroll;
+}

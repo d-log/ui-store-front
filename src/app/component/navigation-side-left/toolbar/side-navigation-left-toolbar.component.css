@@ -1,0 +1,9 @@
+#navigation-side-left-toolbar {
+  height: 100%;
+  width: 100%;
+  background-color: var(--main-darker-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+

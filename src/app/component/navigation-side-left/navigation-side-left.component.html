@@ -1,0 +1,10 @@
+<div class="toolbar-container">
+  <app-side-navigation-left-toolbar></app-side-navigation-left-toolbar>
+</div>
+<section class="container">
+  <div class="column" *ngFor="let directoryModel of pathDirectoryModels, let i = index">
+    <app-navigation-side-left-directory [level]="i" [directoryModel]="directoryModel"
+                                        (childDirectorySelected)="directorySelected($event)"></app-navigation-side-left-directory>
+  </div>
+  <div class="end-column"></div>
+</section>
