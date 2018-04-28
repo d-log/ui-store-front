@@ -15,6 +15,7 @@ import {LogDataTextMarkdownDefaultComponent} from './log-data/text-markdown-defa
 import {LogDataDefaultDefaultComponent} from './log-data/default-default/log-data-default-default.component';
 import {LogDataTextQuoteDefaultComponent} from './log-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-data-text-code-default.component';
+import {DisqusComponent} from '../../comment/disqus/disqus.component';
 
 @Component({
   selector: 'app-log-page',
@@ -23,6 +24,7 @@ import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-
 })
 export class LogPageComponent {
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
+  @ViewChild(DisqusComponent) disqusComponent: DisqusComponent;
 
   logModel: LogModel;
 
@@ -58,6 +60,7 @@ export class LogPageComponent {
           this.directoryModels = logModel.directoryModels;
           this.tagModels = logModel.tagModels;
           this.displayLog(logModel);
+          this.disqusComponent.updateComments();
         }
       });
     }
