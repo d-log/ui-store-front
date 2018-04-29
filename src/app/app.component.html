@@ -6,8 +6,8 @@
     <app-navigation-side-left (onCloseNavigationSideLeft)="closeNavigationSideLeft($event)"></app-navigation-side-left>
   </div>
   <div id="the-content">
-    <div id="fa-indent-container" [className]="navigationSideLeftButtonState" (click)="openNavigationSideLeft()">
-      <i class="fa fa-indent"></i>
+    <div id="fa-arrow-circle-right-container" [className]="navigationSideLeftButtonState" (click)="openNavigationSideLeft()">
+      <i class="fa fa-arrow-circle-right"></i>
     </div>
     <router-outlet><!-- content here (some contains footer)--></router-outlet>
   </div>

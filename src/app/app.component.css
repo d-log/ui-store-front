@@ -25,15 +25,14 @@
   overflow: scroll;
 }
 
-#fa-indent-container {
+#fa-arrow-circle-right-container {
   z-index: 1;
   position: fixed;
   top: 55px;
   left: 5px;
-  padding-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  border-radius: 2px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
   background-color: var(--main-color);
 
   visibility: visible;
@@ -41,17 +40,17 @@
   transition: visibility 0s, opacity 0.5s linear;
 }
 
-.fa-indent {
-  align-self: center;
-  font-size: 20px;
+.fa-arrow-circle-right {
+  margin-top: -2px;
+  font-size: 23px;
   color: var(--main-darker-color);
 }
 
-.fa-indent:hover {
+.fa-arrow-circle-right:hover {
   color: var(--main-darker-2-color);
 }
 
-#fa-indent-container.close {
+#fa-arrow-circle-right-container.close {
   visibility: hidden;
   opacity: 0;
 }

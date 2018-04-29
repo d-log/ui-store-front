@@ -23,11 +23,7 @@ export class MasonryTileComponent implements OnInit {
 
   ngOnInit() {
     const component = this.getComponentFromData(this.logModel.logDatas[0]);
-    if (component) {
-      this.loadComponent(this.logModel, component);
-    } else {
-      console.log('component is null');
-    }
+    this.loadComponent(this.logModel, component);
   }
 
   // TODO turn into service to map logData types to Masonry Tile Components
