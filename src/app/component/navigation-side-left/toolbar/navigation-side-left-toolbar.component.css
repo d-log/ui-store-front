@@ -1,0 +1,30 @@
+#navigation-side-left-toolbar {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--main-darker-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: auto 30px;
+}
+
+.search {
+  align-self: center;
+  color: var(--main-color);
+  white-space: nowrap;
+}
+
+.fa-outdent {
+  align-self: center;
+  font-size: 20px;
+  color: var(--main-color);
+}
+
+.fa-outdent:hover {
+  color: var(--main-darker-2-color);
+}

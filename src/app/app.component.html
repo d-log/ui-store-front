@@ -2,11 +2,13 @@
   <app-navigation-top></app-navigation-top>
 </div>
 <div id="the-container">
-  <div id="the-side-nav">
-    <app-navigation-side-left></app-navigation-side-left>
+  <div id="the-side-nav" [className]="navigationSideLeftState">
+    <app-navigation-side-left (onCloseNavigationSideLeft)="closeNavigationSideLeft($event)"></app-navigation-side-left>
   </div>
   <div id="the-content">
+    <div id="fa-indent-container" [className]="navigationSideLeftButtonState" (click)="openNavigationSideLeft()">
+      <i class="fa fa-indent"></i>
+    </div>
     <router-outlet><!-- content here (some contains footer)--></router-outlet>
   </div>
 </div>
-

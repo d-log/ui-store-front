@@ -32,9 +32,10 @@ import {NavigationSideLeftComponent} from './component/navigation-side-left/navi
 import {SideNavigationDirectoryColumnComponent} from './component/navigation-side-left/directory/side-navigation-directory-column.component';
 import {DirectoryModelService} from './service/core/directory/directory-model.service';
 import {NavigationTopComponent} from './component/navigation-top/navigation-top.component';
-import {SideNavigationLeftToolbarComponent} from './component/navigation-side-left/toolbar/side-navigation-left-toolbar.component';
+import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {DisqusModule} from 'ngx-disqus';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import {DisqusModule} from 'ngx-disqus';
     NavigationTopComponent,
     SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
-    SideNavigationLeftToolbarComponent,
+    NavigationSideLeftToolbarComponent,
     SideNavigationDirectoryColumnComponent,
     HomeComponent,
     LogPageComponent,
@@ -81,6 +82,7 @@ import {DisqusModule} from 'ngx-disqus';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NgMasonryGridModule,
     DisqusModule.forRoot('marcuschiu'),
     HttpModule,
