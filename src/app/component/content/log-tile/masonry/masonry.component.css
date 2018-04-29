@@ -31,11 +31,9 @@ app-masonry-tile {
 }
 
 ng-masonry-grid {
-  min-height: 100vh; /* this is just set so grid is always scrollable in order for infinite scroll to work TODO need to fix infinite scroll */
   margin-top: 6px;
   margin-left: 6px;
   margin-right: 6px;
-  /* margin-bottom: implicitly applied with item/tile */
 }
 
 .end {

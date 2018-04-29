@@ -30,9 +30,9 @@ export class AppComponent {
 
   broadcastNavigationSideLeftStateChanged() {
     // wait until animation is done with buffer, then send event
-    setTimeout( () => {
+    setTimeout(() => {
       this._eventBroker.emit<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), true);
-    }, 505 );
+    }, 505);
   }
 
   @HostListener('window:resize', ['$event'])

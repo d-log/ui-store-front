@@ -4,18 +4,25 @@ import {Subject} from 'rxjs/Subject';
 export interface IEventListener {
   ignore(): void;
 }
+
 export interface IBrokeredEventBase {
   name: string;
-  emit( data: any ): void;
-  listen( next: (data: any) => void ): IEventListener;
+
+  emit(data: any): void;
+
+  listen(next: (data: any) => void): IEventListener;
 }
-export interface IBrokeredEvent<T> extends IBrokeredEventBase  {
-  emit( data: any ): void;
-  listen( next: (data: any) => void ): IEventListener;
+
+export interface IBrokeredEvent<T> extends IBrokeredEventBase {
+  emit(data: any): void;
+
+  listen(next: (data: any) => void): IEventListener;
 }
+
 export class EventListener implements IEventListener {
-  constructor( private _subscription: Subscription ) {
+  constructor(private _subscription: Subscription) {
   }
+
   public ignore(): void {
     this._subscription.unsubscribe();
   }
@@ -23,13 +30,16 @@ export class EventListener implements IEventListener {
 
 export class BrokeredEvent<T> implements IBrokeredEvent<T> {
   private _subject: Subject<T>;
-  constructor( public name: string ) {
+
+  constructor(public name: string) {
     this._subject = new Subject<T>();
   }
-  public emit( data: T ): void {
+
+  public emit(data: T): void {
     this._subject.next(data);
   }
+
   public listen(next: (value: T) => void): IEventListener {
-    return new EventListener(this._subject.subscribe( next ));
+    return new EventListener(this._subject.subscribe(next));
   }
 }
