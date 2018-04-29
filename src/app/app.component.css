@@ -60,15 +60,3 @@
   width: 0;
   border-right: 0;
 }
-
-@media screen and (max-width: 900px) {
-  #the-side-nav {
-    width: 0;
-    border-right: 0;
-  }
-
-  #fa-indent-container {
-    visibility: hidden;
-    opacity: 0;
-  }
-}

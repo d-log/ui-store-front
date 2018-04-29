@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 import {BrokerEvent} from './service/event-broker-shared-service/broker-event';
 
@@ -32,6 +32,19 @@ export class AppComponent {
     // wait until animation is done with buffer, then send event
     setTimeout( () => {
       this._eventBroker.emit<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), true);
-    }, 600 );
+    }, 505 );
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 900) {
+      if (this.navigationSideLeftState === '') {
+        this.closeNavigationSideLeft();
+      }
+    } else {
+      if (this.navigationSideLeftState === 'close') {
+        this.openNavigationSideLeft();
+      }
+    }
   }
 }
