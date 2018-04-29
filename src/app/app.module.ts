@@ -36,6 +36,7 @@ import {NavigationSideLeftToolbarComponent} from './component/navigation-side-le
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {DisqusModule} from 'ngx-disqus';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DirectoryModelService,
     CoreHttpService,
     MarkdownService,
+    EventBrokerService,
   ],
   bootstrap: [AppComponent]
 })

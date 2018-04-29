@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
+import {BrokerEvent} from './service/event-broker-shared-service/broker-event';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,26 @@ export class AppComponent {
   navigationSideLeftState: string;
   navigationSideLeftButtonState: string;
 
-  constructor() {
+  constructor(private _eventBroker: EventBrokerService) {
     this.closeNavigationSideLeft();
   }
 
   closeNavigationSideLeft() {
     this.navigationSideLeftState = 'close';
     this.navigationSideLeftButtonState = '';
+    this.broadcastNavigationSideLeftStateChanged();
   }
 
   openNavigationSideLeft() {
     this.navigationSideLeftState = '';
     this.navigationSideLeftButtonState = 'close';
+    this.broadcastNavigationSideLeftStateChanged();
+  }
+
+  broadcastNavigationSideLeftStateChanged() {
+    // wait until animation is done with buffer, then send event
+    setTimeout( () => {
+      this._eventBroker.emit<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), true);
+    }, 600 );
   }
 }
