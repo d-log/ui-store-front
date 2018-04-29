@@ -30,10 +30,13 @@
   position: absolute;
   top: 5px;
   left: 5px;
+  padding: 2px;
+  border-radius: 2px;
+  background-color: var(--main-color);
 
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s, opacity 1s linear;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .fa-indent {
