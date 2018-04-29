@@ -5,7 +5,7 @@
   <div id="the-side-nav" [className]="navigationSideLeftState">
     <app-navigation-side-left (onCloseNavigationSideLeft)="closeNavigationSideLeft($event)"></app-navigation-side-left>
   </div>
-  <div id="the-content">
+  <div id="the-content" (scroll)="onContentScroll($event)">
     <div id="fa-arrow-circle-right-container" [className]="navigationSideLeftButtonState"
          (click)="openNavigationSideLeft()">
       <i class="fa fa-arrow-circle-right"></i>

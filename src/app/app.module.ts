@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {NgMasonryGridModule} from 'ng-masonry-grid';
 import {SafePipe} from './pipe/safe.pipe';
 import {LogModelService} from './service/core/log/log-model.service';
 import {HttpModule} from '@angular/http';
@@ -84,7 +83,6 @@ import {EventBrokerService} from './service/event-broker-shared-service/event-br
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgMasonryGridModule,
     DisqusModule.forRoot('marcuschiu'),
     HttpModule,
     AppRoutingModule,

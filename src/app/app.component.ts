@@ -47,4 +47,8 @@ export class AppComponent {
       }
     }
   }
+
+  onContentScroll(event) {
+    this._eventBroker.emit<boolean>(String(BrokerEvent.CONTENT_SCROLLED), true);
+  }
 }
