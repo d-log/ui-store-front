@@ -1,5 +1,6 @@
 <div class="toolbar-container">
-  <app-navigation-side-left-toolbar (onCloseNavigationSideLeft)="closeNavigationSideLeft($event)"></app-navigation-side-left-toolbar>
+  <app-navigation-side-left-toolbar (onCloseNavigationSideLeft)="closeNavigationSideLeft($event)"
+                                    (onTarget)="target($event)"></app-navigation-side-left-toolbar>
 </div>
 <section class="container">
   <div class="column" *ngFor="let directoryModel of pathDirectoryModels, let i = index">

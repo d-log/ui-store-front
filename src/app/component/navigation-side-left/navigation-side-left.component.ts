@@ -30,4 +30,8 @@ export class NavigationSideLeftComponent implements OnInit {
   closeNavigationSideLeft() {
     this.onCloseNavigationSideLeft.emit();
   }
+
+  target() {
+    alert('coming soon');
+  }
 }
