@@ -20,9 +20,5 @@
   overflow-x: hidden;
   overflow-y: scroll;
 
-  border-right: 1px solid var(--main-darker-color);
-}
-
-.end-column {
-  min-width: 5px;
+  border-right: 1px solid var(--main-darker-2-color);
 }

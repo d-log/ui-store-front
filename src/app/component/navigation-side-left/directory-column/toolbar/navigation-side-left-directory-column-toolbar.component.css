@@ -1,0 +1,9 @@
+.item-top {
+  color: var(--main-color);
+  background-color: var(--main-darker-color);
+  text-align: center;
+}
+
+.item-top:hover {
+  background-color: var(--main-darker-2-color);
+}

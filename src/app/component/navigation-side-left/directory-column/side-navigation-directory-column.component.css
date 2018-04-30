@@ -1,0 +1,63 @@
+app-navigation-side-left-directory-column-toolbar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-light-3-color);
+}
+
+.item {
+  max-width: 100%;
+  overflow: hidden;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: var(--main-darker-2-color);
+}
+
+.item:hover {
+  color: white;
+  background-color: var(--main-darker-color);
+}
+
+.directory {
+  display: grid;
+  grid-template-columns: 25px auto 25px;
+}
+
+.item-name {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.log {
+  display: grid;
+  grid-template-columns: 25px auto;
+}
+
+.fa {
+  text-align: center;
+  align-self: center;
+}
+
+.fa:hover {
+  color: var(--main-darker-2-color);
+}
+
+.fa-folder {
+  font-size: 15px;
+}
+
+.fa-play {
+  font-size: 10px;
+}
+
+.fa-file-o {
+  font-size: 12px;
+}
+
+.bottom {
+  height: 50px;
+}

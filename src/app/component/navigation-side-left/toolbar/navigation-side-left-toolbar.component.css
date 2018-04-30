@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: var(--main-darker-color);
+  background-color: var(--main-darker-2-color);
   color: var(--text-color);
   text-align: center;
 }
@@ -22,22 +22,13 @@
   white-space: nowrap;
 }
 
-.fa-crosshairs {
+.fa {
+  text-align: center;
   align-self: center;
   font-size: 20px;
   color: var(--main-color);
 }
 
-.fa-crosshairs:hover {
-  color: var(--main-darker-2-color);
-}
-
-.fa-arrow-circle-left {
-  align-self: center;
-  font-size: 20px;
-  color: var(--main-color);
-}
-
-.fa-arrow-circle-left:hover {
-  color: var(--main-darker-2-color);
+.fa:hover {
+  color: var(--main-darker-3-color);
 }

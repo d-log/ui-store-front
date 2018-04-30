@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {LogType} from '../../../../service/core/log/model/extra/log-type';
 import {Pageable} from '../../../../service/core/model/pageable';
 import {LogModel} from '../../../../service/core/log/model/log-model';
@@ -15,7 +15,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './archive.component.html',
   styleUrls: ['./archive.component.css']
 })
-export class ArchiveComponent implements OnInit {
+export class ArchiveComponent {
 
   logModelsObservable: Observable<LogModel[]>;
 
@@ -25,9 +25,11 @@ export class ArchiveComponent implements OnInit {
 
   constructor(private logModelService: LogModelService,
               private activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe(val => this.initialize());
   }
 
-  ngOnInit() {
+  initialize() {
+    alert('nsfhjbfhjsbfg');
     this.moreLogsExist = true;
     this.isEmptyResponse = false;
 
@@ -48,6 +50,9 @@ export class ArchiveComponent implements OnInit {
     });
   }
 
+  /**
+   * called from MasonryComponent child
+   */
   getMoreLogs() {
     this.getterRequest.pageable.page++;
     this.logModelsObservable = this.logModelService.theGetter(this.getterRequest);
