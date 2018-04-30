@@ -15,6 +15,9 @@ export class NavigationSideLeftDirectoryColumnToolbarComponent {
   }
 
   viewDirectoryInContent() {
-    this.router.navigate(['/log-tile/archive'], {queryParams: {directory: this.directoryModel.id}});
+    // this.router.navigate(['/log-tile/archive'], {queryParams: {'directory-id': this.directoryModel.id}});
+
+    // passing directory id as matrix parameter
+    this.router.navigate(['log-tile/archive', {'directory-id': this.directoryModel.id}]);
   }
 }

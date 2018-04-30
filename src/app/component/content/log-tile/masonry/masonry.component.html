@@ -4,5 +4,11 @@
     <app-masonry-tile [logModel]="logModel"></app-masonry-tile>
   </div>
 </div>
-<div class="end" *ngIf="!moreLogsExist;">END</div>
-<div #bottom style="height: 10px"></div>
+<div #bottom style="min-height: 120px">
+  <div class="end" *ngIf="!moreLogsExist; else spinner">END</div>
+  <ng-template #spinner>
+    <div class="spinner-container">
+      <i class="fa fa-spinner" aria-hidden="true"></i>
+    </div>
+  </ng-template>
+</div>

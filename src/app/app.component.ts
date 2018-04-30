@@ -19,20 +19,21 @@ export class AppComponent {
   closeNavigationSideLeft() {
     this.navigationSideLeftState = 'close';
     this.navigationSideLeftButtonState = '';
-    this.broadcastNavigationSideLeftStateChanged();
+    // wait until animation is done with buffer, then send event
+    this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CLOSED, 505);
   }
 
   openNavigationSideLeft() {
     this.navigationSideLeftState = '';
     this.navigationSideLeftButtonState = 'close';
-    this.broadcastNavigationSideLeftStateChanged();
+    // wait until animation is done with buffer, then send event
+    this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_OPENED, 505);
   }
 
-  broadcastNavigationSideLeftStateChanged() {
-    // wait until animation is done with buffer, then send event
+  broadcastEvent(brokerEvent: BrokerEvent, millisecondDelay: number) {
     setTimeout(() => {
-      this._eventBroker.emit<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), true);
-    }, 505);
+      this._eventBroker.emit<boolean>(String(brokerEvent), true);
+    }, millisecondDelay);
   }
 
   @HostListener('window:resize', ['$event'])

@@ -22,27 +22,39 @@ export class MasonryComponent implements OnInit {
   @Output() getMoreLogs = new EventEmitter<boolean>();
   @ViewChild('bottom') bottom: any;
 
-  constructor(private _eventBroker: EventBrokerService) {
-  }
-
   _masonry: any = null;
   logModels: LogModel[];
   moreLogsExist: boolean;
 
-  ngOnInit() {
-    this.logModels = [];
-    this.moreLogsExist = true;
+  constructor(private _eventBroker: EventBrokerService) {
     this._masonry = null;
-    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), (data: boolean) => {
+    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CLOSED), (data: boolean) => {
       this.layout();
+      setTimeout(() => {
+        this.checkForWhiteSpace();
+      }, 500);
+    });
+    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_OPENED), (data: boolean) => {
+      this.layout();
+      setTimeout(() => {
+        this.checkForWhiteSpace();
+      }, 500);
     });
     this._eventBroker.listen(String(BrokerEvent.CONTENT_SCROLLED), (data: boolean) => {
-      if (this.moreLogsExist) {
-        if (this.elementInViewport(this.bottom.nativeElement)) {
-          this.callForMore();
-        }
-      }
+      this.checkForWhiteSpace();
     });
+  }
+
+  ngOnInit() {
+    this.initialize();
+  }
+
+  /**
+   * also called from ArchiveComponent :/
+   */
+  initialize() {
+    this.logModels = [];
+    this.moreLogsExist = true;
   }
 
   layout() {
@@ -51,9 +63,19 @@ export class MasonryComponent implements OnInit {
     }
   }
 
+  /**
+   * checks if more logs exist if so check if there is space in viewport
+   */
+  checkForWhiteSpace() {
+    if (this.moreLogsExist) {
+      if (this.elementInViewport(this.bottom.nativeElement)) {
+        this.getMoreLogs.emit(true);
+      }
+    }
+  }
+
   generateMasonry() {
     setTimeout(() => {
-
       const grid = document.querySelector('.masonry');
       const masonry = new Masonry(grid, {
         itemSelector: '.masonry-item',
@@ -62,15 +84,8 @@ export class MasonryComponent implements OnInit {
         gutter: 6,
       });
       this.onNgMasonryInit(masonry);
-
-      if (this.elementInViewport(this.bottom.nativeElement)) {
-        this.callForMore();
-      }
-
-      // masonry.on('layoutComplete', () => {
-      //   console.log('layout is completed');
-      // });
-    }, 5);
+      this.checkForWhiteSpace();
+    }, 5); // delay for dom update
   }
 
   onNgMasonryInit(masonry: any) {
@@ -88,19 +103,9 @@ export class MasonryComponent implements OnInit {
       if (logModels.length === 0) {
         this.moreLogsExist = false;
       } else {
-        this.appendItems(logModels);
+        this.logModels = this.logModels.concat(logModels);
+        this.generateMasonry();
       }
     });
-  }
-
-  callForMore() {
-    if (this.moreLogsExist) {
-      this.getMoreLogs.emit(true);
-    }
-  }
-
-  appendItems(logModels: LogModel[]) {
-    this.logModels = this.logModels.concat(logModels);
-    this.generateMasonry();
   }
 }

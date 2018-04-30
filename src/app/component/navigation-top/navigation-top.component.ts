@@ -11,7 +11,20 @@ export class NavigationTopComponent {
   constructor(private router: Router) {
   }
 
-  search() {
+  home() {
+    this.router.navigate(['home']);
+
+  }
+
+  archive() {
     this.router.navigate(['log-tile/archive']);
+  }
+
+  search() {
+    alert('coming soon');
+  }
+
+  settings() {
+    alert('coming soon');
   }
 }
