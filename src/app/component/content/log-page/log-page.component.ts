@@ -1,5 +1,5 @@
 import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {LogDataImageDefaultComponent} from './log-data/image-default/log-data-image-default.component';
 import {LogDataTextPlainDefaultComponent} from './log-data/text-plain-default/log-data-text-plain-default.component';
@@ -29,18 +29,29 @@ export class LogPageComponent {
   lastUpdatedDateString: string;
   isEmptyResponse: boolean;
   id: string;
-  directoryModels: FileModel[];
-  tagModels: FileModel[];
+  logDirectoryFileModels: FileModel[];
+  tagFileModels: FileModel[];
 
   constructor(private fileService: FileModelService,
+              private router: Router,
               private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {
     activatedRoute.params.subscribe(val => this.initialize());
   }
 
+  viewDirectoryInContent(logDirectoryFileID: string) {
+    // passing directory id as matrix parameter
+    this.router.navigate(['log-tile/archive', {'directory-id': logDirectoryFileID}]);
+  }
+
+  viewTagInContent(tagFileID: string) {
+    // passing tag id as matrix parameter
+    this.router.navigate(['log-tile/archive', {'tag-id': tagFileID}]);
+  }
+
   initialize() {
-    this.directoryModels = [];
-    this.tagModels = [];
+    this.logDirectoryFileModels = [];
+    this.tagFileModels = [];
     this.isEmptyResponse = false;
     // grab value of url param `id` in `localhost:4200/log-page/:id
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -52,8 +63,8 @@ export class LogPageComponent {
           this.description = fileModel.metadata.description;
           this.createdDateString = new Date(fileModel.metadata.created).toDateString();
           this.lastUpdatedDateString = new Date(fileModel.metadata.lastUpdated).toDateString();
-          this.directoryModels = fileModel.data.parentLogDirectoryFileDatas;
-          this.tagModels = fileModel.data.tagFileDatas;
+          this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
+          this.tagFileModels = fileModel.data.tagFileDatas;
           this.displayLog(fileModel);
         }
       });

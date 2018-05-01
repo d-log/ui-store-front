@@ -10,3 +10,11 @@
 /*width: 800px;*/
 /*}*/
 /*}*/
+
+figure {
+  margin: 0;
+}
+
+code {
+  white-space: pre-wrap;
+}

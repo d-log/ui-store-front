@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component} from '@angular/core';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 import {BrokerEvent} from './service/event-broker-shared-service/broker-event';
 

@@ -3,8 +3,8 @@
                                     (onTarget)="target($event)"></app-navigation-side-left-toolbar>
 </div>
 <section class="container">
-  <div class="column" *ngFor="let directoryModel of pathDirectoryModels, let i = index">
-    <app-navigation-side-left-directory [level]="i" [directoryModel]="directoryModel"
+  <div class="column" *ngFor="let logDirectoryFileModel of pathLogDirectoryFileModels, let i = index">
+    <app-navigation-side-left-directory [level]="i" [logDirectoryFileModel]="logDirectoryFileModel"
                                         (childDirectorySelected)="directorySelected($event)"></app-navigation-side-left-directory>
   </div>
 </section>

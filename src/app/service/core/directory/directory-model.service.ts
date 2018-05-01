@@ -3,19 +3,19 @@ import {Observable} from 'rxjs/Observable';
 import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
-import {DirectoryModel} from './model/directory-model';
+import {FileModel} from '../file/model/file-model';
 
 @Injectable()
 export class DirectoryModelService {
 
-  private logModelsURL = 'http://core.marcuschiu.com/api/directory/';  // URL to web api
+  private logModelsURL = 'http://core.marcuschiu.com/api/file-data/log-directory';  // URL to web api
 
   constructor(private http: Http) {
   }
 
-  findOne(id: string): Observable<DirectoryModel> {
+  findOne(id: string): Observable<FileModel> {
     if (!!id) {
-      const url = this.logModelsURL + id;
+      const url = this.logModelsURL + '/' + id;
       return this.http
         .get(url)
         .map((response: Response) => {
@@ -27,8 +27,8 @@ export class DirectoryModelService {
     }
   }
 
-  getRoot(): Observable<DirectoryModel> {
-    const url = this.logModelsURL + 'root';
+  getRoot(): Observable<FileModel> {
+    const url = this.logModelsURL + '/root';
     return this.http
       .get(url)
       .map((response: Response) => {
@@ -37,9 +37,9 @@ export class DirectoryModelService {
       });
   }
 
-  findChildren(id: string): Observable<DirectoryModel[]> {
+  findChildren(id: string): Observable<FileModel[]> {
     if (!!id) {
-      const url = this.logModelsURL + id + '/children/1';
+      const url = this.logModelsURL + '/' + id + '/children/1';
       return this.http
         .get(url)
         .map((response: Response) => {
@@ -51,8 +51,8 @@ export class DirectoryModelService {
     }
   }
 
-  findChildrenOfRoot(): Observable<DirectoryModel[]> {
-    const url = this.logModelsURL + 'root/children/1';
+  findChildrenOfRoot(): Observable<FileModel[]> {
+    const url = this.logModelsURL + '/root/children/1';
     return this.http
       .get(url)
       .map((response: Response) => {

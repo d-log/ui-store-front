@@ -6,9 +6,8 @@ import {MasonryTileDefaultTileDefaultComponent} from './type/default-tile-defaul
 import {MasonryTileComponentTwo} from './type/masonry-tile-component-two';
 import {MasonryTileTextQuoteDefaultComponent} from './type/text-quote-default/masonry-tile-text-quote-default.component';
 import {MasonryTileTextMarkdownDefaultComponent} from './type/text-markdown-default/masonry-tile-text-markdown-default.component';
-import {LogModel} from '../../../../../service/core/log/model/log-model';
-import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-data';
 import {FileModel} from '../../../../../service/core/file/model/file-model';
+import {LogData} from '../../../../../service/core/file/model/extra/data/logdata/log-data';
 
 @Component({
   selector: 'app-masonry-tile',

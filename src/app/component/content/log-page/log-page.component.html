@@ -7,16 +7,15 @@
         <div>Created: {{createdDateString}}</div>
         <div>Updated: {{lastUpdatedDateString}}</div>
         <div>Tags:
-          <div *ngFor="let model of tagModels">
-            -
-            <a href="/search?tag-id={{model.id}}">{{model.name}}</a>
-          </div>
+          <a class="tag-or-directory" *ngFor="let model of tagFileModels" (click)="viewTagInContent(model.id)">
+            {{model.metadata.name}}
+          </a>
         </div>
         <div>Directories:
-          <div *ngFor="let model of directoryModels">
-            -
-            <a href="/search?directory-id={{model.id}}">{{model.name}}</a>
-          </div>
+          <a class="tag-or-directory" *ngFor="let model of logDirectoryFileModels"
+             (click)="viewDirectoryInContent(model.id)">
+            {{model.metadata.name}}
+          </a>
         </div>
       </div>
       <div #vc></div>

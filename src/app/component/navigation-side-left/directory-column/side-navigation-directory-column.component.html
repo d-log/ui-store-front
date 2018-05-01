@@ -1,20 +1,20 @@
 <app-navigation-side-left-directory-column-toolbar
-  [directoryModel]="directoryModel"></app-navigation-side-left-directory-column-toolbar>
-<div *ngIf="isEmptyChildDirectoryModels && isEmptyLogModels; else templateName">
+  [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-directory-column-toolbar>
+<div *ngIf="isEmptyChildLogDirectoryFileModels && isEmptyLogFileModels; else templateName">
   <div class="empty">
     EMPTY
   </div>
 </div>
 <ng-template #templateName>
-  <div class="item directory" *ngFor="let directoryModel of childrenDirectoryModels, let i = index;"
+  <div class="item directory" *ngFor="let logDirectoryFileModel of childrenLogDirectoryFileModels, let i = index;"
        (click)="selectChildDirectory(i)">
     <i class="fa fa-folder"></i>
-    <div class="item-name">{{directoryModel.name}}</div>
+    <div class="item-name">{{logDirectoryFileModel.metadata.name}}</div>
     <i class="fa fa-play"></i>
   </div>
-  <div class="item log" *ngFor="let logModel of logModels, let i = index;" (click)="selectLog(logModel.id)">
+  <div class="item log" *ngFor="let logFileModel of logFileModels, let i = index;" (click)="selectLog(logFileModel.id)">
     <i class="fa fa-file-o"></i>
-    <div class="item-name">{{logModel.title}}</div>
+    <div class="item-name">{{logFileModel.metadata.name}}</div>
   </div>
   <div class="bottom"></div>
 </ng-template>

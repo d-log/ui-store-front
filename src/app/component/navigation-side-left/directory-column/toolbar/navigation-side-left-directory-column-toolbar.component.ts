@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {DirectoryModel} from '../../../../service/core/directory/model/directory-model';
 import {Router} from '@angular/router';
+import {FileModel} from '../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-navigation-side-left-directory-column-toolbar',
@@ -9,15 +9,16 @@ import {Router} from '@angular/router';
 })
 export class NavigationSideLeftDirectoryColumnToolbarComponent {
 
-  @Input() directoryModel: DirectoryModel;
+  @Input() logDirectoryFileModel: FileModel;
 
   constructor(private router: Router) {
   }
 
   viewDirectoryInContent() {
-    // this.router.navigate(['/log-tile/archive'], {queryParams: {'directory-id': this.directoryModel.id}});
+    // passing directory id as URL parameters <-- this does not refresh the Angular Route route-outlet's Component
+    // this.router.navigate(['/log-tile/archive'], {queryParams: {'directory-id': this.logDirectoryFileModel.id}});
 
     // passing directory id as matrix parameter
-    this.router.navigate(['log-tile/archive', {'directory-id': this.directoryModel.id}]);
+    this.router.navigate(['log-tile/archive', {'directory-id': this.logDirectoryFileModel.id}]);
   }
 }

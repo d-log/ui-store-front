@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {SafePipe} from './pipe/safe.pipe';
-import {LogModelService} from './service/core/log/log-model.service';
 import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import {LogPageComponent} from './component/content/log-page/log-page.component';
@@ -94,7 +93,6 @@ import {FileModelService} from './service/core/file/file-model.service';
   ],
   providers: [
     FileModelService,
-    LogModelService,
     DirectoryModelService,
     CoreHttpService,
     MarkdownService,
