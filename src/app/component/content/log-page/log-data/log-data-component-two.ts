@@ -1,4 +1,4 @@
-import {LogData} from '../../../../service/core/log/model/extra/logdata/log-data';
+import {LogData} from '../../../../service/core/file/model/extra/data/logdata/log-data';
 
 export interface LogDataComponentTwo {
   logData: LogData;

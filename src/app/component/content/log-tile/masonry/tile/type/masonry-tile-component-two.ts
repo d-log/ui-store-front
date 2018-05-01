@@ -1,5 +1,5 @@
-import {LogModel} from '../../../../../../service/core/log/model/log-model';
+import {FileModel} from '../../../../../../service/core/file/model/file-model';
 
 export interface MasonryTileComponentTwo {
-  logModel: LogModel;
+  fileModel: FileModel;
 }

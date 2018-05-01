@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-data';
 import {MarkdownService} from '../../../../../service/markdown/markdown.service';
+import {LogData} from '../../../../../service/core/file/model/extra/data/logdata/log-data';
 
 @Component({
   templateUrl: './log-data-text-markdown-default.component.html',

@@ -1,13 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {LogType} from '../../../../service/core/log/model/extra/log-type';
 import {Pageable} from '../../../../service/core/model/pageable';
-import {LogModel} from '../../../../service/core/log/model/log-model';
-import {LogModelService} from '../../../../service/core/log/log-model.service';
 import {Observable} from 'rxjs/Observable';
-import {GetterRequest} from '../../../../service/core/log/getter-request';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {MasonryComponent} from '../masonry/masonry.component';
+import {FileModelService} from '../../../../service/core/file/file-model.service';
+import {FileModel} from '../../../../service/core/file/model/file-model';
+import {LogType} from '../../../../service/core/file/model/extra/data/logdata/log-type';
+import {GetterRequest} from '../../../../service/core/file/getter-request';
 
 /**
  * TODO add filters and sort by options
@@ -21,13 +21,13 @@ export class ArchiveComponent {
 
   @ViewChild(MasonryComponent) masonryComponent: MasonryComponent;
 
-  logModelsObservable: Observable<LogModel[]>;
+  fileModelsObservable: Observable<FileModel[]>;
 
   getterRequest: GetterRequest;
   moreLogsExist: boolean;
   isEmptyResponse: boolean;
 
-  constructor(private logModelService: LogModelService,
+  constructor(private fileModelService: FileModelService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
       this.initialize(params);
@@ -42,17 +42,19 @@ export class ArchiveComponent {
     this.moreLogsExist = true;
     this.isEmptyResponse = false;
 
-    this.getterRequest = new GetterRequest();
-    this.getterRequest.millisecondThreshold = new Date().getTime();
-    this.getterRequest.pageable = new Pageable(-1, 5);
-    this.getterRequest.logType = LogType.TILE;
+    const getterRequest = new GetterRequest();
+    getterRequest.millisecondThreshold = new Date().getTime();
+    getterRequest.pageable = new Pageable(-1, 5);
+    getterRequest.logType = LogType.TILE;
 
-    this.getterRequest.searchString = params['q'];
-    this.getterRequest.directoryID = params['directory-id'];
-    this.getterRequest.tagID = params['tag-id'];
+    getterRequest.searchString = params['q'];
+    getterRequest.directoryID = params['directory-id'];
+    getterRequest.tagID = params['tag-id'];
+
+    this.getterRequest = getterRequest;
 
     this.getMoreLogs();
-    this.logModelsObservable.subscribe(logModels => {
+    this.fileModelsObservable.subscribe(logModels => {
       if (logModels.length === 0) {
         this.isEmptyResponse = true;
       }
@@ -69,6 +71,6 @@ export class ArchiveComponent {
    */
   getMoreLogs() {
     this.getterRequest.pageable.page++;
-    this.logModelsObservable = this.logModelService.theGetter(this.getterRequest);
+    this.fileModelsObservable = this.fileModelService.theGetter(this.getterRequest);
   }
 }

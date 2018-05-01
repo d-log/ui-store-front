@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-data';
+import {LogData} from '../../../../../service/core/file/model/extra/data/logdata/log-data';
 
 @Component({
   templateUrl: './log-data-text-plain-default.component.html',

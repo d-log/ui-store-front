@@ -33,23 +33,23 @@ export class SideNavigationDirectoryColumnComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.directoryModelService.findChildren(this.directoryModel.id).subscribe(directoryModels => {
-      if (directoryModels.length === 0) {
-        this.isEmptyChildDirectoryModels = true;
-      } else {
-        this.childrenDirectoryModels = directoryModels;
-      }
-    });
+    // this.directoryModelService.findChildren(this.directoryModel.id).subscribe(directoryModels => {
+    //   if (directoryModels.length === 0) {
+    //     this.isEmptyChildDirectoryModels = true;
+    //   } else {
+    //     this.childrenDirectoryModels = directoryModels;
+    //   }
+    // });
 
     const getterRequest = new GetterRequest();
     getterRequest.directoryID = this.directoryModel.id;
-    this.logModelService.theGetter(getterRequest).subscribe(logModels => {
-      if (logModels.length === 0) {
-        this.isEmptyLogModels = true;
-      } else {
-        this.logModels = logModels;
-      }
-    });
+    // this.logModelService.theGetter(getterRequest).subscribe(fileModels => {
+    //   if (fileModels.length === 0) {
+    //     this.isEmptyLogModels = true;
+    //   } else {
+    //     this.fileModels = fileModels;
+    //   }
+    // });
   }
 
   selectChildDirectory(index: number) {

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/log/model/log-model';
+import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile-image-default',
@@ -8,7 +8,7 @@ import {LogModel} from '../../../../../../../service/core/log/model/log-model';
 })
 export class MasonryTileImageDefaultComponent implements OnInit {
 
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
 
   img_src: string;
   padding_bottom_percentage: number;
@@ -17,7 +17,7 @@ export class MasonryTileImageDefaultComponent implements OnInit {
   }
 
   ngOnInit() {
-    const data = this.logModel.logDatas[0].data;
+    const data = this.fileModel.data.logDatas[0].data;
     this.img_src = data.imageURL;
     this.padding_bottom_percentage = data.imageMetaData.heightDivideWidth * 100;
   }

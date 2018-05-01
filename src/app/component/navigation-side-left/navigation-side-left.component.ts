@@ -17,9 +17,9 @@ export class NavigationSideLeftComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.directoryModelService.getRoot().subscribe(directoryModel => {
-      this.pathDirectoryModels = [directoryModel];
-    });
+    // this.directoryModelService.getRoot().subscribe(directoryModel => {
+    //   this.pathDirectoryModels = [directoryModel];
+    // });
   }
 
   directorySelected(event: EventEmitter<any>) {

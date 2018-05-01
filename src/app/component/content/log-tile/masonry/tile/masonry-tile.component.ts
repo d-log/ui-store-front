@@ -8,6 +8,7 @@ import {MasonryTileTextQuoteDefaultComponent} from './type/text-quote-default/ma
 import {MasonryTileTextMarkdownDefaultComponent} from './type/text-markdown-default/masonry-tile-text-markdown-default.component';
 import {LogModel} from '../../../../../service/core/log/model/log-model';
 import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-data';
+import {FileModel} from '../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile',
@@ -15,15 +16,15 @@ import {LogData} from '../../../../../service/core/log/model/extra/logdata/log-d
   styleUrls: ['./masonry-tile.component.css']
 })
 export class MasonryTileComponent implements OnInit {
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
-    const component = this.getComponentFromData(this.logModel.logDatas[0]);
-    this.loadComponent(this.logModel, component);
+    const component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
+    this.loadComponent(this.fileModel, component);
   }
 
   // TODO turn into service to map logData types to Masonry Tile Components
@@ -48,13 +49,13 @@ export class MasonryTileComponent implements OnInit {
     return MasonryTileDefaultTileDefaultComponent;
   }
 
-  loadComponent(logModel: LogModel, component: any) {
+  loadComponent(fileModel: FileModel, component: any) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this._container.createComponent(componentFactory);
-    (<MasonryTileComponentTwo>componentRef.instance).logModel = logModel;
+    (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
   }
 
   loadLogPage() {
-    window.location.href = '/log-page/' + this.logModel.id;
+    window.location.href = '/log-page/' + this.fileModel.id;
   }
 }

@@ -38,6 +38,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 import {NavigationSideLeftDirectoryColumnToolbarComponent} from './component/navigation-side-left/directory-column/toolbar/navigation-side-left-directory-column-toolbar.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
+import {FileModelService} from './service/core/file/file-model.service';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import {PageNotFoundComponent} from './component/content/page-not-found/page-not
     AppRoutingModule,
   ],
   providers: [
+    FileModelService,
     LogModelService,
     DirectoryModelService,
     CoreHttpService,

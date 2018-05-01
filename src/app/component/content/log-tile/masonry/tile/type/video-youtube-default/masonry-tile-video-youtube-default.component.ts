@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/log/model/log-model';
+import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile-you-tube-default',
@@ -9,12 +9,12 @@ import {LogModel} from '../../../../../../../service/core/log/model/log-model';
 export class MasonryTileVideoYoutubeDefaultComponent implements OnInit {
 
   YOUTUBE_EMBEDDED_URL = 'https://www.youtube.com/embed/';
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
 
   url: string;
 
   ngOnInit() {
-    const data = this.logModel.logDatas[0].data;
+    const data = this.fileModel.data.logDatas[0].data;
     this.url = this.YOUTUBE_EMBEDDED_URL + data.videoID;
   }
 

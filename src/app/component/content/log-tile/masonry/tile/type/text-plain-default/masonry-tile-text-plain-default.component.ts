@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/log/model/log-model';
+import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile-text-plain-default',
@@ -8,7 +8,7 @@ import {LogModel} from '../../../../../../../service/core/log/model/log-model';
 })
 export class MasonryTileTextPlainDefaultComponent implements OnInit {
 
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
 
   text: string;
 
@@ -16,7 +16,7 @@ export class MasonryTileTextPlainDefaultComponent implements OnInit {
   }
 
   ngOnInit() {
-    const data = this.logModel.logDatas[0].data;
+    const data = this.fileModel.data.logDatas[0].data;
     this.text = data.text;
   }
 

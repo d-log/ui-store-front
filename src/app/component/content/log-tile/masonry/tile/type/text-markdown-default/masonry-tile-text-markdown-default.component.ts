@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/log/model/log-model';
 import {MarkdownService} from '../../../../../../../service/markdown/markdown.service';
+import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
   templateUrl: './masonry-tile-text-markdown-default.component.html',
@@ -8,7 +8,7 @@ import {MarkdownService} from '../../../../../../../service/markdown/markdown.se
 })
 export class MasonryTileTextMarkdownDefaultComponent implements OnInit {
 
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
 
   innerHTML: string;
 
@@ -16,7 +16,7 @@ export class MasonryTileTextMarkdownDefaultComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.innerHTML = this.markdownService.marked(this.logModel.logDatas[0].data.text);
+    this.innerHTML = this.markdownService.marked(this.fileModel.data.logDatas[0].data.text);
   }
 
 }

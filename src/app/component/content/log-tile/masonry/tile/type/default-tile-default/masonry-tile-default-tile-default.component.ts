@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/log/model/log-model';
+import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile-default-tile-default',
@@ -8,7 +8,7 @@ import {LogModel} from '../../../../../../../service/core/log/model/log-model';
 })
 export class MasonryTileDefaultTileDefaultComponent implements OnInit {
 
-  @Input() logModel: LogModel;
+  @Input() fileModel: FileModel;
 
   title: string;
   description: string;
@@ -17,8 +17,8 @@ export class MasonryTileDefaultTileDefaultComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title = this.logModel.title;
-    this.description = this.logModel.description;
+    this.title = this.fileModel.metadata.name;
+    this.description = this.fileModel.metadata.description;
   }
 
 }
