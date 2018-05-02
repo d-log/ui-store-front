@@ -1,6 +1,6 @@
+<app-navigation-side-left-column-toolbar
+  [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
 <div class="column-container" (scroll)="onScroll()">
-  <app-navigation-side-left-column-toolbar
-    [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
   <div *ngIf="isEmpty && isEmpty; else templateName">
     <div class="empty">
       EMPTY

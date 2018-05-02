@@ -12,7 +12,7 @@ import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-
 import {FileModel} from '../../../service/core/file/model/file-model';
 import {LogType} from '../../../service/core/file/model/extra/data/logdata/log-type';
 import {LogData} from '../../../service/core/file/model/extra/data/logdata/log-data';
-import {LogModelService} from '../../../service/core/log/log-model.service';
+import {LogModelService} from '../../../service/core/file/type/log/log-model.service';
 
 @Component({
   selector: 'app-log-page',

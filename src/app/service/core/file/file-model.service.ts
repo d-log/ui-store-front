@@ -4,10 +4,10 @@ import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
 import {LogType} from './model/extra/data/logdata/log-type';
-import {GetterRequest} from './getter-request';
+import {GetterRequest} from '../model/request/getter-request';
 import {FileModel} from './model/file-model';
 import {FileType} from './model/extra/file-type';
-import {SortOrder} from '../model/sort-order';
+import {SortOrder} from '../model/request/sort-order';
 
 @Injectable()
 export class FileModelService {

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DirectoryModelService} from '../../service/core/directory/directory-model.service';
+import {DirectoryModelService} from '../../service/core/file/type/directory/directory-model.service';
 import {FileModel} from '../../service/core/file/model/file-model';
 
 @Component({

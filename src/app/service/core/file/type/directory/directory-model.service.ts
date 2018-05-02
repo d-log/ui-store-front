@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Http, Response} from '@angular/http';
-import {HateoasResponse} from '../model/response/hateoas-response';
+import {HateoasResponse} from '../../../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
-import {FileModel} from '../file/model/file-model';
+import {FileModel} from '../../model/file-model';
 
 @Injectable()
 export class DirectoryModelService {

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {LogType} from '../file/model/extra/data/logdata/log-type';
-import {FileModel} from '../file/model/file-model';
-import {HateoasResponse} from '../model/response/hateoas-response';
+import {LogType} from '../../model/extra/data/logdata/log-type';
+import {FileModel} from '../../model/file-model';
+import {HateoasResponse} from '../../../model/response/hateoas-response';
 import {Observable} from 'rxjs/Observable';
 
 

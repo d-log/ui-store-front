@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Pageable} from '../../../../service/core/model/pageable';
+import {Pageable} from '../../../../service/core/model/request/pageable';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -7,7 +7,7 @@ import {MasonryComponent} from '../masonry/masonry.component';
 import {FileModelService} from '../../../../service/core/file/file-model.service';
 import {FileModel} from '../../../../service/core/file/model/file-model';
 import {LogType} from '../../../../service/core/file/model/extra/data/logdata/log-type';
-import {GetterRequest} from '../../../../service/core/file/getter-request';
+import {GetterRequest} from '../../../../service/core/model/request/getter-request';
 import {FileType} from '../../../../service/core/file/model/extra/file-type';
 
 /**

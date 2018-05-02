@@ -1,12 +1,12 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {GetterRequest} from '../../../service/core/file/getter-request';
+import {GetterRequest} from '../../../service/core/model/request/getter-request';
 import {FileModel} from '../../../service/core/file/model/file-model';
 import {FileModelService} from '../../../service/core/file/file-model.service';
 import {FileType} from '../../../service/core/file/model/extra/file-type';
-import {Sort} from '../../../service/core/model/sort';
-import {SortOrder} from '../../../service/core/model/sort-order';
-import {Pageable} from '../../../service/core/model/pageable';
+import {Sort} from '../../../service/core/model/request/sort';
+import {SortOrder} from '../../../service/core/model/request/sort-order';
+import {Pageable} from '../../../service/core/model/request/pageable';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
