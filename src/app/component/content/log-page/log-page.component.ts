@@ -9,10 +9,10 @@ import {LogDataTextMarkdownDefaultComponent} from './log-data/text-markdown-defa
 import {LogDataDefaultDefaultComponent} from './log-data/default-default/log-data-default-default.component';
 import {LogDataTextQuoteDefaultComponent} from './log-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './log-data/text-code-default/log-data-text-code-default.component';
-import {FileModelService} from '../../../service/core/file/file-model.service';
 import {FileModel} from '../../../service/core/file/model/file-model';
 import {LogType} from '../../../service/core/file/model/extra/data/logdata/log-type';
 import {LogData} from '../../../service/core/file/model/extra/data/logdata/log-data';
+import {LogModelService} from '../../../service/core/log/log-model.service';
 
 @Component({
   selector: 'app-log-page',
@@ -32,7 +32,7 @@ export class LogPageComponent {
   logDirectoryFileModels: FileModel[];
   tagFileModels: FileModel[];
 
-  constructor(private fileService: FileModelService,
+  constructor(private logFileService: LogModelService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {
@@ -56,7 +56,7 @@ export class LogPageComponent {
     // grab value of url param `id` in `localhost:4200/log-page/:id
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (!!this.id) {
-      this.fileService.findOne(this.id, LogType.PAGE).subscribe((fileModel: FileModel) => {
+      this.logFileService.findOne(this.id, LogType.PAGE).subscribe((fileModel: FileModel) => {
         if (fileModel !== null) {
           this.fileModel = fileModel;
           this.title = fileModel.metadata.name;

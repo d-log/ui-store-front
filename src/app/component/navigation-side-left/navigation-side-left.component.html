@@ -4,7 +4,7 @@
 </div>
 <section class="container">
   <div class="column" *ngFor="let logDirectoryFileModel of pathLogDirectoryFileModels, let i = index">
-    <app-navigation-side-left-directory [level]="i" [logDirectoryFileModel]="logDirectoryFileModel"
-                                        (childDirectorySelected)="directorySelected($event)"></app-navigation-side-left-directory>
+    <app-navigation-side-left-column [level]="i" [logDirectoryFileModel]="logDirectoryFileModel"
+                                     (childDirectorySelected)="directorySelected($event)"></app-navigation-side-left-column>
   </div>
 </section>

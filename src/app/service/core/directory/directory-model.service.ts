@@ -8,7 +8,7 @@ import {FileModel} from '../file/model/file-model';
 @Injectable()
 export class DirectoryModelService {
 
-  private logModelsURL = 'http://core.marcuschiu.com/api/file-data/log-directory';  // URL to web api
+  private logModelsURL = 'http://core.marcuschiu.com/api/file/log-directory';  // URL to web api
 
   constructor(private http: Http) {
   }

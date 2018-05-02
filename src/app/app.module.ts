@@ -27,7 +27,7 @@ import {MasonryTileTextMarkdownDefaultComponent} from './component/content/log-t
 import {MasonryTileTextQuoteDefaultComponent} from './component/content/log-tile/masonry/tile/type/text-quote-default/masonry-tile-text-quote-default.component';
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
-import {SideNavigationDirectoryColumnComponent} from './component/navigation-side-left/directory-column/side-navigation-directory-column.component';
+import {SideNavigationColumnComponent} from './component/navigation-side-left/column/side-navigation-column.component';
 import {DirectoryModelService} from './service/core/directory/directory-model.service';
 import {NavigationTopComponent} from './component/navigation-top/navigation-top.component';
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
@@ -35,9 +35,10 @@ import {SideNavigationTopSearchComponent} from './component/navigation-top/navig
 import {DisqusModule} from 'ngx-disqus';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
-import {NavigationSideLeftDirectoryColumnToolbarComponent} from './component/navigation-side-left/directory-column/toolbar/navigation-side-left-directory-column-toolbar.component';
+import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-side-left/column/toolbar/navigation-side-left-column-toolbar.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 import {FileModelService} from './service/core/file/file-model.service';
+import {LogModelService} from './service/core/log/log-model.service';
 
 @NgModule({
   declarations: [
@@ -46,8 +47,8 @@ import {FileModelService} from './service/core/file/file-model.service';
     SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
     NavigationSideLeftToolbarComponent,
-    SideNavigationDirectoryColumnComponent,
-    NavigationSideLeftDirectoryColumnToolbarComponent,
+    SideNavigationColumnComponent,
+    NavigationSideLeftColumnToolbarComponent,
     HomeComponent,
     PageNotFoundComponent,
     LogPageComponent,
@@ -93,6 +94,7 @@ import {FileModelService} from './service/core/file/file-model.service';
   ],
   providers: [
     FileModelService,
+    LogModelService,
     DirectoryModelService,
     CoreHttpService,
     MarkdownService,

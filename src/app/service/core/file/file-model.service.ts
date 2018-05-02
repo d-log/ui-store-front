@@ -6,11 +6,13 @@ import 'rxjs/add/operator/map';
 import {LogType} from './model/extra/data/logdata/log-type';
 import {GetterRequest} from './getter-request';
 import {FileModel} from './model/file-model';
+import {FileType} from './model/extra/file-type';
+import {SortOrder} from '../model/sort-order';
 
 @Injectable()
 export class FileModelService {
 
-  private logModelsURL = 'http://core.marcuschiu.com/api/file-data/log';  // URL to web api
+  private fileURL = 'http://core.marcuschiu.com/api/file';  // URL to web api
 
   constructor(private http: Http) {
   }
@@ -29,16 +31,25 @@ export class FileModelService {
   }
 
   generateTheGetterURL(getterRequest: GetterRequest) {
-    const pageable = getterRequest.pageable;
-    const searchString = getterRequest.searchString;
-
-    let url = this.logModelsURL + '/the-getter';
-    if (!!getterRequest.logType) {
-      url += '/' + LogType[getterRequest.logType];
-    }
     const urlParameters: string[] = [];
+
+    if (!!getterRequest.fileTypes) {
+      for (const fileType of getterRequest.fileTypes) {
+        urlParameters.push('file-type=' + FileType[fileType]);
+      }
+    }
+    if (!!getterRequest.sorts) {
+      for (const s of getterRequest.sorts) {
+        if (!!s) {
+          urlParameters.push('sort=' + s.parameter + ',' + SortOrder[s.order]);
+        }
+      }
+    }
+    if (!!getterRequest.logType) {
+      urlParameters.push('log-type=' + LogType[getterRequest.logType]);
+    }
     if (!!getterRequest.pageable) {
-      urlParameters.push('page=' + pageable.page + '&size=' + pageable.size);
+      urlParameters.push('page=' + getterRequest.pageable.page + '&size=' + getterRequest.pageable.size);
     }
     if (!!getterRequest.directoryID) {
       urlParameters.push('directory-id=' + getterRequest.directoryID);
@@ -49,27 +60,16 @@ export class FileModelService {
     if (!!getterRequest.millisecondThreshold) {
       urlParameters.push('millisecond-threshold=' + getterRequest.millisecondThreshold);
     }
-    if (!!searchString) {
-      urlParameters.push('search=' + encodeURIComponent(searchString));
+    if (!!getterRequest.searchString) {
+      urlParameters.push('search=' + encodeURIComponent(getterRequest.searchString));
     }
+
+    let url = this.fileURL + '/the-getter';
     if (urlParameters.length > 0) {
       url += '?' + urlParameters.join('&');
     }
+    console.log(url);
 
     return url;
-  }
-
-  findOne(id: string, logType: LogType): Observable<FileModel> {
-    if (!!id) {
-      const url = this.logModelsURL + '/' + id + '/' + LogType[logType];
-      return this.http
-        .get(url)
-        .map((response: Response) => {
-          const hateoasResponse = <HateoasResponse>response.json();
-          return hateoasResponse._embedded.collection[0];
-        });
-    } else {
-      return null;
-    }
   }
 }

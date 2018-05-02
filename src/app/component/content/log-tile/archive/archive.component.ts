@@ -8,6 +8,7 @@ import {FileModelService} from '../../../../service/core/file/file-model.service
 import {FileModel} from '../../../../service/core/file/model/file-model';
 import {LogType} from '../../../../service/core/file/model/extra/data/logdata/log-type';
 import {GetterRequest} from '../../../../service/core/file/getter-request';
+import {FileType} from '../../../../service/core/file/model/extra/file-type';
 
 /**
  * TODO add filters and sort by options
@@ -43,6 +44,7 @@ export class ArchiveComponent {
     this.isEmptyResponse = false;
 
     const getterRequest = new GetterRequest();
+    getterRequest.fileTypes = [FileType.LogFileData];
     getterRequest.millisecondThreshold = new Date().getTime();
     getterRequest.pageable = new Pageable(-1, 5);
     getterRequest.logType = LogType.TILE;

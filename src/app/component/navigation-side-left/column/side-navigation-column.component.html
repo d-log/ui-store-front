@@ -1,0 +1,25 @@
+<app-navigation-side-left-column-toolbar
+  [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
+<div *ngIf="isEmpty && isEmpty; else templateName">
+  <div class="empty">
+    EMPTY
+  </div>
+</div>
+<ng-template #templateName>
+  <div *ngFor="let fileModel of fileModels, let i = index;">
+    <div *ngIf="fileModel.metadata.type === 'LogDirectoryFileData'">
+      <div class="item directory" (click)="selectChildDirectory(i)">
+        <i class="fa fa-folder"></i>
+        <div class="item-name">{{fileModel.metadata.name}}</div>
+        <i class="fa fa-play"></i>
+      </div>
+    </div>
+    <div *ngIf="fileModel.metadata.type === 'LogFileData'">
+      <div class="item log" (click)="selectLog(fileModel.id)">
+        <i class="fa fa-file-o"></i>
+        <div class="item-name">{{fileModel.metadata.name}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"></div>
+</ng-template>
