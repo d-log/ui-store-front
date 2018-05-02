@@ -88,6 +88,7 @@ export class MasonryComponent implements OnInit {
         columnWidth: '.masonry-item-sizer',
         percentPosition: true,
         gutter: 6,
+        // transitionDuration: 5
       });
       this._masonry = masonry;
       this.loadModelsIfEmptySpace();

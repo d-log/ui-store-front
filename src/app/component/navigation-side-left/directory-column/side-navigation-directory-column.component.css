@@ -48,6 +48,11 @@ app-navigation-side-left-directory-column-toolbar {
 
 .fa-folder {
   font-size: 15px;
+  color: var(--main-darker-color);
+  /* text font border */
+  -webkit-text-fill-color: var(--main-darker-color); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--main-darker-2-color);
 }
 
 .fa-play {
