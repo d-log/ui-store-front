@@ -16,14 +16,14 @@ import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-d
 import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
 import {MarkdownService} from './service/markdown/markdown.service';
-import {MasonryTileDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default-tile-default/masonry-tile-default-tile-default.component';
-import {MasonryTileTextPlainDefaultComponent} from './component/content/log-tile/masonry/tile/type/text-plain-default/masonry-tile-text-plain-default.component';
-import {MasonryTileImageDefaultComponent} from './component/content/log-tile/masonry/tile/type/image-default/masonry-tile-image-default.component';
-import {MasonryTileVideoYoutubeDefaultComponent} from './component/content/log-tile/masonry/tile/type/video-youtube-default/masonry-tile-video-youtube-default.component';
+import {MasonryTileDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/default-tile-default/masonry-tile-default-tile-default.component';
+import {MasonryTileTextPlainDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-plain-default/masonry-tile-text-plain-default.component';
+import {MasonryTileImageDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/image-default/masonry-tile-image-default.component';
+import {MasonryTileVideoYoutubeDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/video-youtube-default/masonry-tile-video-youtube-default.component';
 import {MasonryTileComponent} from './component/content/log-tile/masonry/tile/masonry-tile.component';
 import {MasonryComponent} from './component/content/log-tile/masonry/masonry.component';
-import {MasonryTileTextMarkdownDefaultComponent} from './component/content/log-tile/masonry/tile/type/text-markdown-default/masonry-tile-text-markdown-default.component';
-import {MasonryTileTextQuoteDefaultComponent} from './component/content/log-tile/masonry/tile/type/text-quote-default/masonry-tile-text-quote-default.component';
+import {MasonryTileTextMarkdownDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-markdown-default/masonry-tile-text-markdown-default.component';
+import {MasonryTileTextQuoteDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-quote-default/masonry-tile-text-quote-default.component';
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
 import {SideNavigationColumnComponent} from './component/navigation-side-left/column/side-navigation-column.component';
@@ -38,6 +38,7 @@ import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-s
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 import {FileModelService} from './service/core/file/file-model.service';
 import {LogModelService} from './service/core/file/type/log/log-model.service';
+import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/directory/default-tile-default/masonry-tile-directory-default-tile-default.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {LogModelService} from './service/core/file/type/log/log-model.service';
     MasonryTileDefaultTileDefaultComponent,
     MasonryTileTextQuoteDefaultComponent,
     MasonryTileTextMarkdownDefaultComponent,
+    MasonryTileDirectoryDefaultTileDefaultComponent,
     SafePipe,
     LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
@@ -76,6 +78,7 @@ import {LogModelService} from './service/core/file/type/log/log-model.service';
     MasonryTileVideoYoutubeDefaultComponent,
     MasonryTileTextQuoteDefaultComponent,
     MasonryTileTextMarkdownDefaultComponent,
+    MasonryTileDirectoryDefaultTileDefaultComponent,
     LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,

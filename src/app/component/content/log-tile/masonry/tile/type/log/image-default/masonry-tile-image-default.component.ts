@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FileModel} from '../../../../../../../service/core/file/model/file-model';
+import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
 
 @Component({
   selector: 'app-masonry-tile-image-default',

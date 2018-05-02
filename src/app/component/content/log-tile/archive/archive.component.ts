@@ -45,7 +45,7 @@ export class ArchiveComponent {
 
     const getterRequest = new GetterRequest();
     getterRequest.millisecondThreshold = new Date().getTime();
-    getterRequest.pageable = new Pageable(-1, 5);
+    getterRequest.pageable = new Pageable(-1, 10);
     getterRequest.logType = LogType.TILE;
 
     getterRequest.searchString = params['q'];

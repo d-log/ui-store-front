@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MarkdownService} from '../../../../../../../service/markdown/markdown.service';
-import {FileModel} from '../../../../../../../service/core/file/model/file-model';
+import {MarkdownService} from '../../../../../../../../service/markdown/markdown.service';
+import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
 
 @Component({
   templateUrl: './masonry-tile-text-markdown-default.component.html',
