@@ -83,14 +83,13 @@ export class MasonryComponent implements OnInit {
   generateMasonry() {
     setTimeout(() => {
       const grid = document.querySelector('.masonry');
-      const masonry = new Masonry(grid, {
+      this._masonry = new Masonry(grid, {
         itemSelector: '.masonry-item',
         columnWidth: '.masonry-item-sizer',
         percentPosition: true,
         gutter: 6,
         // transitionDuration: 5
       });
-      this._masonry = masonry;
       this.loadModelsIfEmptySpace();
     }, 5); // delay for dom update
   }

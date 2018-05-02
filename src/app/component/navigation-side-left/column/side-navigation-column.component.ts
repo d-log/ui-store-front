@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {GetterRequest} from '../../../service/core/file/getter-request';
 import {FileModel} from '../../../service/core/file/model/file-model';
@@ -7,6 +7,7 @@ import {FileType} from '../../../service/core/file/model/extra/file-type';
 import {Sort} from '../../../service/core/model/sort';
 import {SortOrder} from '../../../service/core/model/sort-order';
 import {Pageable} from '../../../service/core/model/pageable';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-navigation-side-left-column',
@@ -18,35 +19,41 @@ export class SideNavigationColumnComponent implements OnInit {
   @Input() level: number;
   @Input() logDirectoryFileModel: FileModel;
   @Output() childDirectorySelected = new EventEmitter<any>();
+  @ViewChild('bottom') bottom: any;
   fileModels: FileModel[];
+  fileModelsObservable: Observable<FileModel[]>;
   isEmpty: boolean;
+  moreFilesExist: boolean;
 
   selectedDirectoryIndex: number;
   getterRequest: GetterRequest;
 
   constructor(private router: Router,
               private fileModelService: FileModelService) {
+    this.fileModelsObservable = null;
     this.fileModels = [];
     this.isEmpty = false;
     this.selectedDirectoryIndex = -1;
+    this.moreFilesExist = true;
   }
 
   ngOnInit() {
     const getterRequest = new GetterRequest();
     getterRequest.fileTypes = [FileType.LogFileData, FileType.LogDirectoryFileData];
     getterRequest.directoryID = this.logDirectoryFileModel.id;
-    getterRequest.pageable = new Pageable(0, 20);
+    getterRequest.pageable = new Pageable(-1, 20);
     getterRequest.sorts = [
       new Sort('metadata.type', SortOrder.asc),
       new Sort('metadata.created', SortOrder.desc),
     ];
     this.getterRequest = getterRequest;
 
-    this.fileModelService.theGetter(getterRequest).subscribe(fileModels => {
+    this.getFileModels();
+    this.fileModelsObservable.subscribe(fileModels => {
       if (fileModels.length === 0) {
         this.isEmpty = true;
       } else {
-        this.fileModels = fileModels;
+        this.loadModelsIfEmptySpace();
       }
     });
   }
@@ -58,5 +65,46 @@ export class SideNavigationColumnComponent implements OnInit {
 
   selectLog(id: string) {
     this.router.navigate(['/log-page/' + id]);
+  }
+
+  onScroll() {
+    this.loadModelsIfEmptySpace();
+  }
+
+  /**
+   * checks if more logs exist if so check if there is space in viewport
+   */
+  loadModelsIfEmptySpace() {
+    if (this.moreFilesExist) {
+      if (this.isElementInViewport(this.bottom.nativeElement)) {
+        this.getFileModels();
+      }
+    }
+  }
+
+  isElementInViewport(el) {
+    const viewportOffset = el.getBoundingClientRect();
+    const top = viewportOffset.top;
+    return top <= window.innerHeight;
+  }
+
+  getFileModels() {
+    this.getterRequest.pageable.page++;
+    this.fileModelsObservable = this.fileModelService.theGetter(this.getterRequest);
+    this.fileModelsObservable.subscribe(fileModels => {
+      if (fileModels.length === 0) {
+        this.moreFilesExist = false;
+      } else {
+        this.fileModels = this.fileModels.concat(fileModels);
+      }
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    // // masonry auto call layout, so no need to call viewportResize
+    setTimeout(() => {
+      this.loadModelsIfEmptySpace();
+    }, 500); // wait for masonry layoutComplete
   }
 }
