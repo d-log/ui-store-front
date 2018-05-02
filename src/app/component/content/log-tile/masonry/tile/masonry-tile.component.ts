@@ -1,15 +1,10 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {MasonryTileImageDefaultComponent} from './type/log/image-default/masonry-tile-image-default.component';
-import {MasonryTileTextPlainDefaultComponent} from './type/log/text-plain-default/masonry-tile-text-plain-default.component';
-import {MasonryTileVideoYoutubeDefaultComponent} from './type/log/video-youtube-default/masonry-tile-video-youtube-default.component';
-import {MasonryTileDefaultTileDefaultComponent} from './type/log/default-tile-default/masonry-tile-default-tile-default.component';
 import {MasonryTileComponentTwo} from './type/masonry-tile-component-two';
-import {MasonryTileTextQuoteDefaultComponent} from './type/log/text-quote-default/masonry-tile-text-quote-default.component';
-import {MasonryTileTextMarkdownDefaultComponent} from './type/log/text-markdown-default/masonry-tile-text-markdown-default.component';
 import {FileModel} from '../../../../../service/core/file/model/file-model';
-import {LogData} from '../../../../../service/core/file/model/extra/data/logdata/log-data';
 import {FileType} from '../../../../../service/core/file/model/extra/file-type';
-import {MasonryTileDirectoryDefaultTileDefaultComponent} from './type/directory/default-tile-default/masonry-tile-directory-default-tile-default.component';
+import {MasonryTileDirectoryComponent} from './type/directory/masonry-tile-directory.component';
+import {MasonryTileDefaultComponent} from './type/default/masonry-tile-default.component';
+import {MasonryTileLogComponent} from './type/log/masonry-tile-log.component';
 
 @Component({
   selector: 'app-masonry-tile',
@@ -24,47 +19,26 @@ export class MasonryTileComponent implements OnInit {
   }
 
   ngOnInit() {
-    let component;
-    const fileType: string = this.fileModel.metadata.type;
-    if (fileType === FileType[FileType.LogFileData]) {
-      component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
-    } else if (fileType === FileType[FileType.LogDirectoryFileData]) {
-      component = MasonryTileDirectoryDefaultTileDefaultComponent;
-    } else {
-      component = MasonryTileDefaultTileDefaultComponent;
-    }
+    const component = this.getComponentFromData(this.fileModel);
     this.loadComponent(this.fileModel, component);
   }
 
   // TODO turn into service to map logData types to Masonry Tile Components
-  public getComponentFromData(logData: LogData) {
-    switch (logData.logDataType) {
-      case 'ImageInternalLogData': {
-        return MasonryTileImageDefaultComponent;
-      }
-      case 'TextPlainLogData': {
-        return MasonryTileTextPlainDefaultComponent;
-      }
-      case 'VideoYouTubeLogData': {
-        return MasonryTileVideoYoutubeDefaultComponent;
-      }
-      case 'TextQuoteLogData': {
-        return MasonryTileTextQuoteDefaultComponent;
-      }
-      case 'TextMarkdownLogData': {
-        return MasonryTileTextMarkdownDefaultComponent;
-      }
+  public getComponentFromData(fileModel: FileModel) {
+    const fileType: string = fileModel.metadata.type;
+
+    if (fileType === FileType[FileType.LogFileData]) {
+      return MasonryTileLogComponent;
+    } else if (fileType === FileType[FileType.LogDirectoryFileData]) {
+      return MasonryTileDirectoryComponent;
+    } else {
+      return MasonryTileDefaultComponent;
     }
-    return MasonryTileDefaultTileDefaultComponent;
   }
 
   loadComponent(fileModel: FileModel, component: any) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this._container.createComponent(componentFactory);
     (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
-  }
-
-  loadLogPage() {
-    window.location.href = '/log-page/' + this.fileModel.id;
   }
 }

@@ -39,6 +39,9 @@ import {PageNotFoundComponent} from './component/content/page-not-found/page-not
 import {FileModelService} from './service/core/file/file-model.service';
 import {LogModelService} from './service/core/file/type/log/log-model.service';
 import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/directory/default-tile-default/masonry-tile-directory-default-tile-default.component';
+import {MasonryTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default/masonry-tile-default.component';
+import {MasonryTileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/masonry-tile-directory.component';
+import {MasonryTileLogComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/conte
     ArchiveComponent,
     MasonryComponent,
     MasonryTileComponent,
+    MasonryTileDefaultComponent,
+    MasonryTileDirectoryComponent,
+    MasonryTileLogComponent,
     MasonryTileTextPlainDefaultComponent,
     MasonryTileImageDefaultComponent,
     MasonryTileVideoYoutubeDefaultComponent,
@@ -72,6 +78,9 @@ import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/conte
     LogDataTextCodeDefaultComponent,
   ],
   entryComponents: [
+    MasonryTileDefaultComponent,
+    MasonryTileDirectoryComponent,
+    MasonryTileLogComponent,
     MasonryTileDefaultTileDefaultComponent,
     MasonryTileImageDefaultComponent,
     MasonryTileTextPlainDefaultComponent,
