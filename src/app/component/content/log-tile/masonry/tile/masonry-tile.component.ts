@@ -8,6 +8,7 @@ import {MasonryTileTextQuoteDefaultComponent} from './type/text-quote-default/ma
 import {MasonryTileTextMarkdownDefaultComponent} from './type/text-markdown-default/masonry-tile-text-markdown-default.component';
 import {FileModel} from '../../../../../service/core/file/model/file-model';
 import {LogData} from '../../../../../service/core/file/model/extra/data/logdata/log-data';
+import {FileType} from '../../../../../service/core/file/model/extra/file-type';
 
 @Component({
   selector: 'app-masonry-tile',
@@ -22,7 +23,12 @@ export class MasonryTileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
+    let component;
+    if (this.fileModel.metadata.type === FileType[FileType.LogFileData]) {
+      component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
+    } else {
+      component = MasonryTileDefaultTileDefaultComponent;
+    }
     this.loadComponent(this.fileModel, component);
   }
 

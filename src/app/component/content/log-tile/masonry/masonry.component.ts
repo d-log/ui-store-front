@@ -19,7 +19,7 @@ export class MasonryComponent implements OnInit {
 
   private _fileModelsObservable: Observable<FileModel[]>;
 
-  @Output() getMoreLogs = new EventEmitter<boolean>();
+  @Output() getMoreFiles = new EventEmitter<boolean>();
   @ViewChild('bottom') bottom: any;
 
   _masonry: any = null;
@@ -75,7 +75,7 @@ export class MasonryComponent implements OnInit {
   loadModelsIfEmptySpace() {
     if (this.moreFilesExist) {
       if (this.isElementInViewport(this.bottom.nativeElement)) {
-        this.getMoreLogs.emit(true);
+        this.getMoreFiles.emit(true);
       }
     }
   }

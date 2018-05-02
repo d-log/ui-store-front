@@ -25,7 +25,7 @@ export class ArchiveComponent {
   fileModelsObservable: Observable<FileModel[]>;
 
   getterRequest: GetterRequest;
-  moreLogsExist: boolean;
+  moreFilesExist: boolean;
   isEmptyResponse: boolean;
 
   constructor(private fileModelService: FileModelService,
@@ -40,11 +40,10 @@ export class ArchiveComponent {
       this.masonryComponent.ngOnInit();
     }
 
-    this.moreLogsExist = true;
+    this.moreFilesExist = true;
     this.isEmptyResponse = false;
 
     const getterRequest = new GetterRequest();
-    getterRequest.fileTypes = [FileType.LogFileData];
     getterRequest.millisecondThreshold = new Date().getTime();
     getterRequest.pageable = new Pageable(-1, 5);
     getterRequest.logType = LogType.TILE;
@@ -53,9 +52,21 @@ export class ArchiveComponent {
     getterRequest.directoryID = params['directory-id'];
     getterRequest.tagID = params['tag-id'];
 
+    const fileTypes: string = params['file-types'];
+    if (!!fileTypes) {
+      getterRequest.fileTypes = [];
+      const fileTypesArray = fileTypes.split(':');
+      for (const t of fileTypesArray) {
+        const fileType: FileType = FileType[t];
+        getterRequest.fileTypes.push(fileType);
+      }
+    } else {
+      getterRequest.fileTypes = [FileType.LogFileData];
+    }
+
     this.getterRequest = getterRequest;
 
-    this.getMoreLogs();
+    this.getMoreFiles();
     this.fileModelsObservable.subscribe(logModels => {
       if (logModels.length === 0) {
         this.isEmptyResponse = true;
@@ -71,7 +82,7 @@ export class ArchiveComponent {
   /**
    * called from MasonryComponent child
    */
-  getMoreLogs() {
+  getMoreFiles() {
     this.getterRequest.pageable.page++;
     this.fileModelsObservable = this.fileModelService.theGetter(this.getterRequest);
   }

@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {FileModel} from '../../../../service/core/file/model/file-model';
+import {FileType} from '../../../../service/core/file/model/extra/file-type';
 
 @Component({
   selector: 'app-navigation-side-left-column-toolbar',
@@ -19,6 +20,10 @@ export class NavigationSideLeftColumnToolbarComponent {
     // this.router.navigate(['/log-tile/archive'], {queryParams: {'directory-id': this.logDirectoryFileModel.id}});
 
     // passing directory id as matrix parameter
-    this.router.navigate(['log-tile/archive', {'directory-id': this.logDirectoryFileModel.id}]);
+    this.router.navigate(['log-tile/archive',
+      {
+        'directory-id': this.logDirectoryFileModel.id,
+        'file-types': FileType[FileType.LogDirectoryFileData] + ':' + FileType[FileType.LogFileData],
+      }]);
   }
 }
