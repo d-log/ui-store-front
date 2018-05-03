@@ -1,4 +1,26 @@
-<div class="container" (click)="test()">
-  <div>TITLE: {{title}}</div>
-  <div>DESCRIPTION: {{description}}</div>
+<div #element class="container">
+  <img class="directory-image" src="assets/images/directory-tile-blue-2.png">
+  <div class="directory-details-container">
+    <div class="name-description-container">
+      <div class="name" [ngStyle]="{'font-size': nameFontSize + 'px'}">{{name}}</div>
+      <div class="description" [ngStyle]="{'font-size': descriptionFontSize + 'px'}">{{description}}</div>
+    </div>
+    <div *ngIf="directoryEmpty; else other_content">
+      <div class="empty" [ngStyle]="{'font-size': emptyFontSize + 'px'}">
+        EMPTY
+      </div>
+    </div>
+    <ng-template #other_content>
+      <div class="directory-file-container">
+        <div class="directory-icon-container">
+          <i class="fa fa-folder-o" aria-hidden="true" [ngStyle]="{'font-size': iconFontSize + 'px'}"></i>
+          <div class="count" [ngStyle]="{'font-size': countFontSize + 'px'}">{{numChildDirectories}}</div>
+        </div>
+        <div class="file-icon-container">
+          <i class="fa fa-file-o" aria-hidden="true" [ngStyle]="{'font-size': iconFontSize + 'px'}"></i>
+          <div class="count" [ngStyle]="{'font-size': countFontSize + 'px'}">{{numChildLogs}}</div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
 </div>

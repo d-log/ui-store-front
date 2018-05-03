@@ -1,8 +1,9 @@
 .vc_container {
-  overflow: hidden;
   width: 100%;
   height: auto;
-
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--main-darker-color);
   cursor: pointer;
   pointer-events: auto;
 }

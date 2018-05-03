@@ -19,6 +19,7 @@
 }
 
 #the-content {
+  /*background-color: var(--main-darker-3-color);*/
   float: left;
   flex: 1; /* fit the rest of viewport */
   height: 100%;

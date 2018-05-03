@@ -9,7 +9,7 @@
   <ng-template #templateName>
     <div *ngFor="let fileModel of fileModels, let i = index;">
       <div *ngIf="fileModel.metadata.type === 'LogDirectoryFileData'">
-        <div class="item directory" (click)="selectChildDirectory(i)">
+        <div class="item directory-icon-container" (click)="selectChildDirectory(i)">
           <i class="fa fa-folder"></i>
           <div class="item-name">{{fileModel.metadata.name}}</div>
           <i class="fa fa-play"></i>

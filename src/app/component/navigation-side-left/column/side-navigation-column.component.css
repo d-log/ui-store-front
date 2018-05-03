@@ -26,7 +26,7 @@ app-navigation-side-left-column-toolbar {
   background-color: var(--main-darker-color);
 }
 
-.directory {
+.directory-icon-container {
   display: grid;
   grid-template-columns: 25px auto 25px;
 }
