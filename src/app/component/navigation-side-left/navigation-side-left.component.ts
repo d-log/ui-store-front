@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {DirectoryModelService} from '../../service/core/file/type/directory/directory-model.service';
 import {FileModel} from '../../service/core/file/model/file-model';
 
@@ -9,7 +9,6 @@ import {FileModel} from '../../service/core/file/model/file-model';
 })
 export class NavigationSideLeftComponent implements OnInit {
 
-  @Output() onCloseNavigationSideLeft = new EventEmitter<boolean>();
   pathLogDirectoryFileModels: FileModel[];
 
   constructor(private directoryModelService: DirectoryModelService) {
@@ -25,10 +24,6 @@ export class NavigationSideLeftComponent implements OnInit {
   directorySelected(event: EventEmitter<any>) {
     this.pathLogDirectoryFileModels = this.pathLogDirectoryFileModels.slice(0, event[0] + 1);
     this.pathLogDirectoryFileModels.push(event[1]);
-  }
-
-  closeNavigationSideLeft() {
-    this.onCloseNavigationSideLeft.emit();
   }
 
   target() {

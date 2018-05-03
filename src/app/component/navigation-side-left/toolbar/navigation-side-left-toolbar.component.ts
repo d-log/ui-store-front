@@ -7,12 +7,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class NavigationSideLeftToolbarComponent {
 
-  @Output() onCloseNavigationSideLeft = new EventEmitter<boolean>();
   @Output() onTarget = new EventEmitter<boolean>();
-
-  closeNavigationSideLeft() {
-    this.onCloseNavigationSideLeft.emit(true);
-  }
 
   target() {
     this.onTarget.emit(true);

@@ -10,7 +10,7 @@
 .grid-container {
   display: grid;
   height: 100%;
-  grid-template-columns: auto 30px 30px;
+  grid-template-columns: auto 30px;
 }
 
 .search {

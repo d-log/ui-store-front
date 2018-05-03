@@ -3,7 +3,7 @@
   width: 100%;
   background-color: var(--main-darker-3-color);
   display: grid;
-  grid-template-columns: 50px 50px 50px auto 50px;
+  grid-template-columns: 50px 100px 50px 50px auto 50px;
 }
 
 .link-home {
@@ -15,10 +15,15 @@
   text-align: center;
   align-self: center;
   color: var(--main-color);
+  overflow: hidden;
 }
 
 .link:hover {
   color: var(--main-darker-2-color);
+}
+
+.fa-bars {
+  font-size: 20px;
 }
 
 .fa-search {

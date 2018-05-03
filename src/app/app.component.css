@@ -25,36 +25,6 @@
   overflow: scroll;
 }
 
-#fa-arrow-circle-right-container {
-  z-index: 1;
-  position: fixed;
-  top: 55px;
-  left: 5px;
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background-color: var(--main-color);
-
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
-}
-
-.fa-arrow-circle-right {
-  margin-top: -2px;
-  font-size: 23px;
-  color: var(--main-darker-color);
-}
-
-.fa-arrow-circle-right:hover {
-  color: var(--main-darker-2-color);
-}
-
-#fa-arrow-circle-right-container.close {
-  visibility: hidden;
-  opacity: 0;
-}
-
 #the-side-nav.close {
   width: 0;
   border-right: 0;

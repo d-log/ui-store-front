@@ -16,6 +16,14 @@ export class AppComponent {
     this.closeNavigationSideLeft();
   }
 
+  toggleNavigationSideLeft() {
+    if (this.navigationSideLeftState === 'close') {
+      this.openNavigationSideLeft();
+    } else {
+      this.closeNavigationSideLeft();
+    }
+  }
+
   closeNavigationSideLeft() {
     this.navigationSideLeftState = 'close';
     this.navigationSideLeftButtonState = '';

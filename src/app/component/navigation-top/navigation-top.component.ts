@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,12 +8,13 @@ import {Router} from '@angular/router';
 })
 export class NavigationTopComponent {
 
+  @Output() onToggleNavigationSideLeft = new EventEmitter<boolean>();
+
   constructor(private router: Router) {
   }
 
   home() {
     this.router.navigate(['home']);
-
   }
 
   archive() {
@@ -26,5 +27,9 @@ export class NavigationTopComponent {
 
   settings() {
     alert('coming soon');
+  }
+
+  toggle() {
+    this.onToggleNavigationSideLeft.emit(true);
   }
 }
