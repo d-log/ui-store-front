@@ -28,10 +28,7 @@ export class MasonryComponent implements OnInit {
 
   constructor(private _eventBroker: EventBrokerService) {
     this._masonry = null;
-    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CLOSED), (data: boolean) => {
-      this.viewportResize();
-    });
-    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_OPENED), (data: boolean) => {
+    this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), (data: boolean) => {
       this.viewportResize();
     });
     this._eventBroker.listen(String(BrokerEvent.CONTENT_SCROLLED), (data: boolean) => {

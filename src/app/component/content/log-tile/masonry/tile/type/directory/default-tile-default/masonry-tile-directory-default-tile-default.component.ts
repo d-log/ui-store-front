@@ -1,12 +1,14 @@
-import {AfterViewInit, Component, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
+import {BrokerEvent} from '../../../../../../../../service/event-broker-shared-service/broker-event';
+import {EventBrokerService} from '../../../../../../../../service/event-broker-shared-service/event-broker-service';
 
 @Component({
   selector: 'app-masonry-tile-directory-default-tile-default',
   templateUrl: './masonry-tile-directory-default-tile-default.component.html',
   styleUrls: ['./masonry-tile-directory-default-tile-default.component.css']
 })
-export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, AfterViewInit {
+export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, AfterViewChecked {
 
   @Input() fileModel: FileModel;
   @ViewChild('element') element: any;
@@ -56,7 +58,11 @@ export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, 
     this.adjustFontSize();
   }
 
-  ngAfterViewInit() {
+  /**
+   * ngAfterViewChecked() will be called every time change detection runs
+   * https://angular.io/guide/lifecycle-hooks
+   */
+  ngAfterViewChecked() {
     this.adjustFontSize();
   }
 
@@ -67,10 +73,5 @@ export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, 
     this.countFontSize = width / 4;
     this.nameFontSize = width / 20;
     this.descriptionFontSize = width / 27;
-  }
-
-  @HostListener('window:resize')
-  onWindowResize() {
-    this.adjustFontSize();
   }
 }

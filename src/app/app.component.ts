@@ -29,6 +29,7 @@ export class AppComponent {
     this.navigationSideLeftButtonState = '';
     // wait until animation is done with buffer, then send event
     this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CLOSED, 505);
+    this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED, 505);
   }
 
   openNavigationSideLeft() {
@@ -36,6 +37,7 @@ export class AppComponent {
     this.navigationSideLeftButtonState = 'close';
     // wait until animation is done with buffer, then send event
     this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_OPENED, 505);
+    this.broadcastEvent(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED, 505);
   }
 
   broadcastEvent(brokerEvent: BrokerEvent, millisecondDelay: number) {
