@@ -14,7 +14,8 @@ export class NavigationTopComponent {
   }
 
   home() {
-    this.router.navigate(['home']);
+    // this.router.navigateByUrl('home');
+    window.location.href = '/home';
   }
 
   archive() {

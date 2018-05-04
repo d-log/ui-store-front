@@ -10,9 +10,6 @@ import {LogType} from '../../../../service/core/file/model/extra/data/logdata/lo
 import {GetterRequest} from '../../../../service/core/model/request/getter-request';
 import {FileType} from '../../../../service/core/file/model/extra/file-type';
 
-/**
- * TODO add filters and sort by options
- */
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
@@ -36,23 +33,40 @@ export class ArchiveComponent {
   }
 
   initialize(params) {
+    // reset masonry
     if (!!this.masonryComponent) {
-      this.masonryComponent.ngOnInit();
+      this.masonryComponent.initialize();
     }
 
     this.moreFilesExist = true;
     this.isEmptyResponse = false;
+    this.getterRequest = this.generateGetterRequest(params);
 
+    this.getMoreFiles();
+    this.fileModelsObservable.subscribe(logModels => {
+      if (logModels.length === 0) {
+        this.isEmptyResponse = true;
+      }
+    });
+  }
+
+  private generateGetterRequest(params) {
     const getterRequest = new GetterRequest();
     getterRequest.millisecondThreshold = new Date().getTime();
     getterRequest.pageable = new Pageable(-1, 10);
     getterRequest.logType = LogType.TILE;
 
+    // grab value of URL parameters (example `q` in `localhost:4200/search?q=something`)
+    // getterRequest.searchString = this.activatedRoute.snapshot.queryParams['q'];
+    // getterRequest.directoryID = this.activatedRoute.snapshot.queryParams['directory-id'];
+    // getterRequest.tagID = this.activatedRoute.snapshot.queryParams['tag-id'];
+
+    // grab the matrix URL values (example `q` in `localhost:4200/log-page/archive;q=something;r=something/more/url`)
     getterRequest.searchString = params['q'];
     getterRequest.directoryID = params['directory-id'];
     getterRequest.tagID = params['tag-id'];
-
     const fileTypes: string = params['file-types'];
+
     if (!!fileTypes) {
       getterRequest.fileTypes = [];
       const fileTypesArray = fileTypes.split(':');
@@ -64,19 +78,7 @@ export class ArchiveComponent {
       getterRequest.fileTypes = [FileType.LogFileData];
     }
 
-    this.getterRequest = getterRequest;
-
-    this.getMoreFiles();
-    this.fileModelsObservable.subscribe(logModels => {
-      if (logModels.length === 0) {
-        this.isEmptyResponse = true;
-      }
-    });
-
-    // grab value of url parameters (example `q` in `localhost:4200/search?q=something)
-    // this.getterRequest.searchString = this.activatedRoute.snapshot.queryParams['q'];
-    // this.getterRequest.directoryID = this.activatedRoute.snapshot.queryParams['directory-id'];
-    // this.getterRequest.tagID = this.activatedRoute.snapshot.queryParams['tag-id'];
+    return getterRequest;
   }
 
   /**
