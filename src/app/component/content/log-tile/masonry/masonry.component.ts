@@ -5,6 +5,7 @@ import {BrokerEvent} from '../../../../service/event-broker-shared-service/broke
 import {FileModel} from '../../../../service/core/file/model/file-model';
 
 declare var Masonry: any;
+declare var imagesLoaded: any;
 
 @Component({
   selector: 'app-masonry',
@@ -80,14 +81,17 @@ export class MasonryComponent implements OnInit {
   generateMasonry() {
     setTimeout(() => {
       const grid = document.querySelector('.masonry');
-      this._masonry = new Masonry(grid, {
-        itemSelector: '.masonry-item',
-        columnWidth: '.masonry-item-sizer',
-        percentPosition: true,
-        gutter: 6,
-        // transitionDuration: 5
+
+      imagesLoaded(grid, () => {
+        this._masonry = new Masonry(grid, {
+          itemSelector: '.masonry-item',
+          columnWidth: '.masonry-item-sizer',
+          percentPosition: true,
+          gutter: 6,
+          // transitionDuration: 5
+        });
+        this.loadModelsIfEmptySpace();
       });
-      this.loadModelsIfEmptySpace();
     }, 5); // delay for dom update
   }
 

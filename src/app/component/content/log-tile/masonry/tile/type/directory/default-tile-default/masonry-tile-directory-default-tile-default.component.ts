@@ -1,7 +1,5 @@
-import {AfterViewChecked, AfterViewInit, Component, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
-import {BrokerEvent} from '../../../../../../../../service/event-broker-shared-service/broker-event';
-import {EventBrokerService} from '../../../../../../../../service/event-broker-shared-service/event-broker-service';
 
 @Component({
   selector: 'app-masonry-tile-directory-default-tile-default',
