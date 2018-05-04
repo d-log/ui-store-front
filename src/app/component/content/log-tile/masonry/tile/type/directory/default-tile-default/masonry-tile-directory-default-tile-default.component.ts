@@ -13,7 +13,6 @@ export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, 
   @Input() fileModel: FileModel;
   @ViewChild('element') element: any;
 
-
   name: string;
   description: string;
   numChildDirectories: string;

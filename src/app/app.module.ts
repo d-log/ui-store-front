@@ -6,15 +6,15 @@ import {AppComponent} from './app.component';
 import {SafePipe} from './pipe/safe.pipe';
 import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
-import {LogPageComponent} from './component/content/log-page/log-page.component';
+import {FilePageComponent} from './component/content/file-page/file-page.component';
 import {HomeComponent} from './component/content/home/home.component';
-import {LogDataVideoYoutubeDefaultComponent} from './component/content/log-page/log-data/video-youtube-default/log-data-video-youtube-default.component';
-import {LogDataTextPlainDefaultComponent} from './component/content/log-page/log-data/text-plain-default/log-data-text-plain-default.component';
-import {LogDataImageDefaultComponent} from './component/content/log-page/log-data/image-default/log-data-image-default.component';
-import {LogDataTextMarkdownDefaultComponent} from './component/content/log-page/log-data/text-markdown-default/log-data-text-markdown-default.component';
-import {LogDataDefaultDefaultComponent} from './component/content/log-page/log-data/default-default/log-data-default-default.component';
-import {LogDataTextQuoteDefaultComponent} from './component/content/log-page/log-data/text-quote-default/log-data-text-quote-default.component';
-import {LogDataTextCodeDefaultComponent} from './component/content/log-page/log-data/text-code-default/log-data-text-code-default.component';
+import {LogDataVideoYoutubeDefaultComponent} from './component/content/file-page/file-data/video-youtube-default/log-data-video-youtube-default.component';
+import {LogDataTextPlainDefaultComponent} from './component/content/file-page/file-data/text-plain-default/log-data-text-plain-default.component';
+import {LogDataImageDefaultComponent} from './component/content/file-page/file-data/image-default/log-data-image-default.component';
+import {LogDataTextMarkdownDefaultComponent} from './component/content/file-page/file-data/text-markdown-default/log-data-text-markdown-default.component';
+import {LogDataDefaultDefaultComponent} from './component/content/file-page/file-data/default-default/log-data-default-default.component';
+import {LogDataTextQuoteDefaultComponent} from './component/content/file-page/file-data/text-quote-default/log-data-text-quote-default.component';
+import {LogDataTextCodeDefaultComponent} from './component/content/file-page/file-data/text-code-default/log-data-text-code-default.component';
 import {MarkdownService} from './service/markdown/markdown.service';
 import {MasonryTileDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/default-tile-default/masonry-tile-default-tile-default.component';
 import {MasonryTileTextPlainDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-plain-default/masonry-tile-text-plain-default.component';
@@ -42,6 +42,7 @@ import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/conte
 import {MasonryTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default/masonry-tile-default.component';
 import {MasonryTileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/masonry-tile-directory.component';
 import {MasonryTileLogComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log.component';
+import {FilePageContentHeaderComponent} from './component/content/file-page/file-page-content-header/file-page-content-header.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MasonryTileLogComponent} from './component/content/log-tile/masonry/tile
     NavigationSideLeftColumnToolbarComponent,
     HomeComponent,
     PageNotFoundComponent,
-    LogPageComponent,
+    FilePageComponent,
+    FilePageContentHeaderComponent,
     ArchiveComponent,
     MasonryComponent,
     MasonryTileComponent,

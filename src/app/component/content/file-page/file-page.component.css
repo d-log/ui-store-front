@@ -1,0 +1,14 @@
+.vc_container_container {
+  width: 100%;
+}
+
+.vc_container {
+  display: table;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.comment {
+  margin-top: 50px;
+}
