@@ -1,15 +1,42 @@
-.meta_data {
-  color: var(--text-color);
+.meta-data-container {
+  margin-top: 50px;
+  color: var(--text-light-2-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.views-created-updated {
+  font-size: 13px;
+}
+
+.border-left {
+  border-left: 1px solid;
+  padding-left: 13px;
+  margin-left: 10px;
+}
+
+.name {
+  margin-top: 20px;
+  font: 400 60px/1.12em "maiola",serif;
+}
+
+.description {
+  font-size: 20px;
+}
+
+.directory-tag {
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .tag-or-directory {
   padding-left: 2px;
   padding-right: 2px;
-  background-color: var(--main-darker-2-color);
   border-radius: 2px;
-  color: var(--text-light-4-color);
 }
 
 .tag-or-directory:hover {
-  background-color: var(--main-darker-3-color);
+  text-decoration: underline;
 }

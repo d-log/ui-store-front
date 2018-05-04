@@ -13,23 +13,35 @@ export class FilePageContentHeaderComponent {
     this.initialize(fileModel);
   }
 
-  title: string;
+  views: number;
+  name: string;
   description: string;
   createdDateString: string;
   lastUpdatedDateString: string;
   logDirectoryFileModels: FileModel[];
   tagFileModels: FileModel[];
 
+  showUpdated: boolean;
+
   constructor(private router: Router) {
   }
 
   initialize(fileModel: FileModel) {
-    this.title = fileModel.metadata.name;
-    this.description = fileModel.metadata.description;
-    this.createdDateString = new Date(fileModel.metadata.created).toDateString();
-    this.lastUpdatedDateString = new Date(fileModel.metadata.lastUpdated).toDateString();
-    this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
-    this.tagFileModels = fileModel.data.tagFileDatas;
+    if (!!fileModel) {
+      this.views = 13;
+      this.name = fileModel.metadata.name;
+      this.description = fileModel.metadata.description;
+      this.createdDateString = new Date(fileModel.metadata.created).toDateString();
+      this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
+      this.tagFileModels = fileModel.data.tagFileDatas;
+
+      if (!!fileModel.metadata.lastUpdated && (fileModel.metadata.created !== fileModel.metadata.lastUpdated)) {
+        this.lastUpdatedDateString = new Date(fileModel.metadata.lastUpdated).toDateString();
+        this.showUpdated = true;
+      } else {
+        this.showUpdated = false;
+      }
+    }
   }
 
   viewDirectoryInContent(logDirectoryFileID: string) {
