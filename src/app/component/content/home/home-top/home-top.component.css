@@ -1,16 +1,30 @@
 .top-file-container {
-  height: calc(100vh - 50px);
+  height: calc(200vh + 200px);
   align-self: center;
   text-align: center;
-  background-color: var(--main-darker-3-color);
+  background: linear-gradient(to bottom, var(--main-darker-3-color), rgba(0, 0, 0, 0));
   color: var(--main-color);
   display: flex;
   flex-direction: column;
+}
+
+.first {
+  height: calc(100vh - 50px);
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-style: oblique;
+  flex-direction: column;
 }
 
 .bottom {
-  height: 50px;
+  padding-bottom: 50px;
+}
+
+.second {
+  height: 50vh;
+}
+
+.third {
+  flex: 1;
 }
