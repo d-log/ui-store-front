@@ -20,6 +20,8 @@
   color: var(--main-darker-2-color);
   background-color: var(--main-color);
   white-space: nowrap;
+  overflow: hidden;
+
 }
 
 .fa {

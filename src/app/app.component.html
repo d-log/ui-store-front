@@ -1,11 +1,13 @@
-<div id="navigation-top">
-  <app-navigation-top (onToggleNavigationSideLeft)="toggleNavigationSideLeft($event)"></app-navigation-top>
-</div>
 <div id="the-container">
   <div id="the-side-nav" [className]="navigationSideLeftState">
     <app-navigation-side-left></app-navigation-side-left>
   </div>
-  <div id="the-content" (scroll)="onContentScroll($event)">
-    <router-outlet><!-- content here (some contains footer)--></router-outlet>
+  <div id="nav-top-and-the-content">
+    <div id="navigation-top">
+      <app-navigation-top (onToggleNavigationSideLeft)="toggleNavigationSideLeft($event)"></app-navigation-top>
+    </div>
+    <div id="the-content" (scroll)="onContentScroll($event)">
+      <router-outlet><!-- content here (some contains footer)--></router-outlet>
+    </div>
   </div>
 </div>
