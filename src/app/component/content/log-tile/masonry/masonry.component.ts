@@ -39,11 +39,15 @@ export class MasonryComponent implements OnInit {
 
   private viewportResize() {
     if (this._masonry !== null) {
-      this._masonry.layout();
-
+      // wait for other resizing (font-size) to be complete
       setTimeout(() => {
-        this.loadModelsIfEmptySpace();
-      }, 500); // wait for layoutComplete
+        this._masonry.layout();
+
+        // wait for layoutComplete
+        setTimeout(() => {
+          this.loadModelsIfEmptySpace();
+        }, 250);
+      }, 25);
     }
   }
 
@@ -82,16 +86,16 @@ export class MasonryComponent implements OnInit {
     setTimeout(() => {
       const grid = document.querySelector('.masonry');
 
-      imagesLoaded(grid, () => {
-        this._masonry = new Masonry(grid, {
-          itemSelector: '.masonry-item',
-          columnWidth: '.masonry-item-sizer',
-          percentPosition: true,
-          gutter: 6,
-          // transitionDuration: 5
-        });
-        this.loadModelsIfEmptySpace();
+      // imagesLoaded(grid, () => {
+      this._masonry = new Masonry(grid, {
+        itemSelector: '.masonry-item',
+        columnWidth: '.masonry-item-sizer',
+        percentPosition: true,
+        gutter: 12,
+        // transitionDuration: 5
       });
+      this.loadModelsIfEmptySpace();
+      // });
     }, 5); // delay for dom update
   }
 

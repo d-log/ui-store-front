@@ -18,17 +18,23 @@
 }
 
 .name {
+  color: var(--main-darker-3-color);
   margin-top: 20px;
-  font: 400 60px/1.12em "maiola",serif;
+  font: 400 60px/1.12em "maiola", serif;
 }
 
 .description {
+  color: var(--main-darker-3-color);
   font-size: 20px;
 }
 
-.directory-tag {
+.directory-tag-container {
   margin-top: 30px;
   margin-bottom: 40px;
+}
+
+.directory-container {
+  margin-bottom: 5px;
 }
 
 .tag-or-directory {

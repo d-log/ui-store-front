@@ -31,6 +31,9 @@ export class FilePageContentHeaderComponent {
       this.views = 13;
       this.name = fileModel.metadata.name;
       this.description = fileModel.metadata.description;
+      if (!this.description) {
+        this.description = 'sadness :( there is no description';
+      }
       this.createdDateString = new Date(fileModel.metadata.created).toDateString();
       this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
       this.tagFileModels = fileModel.data.tagFileDatas;

@@ -1,8 +1,21 @@
-div {
+.container {
   overflow: hidden;
   width: 100%;
-  max-height: 100px;
-  background-color: #e4e4e4;
+  background-color: var(--main-light-dark-color);
   text-align: center;
   text-overflow: ellipsis;
+  border-radius: 10px;
+  color: var(--main-darker-3-color);
+}
+
+.quote {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.source-name {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
 }

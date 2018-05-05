@@ -6,15 +6,15 @@
   </div>
   <div class="name">{{name}}</div>
   <div class="description">{{description}}</div>
-  <div class="directory-tag">
-    <div>
+  <div class="directory-tag-container">
+    <div class="directory-container">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
       <a class="tag-or-directory" *ngFor="let model of logDirectoryFileModels"
          (click)="viewDirectoryInContent(model.id)">
         {{model.metadata.name}}
       </a>
     </div>
-    <div>
+    <div class="tag-container">
       <i class="fa fa-tags" aria-hidden="true"></i>
       <a class="tag-or-directory" *ngFor="let model of tagFileModels" (click)="viewTagInContent(model.id)">
         {{model.metadata.name}}

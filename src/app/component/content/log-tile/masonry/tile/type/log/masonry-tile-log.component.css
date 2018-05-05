@@ -3,7 +3,12 @@
   height: auto;
   border-radius: 5px;
   overflow: hidden;
-  background-color: var(--main-darker-color);
   cursor: pointer;
   pointer-events: auto;
+  background-color: var(--main-lighter-color);
+}
+
+.vc_container {
+  box-sizing: border-box;
+  border: 1px solid var(--main-darker-color);
 }

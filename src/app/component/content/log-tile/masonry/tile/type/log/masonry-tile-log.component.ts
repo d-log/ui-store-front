@@ -16,19 +16,32 @@ import {Router} from '@angular/router';
 })
 export class MasonryTileLogComponent implements OnInit {
   @Input() fileModel: FileModel;
-  @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
+  @ViewChild('vc', {read: ViewContainerRef}) vc: ViewContainerRef;
+
+  showBottom: boolean;
 
   constructor(private router: Router,
               private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
+    this.showBottom = this.shouldDisplayBottom(this.fileModel);
+    this.loadComponent(this.fileModel);
+  }
+
+  shouldDisplayBottom(fileModel: FileModel) {
+    return true;
+  }
+
+  loadComponent(fileModel: FileModel) {
     const component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
-    this.loadComponent(this.fileModel, component);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    const componentRef = this.vc.createComponent(componentFactory);
+    (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
   }
 
   // TODO turn into service to map logData types to Masonry Tile Components
-  public getComponentFromData(logData: LogData) {
+  private getComponentFromData(logData: LogData) {
     switch (logData.logDataType) {
       case 'ImageInternalLogData': {
         return MasonryTileImageDefaultComponent;
@@ -47,12 +60,6 @@ export class MasonryTileLogComponent implements OnInit {
       }
     }
     return MasonryTileDefaultTileDefaultComponent;
-  }
-
-  loadComponent(fileModel: FileModel, component: any) {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    const componentRef = this._container.createComponent(componentFactory);
-    (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
   }
 
   route2FilePage() {

@@ -8,32 +8,32 @@
 @media (min-width: 750px) and (max-width: 1250px) {
   .masonry-item,
   .masonry-item-sizer {
-    width: calc(50% - 3px);
+    width: calc(50% - 6px);
   }
 }
 
 @media (min-width: 1250px) and (max-width: 1750px) {
   .masonry-item,
   .masonry-item-sizer {
-    width: calc(33.333333333333333% - 4px);
+    width: calc(33.333333333333333% - 8px);
   }
 }
 
 @media (min-width: 1750px) {
   .masonry-item,
   .masonry-item-sizer {
-    width: calc(25% - 4.5px);
+    width: calc(25% - 9px);
   }
 }
 
 .masonry {
-  margin-top: 6px;
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .masonry-item {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .end {

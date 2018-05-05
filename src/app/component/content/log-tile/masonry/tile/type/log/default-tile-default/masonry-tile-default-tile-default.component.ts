@@ -10,14 +10,14 @@ export class MasonryTileDefaultTileDefaultComponent implements OnInit {
 
   @Input() fileModel: FileModel;
 
-  title: string;
+  name: string;
   description: string;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.title = this.fileModel.metadata.name;
+    this.name = this.fileModel.metadata.name;
     this.description = this.fileModel.metadata.description;
   }
 

@@ -17,7 +17,7 @@
   align-self: center;
   margin: 3px;
   border-radius: 3px;
-  color: var(--main-darker-color);
+  color: var(--main-darker-2-color);
   background-color: var(--main-color);
   white-space: nowrap;
 }

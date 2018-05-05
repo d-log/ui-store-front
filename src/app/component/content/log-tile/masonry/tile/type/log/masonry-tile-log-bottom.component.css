@@ -1,0 +1,16 @@
+.container {
+  border-top: 1px solid var(--main-darker-color);
+}
+
+.name {
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

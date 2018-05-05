@@ -1,3 +1,6 @@
 <div class="vc_container" (click)="route2FilePage()">
   <div #vc></div>
+  <div *ngIf="showBottom">
+    <app-masonry-tile-log-bottom [fileModel]="fileModel"></app-masonry-tile-log-bottom>
+  </div>
 </div>

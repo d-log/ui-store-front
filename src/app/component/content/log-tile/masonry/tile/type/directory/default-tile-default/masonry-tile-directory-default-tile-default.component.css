@@ -7,6 +7,10 @@
   color: var(--main-darker-3-color);
 }
 
+.container:hover .directory-image {
+  filter: brightness(90%);
+}
+
 .directory-image {
   position: absolute;
   width: 100%;
