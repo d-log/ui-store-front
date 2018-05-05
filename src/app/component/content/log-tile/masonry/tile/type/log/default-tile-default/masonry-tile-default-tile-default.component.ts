@@ -13,12 +13,14 @@ export class MasonryTileDefaultTileDefaultComponent implements OnInit {
   name: string;
   description: string;
 
-  constructor() {
-  }
-
   ngOnInit() {
     this.name = this.fileModel.metadata.name;
+    if (!this.name) {
+      this.name = 'I DIDN\'T PUT A NAME ON THIS...';
+    }
     this.description = this.fileModel.metadata.description;
+    if (!this.description) {
+      this.description = 'sadness :( there\'s no description';
+    }
   }
-
 }

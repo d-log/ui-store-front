@@ -3,8 +3,6 @@
   width: 100%;
   padding-bottom: 78%;
   overflow: hidden;
-
-  color: var(--main-darker-3-color);
 }
 
 .container:hover .directory-image {

@@ -1,5 +1,7 @@
 div {
-  width: 100%;
+  padding: 10px;
+  width: calc(100% - 20px);
   text-overflow: ellipsis;
   white-space: pre-line; /* value `pre` does not wrap, luckily pre-line does */
+  text-align: justify;
 }

@@ -30,11 +30,11 @@ export class MasonryTileLogComponent implements OnInit {
   }
 
   shouldDisplayBottom(fileModel: FileModel) {
-    return true;
+    return false;
   }
 
   loadComponent(fileModel: FileModel) {
-    const component = this.getComponentFromData(this.fileModel.data.logDatas[0]);
+    const component: any = this.getComponentFromData(this.fileModel.data.logDatas[0]);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this.vc.createComponent(componentFactory);
     (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;

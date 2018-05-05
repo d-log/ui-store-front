@@ -1,5 +1,5 @@
 .item-top {
-  color: var(--main-color);
+  color: var(--main-lighter-color);
   background-color: var(--main-darker-color);
   text-align: center;
 }

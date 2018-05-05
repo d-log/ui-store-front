@@ -43,7 +43,7 @@ import {MasonryTileDefaultComponent} from './component/content/log-tile/masonry/
 import {MasonryTileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/masonry-tile-directory.component';
 import {MasonryTileLogComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log.component';
 import {FilePageContentHeaderComponent} from './component/content/file-page/file-page-content-header/file-page-content-header.component';
-import {TopFileComponent} from './component/content/home/top-file/top-file.component';
+import {HomeTopComponent} from './component/content/home/home-top/home-top.component';
 import {MasonryTileLogBottomComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log-bottom.component';
 
 @NgModule({
@@ -56,7 +56,7 @@ import {MasonryTileLogBottomComponent} from './component/content/log-tile/masonr
     SideNavigationColumnComponent,
     NavigationSideLeftColumnToolbarComponent,
     HomeComponent,
-    TopFileComponent,
+    HomeTopComponent,
     PageNotFoundComponent,
     FilePageComponent,
     FilePageContentHeaderComponent,

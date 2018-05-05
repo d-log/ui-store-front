@@ -22,7 +22,7 @@ app-navigation-side-left-column-toolbar {
 }
 
 .item:hover {
-  color: white;
+  color: var(--main-lighter-color);
   background-color: var(--main-darker-color);
 }
 

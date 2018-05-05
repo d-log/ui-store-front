@@ -1,5 +1,6 @@
 .container {
   border-top: 1px solid var(--main-darker-color);
+  padding: 10px;
 }
 
 .name {
@@ -7,10 +8,12 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 20px;
 }
 
 .description {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 15px;
 }
