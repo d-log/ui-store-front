@@ -1,5 +1,16 @@
 .top-file-container {
-  height: 600px;
+  height: calc(100vh - 50px);
   align-self: center;
   text-align: center;
+  background-color: var(--main-darker-3-color);
+  color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-style: oblique;
+}
+
+.bottom {
+  height: 50px;
 }
