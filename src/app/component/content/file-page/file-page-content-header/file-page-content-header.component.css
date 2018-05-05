@@ -1,5 +1,4 @@
 .meta-data-container {
-  margin-top: 50px;
   color: var(--text-light-2-color);
   display: flex;
   align-items: center;
@@ -30,7 +29,6 @@
 
 .directory-tag-container {
   margin-top: 30px;
-  margin-bottom: 40px;
 }
 
 .directory-container {
