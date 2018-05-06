@@ -8,13 +8,15 @@ import {GetterRequest} from '../model/request/getter-request';
 import {FileModel} from './model/file-model';
 import {FileType} from './model/extra/file-type';
 import {SortOrder} from '../model/request/sort-order';
+import {environment} from '../../../../environments/environment';
 
 @Injectable()
 export class FileModelService {
 
-  private fileURL = 'http://core.marcuschiu.com/api/file';  // URL to web api
+  private readonly fileURL: string;
 
   constructor(private http: Http) {
+    this.fileURL = environment.coreEndPoint + '/api/file';
   }
 
   /**

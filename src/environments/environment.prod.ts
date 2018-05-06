@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  coreEndPoint: 'http://core.marcuschiu-something.com',
 };

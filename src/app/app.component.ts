@@ -46,20 +46,6 @@ export class AppComponent {
     }, millisecondDelay);
   }
 
-  // auto open close turned off in favor of manual control
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event) {
-  //   if (event.target.innerWidth < 900) {
-  //     if (this.navigationSideLeftState === '') {
-  //       this.closeNavigationSideLeft();
-  //     }
-  //   } else {
-  //     if (this.navigationSideLeftState === 'close') {
-  //       this.openNavigationSideLeft();
-  //     }
-  //   }
-  // }
-
   onContentScroll(event) {
     this._eventBroker.emit<boolean>(String(BrokerEvent.CONTENT_SCROLLED), true);
   }

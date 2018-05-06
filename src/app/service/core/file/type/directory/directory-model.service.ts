@@ -4,13 +4,15 @@ import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../../../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
 import {FileModel} from '../../model/file-model';
+import {environment} from '../../../../../../environments/environment';
 
 @Injectable()
 export class DirectoryModelService {
 
-  private logModelsURL = 'http://core.marcuschiu.com/api/file/log-directory';  // URL to web api
+  private readonly logModelsURL: string;
 
   constructor(private http: Http) {
+    this.logModelsURL = environment.coreEndPoint + '/api/file/log-directory';
   }
 
   findOne(id: string): Observable<FileModel> {

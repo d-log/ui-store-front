@@ -5,14 +5,16 @@ import {LogType} from '../../model/extra/data/logdata/log-type';
 import {FileModel} from '../../model/file-model';
 import {HateoasResponse} from '../../../model/response/hateoas-response';
 import {Observable} from 'rxjs/Observable';
+import {environment} from '../../../../../../environments/environment';
 
 
 @Injectable()
 export class LogModelService {
 
-  private logURL = 'http://core.marcuschiu.com/api/file/log';  // URL to web api
+  private readonly logURL: string;  // URL to web api
 
   constructor(private http: Http) {
+    this.logURL = environment.coreEndPoint + '/api/file/log';
   }
 
   findOne(id: string, logType: LogType): Observable<FileModel> {
