@@ -41,7 +41,6 @@ export class FilePageComponent {
         if (fileModel !== null) {
           this.fileModel = fileModel;
           this.displayCommentSection = fileModel.metadata.displayCommentSection;
-          debugger;
           this.displayLog(fileModel);
         }
       });

@@ -3,12 +3,7 @@
   width: 100%;
   background-color: var(--main-darker-3-color);
   display: grid;
-  grid-template-columns: 50px 100px 50px auto 50px;
-}
-
-.link-home {
-  font-size: 30px;
-  font-style: normal;
+  grid-template-columns: 50px auto 50px;
 }
 
 .link {
@@ -22,15 +17,22 @@
   color: var(--main-darker-2-color);
 }
 
+.home-search {
+  display: flex;
+  align-items: center;
+}
+
+.link-home {
+  font-size: 30px;
+  font-style: normal;
+}
+
 .fa-bars {
   font-size: 20px;
 }
 
 .fa-search {
-  font-size: 20px;
-}
-
-.fa-binoculars {
+  margin-left: 15px;
   font-size: 20px;
 }
 

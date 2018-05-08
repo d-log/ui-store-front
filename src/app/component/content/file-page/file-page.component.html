@@ -6,8 +6,11 @@
       </div>
       <div #vc></div>
     </div>
-    <div *ngIf="displayCommentSection" class="comment">
+    <div *ngIf="displayCommentSection; else commentsDisabled" class="comment">
       <disqus [identifier]="id"></disqus>
     </div>
+    <ng-template #commentsDisabled>
+      <div class="comments-disabled">COMMENTS DISABLED</div>
+    </ng-template>
   </div>
 </div>
