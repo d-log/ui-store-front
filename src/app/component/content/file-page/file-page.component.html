@@ -6,7 +6,7 @@
       </div>
       <div #vc></div>
     </div>
-    <div class="comment">
+    <div *ngIf="displayCommentSection" class="comment">
       <disqus [identifier]="id"></disqus>
     </div>
   </div>

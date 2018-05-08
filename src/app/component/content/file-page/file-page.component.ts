@@ -24,6 +24,7 @@ export class FilePageComponent {
 
   fileModel: FileModel;
   id: string;
+  displayCommentSection: boolean;
 
   constructor(private logFileService: LogModelService,
               private activatedRoute: ActivatedRoute,
@@ -34,10 +35,13 @@ export class FilePageComponent {
   initialize() {
     // grab value of url param `id` in `localhost:4200/log-page/:id
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.displayCommentSection = false;
     if (!!this.id) {
       this.logFileService.findOne(this.id, LogType.PAGE).subscribe((fileModel: FileModel) => {
         if (fileModel !== null) {
           this.fileModel = fileModel;
+          this.displayCommentSection = fileModel.metadata.displayCommentSection;
+          debugger;
           this.displayLog(fileModel);
         }
       });

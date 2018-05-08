@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  coreEndPoint: 'http://core.marcuschiu.com',
+  coreEndPoint: 'http://localhost:8888',
 };
