@@ -1,7 +1,7 @@
 import {Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import {FileModel} from '../../../../service/core/file/model/file-model';
-import {LogData} from '../../../../service/core/file/model/extra/data/logdata/log-data';
+import {LogData} from '../../../../service/core/file/model/extra/data/log/extra/log-data';
 import {LogDataTextPlainDefaultComponent} from './file-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataVideoYoutubeDefaultComponent} from './file-data/video-youtube-default/log-data-video-youtube-default.component';
 import {LogDataTextMarkdownDefaultComponent} from './file-data/text-markdown-default/log-data-text-markdown-default.component';
@@ -32,14 +32,15 @@ export class FilePageComponent {
 
   initialize(fileModel: FileModel) {
     this.displayCommentSection = false;
-    if (fileModel !== null) {
+    this._container.clear();
+
+    if (!!fileModel) {
       this.displayCommentSection = fileModel.metadata.displayCommentSection;
       this.displayLog(fileModel);
     }
   }
 
   displayLog(fileModel: FileModel) {
-    this._container.clear();
     for (const logData of fileModel.data.logDatas) {
       const component = this.getComponentFromData(logData);
       this.loadComponent(logData, component);

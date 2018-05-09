@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
-import {LogType} from './model/extra/data/logdata/log-type';
+import {LogType} from './model/extra/data/log/extra/log-type';
 import {GetterRequest} from '../model/request/getter-request';
 import {FileModel} from './model/file-model';
 import {FileType} from './model/extra/file-type';
@@ -70,7 +70,7 @@ export class FileModelService {
     if (urlParameters.length > 0) {
       url += '?' + urlParameters.join('&');
     }
-    console.log(url);
+    // console.log(url);
 
     return url;
   }

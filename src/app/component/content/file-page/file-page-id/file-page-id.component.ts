@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {FileModel} from '../../../../service/core/file/model/file-model';
 import {LogModelService} from '../../../../service/core/file/type/log/log-model.service';
-import {LogType} from '../../../../service/core/file/model/extra/data/logdata/log-type';
+import {LogType} from '../../../../service/core/file/model/extra/data/log/extra/log-type';
 
 @Component({
   selector: 'app-file-page-id',

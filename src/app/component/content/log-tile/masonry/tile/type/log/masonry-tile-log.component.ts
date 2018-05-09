@@ -1,6 +1,6 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {FileModel} from '../../../../../../../service/core/file/model/file-model';
-import {LogData} from '../../../../../../../service/core/file/model/extra/data/logdata/log-data';
+import {LogData} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data';
 import {MasonryTileImageDefaultComponent} from './image-default/masonry-tile-image-default.component';
 import {MasonryTileTextPlainDefaultComponent} from './text-plain-default/masonry-tile-text-plain-default.component';
 import {MasonryTileDefaultTileDefaultComponent} from './default-tile-default/masonry-tile-default-tile-default.component';
