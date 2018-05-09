@@ -5,7 +5,8 @@ import {BrokerEvent} from '../../../../service/event-broker-shared-service/broke
 import {FileModel} from '../../../../service/core/file/model/file-model';
 
 declare var Masonry: any;
-declare var imagesLoaded: any;
+
+// declare var imagesLoaded: any;
 
 @Component({
   selector: 'app-masonry',

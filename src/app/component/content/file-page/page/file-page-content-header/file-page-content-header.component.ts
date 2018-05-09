@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FileModel} from '../../../../service/core/file/model/file-model';
+import {FileModel} from '../../../../../service/core/file/model/file-model';
 import {Router} from '@angular/router';
 
 @Component({

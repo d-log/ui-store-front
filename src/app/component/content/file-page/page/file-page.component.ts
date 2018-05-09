@@ -1,18 +1,15 @@
-import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {LogDataImageDefaultComponent} from './file-data/image-default/log-data-image-default.component';
+import {FileModel} from '../../../../service/core/file/model/file-model';
+import {LogData} from '../../../../service/core/file/model/extra/data/logdata/log-data';
 import {LogDataTextPlainDefaultComponent} from './file-data/text-plain-default/log-data-text-plain-default.component';
 import {LogDataVideoYoutubeDefaultComponent} from './file-data/video-youtube-default/log-data-video-youtube-default.component';
-import {LogDataComponentTwo} from './file-data/log-data-component-two';
 import {LogDataTextMarkdownDefaultComponent} from './file-data/text-markdown-default/log-data-text-markdown-default.component';
+import {LogDataImageDefaultComponent} from './file-data/image-default/log-data-image-default.component';
 import {LogDataDefaultDefaultComponent} from './file-data/default-default/log-data-default-default.component';
-import {LogDataTextQuoteDefaultComponent} from './file-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './file-data/text-code-default/log-data-text-code-default.component';
-import {FileModel} from '../../../service/core/file/model/file-model';
-import {LogType} from '../../../service/core/file/model/extra/data/logdata/log-type';
-import {LogData} from '../../../service/core/file/model/extra/data/logdata/log-data';
-import {LogModelService} from '../../../service/core/file/type/log/log-model.service';
+import {LogDataTextQuoteDefaultComponent} from './file-data/text-quote-default/log-data-text-quote-default.component';
+import {LogDataComponentTwo} from './file-data/log-data-component-two';
 
 @Component({
   selector: 'app-file-page',
@@ -20,30 +17,24 @@ import {LogModelService} from '../../../service/core/file/type/log/log-model.ser
   styleUrls: ['./file-page.component.css']
 })
 export class FilePageComponent {
-  @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
-
-  fileModel: FileModel;
-  id: string;
-  displayCommentSection: boolean;
-
-  constructor(private logFileService: LogModelService,
-              private activatedRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) {
-    activatedRoute.params.subscribe(val => this.initialize());
+  @Input() set fileModel(fileModel: FileModel) {
+    this._fileModel = fileModel;
+    this.initialize(fileModel);
   }
 
-  initialize() {
-    // grab value of url param `id` in `localhost:4200/log-page/:id
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  _fileModel: FileModel;
+
+  @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
+  displayCommentSection: boolean;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+  }
+
+  initialize(fileModel: FileModel) {
     this.displayCommentSection = false;
-    if (!!this.id) {
-      this.logFileService.findOne(this.id, LogType.PAGE).subscribe((fileModel: FileModel) => {
-        if (fileModel !== null) {
-          this.fileModel = fileModel;
-          this.displayCommentSection = fileModel.metadata.displayCommentSection;
-          this.displayLog(fileModel);
-        }
-      });
+    if (fileModel !== null) {
+      this.displayCommentSection = fileModel.metadata.displayCommentSection;
+      this.displayLog(fileModel);
     }
   }
 
