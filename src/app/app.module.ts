@@ -47,9 +47,13 @@ import {LogDataTextMarkdownDefaultComponent} from './component/content/file-page
 import {LogDataTextQuoteDefaultComponent} from './component/content/file-page/page/file-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/file-page/page/file-data/text-code-default/log-data-text-code-default.component';
 import {FilePageIdComponent} from './component/content/file-page/file-page-id/file-page-id.component';
-import {FileCreateOrganizationComponent} from './component/content/create-file/organization/file-create-organization.component';
+import {FileCreateOrganizationComponent} from './component/content/create-file/data/organization/file-create-organization.component';
 import {FileCreateMetadataComponent} from './component/content/create-file/metadata/file-create-metadata.component';
-import {FileCreateLogDataComponent} from './component/content/create-file/log-data/file-create-log-data.component';
+import {FileCreateLogDataComponent} from './component/content/create-file/data/log-data/file-create-log-data.component';
+import {FileCreateOrganizationTagComponent} from './component/content/create-file/data/organization/tag/file-create-organization-tag.component';
+import {FileCreateOrganizationDirectoryComponent} from './component/content/create-file/data/organization/directory/file-create-organization-directory.component';
+import {TagModelService} from './service/core/file/type/tag/tag-model.service';
+import {FileCreateDataComponent} from './component/content/create-file/data/file-create-data.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,10 @@ import {FileCreateLogDataComponent} from './component/content/create-file/log-da
     HomeTopComponent,
     PageNotFoundComponent,
     FileCreateComponent,
+    FileCreateDataComponent,
     FileCreateOrganizationComponent,
+    FileCreateOrganizationTagComponent,
+    FileCreateOrganizationDirectoryComponent,
     FileCreateMetadataComponent,
     FileCreateLogDataComponent,
     FilePageIdComponent,
@@ -122,6 +129,7 @@ import {FileCreateLogDataComponent} from './component/content/create-file/log-da
   providers: [
     FileModelService,
     LogModelService,
+    TagModelService,
     DirectoryModelService,
     MarkdownService,
     EventBrokerService,

@@ -35,16 +35,22 @@ export class FilePageComponent {
     this._container.clear();
 
     if (!!fileModel) {
-      this.displayCommentSection = fileModel.metadata.displayCommentSection;
+      if (!!fileModel.metadata) {
+        this.displayCommentSection = fileModel.metadata.displayCommentSection;
+      } else {
+        this.displayCommentSection = false;
+      }
       this.displayLog(fileModel);
     }
   }
 
   displayLog(fileModel: FileModel) {
     if (!!fileModel.data) {
-      for (const logData of fileModel.data.logDatas) {
-        const component = this.getComponentFromData(logData);
-        this.loadComponent(logData, component);
+      if (!!fileModel.data.logDatas) {
+        for (const logData of fileModel.data.logDatas) {
+          const component = this.getComponentFromData(logData);
+          this.loadComponent(logData, component);
+        }
       }
     }
   }

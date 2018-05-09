@@ -13,17 +13,6 @@
   overflow: scroll;
 }
 
-.textarea {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  overflow: scroll;
-  resize: none;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
 .result {
   overflow: scroll;
 }

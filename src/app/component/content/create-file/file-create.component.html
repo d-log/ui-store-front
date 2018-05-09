@@ -1,9 +1,9 @@
 <div class="container">
   <div class="workspace">
-    <app-file-create-metadata [metadata]="fileModel.metadata" (updateFileModel)="updateFileModel()"></app-file-create-metadata>
-    <app-file-create-organization></app-file-create-organization>
-    <app-file-create-log-data></app-file-create-log-data>
-    <div (click)="log()">click</div>
+    <button (click)="consoleFileModelJSON()">Console.log FileModel JSON</button>
+    <app-file-create-metadata [metadata]="fileModel.metadata"
+                              (updateFileModel)="updateFileModel()"></app-file-create-metadata>
+    <app-file-create-data [data]="fileModel.data" (updateFileModel)="updateFileModel()"></app-file-create-data>
   </div>
   <div class="result">
     <app-file-page [fileModel]="fileModel"></app-file-page>

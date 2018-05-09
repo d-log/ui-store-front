@@ -10,9 +10,23 @@ export class FileCreateMetadataComponent implements OnInit {
   @Input() metadata: Metadata;
   @Output() updateFileModel = new EventEmitter<boolean>();
 
+  constructor() {
+    this.initialize();
+  }
+
   ngOnInit() {
-    this.metadata.created = + new Date();
-    this.metadata.displayCommentSection = true;
+    this.initialize();
+  }
+
+  initialize() {
+    if (!!this.metadata) {
+      if (this.metadata.created === undefined) {
+        this.metadata.created = +new Date();
+      }
+      if (this.metadata.displayCommentSection === undefined) {
+        this.metadata.displayCommentSection = true;
+      }
+    }
   }
 
   onInputName(event: Event) {

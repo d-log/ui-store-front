@@ -32,7 +32,7 @@ export class FileModelService {
       });
   }
 
-  generateTheGetterURL(getterRequest: GetterRequest) {
+  generateTheGetterURL(getterRequest: GetterRequest): string {
     const urlParameters: string[] = [];
 
     if (!!getterRequest.fileTypes) {
