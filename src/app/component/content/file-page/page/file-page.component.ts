@@ -18,7 +18,6 @@ import {LogDataComponentTwo} from './file-data/log-data-component-two';
 })
 export class FilePageComponent {
   @Input() set fileModel(fileModel: FileModel) {
-    this._fileModel = fileModel;
     this.initialize(fileModel);
   }
 
@@ -31,6 +30,7 @@ export class FilePageComponent {
   }
 
   initialize(fileModel: FileModel) {
+    this._fileModel = fileModel;
     this.displayCommentSection = false;
     this._container.clear();
 
@@ -41,9 +41,11 @@ export class FilePageComponent {
   }
 
   displayLog(fileModel: FileModel) {
-    for (const logData of fileModel.data.logDatas) {
-      const component = this.getComponentFromData(logData);
-      this.loadComponent(logData, component);
+    if (!!fileModel.data) {
+      for (const logData of fileModel.data.logDatas) {
+        const component = this.getComponentFromData(logData);
+        this.loadComponent(logData, component);
+      }
     }
   }
 

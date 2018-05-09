@@ -29,20 +29,28 @@ export class FilePageContentHeaderComponent {
   initialize(fileModel: FileModel) {
     if (!!fileModel) {
       this.views = 13;
-      this.name = fileModel.metadata.name;
-      this.description = fileModel.metadata.description;
-      if (!this.description) {
-        this.description = 'sadness :( there is no description';
-      }
-      this.createdDateString = new Date(fileModel.metadata.created).toDateString();
-      this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
-      this.tagFileModels = fileModel.data.tagFileDatas;
+      if (!!fileModel.metadata) {
+        const metadata = fileModel.metadata;
+        this.name = metadata.name;
+        if (!this.name) {
+          this.name = 'sadness :( there is no Name';
+        }
+        this.description = metadata.description;
+        if (!this.description) {
+          this.description = 'sadness :( there is no description';
+        }
+        this.createdDateString = new Date(metadata.created).toDateString();
 
-      if (!!fileModel.metadata.lastUpdated && (fileModel.metadata.created !== fileModel.metadata.lastUpdated)) {
-        this.lastUpdatedDateString = new Date(fileModel.metadata.lastUpdated).toDateString();
-        this.showUpdated = true;
-      } else {
-        this.showUpdated = false;
+        if (!!metadata.lastUpdated && (metadata.created !== metadata.lastUpdated)) {
+          this.lastUpdatedDateString = new Date(metadata.lastUpdated).toDateString();
+          this.showUpdated = true;
+        } else {
+          this.showUpdated = false;
+        }
+      }
+      if (!!fileModel.data) {
+        this.logDirectoryFileModels = fileModel.data.parentLogDirectoryFileDatas;
+        this.tagFileModels = fileModel.data.tagFileDatas;
       }
     }
   }

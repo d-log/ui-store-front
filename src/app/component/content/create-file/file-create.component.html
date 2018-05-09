@@ -1,7 +1,9 @@
 <div class="container">
   <div class="workspace">
-    <div>toolbar</div>
-    <textarea id="workspace-textarea" class="textarea" (input)="textAreaChanged($event)"></textarea>
+    <app-file-create-metadata [metadata]="fileModel.metadata" (updateFileModel)="updateFileModel()"></app-file-create-metadata>
+    <app-file-create-organization></app-file-create-organization>
+    <app-file-create-log-data></app-file-create-log-data>
+    <div (click)="log()">click</div>
   </div>
   <div class="result">
     <app-file-page [fileModel]="fileModel"></app-file-page>

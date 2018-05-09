@@ -47,6 +47,9 @@ import {LogDataTextMarkdownDefaultComponent} from './component/content/file-page
 import {LogDataTextQuoteDefaultComponent} from './component/content/file-page/page/file-data/text-quote-default/log-data-text-quote-default.component';
 import {LogDataTextCodeDefaultComponent} from './component/content/file-page/page/file-data/text-code-default/log-data-text-code-default.component';
 import {FilePageIdComponent} from './component/content/file-page/file-page-id/file-page-id.component';
+import {FileCreateOrganizationComponent} from './component/content/create-file/organization/file-create-organization.component';
+import {FileCreateMetadataComponent} from './component/content/create-file/metadata/file-create-metadata.component';
+import {FileCreateLogDataComponent} from './component/content/create-file/log-data/file-create-log-data.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import {FilePageIdComponent} from './component/content/file-page/file-page-id/fi
     HomeTopComponent,
     PageNotFoundComponent,
     FileCreateComponent,
+    FileCreateOrganizationComponent,
+    FileCreateMetadataComponent,
+    FileCreateLogDataComponent,
     FilePageIdComponent,
     FilePageComponent,
     FilePageContentHeaderComponent,
