@@ -12,6 +12,7 @@ export class FileCreateOrganizationComponent implements OnInit {
   @Input() organization: Organization;
 
   tagFileModels: FileModel[];
+  directoryFileModels: FileModel[];
 
   constructor() {
     this.initialize();
@@ -22,20 +23,19 @@ export class FileCreateOrganizationComponent implements OnInit {
   }
 
   initialize() {
-    if (!!this.organization) {
-      if (this.organization.tagFileIDs === undefined) {
-        this.tagFileModels = [];
-        this.organization.tagFileIDs = [];
-      }
-    } else {
+    if (!this.organization) {
       this.organization = new Organization();
-      this.tagFileModels = [];
-      this.organization.tagFileIDs = [];
     }
+    this.tagFileModels = [];
+    this.organization.tagFileIDs = [];
+
+    this.directoryFileModels = [];
+    this.organization.parentLogDirectoryFileIDs = [];
   }
 
   onUpdateFileModel() {
     this.organization.tagFileIDs = Array.from(this.tagFileModels, model => model.id);
+    this.organization.parentLogDirectoryFileIDs = Array.from(this.directoryFileModels, model => model.id);
     this.updateFileModel.emit(true);
   }
 }

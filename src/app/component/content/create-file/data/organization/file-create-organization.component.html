@@ -1,4 +1,7 @@
 <div>
+  <app-file-create-organization-directory [selectedDirectoryFileModels]="directoryFileModels"
+                                          [selectedDirectoryFileModelIDs]="organization.parentLogDirectoryFileIDs"
+                                          (updateFileModel)="onUpdateFileModel()"></app-file-create-organization-directory>
   <app-file-create-organization-tag [selectedTagFileModels]="tagFileModels"
                                     [selectedTagFileModelIDs]="organization.tagFileIDs"
                                     (updateFileModel)="onUpdateFileModel()"></app-file-create-organization-tag>

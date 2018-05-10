@@ -23,7 +23,6 @@ import {NavigationTopComponent} from './component/navigation-top/navigation-top.
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {DisqusModule} from 'ngx-disqus';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-side-left/column/toolbar/navigation-side-left-column-toolbar.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
@@ -121,7 +120,6 @@ import {FileCreateDataComponent} from './component/content/create-file/data/file
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     DisqusModule.forRoot('marcuschiu'),
     HttpModule,
     AppRoutingModule,
