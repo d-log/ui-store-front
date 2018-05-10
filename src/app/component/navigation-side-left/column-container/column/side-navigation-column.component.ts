@@ -1,13 +1,12 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
-import {GetterRequest} from '../../../service/core/model/request/getter-request';
-import {FileModel} from '../../../service/core/file/model/file-model';
-import {FileModelService} from '../../../service/core/file/file-model.service';
-import {FileType} from '../../../service/core/file/model/extra/file-type';
-import {Sort} from '../../../service/core/model/request/sort';
-import {SortOrder} from '../../../service/core/model/request/sort-order';
-import {Pageable} from '../../../service/core/model/request/pageable';
 import {Observable} from 'rxjs/Observable';
+import {FileType} from '../../../../service/core/file/model/extra/file-type';
+import {FileModel} from '../../../../service/core/file/model/file-model';
+import {GetterRequest} from '../../../../service/core/model/request/getter-request';
+import {FileModelService} from '../../../../service/core/file/file-model.service';
+import {Pageable} from '../../../../service/core/model/request/pageable';
+import {SortOrder} from '../../../../service/core/model/request/sort-order';
+import {Sort} from '../../../../service/core/model/request/sort';
 
 @Component({
   selector: 'app-navigation-side-left-column',
@@ -18,26 +17,35 @@ export class SideNavigationColumnComponent implements OnInit {
 
   @Input() showColumnToolbar: boolean;
   @Input() fileTypes: FileType[];
-  @Input() level: number;
+  @Input() directoryLevel: number;
   @Input() logDirectoryFileModel: FileModel;
-  @Output() childDirectorySelected = new EventEmitter<any>();
+  @Output() fileModelSelected = new EventEmitter<any>();
   @ViewChild('bottom') bottom: any;
   fileModels: FileModel[];
   fileModelsObservable: Observable<FileModel[]>;
   isEmpty: boolean;
   moreFilesExist: boolean;
 
-  selectedDirectoryIndex: number;
+  @Input() selectedFileModelID: string;
+
+  @Input() set pathLogDirectoryFileModels(pathLogDirectoryFileModels: FileModel[]) {
+    if (pathLogDirectoryFileModels.length > (this.directoryLevel + 1)) {
+      this.directoryPathID = pathLogDirectoryFileModels[this.directoryLevel + 1].id;
+    } else {
+      this.directoryPathID = undefined;
+    }
+  }
+
+  directoryPathID: string;
+
   getterRequest: GetterRequest;
 
-  constructor(private router: Router,
-              private fileModelService: FileModelService) {
+  constructor(private fileModelService: FileModelService) {
     this.showColumnToolbar = false;
     this.fileTypes = [];
     this.fileModelsObservable = null;
     this.fileModels = [];
     this.isEmpty = false;
-    this.selectedDirectoryIndex = -1;
     this.moreFilesExist = true;
   }
 
@@ -62,13 +70,8 @@ export class SideNavigationColumnComponent implements OnInit {
     });
   }
 
-  selectChildDirectory(index: number) {
-    this.childDirectorySelected.emit([this.level, this.fileModels[index]]);
-    this.selectedDirectoryIndex = index;
-  }
-
-  selectLog(id: string) {
-    this.router.navigate(['/log-page/' + id]);
+  selectFileModel(index: number) {
+    this.fileModelSelected.emit([this.directoryLevel, this.fileModels[index]]);
   }
 
   onScroll() {

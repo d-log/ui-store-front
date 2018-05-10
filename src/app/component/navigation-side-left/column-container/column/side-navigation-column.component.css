@@ -26,6 +26,20 @@ app-navigation-side-left-column-toolbar {
   background-color: var(--main-darker-color);
 }
 
+.item-path {
+  background-color: var(--main-darker-color);
+}
+
+.item-selected {
+  color: var(--main-lighter-color);
+  background-color: var(--selected-color);
+}
+
+.item-selected:hover {
+  color: var(--main-color);
+  background-color: var(--selected-color);
+}
+
 .directory-icon-container {
   display: grid;
   grid-template-columns: 25px auto 25px;

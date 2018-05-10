@@ -3,5 +3,7 @@
 </div>
 <section class="container">
   <app-navigation-side-left-column-container [fileTypes]="fileTypes"
-                                             [showColumnToolbar]="showColumnToolbar"></app-navigation-side-left-column-container>
+                                             [showColumnToolbar]="showColumnToolbar"
+                                             (logFileModelSelected)="onLogFileModelSelected($event)"
+                                             (directoryFileModelSelectedMoreThanOnce)="onDirectoryFileModelSelectedMoreThanOnce($event)"></app-navigation-side-left-column-container>
 </section>

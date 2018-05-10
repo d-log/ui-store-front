@@ -1,0 +1,36 @@
+<app-navigation-side-left-column-toolbar *ngIf="showColumnToolbar"
+                                         [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
+<div class="column-container" (scroll)="onScroll()">
+  <div *ngIf="isEmpty && isEmpty; else templateName">
+    <div class="empty">
+      EMPTY
+    </div>
+  </div>
+  <ng-template #templateName>
+    <div *ngFor="let fileModel of fileModels, let i = index;">
+      <div class="item"
+           [ngClass]="{'item-path': fileModel.id === directoryPathID, 'item-selected': fileModel.id === selectedFileModelID}">
+        <div *ngIf="fileModel.metadata.type === 'LogDirectoryFileData'">
+          <div class="directory-icon-container" (click)="selectFileModel(i)">
+            <i class="fa fa-folder"></i>
+            <div class="item-name">{{fileModel.metadata.name}}</div>
+            <i class="fa fa-play"></i>
+          </div>
+        </div>
+        <div *ngIf="fileModel.metadata.type === 'LogFileData'">
+          <div class="log" (click)="selectFileModel(i)">
+            <i class="fa fa-file-o"></i>
+            <div class="item-name">{{fileModel.metadata.name}}</div>
+          </div>
+        </div>
+        <div *ngIf="fileModel.metadata.type === 'TagFileData'">
+          <div class="tag" (click)="selectFileModel(i)">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <div class="item-name">{{fileModel.metadata.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div #bottom class="bottom"></div>
+  </ng-template>
+</div>

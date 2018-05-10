@@ -17,14 +17,14 @@ import {MasonryTileTextMarkdownDefaultComponent} from './component/content/log-t
 import {MasonryTileTextQuoteDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-quote-default/masonry-tile-text-quote-default.component';
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
-import {SideNavigationColumnComponent} from './component/navigation-side-left/column/side-navigation-column.component';
+import {SideNavigationColumnComponent} from './component/navigation-side-left/column-container/column/side-navigation-column.component';
 import {DirectoryModelService} from './service/core/file/type/directory/directory-model.service';
 import {NavigationTopComponent} from './component/navigation-top/navigation-top.component';
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {DisqusModule} from 'ngx-disqus';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
-import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-side-left/column/toolbar/navigation-side-left-column-toolbar.component';
+import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-side-left/column-container/column/toolbar/navigation-side-left-column-toolbar.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 import {FileModelService} from './service/core/file/file-model.service';
 import {LogModelService} from './service/core/file/type/log/log-model.service';
