@@ -16,5 +16,21 @@ export class FileCreateOrganizationDirectoryComponent {
 
   constructor() {
     this.fileTypes = [FileType.LogDirectoryFileData];
+    this.selectedDirectoryFileModelIDs = [];
+    this.selectedDirectoryFileModels = [];
+  }
+
+  addSelectedDirectory(fileModel: FileModel) {
+    if (!this.selectedDirectoryFileModelIDs.includes(fileModel.id)) {
+      this.selectedDirectoryFileModels.push(fileModel);
+      this.selectedDirectoryFileModelIDs.push(fileModel.id);
+    }
+    this.updateFileModel.emit(true);
+  }
+
+  removeSelectedDirectory(index: number) {
+    this.selectedDirectoryFileModels.splice(index, 1);
+    this.selectedDirectoryFileModelIDs = Array.from(this.selectedDirectoryFileModels, fileModel => fileModel.id);
+    this.updateFileModel.emit(true);
   }
 }

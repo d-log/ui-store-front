@@ -30,6 +30,7 @@ export class FileCreateDataComponent implements OnInit {
 
   onUpdateFileModel() {
     this.data.tagFileDatas = this.fileCreateOrganizationComponent.tagFileModels;
+    this.data.parentLogDirectoryFileDatas = this.fileCreateOrganizationComponent.directoryFileModels;
     this.updateFileModel.emit(true);
   }
 }

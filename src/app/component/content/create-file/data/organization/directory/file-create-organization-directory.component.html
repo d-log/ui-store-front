@@ -1,9 +1,14 @@
 <div>Directory</div>
 <div class="container">
   <div class="selected-directories">
-    <div *ngFor="let directoryModel of selectedDirectoryFileModels">{{directoryModel.metadata.name}}</div>
+    <div class="directory" *ngFor="let directoryModel of selectedDirectoryFileModels; let i = index"
+         (click)="removeSelectedDirectory(i)">
+      {{directoryModel.metadata.name}}
+    </div>
   </div>
   <div class="unselected-directories">
-    <app-navigation-side-left-column-container [fileTypes]="fileTypes"></app-navigation-side-left-column-container>
+    <app-navigation-side-left-column-container [fileTypes]="fileTypes"
+                                               (directoryFileModelSelectedMoreThanOnce)="addSelectedDirectory($event)">
+    </app-navigation-side-left-column-container>
   </div>
 </div>

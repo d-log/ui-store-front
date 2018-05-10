@@ -10,9 +10,24 @@
   width: 50%;
   box-sizing: border-box; /* places border inside box */
   border-right: 1px solid var(--main-darker-color);
+  overflow: scroll;
 }
 
 .unselected-directories {
   flex: 1;
   overflow: scroll;
+}
+
+.directory {
+  display: inline-block;
+  color: var(--main-lighter-color);
+  background-color: var(--main-darker-color);
+  border-radius: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin: 3px;
+}
+
+.directory:hover {
+  background-color: var(--main-darker-2-color);
 }
