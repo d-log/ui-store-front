@@ -19,13 +19,14 @@ export class FileCreateComponent {
   }
 
   consoleFileModelJSON() {
-    const fileModel = this.fileModel;
-    fileModel.metadata.created = undefined;
-    fileModel.data.tagFileDatas = undefined;
-    fileModel.data.parentLogDirectoryFileDatas = undefined;
-    fileModel.data.numLogDatas = undefined;
-    console.log(JSON.stringify(fileModel, null, '\t'));
-    console.log(JSON.stringify(this.fileModel, null, '\t'));
+    // this would be a deep clone (const clone = this.fileModel) wont work
+    // bc setting clone undefined would actually undefine this.fileModel
+    const clone = JSON.parse(JSON.stringify(this.fileModel));
+    clone.metadata.created = undefined;
+    clone.data.tagFileDatas = undefined;
+    clone.data.parentLogDirectoryFileDatas = undefined;
+    clone.data.numLogDatas = undefined;
+    console.log(JSON.stringify(clone, null, '\t'));
   }
 
   updateFileModel() {

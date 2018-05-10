@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {LogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 
 @Component({
   selector: 'app-file-create-log-data',
@@ -6,7 +7,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./file-create-log-data.component.css']
 })
 export class FileCreateLogDataComponent {
-
+  @Output() updateFileModel = new EventEmitter<boolean>();
+  @Input() logDatas: LogData[];
   // ngAfterViewInit() {
   //   // Enable the tab character onkeypress (onkeydown) inside textarea...
   //   // ... for a textarea that has an `id="my-textarea"`

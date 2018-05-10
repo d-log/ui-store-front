@@ -22,6 +22,9 @@ export class FileCreateDataComponent implements OnInit {
       if (this.data.organization === undefined) {
         this.data.organization = new Organization();
       }
+      if (this.data.logDatas === undefined) {
+        this.data.logDatas = [];
+      }
     }
   }
 

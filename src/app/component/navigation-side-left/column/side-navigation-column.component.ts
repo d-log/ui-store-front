@@ -16,6 +16,8 @@ import {Observable} from 'rxjs/Observable';
 })
 export class SideNavigationColumnComponent implements OnInit {
 
+  @Input() showColumnToolbar: boolean;
+  @Input() fileTypes: FileType[];
   @Input() level: number;
   @Input() logDirectoryFileModel: FileModel;
   @Output() childDirectorySelected = new EventEmitter<any>();
@@ -30,6 +32,8 @@ export class SideNavigationColumnComponent implements OnInit {
 
   constructor(private router: Router,
               private fileModelService: FileModelService) {
+    this.showColumnToolbar = false;
+    this.fileTypes = [];
     this.fileModelsObservable = null;
     this.fileModels = [];
     this.isEmpty = false;
@@ -39,7 +43,7 @@ export class SideNavigationColumnComponent implements OnInit {
 
   ngOnInit() {
     const getterRequest = new GetterRequest();
-    getterRequest.fileTypes = [FileType.LogFileData, FileType.LogDirectoryFileData];
+    getterRequest.fileTypes = this.fileTypes;
     getterRequest.directoryID = this.logDirectoryFileModel.id;
     getterRequest.pageable = new Pageable(-1, 20);
     getterRequest.sorts = [

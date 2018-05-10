@@ -1,4 +1,4 @@
-import {LogData} from '../log/extra/log-data';
+import {LogData} from '../log/extra/log-data/log-data';
 import {Organization} from '../log/extra/organization';
 
 export class LogDirectoryFileData {

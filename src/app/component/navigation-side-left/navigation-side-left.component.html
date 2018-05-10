@@ -2,8 +2,6 @@
   <app-navigation-side-left-toolbar (onTarget)="target($event)"></app-navigation-side-left-toolbar>
 </div>
 <section class="container">
-  <div class="column" *ngFor="let logDirectoryFileModel of pathLogDirectoryFileModels, let i = index">
-    <app-navigation-side-left-column [level]="i" [logDirectoryFileModel]="logDirectoryFileModel"
-                                     (childDirectorySelected)="directorySelected($event)"></app-navigation-side-left-column>
-  </div>
+  <app-navigation-side-left-column-container [fileTypes]="fileTypes"
+                                             [showColumnToolbar]="showColumnToolbar"></app-navigation-side-left-column-container>
 </section>

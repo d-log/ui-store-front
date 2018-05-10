@@ -53,6 +53,7 @@ import {FileCreateOrganizationTagComponent} from './component/content/create-fil
 import {FileCreateOrganizationDirectoryComponent} from './component/content/create-file/data/organization/directory/file-create-organization-directory.component';
 import {TagModelService} from './service/core/file/type/tag/tag-model.service';
 import {FileCreateDataComponent} from './component/content/create-file/data/file-create-data.component';
+import {SideNavigationColumnContainerComponent} from './component/navigation-side-left/column-container/side-navigation-column-container.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {FileCreateDataComponent} from './component/content/create-file/data/file
     NavigationSideLeftComponent,
     NavigationSideLeftToolbarComponent,
     SideNavigationColumnComponent,
+    SideNavigationColumnContainerComponent,
     NavigationSideLeftColumnToolbarComponent,
     HomeComponent,
     HomeTopComponent,

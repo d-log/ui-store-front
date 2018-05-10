@@ -1,5 +1,6 @@
 .resizable {
-  border: 1px solid var(--main-darker-color);
+  border-top: 1px solid var(--main-darker-color);
+  border-bottom: 1px solid var(--main-darker-color);
   overflow: hidden;
 }
 
@@ -17,4 +18,18 @@
 .unselected-tags {
   height: 100px;
   overflow: scroll;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--main-lighter-color);
+  background-color: var(--main-darker-color);
+  border-radius: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin: 3px;
+}
+
+.tag:hover {
+  background-color: var(--main-darker-2-color);
 }

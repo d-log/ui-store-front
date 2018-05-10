@@ -1,5 +1,5 @@
-<app-navigation-side-left-column-toolbar
-  [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
+<app-navigation-side-left-column-toolbar *ngIf="showColumnToolbar"
+                                         [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
 <div class="column-container" (scroll)="onScroll()">
   <div *ngIf="isEmpty && isEmpty; else templateName">
     <div class="empty">
@@ -18,6 +18,12 @@
       <div *ngIf="fileModel.metadata.type === 'LogFileData'">
         <div class="item log" (click)="selectLog(fileModel.id)">
           <i class="fa fa-file-o"></i>
+          <div class="item-name">{{fileModel.metadata.name}}</div>
+        </div>
+      </div>
+      <div *ngIf="fileModel.metadata.type === 'TagFileData'">
+        <div class="item tag" (click)="selectLog(fileModel.id)">
+          <i class="fa fa-tags" aria-hidden="true"></i>
           <div class="item-name">{{fileModel.metadata.name}}</div>
         </div>
       </div>

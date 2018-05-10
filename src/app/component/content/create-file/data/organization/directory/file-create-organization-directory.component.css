@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  border-top: 1px solid var(--main-darker-color);
+  border-bottom: 1px solid var(--main-darker-color);
+}
+
+.selected-directories {
+  width: 50%;
+  box-sizing: border-box; /* places border inside box */
+  border-right: 1px solid var(--main-darker-color);
+}
+
+.unselected-directories {
+  flex: 1;
+  overflow: scroll;
+}

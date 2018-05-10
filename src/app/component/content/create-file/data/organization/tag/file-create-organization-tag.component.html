@@ -1,15 +1,17 @@
-<div>TAGS</div>
+<div>Tag</div>
 <div class="resizable">
   <div class="container">
     <div class="selected-tags">
-      <div *ngFor="let selectedTagModel of selectedTagFileModels; let i = index" (click)="selectedTagClicked(i)">
+      <div class="tag" *ngFor="let selectedTagModel of selectedTagFileModels; let i = index"
+           (click)="selectedTagClicked(i)">
         {{selectedTagModel.metadata.name}}
       </div>
     </div>
-    <div class="unselected-tags">
-      <div *ngFor="let unselectedTagFileModel of unSelectedTagFileModels; let i = index"
+    <div class="unselected-tags" (scroll)="onScroll()">
+      <div class="tag" *ngFor="let unselectedTagFileModel of unSelectedTagFileModels; let i = index"
            (click)="unselectedTagClicked(i)">{{unselectedTagFileModel.metadata.name}}
       </div>
+      <div #bottom class="bottom"></div>
     </div>
   </div>
 </div>

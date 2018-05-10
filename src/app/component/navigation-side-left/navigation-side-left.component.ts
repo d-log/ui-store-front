@@ -1,29 +1,18 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
-import {DirectoryModelService} from '../../service/core/file/type/directory/directory-model.service';
-import {FileModel} from '../../service/core/file/model/file-model';
+import {Component} from '@angular/core';
+import {FileType} from '../../service/core/file/model/extra/file-type';
 
 @Component({
   selector: 'app-navigation-side-left',
   templateUrl: './navigation-side-left.component.html',
   styleUrls: ['./navigation-side-left.component.css']
 })
-export class NavigationSideLeftComponent implements OnInit {
+export class NavigationSideLeftComponent {
+  showColumnToolbar: boolean;
+  fileTypes: FileType[];
 
-  pathLogDirectoryFileModels: FileModel[];
-
-  constructor(private directoryModelService: DirectoryModelService) {
-    this.pathLogDirectoryFileModels = [];
-  }
-
-  ngOnInit() {
-    this.directoryModelService.getRoot().subscribe(directoryModel => {
-      this.pathLogDirectoryFileModels = [directoryModel];
-    });
-  }
-
-  directorySelected(event: EventEmitter<any>) {
-    this.pathLogDirectoryFileModels = this.pathLogDirectoryFileModels.slice(0, event[0] + 1);
-    this.pathLogDirectoryFileModels.push(event[1]);
+  constructor() {
+    this.fileTypes = [FileType.LogFileData, FileType.LogDirectoryFileData];
+    this.showColumnToolbar = true;
   }
 
   target() {

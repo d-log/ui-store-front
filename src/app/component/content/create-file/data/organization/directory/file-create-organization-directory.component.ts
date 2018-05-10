@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FileModel} from '../../../../../../service/core/file/model/file-model';
+import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
 
 @Component({
   selector: 'app-file-create-organization-directory',
@@ -11,4 +12,9 @@ export class FileCreateOrganizationDirectoryComponent {
 
   @Input() selectedDirectoryFileModels: FileModel[];
   @Input() selectedDirectoryFileModelIDs: string[];
+  fileTypes: FileType[];
+
+  constructor() {
+    this.fileTypes = [FileType.LogDirectoryFileData];
+  }
 }
