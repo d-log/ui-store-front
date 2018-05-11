@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogData} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 import {ImageInternalLogData} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
+import {ImageFileData} from '../../../../../../service/core/file/model/extra/data/image/image-file-data';
 
 @Component({
   selector: 'app-log-data-image-default',
@@ -8,20 +8,17 @@ import {ImageInternalLogData} from '../../../../../../service/core/file/model/ex
   styleUrls: ['./log-data-image-default.component.css']
 })
 export class LogDataImageDefaultComponent implements OnInit {
-
-  @Input() logData: LogData;
-
-  img_src: string;
-  padding_bottom_percentage: number;
-
-  constructor() {
-  }
+  @Input() data: ImageInternalLogData;
 
   ngOnInit() {
-    const data: ImageInternalLogData = this.logData.data;
-    if (!!data && !!data.imageFileData) {
-      this.img_src = data.imageFileData.imageURL;
-      this.padding_bottom_percentage = data.imageFileData.heightDividedByWidth * 100;
+    if (!this.data) {
+      this.data = new ImageInternalLogData();
+    }
+    if (!this.data.imageFileData) {
+      const imageFileData = new ImageFileData();
+      imageFileData.imageURL = '';
+      imageFileData.heightDividedByWidth = 1;
+      this.data.imageFileData = imageFileData;
     }
   }
 }

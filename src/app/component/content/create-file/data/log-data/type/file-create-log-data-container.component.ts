@@ -8,6 +8,8 @@ import {LogData} from '../../../../../../service/core/file/model/extra/data/log/
 })
 export class FileCreateLogDataContainerComponent {
   @Output() updateFileModel = new EventEmitter<boolean>();
+  @Output() deleteThisLogData = new EventEmitter<number>();
+  @Input() index: number;
   @Input() logData: LogData;
 
   collapse: boolean;
@@ -22,5 +24,9 @@ export class FileCreateLogDataContainerComponent {
 
   onUpdateFileModel() {
     this.updateFileModel.emit(true);
+  }
+
+  onDeleteThisLogData() {
+    this.deleteThisLogData.emit(this.index);
   }
 }

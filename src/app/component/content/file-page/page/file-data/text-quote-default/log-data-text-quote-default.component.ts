@@ -1,28 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {LogData} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
+import {Component, Input} from '@angular/core';
+import {TextQuoteLogData} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-quote/text-quote-log-data';
 
 @Component({
   selector: 'app-log-data-text-quote-default',
   templateUrl: './log-data-text-quote-default.component.html',
   styleUrls: ['./log-data-text-quote-default.component.css']
 })
-export class LogDataTextQuoteDefaultComponent implements OnInit {
-
-  @Input() logData: LogData;
-  quote: string;
-  formOfCommunication: string;
-  sourceType: string;
-  sourceName: string;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-    const data = this.logData.data;
-    this.quote = data.quote;
-    this.formOfCommunication = data.formOfCommunication;
-    this.sourceType = data.sourceType;
-    this.sourceName = data.sourceName;
-  }
-
+export class LogDataTextQuoteDefaultComponent {
+  @Input() data: TextQuoteLogData;
 }

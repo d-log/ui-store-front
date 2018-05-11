@@ -1,5 +1,6 @@
 <div>
-  <div (click)="toggle()">{{logData.logDataType}}</div>
+  <span (click)="toggle()">{{logData.logDataType}}</span>
+  <span (click)="onDeleteThisLogData()">delete</span>
   <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse}">
     <app-file-create-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
                                              [imageInternalLogData]="logData.data"

@@ -1,7 +1,9 @@
 <div class="container">
   <div (click)="addLogData()">log data</div>
-  <app-file-create-log-data-container *ngFor="let logData of logDatas"
+  <app-file-create-log-data-container *ngFor="let logData of logDatas; let i = index"
                                       [logData]="logData"
+                                      [index]="i"
+                                      (deleteThisLogData)="deleteLogData($event)"
                                       (updateFileModel)="onUpdateFileModel()">
   </app-file-create-log-data-container>
 </div>

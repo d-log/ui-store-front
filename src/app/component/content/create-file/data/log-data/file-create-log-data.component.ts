@@ -22,7 +22,7 @@ export class FileCreateLogDataComponent {
     this.logDatas.push(new LogData('TextPlainLogData', textPlainLogData));
 
     const textCodeLogData = new TextCodeLogData();
-    textCodeLogData.code = 'some code here';
+    textCodeLogData.code = 'public static void main(String args[]) {\n    System.out.println("Hello World");\n}';
     textCodeLogData.language = 'java';
     textCodeLogData.showLineNumber = true;
     textCodeLogData.maxHeight = -1;
@@ -49,5 +49,9 @@ export class FileCreateLogDataComponent {
 
   onUpdateFileModel() {
     this.updateFileModel.emit(true);
+  }
+
+  deleteLogData(index: number) {
+    this.logDatas.splice(index, 1);
   }
 }

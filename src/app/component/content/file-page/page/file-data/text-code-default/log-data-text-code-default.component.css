@@ -13,6 +13,12 @@
 
 figure {
   margin: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--main-darker-color);
+}
+
+pre {
+  margin: 0;
 }
 
 code {

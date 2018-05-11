@@ -3,7 +3,7 @@
   <div class="unselected" (scroll)="onScroll()">
     <app-log-data-image-default *ngFor="let logData of selectableImageLogDatas; let i = index"
                                 (click)="onSelectImage(i)"
-                                [logData]="logData">
+                                [data]="logData.data">
     </app-log-data-image-default>
     <div #bottom></div>
   </div>

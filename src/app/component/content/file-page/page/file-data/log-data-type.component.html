@@ -1,3 +1,14 @@
 <div class="container">
-  <div #vc></div>
+  <app-log-data-image-default *ngIf="logData.logDataType === 'ImageInternalLogData'"
+                              [data]="logData.data"></app-log-data-image-default>
+  <app-log-data-text-code-default *ngIf="logData.logDataType === 'TextCodeLogData'"
+                                  [data]="logData.data"></app-log-data-text-code-default>
+  <app-log-data-text-markdown-default *ngIf="logData.logDataType === 'TextMarkdownLogData'"
+                                      [data]="logData.data"></app-log-data-text-markdown-default>
+  <app-log-data-text-plain-default *ngIf="logData.logDataType === 'TextPlainLogData'"
+                                   [data]="logData.data"></app-log-data-text-plain-default>
+  <app-log-data-text-quote-default *ngIf="logData.logDataType === 'TextQuoteLogData'"
+                                   [data]="logData.data"></app-log-data-text-quote-default>
+  <app-log-data-video-youtube-default *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
+                                      [data]="logData.data"></app-log-data-video-youtube-default>
 </div>
