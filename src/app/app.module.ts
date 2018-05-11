@@ -54,6 +54,14 @@ import {FileCreateOrganizationDirectoryComponent} from './component/content/crea
 import {TagModelService} from './service/core/file/type/tag/tag-model.service';
 import {FileCreateDataComponent} from './component/content/create-file/data/file-create-data.component';
 import {SideNavigationColumnContainerComponent} from './component/navigation-side-left/column-container/side-navigation-column-container.component';
+import {FileCreateLogDataContainerComponent} from './component/content/create-file/data/log-data/type/file-create-log-data-container.component';
+import {FileCreateLogDataTextPlainComponent} from './component/content/create-file/data/log-data/type/impl/text-plain/file-create-log-data-text-plain.component';
+import {FileCreateLogDataTextCodeComponent} from './component/content/create-file/data/log-data/type/impl/text-code/file-create-log-data-text-code.component';
+import {FileCreateLogDataImageQuoteComponent} from './component/content/create-file/data/log-data/type/impl/image-quote/file-create-log-data-image-quote.component';
+import {FileCreateLogDataImageInternalComponent} from './component/content/create-file/data/log-data/type/impl/image-internal/file-create-log-data-image-internal.component';
+import {FileCreateLogDataTextMarkdownComponent} from './component/content/create-file/data/log-data/type/impl/text-markdown/file-create-log-data-text-markdown.component';
+import {FileCreateLogDataTextQuoteComponent} from './component/content/create-file/data/log-data/type/impl/text-quote/file-create-log-data-text-quote.component';
+import {FileCreateLogDataVideoYoutubeComponent} from './component/content/create-file/data/log-data/type/impl/video-youtube/file-create-log-data-video-youtube.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +83,14 @@ import {SideNavigationColumnContainerComponent} from './component/navigation-sid
     FileCreateOrganizationDirectoryComponent,
     FileCreateMetadataComponent,
     FileCreateLogDataComponent,
+    FileCreateLogDataContainerComponent,
+    FileCreateLogDataTextPlainComponent,
+    FileCreateLogDataTextCodeComponent,
+    FileCreateLogDataImageQuoteComponent,
+    FileCreateLogDataImageInternalComponent,
+    FileCreateLogDataTextMarkdownComponent,
+    FileCreateLogDataTextQuoteComponent,
+    FileCreateLogDataVideoYoutubeComponent,
     FilePageIdComponent,
     FilePageComponent,
     FilePageContentHeaderComponent,

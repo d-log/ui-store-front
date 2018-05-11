@@ -1,5 +1,7 @@
 <div class="container">
-  log data
+  <div (click)="addLogData()">log data</div>
+  <app-file-create-log-data-container *ngFor="let logData of logDatas"
+                                      [logData]="logData"
+                                      (updateFileModel)="onUpdateFileModel()">
+  </app-file-create-log-data-container>
 </div>
-
-<!--<textarea id="workspace-textarea" class="textarea" (input)="textAreaChanged($event)"></textarea>-->

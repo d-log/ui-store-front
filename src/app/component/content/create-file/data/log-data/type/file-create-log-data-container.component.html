@@ -1,0 +1,26 @@
+<div>
+  <div (click)="toggle()">{{logData.logDataType}}</div>
+  <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse}">
+    <app-file-create-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
+                                             [imageInternalLogData]="" ]="logData.data"
+                                             (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-image-internal>
+    <app-file-create-log-data-image-quote *ngIf="logData.logDataType === 'ImageQuoteLogData'"
+                                          [imageQuoteLogData]="" ]="logData.data"
+                                          (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-image-quote>
+    <app-file-create-log-data-text-code *ngIf="logData.logDataType === 'TextCodeLogData'"
+                                        [textCodeLogData]="logData.data"
+                                        (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-code>
+    <app-file-create-log-data-text-markdown *ngIf="logData.logDataType === 'TextMarkdownLogData'"
+                                            [textMarkdownLogData]="logData.data"
+                                            (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-markdown>
+    <app-file-create-log-data-text-plain *ngIf="logData.logDataType === 'TextPlainLogData'"
+                                         [textPlainLogData]="logData.data"
+                                         (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-plain>
+    <app-file-create-log-data-text-quote *ngIf="logData.logDataType === 'TextQuoteLogData'"
+                                         [textQuoteLogData]="logData.data"
+                                         (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-quote>
+    <app-file-create-log-data-video-youtube *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
+                                            [videoYoutubeLogData]="logData.data"
+                                            (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-video-youtube>
+  </div>
+</div>

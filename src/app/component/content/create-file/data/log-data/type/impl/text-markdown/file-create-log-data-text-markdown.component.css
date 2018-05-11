@@ -1,0 +1,7 @@
+.workspace-textarea {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  padding: 0;
+  resize: none;
+}

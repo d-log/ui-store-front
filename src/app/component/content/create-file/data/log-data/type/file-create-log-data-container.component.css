@@ -1,0 +1,11 @@
+.typed-log-data {
+  max-height: 4000px;
+  transition: max-height 1s;
+  height: auto;
+  overflow: hidden;
+}
+
+.typed-log-data-collapse {
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1);
+}
