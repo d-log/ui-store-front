@@ -5,6 +5,7 @@ import {TextPlainLogData} from '../../../../../service/core/file/model/extra/dat
 import {VideoYoutubeLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/video-youtube/video-youtube-log-data';
 import {TextMarkdownLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-markdown/text-markdown-log-data';
 import {TextQuoteLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-quote/text-quote-log-data';
+import {ImageInternalLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 
 @Component({
   selector: 'app-file-create-log-data',
@@ -17,7 +18,7 @@ export class FileCreateLogDataComponent {
 
   addLogData() {
     const textPlainLogData = new TextPlainLogData();
-    textPlainLogData.text = '';
+    textPlainLogData.text = 'test text plain';
     this.logDatas.push(new LogData('TextPlainLogData', textPlainLogData));
 
     const textCodeLogData = new TextCodeLogData();
@@ -39,6 +40,9 @@ export class FileCreateLogDataComponent {
     const textQuoteLogData = new TextQuoteLogData();
     textQuoteLogData.quote = 'quote here';
     this.logDatas.push(new LogData('TextQuoteLogData', textQuoteLogData));
+
+    const imageInternalLogData = new ImageInternalLogData();
+    this.logDatas.push(new LogData('ImageInternalLogData', imageInternalLogData));
 
     this.onUpdateFileModel();
   }

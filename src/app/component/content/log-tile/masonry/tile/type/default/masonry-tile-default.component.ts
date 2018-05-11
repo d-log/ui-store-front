@@ -19,8 +19,4 @@ export class MasonryTileDefaultComponent implements OnInit {
     this.title = this.fileModel.metadata.name;
     this.description = this.fileModel.metadata.description;
   }
-
-  test() {
-    console.log('dvsfveveveb');
-  }
 }

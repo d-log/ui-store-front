@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
+import {ImageInternalLogData} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 
 @Component({
   selector: 'app-masonry-tile-image-default',
@@ -17,9 +18,11 @@ export class MasonryTileImageDefaultComponent implements OnInit {
   }
 
   ngOnInit() {
-    const data = this.fileModel.data.logDatas[0].data;
-    this.img_src = data.imageURL;
-    this.padding_bottom_percentage = data.imageMetaData.heightDivideWidth * 100;
+    const data: ImageInternalLogData = this.fileModel.data.logDatas[0].data;
+    if (!!data && !!data.imageFileData) {
+      this.img_src = data.imageFileData.imageURL;
+      this.padding_bottom_percentage = data.imageFileData.heightDividedByWidth * 100;
+    }
   }
 
 }

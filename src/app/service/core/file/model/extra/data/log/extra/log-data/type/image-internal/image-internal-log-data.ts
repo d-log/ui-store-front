@@ -1,7 +1,6 @@
-import {ImageMetadata} from './extra/image-metadata';
+import {ImageFileData} from '../../../../../image/image-file-data';
 
 export class ImageInternalLogData {
   imageID: string;
-  imageURL: string;
-  imageMetaData: ImageMetadata;
+  imageFileData: ImageFileData;
 }

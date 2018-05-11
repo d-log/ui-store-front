@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.unselected {
+  width: 50%;
+  height: 100px;
+  overflow: scroll;
+}
+
+.selected {
+  width: 50%;
+}
