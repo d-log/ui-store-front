@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 
 @Component({
+  selector: 'app-log-data-text-plain-default',
   templateUrl: './log-data-text-plain-default.component.html',
   styleUrls: ['./log-data-text-plain-default.component.css']
 })

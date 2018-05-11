@@ -4,7 +4,7 @@
       <div class="content-header">
         <app-file-page-content-header [fileModel]="_fileModel"></app-file-page-content-header>
       </div>
-      <div #vc></div>
+      <app-log-data-type *ngFor="let logData of logDatas" [logData]="logData"></app-log-data-type>
     </div>
     <div *ngIf="displayCommentSection; else commentsDisabled" class="comment">
       <disqus [identifier]="id"></disqus>

@@ -62,6 +62,7 @@ import {FileCreateLogDataImageInternalComponent} from './component/content/creat
 import {FileCreateLogDataTextMarkdownComponent} from './component/content/create-file/data/log-data/type/impl/text-markdown/file-create-log-data-text-markdown.component';
 import {FileCreateLogDataTextQuoteComponent} from './component/content/create-file/data/log-data/type/impl/text-quote/file-create-log-data-text-quote.component';
 import {FileCreateLogDataVideoYoutubeComponent} from './component/content/create-file/data/log-data/type/impl/video-youtube/file-create-log-data-video-youtube.component';
+import {LogDataTypeComponent} from './component/content/file-page/page/file-data/log-data-type.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import {FileCreateLogDataVideoYoutubeComponent} from './component/content/create
     MasonryTileTextMarkdownDefaultComponent,
     MasonryTileDirectoryDefaultTileDefaultComponent,
     SafePipe,
+    LogDataTypeComponent,
     LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,

@@ -4,6 +4,7 @@ import {LogData} from '../../../../../../service/core/file/model/extra/data/log/
 declare var PR: any;
 
 @Component({
+  selector: 'app-log-data-text-code-default',
   templateUrl: './log-data-text-code-default.component.html',
   styleUrls: ['./log-data-text-code-default.component.css']
 })

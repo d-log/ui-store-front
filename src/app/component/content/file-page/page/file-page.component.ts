@@ -22,17 +22,13 @@ export class FilePageComponent {
   }
 
   _fileModel: FileModel;
-
-  @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
   displayCommentSection: boolean;
-
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-  }
+  logDatas: LogData[];
 
   initialize(fileModel: FileModel) {
     this._fileModel = fileModel;
     this.displayCommentSection = false;
-    this._container.clear();
+    this.logDatas = [];
 
     if (!!fileModel) {
       if (!!fileModel.metadata) {
@@ -40,48 +36,9 @@ export class FilePageComponent {
       } else {
         this.displayCommentSection = false;
       }
-      this.displayLog(fileModel);
-    }
-  }
-
-  displayLog(fileModel: FileModel) {
-    if (!!fileModel.data) {
       if (!!fileModel.data.logDatas) {
-        for (const logData of fileModel.data.logDatas) {
-          const component = this.getComponentFromData(logData);
-          this.loadComponent(logData, component);
-        }
+        this.logDatas = fileModel.data.logDatas;
       }
     }
-  }
-
-  public getComponentFromData(logData: LogData) {
-    switch (logData.logDataType) {
-      case 'ImageInternalLogData': {
-        return LogDataImageDefaultComponent;
-      }
-      case 'TextPlainLogData': {
-        return LogDataTextPlainDefaultComponent;
-      }
-      case 'VideoYouTubeLogData': {
-        return LogDataVideoYoutubeDefaultComponent;
-      }
-      case 'TextMarkdownLogData': {
-        return LogDataTextMarkdownDefaultComponent;
-      }
-      case 'TextQuoteLogData': {
-        return LogDataTextQuoteDefaultComponent;
-      }
-      case 'TextCodeLogData': {
-        return LogDataTextCodeDefaultComponent;
-      }
-    }
-    return LogDataDefaultDefaultComponent;
-  }
-
-  loadComponent(logData: LogData, component: any) {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    const componentRef = this._container.createComponent(componentFactory);
-    (<LogDataComponentTwo>componentRef.instance).logData = logData;
   }
 }
