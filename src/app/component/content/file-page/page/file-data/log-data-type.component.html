@@ -1,4 +1,8 @@
-<div class="container">
+<div class="container" [ngStyle]="logData.css">
+  <app-file-page-content-header *ngIf="logData.logDataType === 'HeaderSectionLogData'"
+                                [fileModel]="fileModel"></app-file-page-content-header>
+  <app-file-page-comment-section *ngIf="logData.logDataType === 'CommentSectionLogData'"
+                                 [fileModel]="fileModel"></app-file-page-comment-section>
   <app-log-data-image-default *ngIf="logData.logDataType === 'ImageInternalLogData'"
                               [data]="logData.data"></app-log-data-image-default>
   <app-log-data-text-code-default *ngIf="logData.logDataType === 'TextCodeLogData'"

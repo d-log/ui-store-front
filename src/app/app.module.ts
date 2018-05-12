@@ -68,6 +68,7 @@ import {CodePipe} from './pipe/code/code.pipe';
 import {SortablejsModule} from 'angular-sortablejs';
 import {FormsModule} from '@angular/forms';
 import {DatePipe} from './pipe/date/date.pipe';
+import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import {DatePipe} from './pipe/date/date.pipe';
     FilePageIdComponent,
     FilePageComponent,
     FilePageContentHeaderComponent,
+    FilePageCommentSectionComponent,
     ArchiveComponent,
     MasonryComponent,
     MasonryTileComponent,
