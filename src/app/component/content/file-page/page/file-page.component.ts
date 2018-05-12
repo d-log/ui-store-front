@@ -14,20 +14,13 @@ export class FilePageComponent {
   }
 
   _fileModel: FileModel;
-  displayCommentSection: boolean;
   logDatas: LogData[];
 
   initialize(fileModel: FileModel) {
     this._fileModel = fileModel;
-    this.displayCommentSection = false;
     this.logDatas = [];
 
     if (!!fileModel) {
-      if (!!fileModel.metadata) {
-        this.displayCommentSection = fileModel.metadata.displayCommentSection;
-      } else {
-        this.displayCommentSection = false;
-      }
       if (!!fileModel.data.logDatas) {
         this.logDatas = fileModel.data.logDatas;
       }

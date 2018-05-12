@@ -6,7 +6,7 @@
       </div>
       <app-log-data-type *ngFor="let logData of logDatas" [logData]="logData"></app-log-data-type>
     </div>
-    <div *ngIf="displayCommentSection; else commentsDisabled" class="comment">
+    <div *ngIf="_fileModel.metadata.displayCommentSection; else commentsDisabled" class="comment">
       <disqus [identifier]="id"></disqus>
     </div>
     <ng-template #commentsDisabled>

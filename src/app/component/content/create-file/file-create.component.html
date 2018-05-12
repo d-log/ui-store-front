@@ -1,11 +1,16 @@
 <div class="container">
   <div class="workspace">
-    <button (click)="consoleFileModelJSON()">Console.log FileModel JSON</button>
-    <app-file-create-metadata [metadata]="fileModel.metadata"
-                              (updateFileModel)="updateFileModel()"></app-file-create-metadata>
-    <app-file-create-data [data]="fileModel.data" (updateFileModel)="updateFileModel()"></app-file-create-data>
+    <div class="print-raw">
+      <button (click)="consoleFileModelJSON()">Console Log Raw</button>
+    </div>
+    <div class="metadata">
+      <app-file-create-metadata [(metadata)]="fileModel.metadata"></app-file-create-metadata>
+    </div>
+    <div class="data">
+      <app-file-create-data [(data)]="fileModel.data"></app-file-create-data>
+    </div>
   </div>
   <div class="result">
-    <app-file-page [fileModel]="fileModel"></app-file-page>
+    <app-file-page [(fileModel)]="fileModel"></app-file-page>
   </div>
 </div>

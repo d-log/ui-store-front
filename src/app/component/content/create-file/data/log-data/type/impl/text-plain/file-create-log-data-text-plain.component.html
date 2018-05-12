@@ -1,3 +1,1 @@
-<div class="container">
-  <textarea class="workspace-textarea" (input)="textAreaChanged($event)"></textarea>
-</div>
+<textarea #text class="workspace-textarea" [(ngModel)]="textPlainLogData.text"></textarea>

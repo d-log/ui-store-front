@@ -65,6 +65,9 @@ import {FileCreateLogDataVideoYoutubeComponent} from './component/content/create
 import {LogDataTypeComponent} from './component/content/file-page/page/file-data/log-data-type.component';
 import {MarkdownPipe} from './pipe/markdown/markdown.pipe';
 import {CodePipe} from './pipe/code/code.pipe';
+import {SortablejsModule} from 'angular-sortablejs';
+import {FormsModule} from '@angular/forms';
+import {DatePipe} from './pipe/date/date.pipe';
 
 @NgModule({
   declarations: [
@@ -114,6 +117,7 @@ import {CodePipe} from './pipe/code/code.pipe';
     SafePipe,
     MarkdownPipe,
     CodePipe,
+    DatePipe,
     LogDataTypeComponent,
     LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
@@ -143,7 +147,9 @@ import {CodePipe} from './pipe/code/code.pipe';
     LogDataTextCodeDefaultComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
+    SortablejsModule.forRoot({animation: 150}), // https://github.com/SortableJS/angular-sortablejs
     DisqusModule.forRoot('marcuschiu'),
     HttpModule,
     AppRoutingModule,

@@ -13,13 +13,27 @@ export class FileCreateLogDataContainerComponent {
   @Input() logData: LogData;
 
   collapse: boolean;
+  displayNone: boolean;
+  timeout: any;
 
   constructor() {
-    this.collapse = true;
+    this.collapse = false;
+    this.displayNone = false;
   }
 
-  toggle() {
-    this.collapse = !this.collapse;
+  // animate collapse then set display to none so sortable.js
+  // doesn't ghost animate elements below the selected element
+  toggle(event: Event) {
+    if (this.collapse) {
+      clearTimeout(this.timeout);
+      this.displayNone = false;
+      this.collapse = false;
+    } else {
+      this.collapse = true;
+      this.timeout = setTimeout(() => {
+        this.displayNone = true;
+      }, 500);
+    }
   }
 
   onUpdateFileModel() {

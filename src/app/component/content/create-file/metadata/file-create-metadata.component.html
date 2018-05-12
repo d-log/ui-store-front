@@ -1,5 +1,12 @@
-<div>
-  Name <input type="text" (input)="onInputName($event)"><br>
-  Description <input type="text" (input)="onInputDescription($event)"><br>
-  Display Comments <input type="checkbox" checked (input)="onInputDisplayComments($event)">
+<div class="container">
+  <div class="left">
+    <div>Name</div>
+    <div>Description</div>
+    <div>Display Comments</div>
+  </div>
+  <div class="right">
+    <input type="text" [(ngModel)]="metadata.name"><br>
+    <input class="input-description" type="text" [(ngModel)]="metadata.description"><br>
+    <input type="checkbox" checked [(ngModel)]="metadata.displayCommentSection"><br>
+  </div>
 </div>

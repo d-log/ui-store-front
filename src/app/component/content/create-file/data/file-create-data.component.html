@@ -1,4 +1,3 @@
-<app-file-create-organization [organization]="data.organization"
-                              (updateFileModel)="onUpdateFileModel()"></app-file-create-organization>
-<app-file-create-log-data [logDatas]="data.logDatas"
-                          (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data>
+<app-file-create-organization [(data)]="data"></app-file-create-organization>
+<br>
+<app-file-create-log-data [(logDatas)]="data.logDatas"></app-file-create-log-data>

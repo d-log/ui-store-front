@@ -1,9 +1,21 @@
 <div class="container">
-  <div (click)="addLogData()">log data</div>
-  <app-file-create-log-data-container *ngFor="let logData of logDatas; let i = index"
-                                      [logData]="logData"
-                                      [index]="i"
-                                      (deleteThisLogData)="deleteLogData($event)"
-                                      (updateFileModel)="onUpdateFileModel()">
-  </app-file-create-log-data-container>
+  <div class="toolbar">
+    <div (click)="addImageInternal()">image</div>
+    <div (click)="addImageQuote()">image-quote</div>
+    <div (click)="addTextCode()">code</div>
+    <div (click)="addTextMarkdown()">markdown</div>
+    <div (click)="addTextPlain()">text</div>
+    <div (click)="addTextQuote()">quote</div>
+    <div (click)="addVideoYouTube()">youtube</div>
+  </div>
+  <!-- .log-data-type-toolbar-name is a class in file-create-log-data-container.component.html -->
+  <div [sortablejs]="logDatas" [sortablejsOptions]="{handle: '.log-data-type-toolbar-name'}">
+    <div class="log-data-type-container" *ngFor="let logData of logDatas; let i = index">
+      <app-file-create-log-data-container [logData]="logData"
+                                          [index]="i"
+                                          (deleteThisLogData)="deleteLogData($event)"
+                                          (updateFileModel)="onUpdateFileModel()">
+      </app-file-create-log-data-container>
+    </div>
+  </div>
 </div>

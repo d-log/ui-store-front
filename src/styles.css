@@ -34,3 +34,21 @@ body {
   hyphens: auto;
 
 }
+
+.workspace-textarea {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  padding-left: 5px;
+  box-sizing: border-box;
+  resize: none;
+  margin-bottom: -4px;
+}
+
+/* https://stackoverflow.com/questions/880512/prevent-text-selection-after-double-click */
+.no_selection {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}

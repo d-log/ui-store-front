@@ -1,11 +1,38 @@
+.container {
+  border-bottom: 1px solid var(--main-darker-color);
+}
+
 .typed-log-data {
-  max-height: 4000px;
-  transition: max-height 1s;
+  max-height: 1000px;
+  transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1);
   height: auto;
   overflow: hidden;
+  border-top: 1px solid var(--main-darker-color);
+  background-color: var(--main-lighter-color);
 }
 
 .typed-log-data-collapse {
   max-height: 0;
-  transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1);
+}
+
+.typed-log-data-none {
+  display: none;
+}
+
+.log-data-type-toolbar {
+  display: grid;
+  grid-template-columns: auto 15px;
+}
+
+.log-data-type-toolbar-name {
+  padding-left: 3px;
+}
+
+.fa-times {
+  color: var(--main-darker-2-color);
+  font-size: 15px;
+}
+
+.fa-times:hover {
+  color: var(--main-darker-3-color);
 }

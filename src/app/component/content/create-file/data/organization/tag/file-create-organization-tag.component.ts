@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FileModel} from '../../../../../../service/core/file/model/file-model';
 import {Pageable} from '../../../../../../service/core/model/request/pageable';
 import {Sort} from '../../../../../../service/core/model/request/sort';
@@ -6,6 +6,7 @@ import {SortOrder} from '../../../../../../service/core/model/request/sort-order
 import {FileModelService} from '../../../../../../service/core/file/file-model.service';
 import {GetterRequest} from '../../../../../../service/core/model/request/getter-request';
 import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
+import {LogFileData} from '../../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
   selector: 'app-file-create-organization-tag',
@@ -13,10 +14,8 @@ import {FileType} from '../../../../../../service/core/file/model/extra/file-typ
   styleUrls: ['./file-create-organization-tag.component.css']
 })
 export class FileCreateOrganizationTagComponent implements OnInit {
-  @Output() updateFileModel = new EventEmitter<boolean>();
+  @Input() data: LogFileData;
 
-  @Input() selectedTagFileModels: FileModel[];
-  @Input() selectedTagFileModelIDs: string[];
   unSelectedTagFileModels: FileModel[];
 
   @ViewChild('bottom') bottom: any;
@@ -26,10 +25,16 @@ export class FileCreateOrganizationTagComponent implements OnInit {
 
   constructor(private fileModelService: FileModelService) {
     this.unSelectedTagFileModels = [];
-    this.selectedTagFileModelIDs = [];
   }
 
   ngOnInit() {
+    if (this.data.organization.tagFileIDs === undefined) {
+      this.data.organization.tagFileIDs = [];
+    }
+    if (this.data.tagFileDatas === undefined) {
+      this.data.tagFileDatas = [];
+    }
+
     this.moreFilesExist = true;
 
     const getterRequest = new GetterRequest();
@@ -45,23 +50,21 @@ export class FileCreateOrganizationTagComponent implements OnInit {
     this.loadModelsIfEmptySpace();
     const tagModel = this.unSelectedTagFileModels[index];
     this.unSelectedTagFileModels.splice(index, 1);
-    this.selectedTagFileModels.push(tagModel);
-    this.selectedTagFileModels.sort(function (a: FileModel, b: FileModel) {
+    this.data.tagFileDatas.push(tagModel);
+    this.data.tagFileDatas.sort(function (a: FileModel, b: FileModel) {
       return a.metadata.name.localeCompare(b.metadata.name);
     });
-    this.selectedTagFileModelIDs = Array.from(this.selectedTagFileModels, fileModel => fileModel.id);
-    this.updateFileModel.emit(true);
+    this.data.organization.tagFileIDs = Array.from(this.data.tagFileDatas, fileModel => fileModel.id);
   }
 
   selectedTagClicked(index: number) {
-    const tagModel = this.selectedTagFileModels[index];
-    this.selectedTagFileModels.splice(index, 1);
+    const tagModel = this.data.tagFileDatas[index];
+    this.data.organization.tagFileIDs.splice(index, 1);
     this.unSelectedTagFileModels.push(tagModel);
     this.unSelectedTagFileModels.sort(function (a: FileModel, b: FileModel) {
       return a.metadata.name.localeCompare(b.metadata.name);
     });
-    this.selectedTagFileModelIDs = Array.from(this.selectedTagFileModels, fileModel => fileModel.id);
-    this.updateFileModel.emit(true);
+    this.data.organization.tagFileIDs = Array.from(this.data.tagFileDatas, fileModel => fileModel.id);
   }
 
   getTagModels() {
@@ -70,7 +73,7 @@ export class FileCreateOrganizationTagComponent implements OnInit {
       if (tagModels.length === 0) {
         this.moreFilesExist = false;
       } else {
-        tagModels = tagModels.filter((tagModel: FileModel) => !this.selectedTagFileModelIDs.includes(tagModel.id));
+        tagModels = tagModels.filter((tagModel: FileModel) => !this.data.organization.tagFileIDs.includes(tagModel.id));
         this.unSelectedTagFileModels = this.unSelectedTagFileModels.concat(tagModels);
       }
     });

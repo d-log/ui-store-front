@@ -14,7 +14,6 @@ export class PageNotFoundComponent implements AfterViewChecked {
    * https://angular.io/guide/lifecycle-hooks
    */
   ngAfterViewChecked() {
-    console.log('changing');
     this.adjustFontSize();
   }
 

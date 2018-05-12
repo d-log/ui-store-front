@@ -1,12 +1,3 @@
-<div>
-  <div>
-    <app-file-create-organization-directory [selectedDirectoryFileModels]="directoryFileModels"
-                                            [selectedDirectoryFileModelIDs]="organization.parentLogDirectoryFileIDs"
-                                            (updateFileModel)="onUpdateFileModel()"></app-file-create-organization-directory>
-  </div>
-  <div>
-    <app-file-create-organization-tag [selectedTagFileModels]="tagFileModels"
-                                      [selectedTagFileModelIDs]="organization.tagFileIDs"
-                                      (updateFileModel)="onUpdateFileModel()"></app-file-create-organization-tag>
-  </div>
-</div>
+<div class="label">Directory & Tag</div>
+<app-file-create-organization-directory [data]="data"></app-file-create-organization-directory>
+<app-file-create-organization-tag [data]="data"></app-file-create-organization-tag>

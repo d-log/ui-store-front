@@ -1,3 +1,4 @@
 <div class="container">
-  <textarea class="workspace-textarea" (input)="textAreaChanged($event)"></textarea>
+  <input #input type="text" [(ngModel)]="textQuoteLogData.sourceName"><br>
+  <textarea #quote class="workspace-textarea" [(ngModel)]="textQuoteLogData.quote"></textarea>
 </div>

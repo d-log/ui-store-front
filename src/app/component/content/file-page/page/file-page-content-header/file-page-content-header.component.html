@@ -1,21 +1,21 @@
 <div class="meta-data-container">
   <div class="views-created-updated">
-    <span class="views">views {{views}}</span>
-    <span class="created border-left">{{createdDateString}}</span>
-    <span *ngIf="showUpdated" class="updated border-left">updated {{lastUpdatedDateString}}</span>
+    <span class="views">views 13</span>
+    <span class="created border-left">{{fileModel.metadata.created | date}}</span>
+    <span *ngIf="fileModel.metadata.lastUpdated" class="updated border-left">updated {{fileModel.metadata.lastUpdated | date}}</span>
   </div>
-  <div class="name dont-break-out">{{name}}</div>
-  <div class="description dont-break-out">{{description}}</div>
+  <div class="name dont-break-out">{{fileModel.metadata.name}}</div>
+  <div class="description dont-break-out">{{fileModel.metadata.description}}</div>
   <div class="directory-tag-container">
     <div class="directory-container">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
-      <span *ngFor="let model of logDirectoryFileModels">
+      <span *ngFor="let model of fileModel.data.parentLogDirectoryFileDatas">
         · <a class="tag-or-directory" (click)="viewDirectoryInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>
     <div class="tag-container">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <span *ngFor="let model of tagFileModels">
+      <span *ngFor="let model of fileModel.data.tagFileDatas">
         · <a class="tag-or-directory" (click)="viewTagInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>

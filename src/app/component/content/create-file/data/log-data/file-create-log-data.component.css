@@ -1,0 +1,13 @@
+.toolbar {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  background-color: var(--main-darker-color);
+}
+
+.toolbar div {
+  text-align: center;
+}
+
+.toolbar div:hover {
+  background-color: var(--main-darker-2-color);
+}

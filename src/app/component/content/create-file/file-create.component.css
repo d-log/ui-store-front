@@ -9,8 +9,19 @@
   box-sizing: border-box; /* places border inside box */
   border-right: 1px solid var(--main-darker-color);
   overflow: scroll;
+  padding-bottom: 100px;
+}
+
+.print-raw {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .result {
   overflow: scroll;
+}
+
+.metadata {
+  margin-bottom: 10px;
 }

@@ -1,7 +1,6 @@
-<div>Directory</div>
 <div class="container">
   <div class="selected-directories">
-    <div class="directory" *ngFor="let directoryModel of selectedDirectoryFileModels; let i = index"
+    <div class="directory" *ngFor="let directoryModel of data.parentLogDirectoryFileDatas; let i = index"
          (click)="removeSelectedDirectory(i)">
       {{directoryModel.metadata.name}}
     </div>

@@ -1,36 +1,36 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FileModel} from '../../../../../../service/core/file/model/file-model';
 import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
+import {LogFileData} from '../../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
   selector: 'app-file-create-organization-directory',
   templateUrl: './file-create-organization-directory.component.html',
   styleUrls: ['./file-create-organization-directory.component.css']
 })
-export class FileCreateOrganizationDirectoryComponent {
-  @Output() updateFileModel = new EventEmitter<boolean>();
-
-  @Input() selectedDirectoryFileModels: FileModel[];
-  @Input() selectedDirectoryFileModelIDs: string[];
+export class FileCreateOrganizationDirectoryComponent implements OnInit {
+  @Input() data: LogFileData;
   fileTypes: FileType[];
 
-  constructor() {
+  ngOnInit() {
     this.fileTypes = [FileType.LogDirectoryFileData];
-    this.selectedDirectoryFileModelIDs = [];
-    this.selectedDirectoryFileModels = [];
+    if (this.data.organization.parentLogDirectoryFileIDs === undefined) {
+      this.data.organization.parentLogDirectoryFileIDs = [];
+    }
+    if (this.data.parentLogDirectoryFileDatas === undefined) {
+      this.data.parentLogDirectoryFileDatas = [];
+    }
   }
 
   addSelectedDirectory(fileModel: FileModel) {
-    if (!this.selectedDirectoryFileModelIDs.includes(fileModel.id)) {
-      this.selectedDirectoryFileModels.push(fileModel);
-      this.selectedDirectoryFileModelIDs.push(fileModel.id);
+    if (!this.data.organization.parentLogDirectoryFileIDs.includes(fileModel.id)) {
+      this.data.parentLogDirectoryFileDatas.push(fileModel);
+      this.data.organization.parentLogDirectoryFileIDs.push(fileModel.id);
     }
-    this.updateFileModel.emit(true);
   }
 
   removeSelectedDirectory(index: number) {
-    this.selectedDirectoryFileModels.splice(index, 1);
-    this.selectedDirectoryFileModelIDs = Array.from(this.selectedDirectoryFileModels, fileModel => fileModel.id);
-    this.updateFileModel.emit(true);
+    this.data.parentLogDirectoryFileDatas.splice(index, 1);
+    this.data.organization.parentLogDirectoryFileIDs = Array.from(this.data.parentLogDirectoryFileDatas, fileModel => fileModel.id);
   }
 }

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FileModel} from '../../../service/core/file/model/file-model';
 import {Metadata} from '../../../service/core/file/model/extra/metadata';
 import {LogFileData} from '../../../service/core/file/model/extra/data/log/log-file-data';
@@ -9,13 +9,29 @@ import {LogData} from '../../../service/core/file/model/extra/data/log/extra/log
   templateUrl: './file-create.component.html',
   styleUrls: ['./file-create.component.css']
 })
-export class FileCreateComponent {
+export class FileCreateComponent implements OnInit {
 
   fileModel: FileModel;
 
   constructor() {
     this.fileModel = new FileModel();
-    this.fileModel.metadata = new Metadata();
+    const metadata = new Metadata();
+    metadata.name = '';
+    metadata.description = '';
+    metadata.created = +new Date();
+    metadata.displayCommentSection = true;
+    this.fileModel.metadata = metadata;
+    this.fileModel.data = new LogFileData();
+  }
+
+  ngOnInit() {
+    this.fileModel = new FileModel();
+    const metadata = new Metadata();
+    metadata.name = '';
+    metadata.description = '';
+    metadata.created = +new Date();
+    metadata.displayCommentSection = true;
+    this.fileModel.metadata = metadata;
     this.fileModel.data = new LogFileData();
   }
 
@@ -34,13 +50,8 @@ export class FileCreateComponent {
         logData.data.imageFileData = undefined;
       }
     });
-    console.log(JSON.stringify(clone, null, '\t'));
-  }
 
-  updateFileModel() {
-    const fileModel = new FileModel();
-    fileModel.metadata = this.fileModel.metadata;
-    fileModel.data = this.fileModel.data;
-    this.fileModel = fileModel;
+    // this console.log is used, unless there's a better way to display the json
+    console.log(JSON.stringify(clone, null, '\t'));
   }
 }
