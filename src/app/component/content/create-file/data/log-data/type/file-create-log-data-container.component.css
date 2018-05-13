@@ -1,5 +1,6 @@
 .container {
   border-bottom: 1px solid var(--main-darker-color);
+  color: var(--main-darker-2-color);
 }
 
 .typed-log-data {
@@ -27,26 +28,16 @@
   padding-left: 3px;
 }
 
+.log-data-type-toolbar-name:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}
+
 .fa-times {
-  color: var(--main-darker-2-color);
   font-size: 15px;
   align-self: center;
 }
 
 .fa-times:hover {
   color: var(--main-darker-3-color);
-}
-
-.inner-toolbar {
-  display: flex;
-  border-bottom: 1px solid var(--main-color);
-}
-
-.toggle-css {
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-.toggle-css:hover {
-  background-color: var(--main-color);
 }

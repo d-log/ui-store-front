@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  coreEndPoint: 'http://192.168.1.3:8888',
+  coreEndPoint: 'http://localhost:8888',
 };

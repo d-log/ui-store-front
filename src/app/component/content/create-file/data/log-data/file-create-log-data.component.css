@@ -1,13 +1,15 @@
 .toolbar {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  display: flex;
   background-color: var(--main-darker-color);
-}
-
-.toolbar div {
   text-align: center;
 }
 
+.toolbar div {
+  white-space: nowrap;
+  flex: 1;
+}
+
 .toolbar div:hover {
+  cursor: pointer;
   background-color: var(--main-darker-2-color);
 }

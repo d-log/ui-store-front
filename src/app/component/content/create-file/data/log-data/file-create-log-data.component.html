@@ -3,15 +3,14 @@
     <div *ngIf="displayAddHeader" (click)="addHeaderSection()">header</div>
     <div *ngIf="displayAddComment" (click)="addCommentSection()">comment</div>
     <div (click)="addImageInternal()">image</div>
-    <div (click)="addImageQuote()">image-quote</div>
+    <div (click)="addImageQuote()">image quote</div>
     <div (click)="addTextCode()">code</div>
     <div (click)="addTextMarkdown()">markdown</div>
     <div (click)="addTextPlain()">text</div>
     <div (click)="addTextQuote()">quote</div>
     <div (click)="addVideoYouTube()">youtube</div>
   </div>
-  <!-- .log-data-type-toolbar-name is a class in file-create-log-data-container.component.html -->
-  <div [sortablejs]="data.logDatas" [sortablejsOptions]="{handle: '.log-data-type-toolbar-name'}">
+  <div [sortablejs]="data.logDatas" [sortablejsOptions]="{}">
     <div class="log-data-type-container" *ngFor="let logData of data.logDatas; let i = index">
       <app-file-create-log-data-container [logData]="logData"
                                           [index]="i"

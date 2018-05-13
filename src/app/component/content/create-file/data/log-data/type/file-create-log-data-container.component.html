@@ -1,14 +1,13 @@
 <div class="container">
   <div class="log-data-type-toolbar">
-    <!-- .log-data-type-toolbar-name is indirectly referred in file-create-log-data.component.html -->
-    <div class="log-data-type-toolbar-name" (click)="toggle()">{{logData.logDataType}}</div>
+    <div class="log-data-type-toolbar-name" (click)="toggle()">
+      {{logData.logDataType}}
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </div>
     <i class="fa fa-times" (click)="onDeleteThisLogData()" aria-hidden="true"></i>
   </div>
   <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse, 'typed-log-data-none': displayNone}">
-    <div class="inner-toolbar">
-      <div class="toggle-css" (click)="toggleDisplayCSS()">edit css</div>
-    </div>
-    <app-file-create-log-data-css *ngIf="displayCSS" [logData]="logData"></app-file-create-log-data-css>
+    <app-file-create-log-data-css [logData]="logData"></app-file-create-log-data-css>
     <app-file-create-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
                                              [imageInternalLogData]="logData.data"></app-file-create-log-data-image-internal>
     <app-file-create-log-data-image-quote *ngIf="logData.logDataType === 'ImageQuoteLogData'"

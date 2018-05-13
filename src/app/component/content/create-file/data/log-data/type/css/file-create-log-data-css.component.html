@@ -1,8 +1,10 @@
 <div class="container">
-  <div *ngFor="let key of keys let i = index">
-    <input type="text" value="{{key}}" (change)="keyChanged($event, i)">
-    <input type="text" [(ngModel)]="values[i]" (input)="valueChanged($event, i)">
-    <i class="fa fa-times" (click)="onDeleteCssDirective(i)" aria-hidden="true"></i>
+  <div>
+    <div class="css-key-value" *ngFor="let key of keys let i = index">
+      <input type="text" value="{{key}}" (change)="keyChanged($event, i)">
+      <input type="text" [(ngModel)]="values[i]" (input)="valueChanged($event, i)">
+      <i class="fa fa-times delete" (click)="onDeleteCssDirective(i)" aria-hidden="true"></i>
+    </div>
   </div>
-  <div class="add" (click)="add()"><i class="fa fa-plus" aria-hidden="true"></i></div>
+  <i class="fa fa-plus add" aria-hidden="true" (click)="add()"></i>
 </div>
