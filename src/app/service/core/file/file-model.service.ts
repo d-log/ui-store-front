@@ -35,34 +35,34 @@ export class FileModelService {
   generateTheGetterURL(getterRequest: GetterRequest): string {
     const urlParameters: string[] = [];
 
-    if (!!getterRequest.fileTypes) {
+    if (getterRequest.fileTypes !== undefined) {
       for (const fileType of getterRequest.fileTypes) {
         urlParameters.push('file-type=' + FileType[fileType]);
       }
     }
-    if (!!getterRequest.sorts) {
+    if (getterRequest.sorts !== undefined) {
       for (const s of getterRequest.sorts) {
         if (!!s) {
           urlParameters.push('sort=' + s.parameter + ',' + SortOrder[s.order]);
         }
       }
     }
-    if (!!getterRequest.logType) {
+    if (getterRequest.logType !== undefined) {
       urlParameters.push('log-type=' + LogType[getterRequest.logType]);
     }
-    if (!!getterRequest.pageable) {
+    if (getterRequest.pageable !== undefined) {
       urlParameters.push('page=' + getterRequest.pageable.page + '&size=' + getterRequest.pageable.size);
     }
-    if (!!getterRequest.directoryID) {
+    if (getterRequest.directoryID !== undefined) {
       urlParameters.push('directory-id=' + getterRequest.directoryID);
     }
-    if (!!getterRequest.tagID) {
+    if (getterRequest.tagID !== undefined) {
       urlParameters.push('tag-id=' + getterRequest.tagID);
     }
-    if (!!getterRequest.millisecondThreshold) {
+    if (getterRequest.millisecondThreshold !== undefined) {
       urlParameters.push('millisecond-threshold=' + getterRequest.millisecondThreshold);
     }
-    if (!!getterRequest.searchString) {
+    if (getterRequest.searchString !== undefined) {
       urlParameters.push('search=' + encodeURIComponent(getterRequest.searchString));
     }
 

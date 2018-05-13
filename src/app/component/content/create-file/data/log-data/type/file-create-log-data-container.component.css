@@ -36,3 +36,17 @@
 .fa-times:hover {
   color: var(--main-darker-3-color);
 }
+
+.inner-toolbar {
+  display: flex;
+  border-bottom: 1px solid var(--main-color);
+}
+
+.toggle-css {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.toggle-css:hover {
+  background-color: var(--main-color);
+}

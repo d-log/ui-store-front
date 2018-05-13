@@ -11,12 +11,10 @@ export class FileCreateLogDataCssComponent implements OnInit {
 
   keys: string[];
   values: string[];
-  showKeyValues: boolean;
 
   constructor() {
     this.keys = [];
     this.values = [];
-    this.showKeyValues = false;
   }
 
   ngOnInit() {
@@ -28,10 +26,6 @@ export class FileCreateLogDataCssComponent implements OnInit {
       this.keys.push(property);
       this.values.push(this.logData.css[property]);
     }
-  }
-
-  toggleDisplay() {
-    this.showKeyValues = !this.showKeyValues;
   }
 
   onDeleteCssDirective(index: number) {

@@ -1,5 +1,16 @@
 .container {
   padding: 3px;
   box-sizing: border-box;
-  border-top: 1px solid var(--main-darker-color);
+  border-bottom: 1px solid var(--main-darker-color);
+}
+
+.add {
+  margin-top: 2px;
+  padding-top: 2px;
+  text-align: center;
+  background-color: var(--main-color);
+}
+
+.add:hover {
+  background-color: var(--main-darker-color);
 }

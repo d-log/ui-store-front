@@ -5,6 +5,8 @@ import {LogFileData} from '../../../service/core/file/model/extra/data/log/log-f
 import {LogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 import {HeaderSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-data';
 import {CommentSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
+import {LogTypeOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/log-type-override';
+import {TileLogFileDataOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-file-data-override';
 
 @Component({
   selector: 'app-file-create',
@@ -15,29 +17,30 @@ export class FileCreateComponent implements OnInit {
 
   fileModel: FileModel;
 
-  constructor() {
-    this.fileModel = new FileModel();
-    const metadata = new Metadata();
-    metadata.name = '';
-    metadata.description = '';
-    metadata.created = +new Date();
-    this.fileModel.metadata = metadata;
-    this.fileModel.data = new LogFileData();
-  }
-
   ngOnInit() {
-    this.fileModel = new FileModel();
+    const fileModel = new FileModel();
+
     const metadata = new Metadata();
     metadata.name = 'Name';
     metadata.description = 'description';
     metadata.created = +new Date();
-    this.fileModel.metadata = metadata;
+    fileModel.metadata = metadata;
+
     const logFileData = new LogFileData();
     logFileData.logDatas = [
       new LogData('HeaderSectionLogData', {'margin-top': '20px'}, new HeaderSectionLogData()),
       new LogData('CommentSectionLogData', {'margin-top': '20px'}, new CommentSectionLogData()),
     ];
-    this.fileModel.data = logFileData;
+
+    const logTypeOverride = new LogTypeOverride();
+    const tileOverride = new TileLogFileDataOverride();
+    tileOverride.logDataToDisplayIndex = 0;
+    logTypeOverride.tile = tileOverride;
+    logFileData.logTypeOverride = logTypeOverride;
+
+    fileModel.data = logFileData;
+
+    this.fileModel = fileModel;
   }
 
   consoleFileModelJSON() {

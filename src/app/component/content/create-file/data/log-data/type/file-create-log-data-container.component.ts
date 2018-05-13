@@ -15,14 +15,21 @@ export class FileCreateLogDataContainerComponent {
   displayNone: boolean;
   timeout: any;
 
+  displayCSS: boolean;
+
   constructor() {
     this.collapse = false;
     this.displayNone = false;
+    this.displayCSS = false;
+  }
+
+  toggleDisplayCSS() {
+    this.displayCSS = !this.displayCSS;
   }
 
   // animate collapse then set display to none so sortable.js
   // doesn't ghost animate elements below the selected element
-  toggle(event: Event) {
+  toggle() {
     if (this.collapse) {
       clearTimeout(this.timeout);
       this.displayNone = false;

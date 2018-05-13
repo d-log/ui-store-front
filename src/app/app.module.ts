@@ -70,6 +70,7 @@ import {FormsModule} from '@angular/forms';
 import {DatePipe} from './pipe/date/date.pipe';
 import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
 import {FileCreateLogDataCssComponent} from './component/content/create-file/data/log-data/type/css/file-create-log-data-css.component';
+import {FileCreateLogTypeOverrideComponent} from './component/content/create-file/data/overrides/file-create-log-type-override.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import {FileCreateLogDataCssComponent} from './component/content/create-file/dat
     FileCreateOrganizationDirectoryComponent,
     FileCreateMetadataComponent,
     FileCreateLogDataComponent,
+    FileCreateLogTypeOverrideComponent,
     FileCreateLogDataCssComponent,
     FileCreateLogDataContainerComponent,
     FileCreateLogDataTextPlainComponent,
