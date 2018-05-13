@@ -1,5 +1,7 @@
 <div class="container">
   <div class="toolbar">
+    <div (click)="addHeaderSection()">header</div>
+    <div (click)="addCommentSection()">comment</div>
     <div (click)="addImageInternal()">image</div>
     <div (click)="addImageQuote()">image-quote</div>
     <div (click)="addTextCode()">code</div>
@@ -13,8 +15,7 @@
     <div class="log-data-type-container" *ngFor="let logData of logDatas; let i = index">
       <app-file-create-log-data-container [logData]="logData"
                                           [index]="i"
-                                          (deleteThisLogData)="deleteLogData($event)"
-                                          (updateFileModel)="onUpdateFileModel()">
+                                          (deleteThisLogData)="deleteLogData($event)">
       </app-file-create-log-data-container>
     </div>
   </div>

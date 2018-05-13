@@ -69,6 +69,7 @@ import {SortablejsModule} from 'angular-sortablejs';
 import {FormsModule} from '@angular/forms';
 import {DatePipe} from './pipe/date/date.pipe';
 import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
+import {FileCreateLogDataCssComponent} from './component/content/create-file/data/log-data/type/css/file-create-log-data-css.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
     FileCreateOrganizationDirectoryComponent,
     FileCreateMetadataComponent,
     FileCreateLogDataComponent,
+    FileCreateLogDataCssComponent,
     FileCreateLogDataContainerComponent,
     FileCreateLogDataTextPlainComponent,
     FileCreateLogDataTextCodeComponent,

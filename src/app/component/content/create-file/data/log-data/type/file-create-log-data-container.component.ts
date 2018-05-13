@@ -7,7 +7,6 @@ import {LogData} from '../../../../../../service/core/file/model/extra/data/log/
   styleUrls: ['./file-create-log-data-container.component.css']
 })
 export class FileCreateLogDataContainerComponent {
-  @Output() updateFileModel = new EventEmitter<boolean>();
   @Output() deleteThisLogData = new EventEmitter<number>();
   @Input() index: number;
   @Input() logData: LogData;
@@ -34,10 +33,6 @@ export class FileCreateLogDataContainerComponent {
         this.displayNone = true;
       }, 500);
     }
-  }
-
-  onUpdateFileModel() {
-    this.updateFileModel.emit(true);
   }
 
   onDeleteThisLogData() {

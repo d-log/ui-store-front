@@ -2,31 +2,23 @@
   <div class="log-data-type-toolbar">
     <!-- .log-data-type-toolbar-name is indirectly referred in file-create-log-data.component.html -->
     <div class="log-data-type-toolbar-name" (click)="toggle($event)">{{logData.logDataType}}</div>
-    <div (click)="onDeleteThisLogData($event)">
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </div>
+    <i class="fa fa-times" (click)="onDeleteThisLogData($event)" aria-hidden="true"></i>
   </div>
   <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse, 'typed-log-data-none': displayNone}">
+    <app-file-create-log-data-css [logData]="logData"></app-file-create-log-data-css>
     <app-file-create-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
-                                             [imageInternalLogData]="logData.data"
-                                             (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-image-internal>
+                                             [imageInternalLogData]="logData.data"></app-file-create-log-data-image-internal>
     <app-file-create-log-data-image-quote *ngIf="logData.logDataType === 'ImageQuoteLogData'"
-                                          [imageQuoteLogData]="logData.data"
-                                          (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-image-quote>
+                                          [imageQuoteLogData]="logData.data"></app-file-create-log-data-image-quote>
     <app-file-create-log-data-text-code *ngIf="logData.logDataType === 'TextCodeLogData'"
-                                        [textCodeLogData]="logData.data"
-                                        (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-code>
+                                        [textCodeLogData]="logData.data"></app-file-create-log-data-text-code>
     <app-file-create-log-data-text-markdown *ngIf="logData.logDataType === 'TextMarkdownLogData'"
-                                            [textMarkdownLogData]="logData.data"
-                                            (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-markdown>
+                                            [textMarkdownLogData]="logData.data"></app-file-create-log-data-text-markdown>
     <app-file-create-log-data-text-plain *ngIf="logData.logDataType === 'TextPlainLogData'"
-                                         [textPlainLogData]="logData.data"
-                                         (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-plain>
+                                         [textPlainLogData]="logData.data"></app-file-create-log-data-text-plain>
     <app-file-create-log-data-text-quote *ngIf="logData.logDataType === 'TextQuoteLogData'"
-                                         [textQuoteLogData]="logData.data"
-                                         (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-text-quote>
+                                         [textQuoteLogData]="logData.data"></app-file-create-log-data-text-quote>
     <app-file-create-log-data-video-youtube *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
-                                            [videoYoutubeLogData]="logData.data"
-                                            (updateFileModel)="onUpdateFileModel()"></app-file-create-log-data-video-youtube>
+                                            [videoYoutubeLogData]="logData.data"></app-file-create-log-data-video-youtube>
   </div>
 </div>

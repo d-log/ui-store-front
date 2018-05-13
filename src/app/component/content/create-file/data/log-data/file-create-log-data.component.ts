@@ -7,6 +7,8 @@ import {TextMarkdownLogData} from '../../../../../service/core/file/model/extra/
 import {TextQuoteLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-quote/text-quote-log-data';
 import {ImageInternalLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 import {ImageFileData} from '../../../../../service/core/file/model/extra/data/image/image-file-data';
+import {HeaderSectionLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-data';
+import {CommentSectionLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
 
 @Component({
   selector: 'app-file-create-log-data',
@@ -17,13 +19,23 @@ export class FileCreateLogDataComponent {
   @Output() updateFileModel = new EventEmitter<boolean>();
   @Input() logDatas: LogData[];
 
+  addHeaderSection() {
+    const header = new HeaderSectionLogData();
+    this.logDatas.push(new LogData('HeaderSectionLogData', {'margin-top': '20px'}, header));
+  }
+
+  addCommentSection() {
+    const comment = new CommentSectionLogData();
+    this.logDatas.push(new LogData('CommentSectionLogData', {'margin-top': '20px'}, comment));
+  }
+
   addImageInternal() {
     const imageInternalLogData = new ImageInternalLogData();
     const imageFileData = new ImageFileData();
     imageFileData.imageURL = 'https://lightwidget.com/widgets/empty-photo.jpg';
     imageFileData.heightDividedByWidth = 1;
     imageInternalLogData.imageFileData = imageFileData;
-    this.logDatas.push(new LogData('ImageInternalLogData', imageInternalLogData));
+    this.logDatas.push(new LogData('ImageInternalLogData', {'margin-top': '20px'}, imageInternalLogData));
   }
 
   addImageQuote() {
@@ -37,32 +49,32 @@ export class FileCreateLogDataComponent {
     textCodeLogData.showLineNumber = true;
     textCodeLogData.maxHeight = -1;
     textCodeLogData.startingLineNumber = 1;
-    this.logDatas.push(new LogData('TextCodeLogData', textCodeLogData));
+    this.logDatas.push(new LogData('TextCodeLogData', {'margin-top': '20px'}, textCodeLogData));
   }
 
   addTextMarkdown() {
     const textMarkdownLogData = new TextMarkdownLogData();
     textMarkdownLogData.text = 'something';
-    this.logDatas.push(new LogData('TextMarkdownLogData', textMarkdownLogData));
+    this.logDatas.push(new LogData('TextMarkdownLogData', null, textMarkdownLogData));
   }
 
   addTextPlain() {
     const textPlainLogData = new TextPlainLogData();
     textPlainLogData.text = 'test text plain';
-    this.logDatas.push(new LogData('TextPlainLogData', textPlainLogData));
+    this.logDatas.push(new LogData('TextPlainLogData', {'margin-top': '20px'}, textPlainLogData));
   }
 
   addTextQuote() {
     const textQuoteLogData = new TextQuoteLogData();
     textQuoteLogData.quote = 'I am the way, the truth and life';
     textQuoteLogData.sourceName = 'Jesus Christ';
-    this.logDatas.push(new LogData('TextQuoteLogData', textQuoteLogData));
+    this.logDatas.push(new LogData('TextQuoteLogData', {'margin-top': '20px'}, textQuoteLogData));
   }
 
   addVideoYouTube() {
     const videoYouTubeLogData = new VideoYoutubeLogData();
     videoYouTubeLogData.videoID = 'qVgOTbx4RW8';
-    this.logDatas.push(new LogData('VideoYouTubeLogData', videoYouTubeLogData));
+    this.logDatas.push(new LogData('VideoYouTubeLogData', {'margin-top': '20px'}, videoYouTubeLogData));
   }
 
   deleteLogData(index: number) {

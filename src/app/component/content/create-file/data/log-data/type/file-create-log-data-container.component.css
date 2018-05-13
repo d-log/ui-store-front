@@ -7,7 +7,6 @@
   transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1);
   height: auto;
   overflow: hidden;
-  border-top: 1px solid var(--main-darker-color);
   background-color: var(--main-lighter-color);
 }
 
@@ -31,6 +30,7 @@
 .fa-times {
   color: var(--main-darker-2-color);
   font-size: 15px;
+  align-self: center;
 }
 
 .fa-times:hover {

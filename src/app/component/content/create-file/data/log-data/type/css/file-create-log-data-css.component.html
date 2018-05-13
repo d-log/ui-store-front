@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="showKeyValues; else edit">
+    <div (click)="toggleDisplay()">close css</div>
+    <div *ngFor="let key of keys let i = index">
+      <input type="text" value="{{key}}" (change)="keyChanged($event, i)">
+      <input type="text" [(ngModel)]="values[i]" (input)="valueChanged($event, i)">
+      <i class="fa fa-times" (click)="onDeleteCssDirective(i)" aria-hidden="true"></i>
+    </div>
+    <div (click)="add()">add</div>
+  </div>
+  <ng-template #edit>
+    <div (click)="toggleDisplay()">edit css</div>
+  </ng-template>
+</div>

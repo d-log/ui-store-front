@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ImageInternalLogData} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 import {FileModelService} from '../../../../../../../../service/core/file/file-model.service';
 import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
@@ -16,8 +16,6 @@ import {LogData} from '../../../../../../../../service/core/file/model/extra/dat
 })
 export class FileCreateLogDataImageInternalComponent implements OnInit {
   @Input() imageInternalLogData: ImageInternalLogData;
-  @Output() updateFileModel = new EventEmitter<boolean>();
-
   @ViewChild('bottom') bottom: any;
 
   getterRequest: GetterRequest;
@@ -48,7 +46,7 @@ export class FileCreateLogDataImageInternalComponent implements OnInit {
           const imageInternalLogData = new ImageInternalLogData();
           imageInternalLogData.imageID = fileModel.id;
           imageInternalLogData.imageFileData = fileModel.data;
-          return new LogData('ImageInternalLogData', imageInternalLogData);
+          return new LogData('ImageInternalLogData', null, imageInternalLogData);
         });
         // tagModels = fileModels.filter((fileModel: FileModel) => !this.selectedFileModel.includes(fileModel.id));
         this.selectableImageLogDatas = this.selectableImageLogDatas.concat(imageLogDatas);
@@ -71,7 +69,6 @@ export class FileCreateLogDataImageInternalComponent implements OnInit {
   onSelectImage(index: number) {
     this.imageInternalLogData.imageID = this.selectableImageLogDatas[index].data.imageID;
     this.imageInternalLogData.imageFileData = this.selectableImageLogDatas[index].data.imageFileData;
-    this.updateFileModel.emit(true);
   }
 
   isElementInViewport(el) {
