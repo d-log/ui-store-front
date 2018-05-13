@@ -1,4 +1,4 @@
-<div class="container" [ngStyle]="logData.css">
+<div [ngStyle]="logData.css">
   <app-file-page-content-header *ngIf="logData.logDataType === 'HeaderSectionLogData'"
                                 [fileModel]="fileModel"></app-file-page-content-header>
   <app-file-page-comment-section *ngIf="logData.logDataType === 'CommentSectionLogData'"

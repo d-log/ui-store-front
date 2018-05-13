@@ -36,16 +36,24 @@ export class FileCreateLogDataComponent implements OnInit {
     }
   }
 
+  generateDefaultCSS() {
+    return {
+      'margin-top': '20px',
+      'margin-left': 'auto',
+      'margin-right': 'auto',
+      'max-width': '800px'
+    };
+  }
 
   addHeaderSection() {
     const header = new HeaderSectionLogData();
-    this.data.logDatas.push(new LogData('HeaderSectionLogData', {'margin-top': '20px'}, header));
+    this.data.logDatas.push(new LogData('HeaderSectionLogData', this.generateDefaultCSS(), header));
     this.displayAddHeader = false;
   }
 
   addCommentSection() {
     const comment = new CommentSectionLogData();
-    this.data.logDatas.push(new LogData('CommentSectionLogData', {'margin-top': '20px'}, comment));
+    this.data.logDatas.push(new LogData('CommentSectionLogData', this.generateDefaultCSS(), comment));
     this.displayAddComment = false;
   }
 
@@ -55,7 +63,7 @@ export class FileCreateLogDataComponent implements OnInit {
     imageFileData.imageURL = 'https://lightwidget.com/widgets/empty-photo.jpg';
     imageFileData.heightDividedByWidth = 1;
     imageInternalLogData.imageFileData = imageFileData;
-    this.data.logDatas.push(new LogData('ImageInternalLogData', {'margin-top': '20px'}, imageInternalLogData));
+    this.data.logDatas.push(new LogData('ImageInternalLogData', this.generateDefaultCSS(), imageInternalLogData));
   }
 
   addImageQuote() {
@@ -68,32 +76,32 @@ export class FileCreateLogDataComponent implements OnInit {
     textCodeLogData.showLineNumber = true;
     textCodeLogData.maxHeight = -1;
     textCodeLogData.startingLineNumber = 1;
-    this.data.logDatas.push(new LogData('TextCodeLogData', {'margin-top': '20px'}, textCodeLogData));
+    this.data.logDatas.push(new LogData('TextCodeLogData', this.generateDefaultCSS(), textCodeLogData));
   }
 
   addTextMarkdown() {
     const textMarkdownLogData = new TextMarkdownLogData();
     textMarkdownLogData.text = 'something';
-    this.data.logDatas.push(new LogData('TextMarkdownLogData', null, textMarkdownLogData));
+    this.data.logDatas.push(new LogData('TextMarkdownLogData', this.generateDefaultCSS(), textMarkdownLogData));
   }
 
   addTextPlain() {
     const textPlainLogData = new TextPlainLogData();
     textPlainLogData.text = 'test text plain';
-    this.data.logDatas.push(new LogData('TextPlainLogData', {'margin-top': '20px'}, textPlainLogData));
+    this.data.logDatas.push(new LogData('TextPlainLogData', this.generateDefaultCSS(), textPlainLogData));
   }
 
   addTextQuote() {
     const textQuoteLogData = new TextQuoteLogData();
     textQuoteLogData.quote = 'I am the way, the truth and life';
     textQuoteLogData.sourceName = 'Jesus Christ';
-    this.data.logDatas.push(new LogData('TextQuoteLogData', {'margin-top': '20px'}, textQuoteLogData));
+    this.data.logDatas.push(new LogData('TextQuoteLogData', this.generateDefaultCSS(), textQuoteLogData));
   }
 
   addVideoYouTube() {
     const videoYouTubeLogData = new VideoYoutubeLogData();
     videoYouTubeLogData.videoID = 'qVgOTbx4RW8';
-    this.data.logDatas.push(new LogData('VideoYouTubeLogData', {'margin-top': '20px'}, videoYouTubeLogData));
+    this.data.logDatas.push(new LogData('VideoYouTubeLogData', this.generateDefaultCSS(), videoYouTubeLogData));
   }
 
   deleteLogData(index: number) {

@@ -5,8 +5,6 @@ import {LogFileData} from '../../../service/core/file/model/extra/data/log/log-f
 import {LogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 import {HeaderSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-data';
 import {CommentSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
-import {LogTypeOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/log-type-override';
-import {TileLogFileDataOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-file-data-override';
 
 @Component({
   selector: 'app-file-create',
@@ -28,19 +26,28 @@ export class FileCreateComponent implements OnInit {
 
     const logFileData = new LogFileData();
     logFileData.logDatas = [
-      new LogData('HeaderSectionLogData', {'margin-top': '20px'}, new HeaderSectionLogData()),
-      new LogData('CommentSectionLogData', {'margin-top': '20px'}, new CommentSectionLogData()),
+      new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
+      new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
     ];
 
-    const logTypeOverride = new LogTypeOverride();
-    const tileOverride = new TileLogFileDataOverride();
-    tileOverride.logDataToDisplayIndex = 0;
-    logTypeOverride.tile = tileOverride;
-    logFileData.logTypeOverride = logTypeOverride;
+    // const logTypeOverride = new LogTypeOverride();
+    // const tileOverride = new TileLogFileDataOverride();
+    // tileOverride.logDataToDisplayIndex = 0;
+    // logTypeOverride.tile = tileOverride;
+    // logFileData.logTypeOverride = logTypeOverride;
 
     fileModel.data = logFileData;
 
     this.fileModel = fileModel;
+  }
+
+  generateDefaultCSS() {
+    return {
+      'margin-top': '20px',
+      'margin-left': 'auto',
+      'margin-right': 'auto',
+      'max-width': '800px'
+    };
   }
 
   consoleFileModelJSON() {

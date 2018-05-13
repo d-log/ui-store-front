@@ -1,8 +1,3 @@
-<div class="vc_container_container">
-  <div class="vc_container">
-    <div class="content">
-      <app-log-data-type *ngFor="let logData of logDatas" [logData]="logData"
-                         [fileModel]="_fileModel"></app-log-data-type>
-    </div>
-  </div>
+<div class="vc_container">
+  <app-log-data-type *ngFor="let logData of logDatas" [logData]="logData" [fileModel]="_fileModel"></app-log-data-type>
 </div>
