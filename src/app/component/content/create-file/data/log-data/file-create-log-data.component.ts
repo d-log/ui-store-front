@@ -1,12 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
-import {TextCodeLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-code/text-code-log-data';
-import {TextPlainLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-plain/text-plain-log-data';
-import {VideoYoutubeLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/video-youtube/video-youtube-log-data';
-import {TextMarkdownLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-markdown/text-markdown-log-data';
-import {TextQuoteLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-quote/text-quote-log-data';
-import {ImageInternalLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
-import {ImageFileData} from '../../../../../service/core/file/model/extra/data/image/image-file-data';
 import {HeaderSectionLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-data';
 import {CommentSectionLogData} from '../../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
 import {LogFileData} from '../../../../../service/core/file/model/extra/data/log/log-file-data';
@@ -22,9 +15,12 @@ export class FileCreateLogDataComponent implements OnInit {
   displayAddHeader: boolean;
   displayAddComment: boolean;
 
+  displayHelperType: string;
+
   constructor() {
     this.displayAddHeader = false;
     this.displayAddComment = false;
+    this.displayHelperType = undefined;
   }
 
   ngOnInit() {
@@ -33,6 +29,18 @@ export class FileCreateLogDataComponent implements OnInit {
     }
     if (this.data.logDatas.filter((logData: LogData) => logData.logDataType === 'CommentSectionLogData').length === 0) {
       this.displayAddComment = true;
+    }
+  }
+
+  closeHelper() {
+    this.displayHelperType = undefined;
+  }
+
+  toggleHelper(type: string) {
+    if (this.displayHelperType === type) {
+      this.displayHelperType = undefined;
+    } else {
+      this.displayHelperType = type;
     }
   }
 
@@ -55,53 +63,6 @@ export class FileCreateLogDataComponent implements OnInit {
     const comment = new CommentSectionLogData();
     this.data.logDatas.push(new LogData('CommentSectionLogData', this.generateDefaultCSS(), comment));
     this.displayAddComment = false;
-  }
-
-  addImageInternal() {
-    const imageInternalLogData = new ImageInternalLogData();
-    const imageFileData = new ImageFileData();
-    imageFileData.imageURL = 'https://lightwidget.com/widgets/empty-photo.jpg';
-    imageFileData.heightDividedByWidth = 1;
-    imageInternalLogData.imageFileData = imageFileData;
-    this.data.logDatas.push(new LogData('ImageInternalLogData', this.generateDefaultCSS(), imageInternalLogData));
-  }
-
-  addImageQuote() {
-  }
-
-  addTextCode() {
-    const textCodeLogData = new TextCodeLogData();
-    textCodeLogData.code = 'public static void main(String args[]) {\n    System.out.println("Hello World");\n}';
-    textCodeLogData.language = 'java';
-    textCodeLogData.showLineNumber = true;
-    textCodeLogData.maxHeight = -1;
-    textCodeLogData.startingLineNumber = 1;
-    this.data.logDatas.push(new LogData('TextCodeLogData', this.generateDefaultCSS(), textCodeLogData));
-  }
-
-  addTextMarkdown() {
-    const textMarkdownLogData = new TextMarkdownLogData();
-    textMarkdownLogData.text = 'something';
-    this.data.logDatas.push(new LogData('TextMarkdownLogData', this.generateDefaultCSS(), textMarkdownLogData));
-  }
-
-  addTextPlain() {
-    const textPlainLogData = new TextPlainLogData();
-    textPlainLogData.text = 'test text plain';
-    this.data.logDatas.push(new LogData('TextPlainLogData', this.generateDefaultCSS(), textPlainLogData));
-  }
-
-  addTextQuote() {
-    const textQuoteLogData = new TextQuoteLogData();
-    textQuoteLogData.quote = 'I am the way, the truth and life';
-    textQuoteLogData.sourceName = 'Jesus Christ';
-    this.data.logDatas.push(new LogData('TextQuoteLogData', this.generateDefaultCSS(), textQuoteLogData));
-  }
-
-  addVideoYouTube() {
-    const videoYouTubeLogData = new VideoYoutubeLogData();
-    videoYouTubeLogData.videoID = 'qVgOTbx4RW8';
-    this.data.logDatas.push(new LogData('VideoYouTubeLogData', this.generateDefaultCSS(), videoYouTubeLogData));
   }
 
   deleteLogData(index: number) {

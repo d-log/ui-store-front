@@ -1,14 +1,3 @@
-.container {
-  border-top: 1px solid var(--main-color);
-  display: flex;
-}
-
-.unselected {
-  width: 50%;
-  height: 100px;
-  overflow: scroll;
-}
-
 .selected {
-  width: 50%;
+  border-top: 1px solid var(--main-color);
 }

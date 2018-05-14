@@ -14,3 +14,11 @@
   cursor: pointer;
   background-color: var(--main-darker-2-color);
 }
+
+.helper-container {
+  border-bottom: 1px solid var(--main-darker-color);
+}
+
+.helper-selected {
+  background-color: var(--main-darker-2-color);
+}

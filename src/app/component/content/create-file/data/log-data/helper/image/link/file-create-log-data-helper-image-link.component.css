@@ -1,0 +1,11 @@
+.container {
+  color: var(--main-darker-2-color);
+  display: grid;
+  grid-template-columns: auto 50px;
+  text-align: center;
+}
+
+span:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}

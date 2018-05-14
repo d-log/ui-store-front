@@ -2,13 +2,17 @@
   <div class="toolbar">
     <div *ngIf="displayAddHeader" (click)="addHeaderSection()">header</div>
     <div *ngIf="displayAddComment" (click)="addCommentSection()">comment</div>
-    <div (click)="addImageInternal()">image</div>
-    <div (click)="addImageQuote()">image quote</div>
-    <div (click)="addTextCode()">code</div>
-    <div (click)="addTextMarkdown()">markdown</div>
-    <div (click)="addTextPlain()">text</div>
-    <div (click)="addTextQuote()">quote</div>
-    <div (click)="addVideoYouTube()">youtube</div>
+    <div (click)="toggleHelper('text')" [ngClass]="{'helper-selected': displayHelperType === 'text'}">text</div>
+    <div (click)="toggleHelper('image')" [ngClass]="{'helper-selected': displayHelperType === 'image'}">image</div>
+    <div (click)="toggleHelper('link')" [ngClass]="{'helper-selected': displayHelperType === 'link'}">link</div>
+  </div>
+  <div class="helper-container" *ngIf="displayHelperType !== undefined">
+    <app-file-create-log-data-helper-image *ngIf="displayHelperType === 'image'" [data]="data"
+                                           (closeHelper)="closeHelper()"></app-file-create-log-data-helper-image>
+    <app-file-create-log-data-helper-text *ngIf="displayHelperType === 'text'" [data]="data"
+                                          (closeHelper)="closeHelper()"></app-file-create-log-data-helper-text>
+    <app-file-create-log-data-helper-link *ngIf="displayHelperType === 'link'" [data]="data"
+                                          (closeHelper)="closeHelper()"></app-file-create-log-data-helper-link>
   </div>
   <div [sortablejs]="data.logDatas" [sortablejsOptions]="{}">
     <div class="log-data-type-container" *ngFor="let logData of data.logDatas; let i = index">

@@ -71,10 +71,23 @@ import {DatePipe} from './pipe/date/date.pipe';
 import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
 import {FileCreateLogDataCssComponent} from './component/content/create-file/data/log-data/type/css/file-create-log-data-css.component';
 import {FileCreateLogTypeOverrideComponent} from './component/content/create-file/data/overrides/file-create-log-type-override.component';
+import {FileCreateLogDataHelperImageComponent} from './component/content/create-file/data/log-data/helper/image/file-create-log-data-helper-image.component';
+import {ImageModelService} from './service/core/file/type/image/image-model.service';
+import {FileCreateLogDataHelperImageExistingComponent} from './component/content/create-file/data/log-data/helper/image/existing/file-create-log-data-helper-image-existing.component';
+import {FileCreateLogDataHelperImageUploadComponent} from './component/content/create-file/data/log-data/helper/image/upload/file-create-log-data-helper-image-upload.component';
+import {FileCreateLogDataHelperTextComponent} from './component/content/create-file/data/log-data/helper/text/file-create-log-data-helper-text.component';
+import {FileCreateLogDataHelperLinkComponent} from './component/content/create-file/data/log-data/helper/link/file-create-log-data-helper-link.component';
+import {FileCreateLogDataHelperImageLinkComponent} from './component/content/create-file/data/log-data/helper/image/link/file-create-log-data-helper-image-link.component';
+import {ScriptHackComponent} from './component/util/script-hack.component';
+import {TwitterService} from './service/twitter/twitter.service';
+import {TwitterComponent} from './component/util/twitter/twitter.component';
+import {FileCreateLogDataTwitterTweetComponent} from './component/content/create-file/data/log-data/type/impl/twitter-tweet/file-create-log-data-twitter-tweet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TwitterComponent,
+    ScriptHackComponent,
     NavigationTopComponent,
     SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
@@ -92,6 +105,12 @@ import {FileCreateLogTypeOverrideComponent} from './component/content/create-fil
     FileCreateOrganizationDirectoryComponent,
     FileCreateMetadataComponent,
     FileCreateLogDataComponent,
+    FileCreateLogDataHelperTextComponent,
+    FileCreateLogDataHelperLinkComponent,
+    FileCreateLogDataHelperImageComponent,
+    FileCreateLogDataHelperImageLinkComponent,
+    FileCreateLogDataHelperImageExistingComponent,
+    FileCreateLogDataHelperImageUploadComponent,
     FileCreateLogTypeOverrideComponent,
     FileCreateLogDataCssComponent,
     FileCreateLogDataContainerComponent,
@@ -101,6 +120,7 @@ import {FileCreateLogTypeOverrideComponent} from './component/content/create-fil
     FileCreateLogDataImageInternalComponent,
     FileCreateLogDataTextMarkdownComponent,
     FileCreateLogDataTextQuoteComponent,
+    FileCreateLogDataTwitterTweetComponent,
     FileCreateLogDataVideoYoutubeComponent,
     FilePageIdComponent,
     FilePageComponent,
@@ -161,9 +181,11 @@ import {FileCreateLogTypeOverrideComponent} from './component/content/create-fil
     AppRoutingModule,
   ],
   providers: [
+    TwitterService,
     FileModelService,
     LogModelService,
     TagModelService,
+    ImageModelService,
     DirectoryModelService,
     MarkdownService,
     EventBrokerService,

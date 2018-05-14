@@ -5,7 +5,8 @@
       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
     <div>
-      tile display<input type="checkbox" [ngModel]="data.logTypeOverride.tile.logDataToDisplayIndex === index" (change)="onChangeThisLogDataAsTileDisplay($event)">
+      tile display<input type="checkbox" [ngModel]="data.logTypeOverride.tile.logDataToDisplayIndex === index"
+                         (change)="onChangeThisLogDataAsTileDisplay($event)">
     </div>
     <i class="fa fa-times" (click)="onDeleteThisLogData()" aria-hidden="true"></i>
   </div>
@@ -25,5 +26,7 @@
                                          [textQuoteLogData]="logData.data"></app-file-create-log-data-text-quote>
     <app-file-create-log-data-video-youtube *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
                                             [videoYoutubeLogData]="logData.data"></app-file-create-log-data-video-youtube>
+    <app-file-create-log-data-twitter-tweet *ngIf="logData.logDataType === 'TwitterTweetLogData'"
+                                            [twitterTweetLogData]="logData.data"></app-file-create-log-data-twitter-tweet>
   </div>
 </div>

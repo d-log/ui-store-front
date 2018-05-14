@@ -1,0 +1,5 @@
+<div class="toolbar">
+  <input #input type="text" [(ngModel)]="link" placeholder="youtube or twitter" (keypress)="onKeyPress($event)">
+  <span (click)="submitLink()">add</span>
+  <i class="fa fa-chevron-up" (click)="onCloseHelper()" aria-hidden="true"></i>
+</div>

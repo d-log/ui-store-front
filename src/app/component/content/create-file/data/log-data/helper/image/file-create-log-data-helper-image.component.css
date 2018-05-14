@@ -1,0 +1,31 @@
+.container {
+  border-top: 1px solid var(--main-color);
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: auto auto auto 20px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--main-darker-2-color);
+}
+
+.image-add-type:hover {
+  cursor: pointer;
+  background-color: var(--main-darker-color);
+  color: var(--main-darker-3-color);
+}
+
+.toolbar > i:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}
+
+.selected-type {
+  background-color: var(--main-darker-color);
+  color: var(--main-darker-3-color);
+}
+.selected-type:hover {
+  cursor: default;
+}

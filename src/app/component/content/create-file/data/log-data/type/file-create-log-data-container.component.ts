@@ -18,8 +18,8 @@ export class FileCreateLogDataContainerComponent {
   timeout: any;
 
   constructor() {
-    this.collapse = false;
-    this.displayNone = false;
+    this.collapse = true;
+    this.displayNone = true;
   }
 
   // animate collapse then set css `display: none;` so sortable.js

@@ -1,19 +1,13 @@
 .container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.left {
-  text-align: right;
-  margin-right: 2px;
-}
-
-.right {
-  margin-left: 2px;
+input {
+  text-align: center;
 }
 
 .input-description {
-  width: 100%;
-  box-sizing: border-box;
+  width: calc(100% - 10px);
 }
