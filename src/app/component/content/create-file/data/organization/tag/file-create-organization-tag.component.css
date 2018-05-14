@@ -27,5 +27,6 @@
 }
 
 .tag:hover {
+  cursor: pointer;
   background-color: var(--main-darker-2-color);
 }

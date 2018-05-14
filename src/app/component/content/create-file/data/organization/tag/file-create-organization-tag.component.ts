@@ -59,7 +59,7 @@ export class FileCreateOrganizationTagComponent implements OnInit {
 
   selectedTagClicked(index: number) {
     const tagModel = this.data.tagFileDatas[index];
-    this.data.organization.tagFileIDs.splice(index, 1);
+    this.data.tagFileDatas.splice(index, 1);
     this.unSelectedTagFileModels.push(tagModel);
     this.unSelectedTagFileModels.sort(function (a: FileModel, b: FileModel) {
       return a.metadata.name.localeCompare(b.metadata.name);
