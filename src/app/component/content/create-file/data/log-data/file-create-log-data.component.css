@@ -6,6 +6,7 @@
 
 .toolbar div {
   white-space: nowrap;
+  overflow: hidden;
   flex: 1;
 }
 

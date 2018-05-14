@@ -21,7 +21,9 @@
 
 .log-data-type-toolbar {
   display: grid;
-  grid-template-columns: auto 15px;
+  grid-template-columns: auto 90px 15px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .log-data-type-toolbar-name {

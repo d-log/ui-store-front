@@ -4,6 +4,9 @@
       {{logData.logDataType}}
       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
+    <div>
+      tile display<input type="checkbox" [ngModel]="data.logTypeOverride.tile.logDataToDisplayIndex === index" (change)="onChangeThisLogDataAsTileDisplay($event)">
+    </div>
     <i class="fa fa-times" (click)="onDeleteThisLogData()" aria-hidden="true"></i>
   </div>
   <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse, 'typed-log-data-none': displayNone}">

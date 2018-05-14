@@ -13,6 +13,7 @@
   <div [sortablejs]="data.logDatas" [sortablejsOptions]="{}">
     <div class="log-data-type-container" *ngFor="let logData of data.logDatas; let i = index">
       <app-file-create-log-data-container [logData]="logData"
+                                          [data]="data"
                                           [index]="i"
                                           (deleteThisLogData)="deleteLogData($event)">
       </app-file-create-log-data-container>
