@@ -1,8 +1,0 @@
-<div class="container">
-  <div>Tile Override</div>
-  LogData Index for Tile Display <input *ngIf="!isUndefinedLogDataToDisplayIndex" type="number" min="0"
-                                        [max]="data.logDatas.length - 1"
-                                        [(ngModel)]="data.logTypeOverride.tile.logDataToDisplayIndex"/>
-  <input type="checkbox" [(ngModel)]="isUndefinedLogDataToDisplayIndex" (change)="manuallyAssignToggle()"/> set as
-  undefined
-</div>

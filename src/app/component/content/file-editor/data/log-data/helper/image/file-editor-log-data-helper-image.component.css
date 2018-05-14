@@ -26,6 +26,7 @@
   background-color: var(--main-darker-color);
   color: var(--main-darker-3-color);
 }
+
 .selected-type:hover {
   cursor: default;
 }

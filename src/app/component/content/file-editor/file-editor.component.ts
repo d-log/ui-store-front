@@ -5,6 +5,9 @@ import {LogFileData} from '../../../service/core/file/model/extra/data/log/log-f
 import {LogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 import {HeaderSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-data';
 import {CommentSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
+import {LogTypeOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/log-type-override';
+import {TileLogFileDataOverride} from '../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-file-data-override';
+import {Organization} from '../../../service/core/file/model/extra/data/log/extra/organization';
 
 @Component({
   selector: 'app-file-editor',
@@ -13,29 +16,83 @@ import {CommentSectionLogData} from '../../../service/core/file/model/extra/data
 })
 export class FileEditorComponent implements OnInit {
 
-  @Input() fileModel: FileModel;
+  _fileModel: FileModel;
   @Output() doneEditing = new EventEmitter<FileModel>();
 
+  @Input() set fileModel(fileModel: FileModel) {
+    this.updateFileModel(fileModel);
+  }
+
   ngOnInit() {
-    if (this.fileModel === undefined) {
-      this.fileModel = new FileModel();
+    this.updateFileModel(undefined);
+  }
+
+  updateFileModel(fileModel: FileModel) {
+    if (fileModel !== undefined) {
+      this._fileModel = this.scrubLogFileModel(fileModel);
+    } else {
+      this._fileModel = this.generateDefaultLogFileModel();
     }
-    if (this.fileModel.metadata === undefined) {
+  }
+
+  scrubLogFileModel(fileModel: FileModel) {
+    if (fileModel.metadata === undefined) {
       const metadata = new Metadata();
       metadata.name = 'Name';
       metadata.description = 'description';
       metadata.created = +new Date();
-      this.fileModel.metadata = metadata;
+      fileModel.metadata = metadata;
     }
-    if (this.fileModel.data === undefined) {
-      this.fileModel.data = new LogFileData();
+    if (fileModel.data === undefined) {
+      fileModel.data = new LogFileData();
     }
-    if (this.fileModel.data.logDatas === undefined) {
-      this.fileModel.data.logDatas = [
+    if (fileModel.data.organization === undefined) {
+      fileModel.data.organization = new Organization();
+    }
+    if (fileModel.data.organization.parentLogDirectoryFileIDs === undefined) {
+      fileModel.data.organization.parentLogDirectoryFileIDs = [];
+    }
+    if (fileModel.data.organization.tagFileIDs === undefined) {
+      fileModel.data.organization.tagFileIDs = [];
+    }
+    if (fileModel.data.logDatas === undefined) {
+      fileModel.data.logDatas = [
         new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
         new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
       ];
     }
+    if (fileModel.data.logTypeOverride === undefined) {
+      fileModel.data.logTypeOverride = new LogTypeOverride();
+    }
+    if (fileModel.data.logTypeOverride.tile === undefined) {
+      fileModel.data.logTypeOverride.tile = new TileLogFileDataOverride();
+    }
+
+    return fileModel;
+  }
+
+  generateDefaultLogFileModel() {
+    const fileModel = new FileModel();
+
+    const metadata = new Metadata();
+    metadata.name = 'Name';
+    metadata.description = 'description';
+    metadata.created = +new Date();
+    fileModel.metadata = metadata;
+    fileModel.data = new LogFileData();
+
+    fileModel.data.organization = new Organization();
+    fileModel.data.organization.tagFileIDs = [];
+    fileModel.data.organization.parentLogDirectoryFileIDs = [];
+
+    fileModel.data.logDatas = [
+      new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
+      new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
+    ];
+    fileModel.data.logTypeOverride = new LogTypeOverride();
+    fileModel.data.logTypeOverride.tile = new TileLogFileDataOverride();
+
+    return fileModel;
   }
 
   generateDefaultCSS() {
@@ -50,6 +107,7 @@ export class FileEditorComponent implements OnInit {
   onDoneEditing() {
     this.doneEditing.emit(this.fileModel);
   }
+
   consoleFileModelJSON() {
     // this would be a deep clone (const clone = this.fileModel) wont work
     // bc setting clone undefined would actually undefine this.fileModel

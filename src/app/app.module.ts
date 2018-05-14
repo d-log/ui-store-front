@@ -70,7 +70,6 @@ import {FormsModule} from '@angular/forms';
 import {DatePipe} from './pipe/date/date.pipe';
 import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
 import {FileEditorLogDataCssComponent} from './component/content/file-editor/data/log-data/type/css/file-editor-log-data-css.component';
-import {FileEditorLogTypeOverrideComponent} from './component/content/file-editor/data/overrides/file-editor-log-type-override.component';
 import {FileEditorLogDataHelperImageComponent} from './component/content/file-editor/data/log-data/helper/image/file-editor-log-data-helper-image.component';
 import {ImageModelService} from './service/core/file/type/image/image-model.service';
 import {FileEditorLogDataHelperImageExistingComponent} from './component/content/file-editor/data/log-data/helper/image/existing/file-editor-log-data-helper-image-existing.component';
@@ -82,7 +81,8 @@ import {ScriptHackComponent} from './component/util/script-hack.component';
 import {TwitterService} from './service/twitter/twitter.service';
 import {TwitterComponent} from './component/util/twitter/twitter.component';
 import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-editor/data/log-data/type/impl/twitter-tweet/file-editor-log-data-twitter-tweet.component';
-import {FileCreateComponent} from './component/content/a/file-create.component';
+import {FileCreateComponent} from './component/content/file-editor/file-create.component';
+import {FileUpdateComponent} from './component/content/file-editor/file-update.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +100,7 @@ import {FileCreateComponent} from './component/content/a/file-create.component';
     HomeTopComponent,
     PageNotFoundComponent,
     FileCreateComponent,
+    FileUpdateComponent,
     FileEditorComponent,
     FileEditorDataComponent,
     FileEditorOrganizationComponent,
@@ -113,7 +114,6 @@ import {FileCreateComponent} from './component/content/a/file-create.component';
     FileEditorLogDataHelperImageLinkComponent,
     FileEditorLogDataHelperImageExistingComponent,
     FileEditorLogDataHelperImageUploadComponent,
-    FileEditorLogTypeOverrideComponent,
     FileEditorLogDataCssComponent,
     FileEditorLogDataContainerComponent,
     FileEditorLogDataTextPlainComponent,

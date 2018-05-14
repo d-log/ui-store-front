@@ -8,13 +8,13 @@
       <i class="fa fa-floppy-o" aria-hidden="true"></i> save
     </button>
     <div class="metadata">
-      <app-file-editor-metadata [(metadata)]="fileModel.metadata"></app-file-editor-metadata>
+      <app-file-editor-metadata [(metadata)]="_fileModel.metadata"></app-file-editor-metadata>
     </div>
     <div class="data">
-      <app-file-editor-data [(data)]="fileModel.data"></app-file-editor-data>
+      <app-file-editor-data [(data)]="_fileModel.data"></app-file-editor-data>
     </div>
   </div>
   <div class="result">
-    <app-file-page [(fileModel)]="fileModel"></app-file-page>
+    <app-file-page [(fileModel)]="_fileModel"></app-file-page>
   </div>
 </div>

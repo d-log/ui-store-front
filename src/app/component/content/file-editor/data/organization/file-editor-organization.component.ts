@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Organization} from '../../../../../service/core/file/model/extra/data/log/extra/organization';
+import {Component, Input} from '@angular/core';
 import {LogFileData} from '../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
@@ -7,12 +6,6 @@ import {LogFileData} from '../../../../../service/core/file/model/extra/data/log
   templateUrl: './file-editor-organization.component.html',
   styleUrls: ['./file-editor-organization.component.css']
 })
-export class FileEditorOrganizationComponent implements OnInit {
+export class FileEditorOrganizationComponent {
   @Input() data: LogFileData;
-
-  ngOnInit() {
-    if (!this.data.organization) {
-      this.data.organization = new Organization();
-    }
-  }
 }
