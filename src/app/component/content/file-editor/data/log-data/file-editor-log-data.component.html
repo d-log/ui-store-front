@@ -7,20 +7,20 @@
     <div (click)="toggleHelper('link')" [ngClass]="{'helper-selected': displayHelperType === 'link'}">link</div>
   </div>
   <div class="helper-container" *ngIf="displayHelperType !== undefined">
-    <app-file-create-log-data-helper-image *ngIf="displayHelperType === 'image'" [data]="data"
-                                           (closeHelper)="closeHelper()"></app-file-create-log-data-helper-image>
-    <app-file-create-log-data-helper-text *ngIf="displayHelperType === 'text'" [data]="data"
-                                          (closeHelper)="closeHelper()"></app-file-create-log-data-helper-text>
-    <app-file-create-log-data-helper-link *ngIf="displayHelperType === 'link'" [data]="data"
-                                          (closeHelper)="closeHelper()"></app-file-create-log-data-helper-link>
+    <app-file-editor-log-data-helper-image *ngIf="displayHelperType === 'image'" [data]="data"
+                                           (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-image>
+    <app-file-editor-log-data-helper-text *ngIf="displayHelperType === 'text'" [data]="data"
+                                          (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-text>
+    <app-file-editor-log-data-helper-link *ngIf="displayHelperType === 'link'" [data]="data"
+                                          (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-link>
   </div>
   <div [sortablejs]="data.logDatas" [sortablejsOptions]="{}">
     <div class="log-data-type-container" *ngFor="let logData of data.logDatas; let i = index">
-      <app-file-create-log-data-container [logData]="logData"
+      <app-file-editor-log-data-container [logData]="logData"
                                           [data]="data"
                                           [index]="i"
                                           (deleteThisLogData)="deleteLogData($event)">
-      </app-file-create-log-data-container>
+      </app-file-editor-log-data-container>
     </div>
   </div>
 </div>

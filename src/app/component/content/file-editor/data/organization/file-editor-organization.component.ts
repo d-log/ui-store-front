@@ -3,7 +3,7 @@ import {Organization} from '../../../../../service/core/file/model/extra/data/lo
 import {LogFileData} from '../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-organization',
+  selector: 'app-file-editor-organization',
   templateUrl: './file-editor-organization.component.html',
   styleUrls: ['./file-editor-organization.component.css']
 })

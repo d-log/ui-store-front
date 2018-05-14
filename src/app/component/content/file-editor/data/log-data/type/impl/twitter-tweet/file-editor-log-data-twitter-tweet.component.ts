@@ -3,7 +3,7 @@ import {TwitterTweetLogData} from '../../../../../../../../service/core/file/mod
 import {TwitterService} from '../../../../../../../../service/twitter/twitter.service';
 
 @Component({
-  selector: 'app-file-create-log-data-twitter-tweet',
+  selector: 'app-file-editor-log-data-twitter-tweet',
   templateUrl: './file-editor-log-data-twitter-tweet.component.html',
   styleUrls: ['./file-editor-log-data-twitter-tweet.component.css']
 })

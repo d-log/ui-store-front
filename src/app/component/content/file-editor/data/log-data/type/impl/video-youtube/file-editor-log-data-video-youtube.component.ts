@@ -2,7 +2,7 @@ import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {VideoYoutubeLogData} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/video-youtube/video-youtube-log-data';
 
 @Component({
-  selector: 'app-file-create-log-data-video-youtube',
+  selector: 'app-file-editor-log-data-video-youtube',
   templateUrl: './file-editor-log-data-video-youtube.component.html',
   styleUrls: ['./file-editor-log-data-video-youtube.component.css']
 })

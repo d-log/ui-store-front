@@ -30,4 +30,14 @@ export class LogModelService {
       return null;
     }
   }
+
+  create(logFileModel: FileModel): Observable<FileModel> {
+    logFileModel.id = undefined;
+    return this.http
+      .post(this.logURL, logFileModel)
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection[0];
+      });
+  }
 }

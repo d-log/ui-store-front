@@ -7,11 +7,11 @@ import {TextPlainLogData} from '../../../../../../../service/core/file/model/ext
 import {TextMarkdownLogData} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-markdown/text-markdown-log-data';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-text',
-  templateUrl: './file-create-log-data-helper-text.component.html',
-  styleUrls: ['./file-create-log-data-helper-text.component.css']
+  selector: 'app-file-editor-log-data-helper-text',
+  templateUrl: './file-editor-log-data-helper-text.component.html',
+  styleUrls: ['./file-editor-log-data-helper-text.component.css']
 })
-export class FileCreateLogDataHelperTextComponent {
+export class FileEditorLogDataHelperTextComponent {
   @Input() data: LogFileData;
   @Output() closeHelper = new EventEmitter<boolean>();
 

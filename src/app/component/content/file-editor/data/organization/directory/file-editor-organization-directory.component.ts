@@ -4,7 +4,7 @@ import {FileType} from '../../../../../../service/core/file/model/extra/file-typ
 import {LogFileData} from '../../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-organization-directory',
+  selector: 'app-file-editor-organization-directory',
   templateUrl: './file-editor-organization-directory.component.html',
   styleUrls: ['./file-editor-organization-directory.component.css']
 })

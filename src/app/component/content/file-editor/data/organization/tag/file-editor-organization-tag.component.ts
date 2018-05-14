@@ -9,7 +9,7 @@ import {FileType} from '../../../../../../service/core/file/model/extra/file-typ
 import {LogFileData} from '../../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-organization-tag',
+  selector: 'app-file-editor-organization-tag',
   templateUrl: './file-editor-organization-tag.component.html',
   styleUrls: ['./file-editor-organization-tag.component.css']
 })

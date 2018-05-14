@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LogFileData} from '../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-log-type-override',
+  selector: 'app-file-editor-log-type-override',
   templateUrl: './file-editor-log-type-override.component.html',
   styleUrls: ['./file-editor-log-type-override.component.css']
 })

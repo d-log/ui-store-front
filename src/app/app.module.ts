@@ -75,13 +75,14 @@ import {FileEditorLogDataHelperImageComponent} from './component/content/file-ed
 import {ImageModelService} from './service/core/file/type/image/image-model.service';
 import {FileEditorLogDataHelperImageExistingComponent} from './component/content/file-editor/data/log-data/helper/image/existing/file-editor-log-data-helper-image-existing.component';
 import {FileEditorLogDataHelperImageUploadComponent} from './component/content/file-editor/data/log-data/helper/image/upload/file-editor-log-data-helper-image-upload.component';
-import {FileCreateLogDataHelperTextComponent} from './component/content/file-editor/data/log-data/helper/text/file-create-log-data-helper-text.component';
-import {FileCreateLogDataHelperLinkComponent} from './component/content/file-editor/data/log-data/helper/link/file-create-log-data-helper-link.component';
+import {FileEditorLogDataHelperTextComponent} from './component/content/file-editor/data/log-data/helper/text/file-editor-log-data-helper-text.component';
+import {FileEditorLogDataHelperLinkComponent} from './component/content/file-editor/data/log-data/helper/link/file-editor-log-data-helper-link.component';
 import {FileEditorLogDataHelperImageLinkComponent} from './component/content/file-editor/data/log-data/helper/image/link/file-editor-log-data-helper-image-link.component';
 import {ScriptHackComponent} from './component/util/script-hack.component';
 import {TwitterService} from './service/twitter/twitter.service';
 import {TwitterComponent} from './component/util/twitter/twitter.component';
 import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-editor/data/log-data/type/impl/twitter-tweet/file-editor-log-data-twitter-tweet.component';
+import {FileCreateComponent} from './component/content/a/file-create.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-e
     HomeComponent,
     HomeTopComponent,
     PageNotFoundComponent,
+    FileCreateComponent,
     FileEditorComponent,
     FileEditorDataComponent,
     FileEditorOrganizationComponent,
@@ -105,8 +107,8 @@ import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-e
     FileEditorOrganizationDirectoryComponent,
     FileEditorMetadataComponent,
     FileEditorLogDataComponent,
-    FileCreateLogDataHelperTextComponent,
-    FileCreateLogDataHelperLinkComponent,
+    FileEditorLogDataHelperTextComponent,
+    FileEditorLogDataHelperLinkComponent,
     FileEditorLogDataHelperImageComponent,
     FileEditorLogDataHelperImageLinkComponent,
     FileEditorLogDataHelperImageExistingComponent,

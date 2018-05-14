@@ -6,11 +6,11 @@ import {TwitterTweetLogData} from '../../../../../../../service/core/file/model/
 import {TwitterService} from '../../../../../../../service/twitter/twitter.service';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-link',
-  templateUrl: './file-create-log-data-helper-link.component.html',
-  styleUrls: ['./file-create-log-data-helper-link.component.css']
+  selector: 'app-file-editor-log-data-helper-link',
+  templateUrl: './file-editor-log-data-helper-link.component.html',
+  styleUrls: ['./file-editor-log-data-helper-link.component.css']
 })
-export class FileCreateLogDataHelperLinkComponent implements AfterViewInit {
+export class FileEditorLogDataHelperLinkComponent implements AfterViewInit {
   @Input() data: LogFileData;
   @Output() closeHelper = new EventEmitter<boolean>();
   @ViewChild('input') inputElement;

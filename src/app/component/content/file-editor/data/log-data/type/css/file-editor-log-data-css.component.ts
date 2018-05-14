@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LogData} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 
 @Component({
-  selector: 'app-file-create-log-data-css',
+  selector: 'app-file-editor-log-data-css',
   templateUrl: './file-editor-log-data-css.component.html',
   styleUrls: ['./file-editor-log-data-css.component.css']
 })

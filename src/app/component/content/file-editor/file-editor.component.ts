@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FileModel} from '../../../service/core/file/model/file-model';
 import {Metadata} from '../../../service/core/file/model/extra/metadata';
 import {LogFileData} from '../../../service/core/file/model/extra/data/log/log-file-data';
@@ -7,38 +7,35 @@ import {HeaderSectionLogData} from '../../../service/core/file/model/extra/data/
 import {CommentSectionLogData} from '../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-data';
 
 @Component({
-  selector: 'app-file-create',
+  selector: 'app-file-editor',
   templateUrl: './file-editor.component.html',
   styleUrls: ['./file-editor.component.css']
 })
 export class FileEditorComponent implements OnInit {
 
-  fileModel: FileModel;
+  @Input() fileModel: FileModel;
+  @Output() doneEditing = new EventEmitter<FileModel>();
 
   ngOnInit() {
-    const fileModel = new FileModel();
-
-    const metadata = new Metadata();
-    metadata.name = 'Name';
-    metadata.description = 'description';
-    metadata.created = +new Date();
-    fileModel.metadata = metadata;
-
-    const logFileData = new LogFileData();
-    logFileData.logDatas = [
-      new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
-      new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
-    ];
-
-    // const logTypeOverride = new LogTypeOverride();
-    // const tileOverride = new TileLogFileDataOverride();
-    // tileOverride.logDataToDisplayIndex = 0;
-    // logTypeOverride.tile = tileOverride;
-    // logFileData.logTypeOverride = logTypeOverride;
-
-    fileModel.data = logFileData;
-
-    this.fileModel = fileModel;
+    if (this.fileModel === undefined) {
+      this.fileModel = new FileModel();
+    }
+    if (this.fileModel.metadata === undefined) {
+      const metadata = new Metadata();
+      metadata.name = 'Name';
+      metadata.description = 'description';
+      metadata.created = +new Date();
+      this.fileModel.metadata = metadata;
+    }
+    if (this.fileModel.data === undefined) {
+      this.fileModel.data = new LogFileData();
+    }
+    if (this.fileModel.data.logDatas === undefined) {
+      this.fileModel.data.logDatas = [
+        new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
+        new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
+      ];
+    }
   }
 
   generateDefaultCSS() {
@@ -50,6 +47,9 @@ export class FileEditorComponent implements OnInit {
     };
   }
 
+  onDoneEditing() {
+    this.doneEditing.emit(this.fileModel);
+  }
   consoleFileModelJSON() {
     // this would be a deep clone (const clone = this.fileModel) wont work
     // bc setting clone undefined would actually undefine this.fileModel

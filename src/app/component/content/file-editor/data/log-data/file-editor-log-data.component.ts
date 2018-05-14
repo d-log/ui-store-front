@@ -5,7 +5,7 @@ import {CommentSectionLogData} from '../../../../../service/core/file/model/extr
 import {LogFileData} from '../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-log-data',
+  selector: 'app-file-editor-log-data',
   templateUrl: './file-editor-log-data.component.html',
   styleUrls: ['./file-editor-log-data.component.css']
 })

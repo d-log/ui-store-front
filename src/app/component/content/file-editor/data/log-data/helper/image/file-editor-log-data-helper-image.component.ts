@@ -5,7 +5,7 @@ import {LogData} from '../../../../../../../service/core/file/model/extra/data/l
 import {ImageInternalLogData} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-image',
+  selector: 'app-file-editor-log-data-helper-image',
   templateUrl: './file-editor-log-data-helper-image.component.html',
   styleUrls: ['./file-editor-log-data-helper-image.component.css']
 })

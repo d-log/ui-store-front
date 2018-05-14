@@ -10,7 +10,7 @@ import {FileModel} from '../../../../../../../../service/core/file/model/file-mo
 import {ImageInternalLogData} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-data';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-image-existing',
+  selector: 'app-file-editor-log-data-helper-image-existing',
   templateUrl: './file-editor-log-data-helper-image-existing.component.html',
   styleUrls: ['./file-editor-log-data-helper-image-existing.component.css']
 })

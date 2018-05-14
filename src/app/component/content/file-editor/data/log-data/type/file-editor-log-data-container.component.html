@@ -11,22 +11,22 @@
     <i class="fa fa-times" (click)="onDeleteThisLogData()" aria-hidden="true"></i>
   </div>
   <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse, 'typed-log-data-none': displayNone}">
-    <app-file-create-log-data-css [logData]="logData"></app-file-create-log-data-css>
-    <app-file-create-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
-                                             [imageInternalLogData]="logData.data"></app-file-create-log-data-image-internal>
-    <app-file-create-log-data-image-quote *ngIf="logData.logDataType === 'ImageQuoteLogData'"
-                                          [imageQuoteLogData]="logData.data"></app-file-create-log-data-image-quote>
-    <app-file-create-log-data-text-code *ngIf="logData.logDataType === 'TextCodeLogData'"
-                                        [textCodeLogData]="logData.data"></app-file-create-log-data-text-code>
-    <app-file-create-log-data-text-markdown *ngIf="logData.logDataType === 'TextMarkdownLogData'"
-                                            [textMarkdownLogData]="logData.data"></app-file-create-log-data-text-markdown>
-    <app-file-create-log-data-text-plain *ngIf="logData.logDataType === 'TextPlainLogData'"
-                                         [textPlainLogData]="logData.data"></app-file-create-log-data-text-plain>
-    <app-file-create-log-data-text-quote *ngIf="logData.logDataType === 'TextQuoteLogData'"
-                                         [textQuoteLogData]="logData.data"></app-file-create-log-data-text-quote>
-    <app-file-create-log-data-video-youtube *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
-                                            [videoYoutubeLogData]="logData.data"></app-file-create-log-data-video-youtube>
-    <app-file-create-log-data-twitter-tweet *ngIf="logData.logDataType === 'TwitterTweetLogData'"
-                                            [twitterTweetLogData]="logData.data"></app-file-create-log-data-twitter-tweet>
+    <app-file-editor-log-data-css [logData]="logData"></app-file-editor-log-data-css>
+    <app-file-editor-log-data-image-internal *ngIf="logData.logDataType === 'ImageInternalLogData'"
+                                             [imageInternalLogData]="logData.data"></app-file-editor-log-data-image-internal>
+    <app-file-editor-log-data-image-quote *ngIf="logData.logDataType === 'ImageQuoteLogData'"
+                                          [imageQuoteLogData]="logData.data"></app-file-editor-log-data-image-quote>
+    <app-file-editor-log-data-text-code *ngIf="logData.logDataType === 'TextCodeLogData'"
+                                        [textCodeLogData]="logData.data"></app-file-editor-log-data-text-code>
+    <app-file-editor-log-data-text-markdown *ngIf="logData.logDataType === 'TextMarkdownLogData'"
+                                            [textMarkdownLogData]="logData.data"></app-file-editor-log-data-text-markdown>
+    <app-file-editor-log-data-text-plain *ngIf="logData.logDataType === 'TextPlainLogData'"
+                                         [textPlainLogData]="logData.data"></app-file-editor-log-data-text-plain>
+    <app-file-editor-log-data-text-quote *ngIf="logData.logDataType === 'TextQuoteLogData'"
+                                         [textQuoteLogData]="logData.data"></app-file-editor-log-data-text-quote>
+    <app-file-editor-log-data-video-youtube *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
+                                            [videoYoutubeLogData]="logData.data"></app-file-editor-log-data-video-youtube>
+    <app-file-editor-log-data-twitter-tweet *ngIf="logData.logDataType === 'TwitterTweetLogData'"
+                                            [twitterTweetLogData]="logData.data"></app-file-editor-log-data-twitter-tweet>
   </div>
 </div>

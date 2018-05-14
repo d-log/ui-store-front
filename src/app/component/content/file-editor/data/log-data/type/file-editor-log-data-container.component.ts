@@ -3,7 +3,7 @@ import {LogData} from '../../../../../../service/core/file/model/extra/data/log/
 import {LogFileData} from '../../../../../../service/core/file/model/extra/data/log/log-file-data';
 
 @Component({
-  selector: 'app-file-create-log-data-container',
+  selector: 'app-file-editor-log-data-container',
   templateUrl: './file-editor-log-data-container.component.html',
   styleUrls: ['./file-editor-log-data-container.component.css']
 })

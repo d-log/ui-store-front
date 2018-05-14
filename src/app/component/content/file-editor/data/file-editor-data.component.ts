@@ -5,7 +5,7 @@ import {LogTypeOverride} from '../../../../service/core/file/model/extra/data/lo
 import {TileLogFileDataOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-file-data-override';
 
 @Component({
-  selector: 'app-file-create-data',
+  selector: 'app-file-editor-data',
   templateUrl: './file-editor-data.component.html',
   styleUrls: ['./file-editor-data.component.css']
 })

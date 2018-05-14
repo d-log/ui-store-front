@@ -4,7 +4,7 @@ import {FileModel} from '../../../../../../../../service/core/file/model/file-mo
 import {ImageModelService} from '../../../../../../../../service/core/file/type/image/image-model.service';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-image-link',
+  selector: 'app-file-editor-log-data-helper-image-link',
   templateUrl: './file-editor-log-data-helper-image-link.component.html',
   styleUrls: ['./file-editor-log-data-helper-image-link.component.css']
 })

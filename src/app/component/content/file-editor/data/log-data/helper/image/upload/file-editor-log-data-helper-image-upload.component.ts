@@ -4,7 +4,7 @@ import {ImageModelService} from '../../../../../../../../service/core/file/type/
 import {Observable} from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-file-create-log-data-helper-image-upload',
+  selector: 'app-file-editor-log-data-helper-image-upload',
   templateUrl: './file-editor-log-data-helper-image-upload.component.html',
   styleUrls: ['./file-editor-log-data-helper-image-upload.component.css']
 })
