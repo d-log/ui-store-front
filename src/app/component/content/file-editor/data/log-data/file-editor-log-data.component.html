@@ -7,11 +7,11 @@
     <div (click)="toggleHelper('link')" [ngClass]="{'helper-selected': displayHelperType === 'link'}">link</div>
   </div>
   <div class="helper-container" *ngIf="displayHelperType !== undefined">
-    <app-file-editor-log-data-helper-image *ngIf="displayHelperType === 'image'" [data]="data"
+    <app-file-editor-log-data-helper-image *ngIf="displayHelperType === 'image'" [data]="_data"
                                            (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-image>
-    <app-file-editor-log-data-helper-text *ngIf="displayHelperType === 'text'" [data]="data"
+    <app-file-editor-log-data-helper-text *ngIf="displayHelperType === 'text'" [data]="_data"
                                           (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-text>
-    <app-file-editor-log-data-helper-link *ngIf="displayHelperType === 'link'" [data]="data"
+    <app-file-editor-log-data-helper-link *ngIf="displayHelperType === 'link'" [data]="_data"
                                           (closeHelper)="closeHelper()"></app-file-editor-log-data-helper-link>
   </div>
   <div [sortablejs]="_data.logDatas" [sortablejsOptions]="{}">
