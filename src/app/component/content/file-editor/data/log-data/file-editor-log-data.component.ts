@@ -10,8 +10,12 @@ import {LogFileData} from '../../../../../service/core/file/model/extra/data/log
   styleUrls: ['./file-editor-log-data.component.css']
 })
 export class FileEditorLogDataComponent implements OnInit {
-  @Input() data: LogFileData;
+  @Input() set data(data: LogFileData) {
+    this._data = data;
+    this.ngOnInit();
+  }
 
+  _data: LogFileData;
   displayAddHeader: boolean;
   displayAddComment: boolean;
 
@@ -24,10 +28,10 @@ export class FileEditorLogDataComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.data.logDatas.filter((logData: LogData) => logData.logDataType === 'HeaderSectionLogData').length === 0) {
+    if (this._data.logDatas.filter((logData: LogData) => logData.logDataType === 'HeaderSectionLogData').length === 0) {
       this.displayAddHeader = true;
     }
-    if (this.data.logDatas.filter((logData: LogData) => logData.logDataType === 'CommentSectionLogData').length === 0) {
+    if (this._data.logDatas.filter((logData: LogData) => logData.logDataType === 'CommentSectionLogData').length === 0) {
       this.displayAddComment = true;
     }
   }
@@ -55,18 +59,18 @@ export class FileEditorLogDataComponent implements OnInit {
 
   addHeaderSection() {
     const header = new HeaderSectionLogData();
-    this.data.logDatas.push(new LogData('HeaderSectionLogData', this.generateDefaultCSS(), header));
+    this._data.logDatas.push(new LogData('HeaderSectionLogData', this.generateDefaultCSS(), header));
     this.displayAddHeader = false;
   }
 
   addCommentSection() {
     const comment = new CommentSectionLogData();
-    this.data.logDatas.push(new LogData('CommentSectionLogData', this.generateDefaultCSS(), comment));
+    this._data.logDatas.push(new LogData('CommentSectionLogData', this.generateDefaultCSS(), comment));
     this.displayAddComment = false;
   }
 
   deleteLogData(index: number) {
-    const logDataType = this.data.logDatas[index].logDataType;
+    const logDataType = this._data.logDatas[index].logDataType;
 
     if (logDataType === 'HeaderSectionLogData') {
       this.displayAddHeader = true;
@@ -74,6 +78,6 @@ export class FileEditorLogDataComponent implements OnInit {
       this.displayAddComment = true;
     }
 
-    this.data.logDatas.splice(index, 1);
+    this._data.logDatas.splice(index, 1);
   }
 }

@@ -28,7 +28,7 @@ export class FileEditorComponent implements OnInit {
   }
 
   updateFileModel(fileModel: FileModel) {
-    if (fileModel !== undefined) {
+    if (fileModel != null) {
       this._fileModel = this.scrubLogFileModel(fileModel);
     } else {
       this._fileModel = this.generateDefaultLogFileModel();
@@ -36,35 +36,35 @@ export class FileEditorComponent implements OnInit {
   }
 
   scrubLogFileModel(fileModel: FileModel) {
-    if (fileModel.metadata === undefined) {
+    if (fileModel.metadata == null) {
       const metadata = new Metadata();
       metadata.name = 'Name';
       metadata.description = 'description';
       metadata.created = +new Date();
       fileModel.metadata = metadata;
     }
-    if (fileModel.data === undefined) {
+    if (fileModel.data == null) {
       fileModel.data = new LogFileData();
     }
-    if (fileModel.data.organization === undefined) {
+    if (fileModel.data.organization == null) {
       fileModel.data.organization = new Organization();
     }
-    if (fileModel.data.organization.parentLogDirectoryFileIDs === undefined) {
+    if (fileModel.data.organization.parentLogDirectoryFileIDs == null) {
       fileModel.data.organization.parentLogDirectoryFileIDs = [];
     }
-    if (fileModel.data.organization.tagFileIDs === undefined) {
+    if (fileModel.data.organization.tagFileIDs == null) {
       fileModel.data.organization.tagFileIDs = [];
     }
-    if (fileModel.data.logDatas === undefined) {
+    if (fileModel.data.logDatas == null) {
       fileModel.data.logDatas = [
         new LogData('HeaderSectionLogData', this.generateDefaultCSS(), new HeaderSectionLogData()),
         new LogData('CommentSectionLogData', this.generateDefaultCSS(), new CommentSectionLogData()),
       ];
     }
-    if (fileModel.data.logTypeOverride === undefined) {
+    if (fileModel.data.logTypeOverride == null) {
       fileModel.data.logTypeOverride = new LogTypeOverride();
     }
-    if (fileModel.data.logTypeOverride.tile === undefined) {
+    if (fileModel.data.logTypeOverride.tile == null) {
       fileModel.data.logTypeOverride.tile = new TileLogFileDataOverride();
     }
 
