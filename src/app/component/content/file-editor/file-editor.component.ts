@@ -105,13 +105,13 @@ export class FileEditorComponent implements OnInit {
   }
 
   onDoneEditing() {
-    this.doneEditing.emit(this.fileModel);
+    this.doneEditing.emit(this._fileModel);
   }
 
   consoleFileModelJSON() {
     // this would be a deep clone (const clone = this.fileModel) wont work
     // bc setting clone undefined would actually undefine this.fileModel
-    const clone: FileModel = JSON.parse(JSON.stringify(this.fileModel));
+    const clone: FileModel = JSON.parse(JSON.stringify(this._fileModel));
 
     // cleanup unnecessary fields
     clone.metadata.created = undefined;

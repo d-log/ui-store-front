@@ -2,5 +2,6 @@ export enum LogType {
   TILE,
   PAGE,
   POPUP,
-  DEFAULT
+  DEFAULT,
+  FORUPDATE,
 }

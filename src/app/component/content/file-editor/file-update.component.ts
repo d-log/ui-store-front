@@ -23,15 +23,15 @@ export class FileUpdateComponent {
     // grab value of url param `id` in `localhost:4200/file/update/:id
     const id = params['id'];
     if (!!id) {
-      this.logModelService.findOne(id, LogType.PAGE).subscribe((fileModel: FileModel) => {
+      this.logModelService.findOne(id, LogType.FORUPDATE).subscribe((fileModel: FileModel) => {
         this.fileModel = fileModel;
       });
     }
   }
 
   doneEditing(fileModel: FileModel) {
-    // this.logModelService.create(fileModel).subscribe((savedModel: FileModel) => {
-    //   this.router.navigate(['/log-page/' + savedModel.id]);
-    // });
+    this.logModelService.update(fileModel).subscribe((savedModel: FileModel) => {
+      this.router.navigate(['/log-page/' + savedModel.id]);
+    });
   }
 }

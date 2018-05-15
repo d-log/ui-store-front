@@ -40,4 +40,13 @@ export class LogModelService {
         return hateoasResponse._embedded.collection[0];
       });
   }
+
+  update(logFileModel: FileModel): Observable<FileModel> {
+    return this.http
+      .put(this.logURL, logFileModel)
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection[0];
+      });
+  }
 }
