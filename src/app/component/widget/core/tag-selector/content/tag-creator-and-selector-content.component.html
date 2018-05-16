@@ -1,0 +1,8 @@
+<div class="container" (scroll)="onScroll()">
+  <span *ngFor="let model of selectableTagFileModels; let i = index">
+    <div class="tag no_selection" *ngIf="hideTagModelIDs.indexOf(model.id) === -1" (click)="onTagModelSelected(i)">
+      {{model.metadata.name}}
+    </div>
+  </span>
+  <div #bottom></div>
+</div>

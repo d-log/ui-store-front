@@ -11,6 +11,7 @@ export class GetterRequest {
   logDirectoryType: LogDirectoryType;
 
   millisecondThreshold: number;
+  metadataNameRegex: string;
   searchString: string;
   directoryID: string;
   tagID: string;

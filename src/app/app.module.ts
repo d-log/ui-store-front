@@ -77,16 +77,22 @@ import {FileEditorLogDataHelperImageUploadComponent} from './component/content/f
 import {FileEditorLogDataHelperTextComponent} from './component/content/file-editor/data/log-data/helper/text/file-editor-log-data-helper-text.component';
 import {FileEditorLogDataHelperLinkComponent} from './component/content/file-editor/data/log-data/helper/link/file-editor-log-data-helper-link.component';
 import {FileEditorLogDataHelperImageLinkComponent} from './component/content/file-editor/data/log-data/helper/image/link/file-editor-log-data-helper-image-link.component';
-import {ScriptHackComponent} from './component/util/script-hack.component';
+import {ScriptHackComponent} from './component/widget/util/script-hack/script-hack.component';
 import {TwitterService} from './service/twitter/twitter.service';
-import {TwitterComponent} from './component/util/twitter/twitter.component';
+import {TwitterComponent} from './component/widget/util/twitter/twitter.component';
 import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-editor/data/log-data/type/impl/twitter-tweet/file-editor-log-data-twitter-tweet.component';
 import {FileCreateComponent} from './component/content/file-editor/file-create.component';
 import {FileUpdateComponent} from './component/content/file-editor/file-update.component';
+import {TagCreatorAndSelectorToolbarComponent} from './component/widget/core/tag-selector/toolbar/tag-creator-and-selector-toolbar.component';
+import {TagCreatorAndSelectorComponent} from './component/widget/core/tag-selector/tag-creator-and-selector.component';
+import {TagCreatorAndSelectorContentComponent} from './component/widget/core/tag-selector/content/tag-creator-and-selector-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TagCreatorAndSelectorComponent,
+    TagCreatorAndSelectorContentComponent,
+    TagCreatorAndSelectorToolbarComponent,
     TwitterComponent,
     ScriptHackComponent,
     NavigationTopComponent,

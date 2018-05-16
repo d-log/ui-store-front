@@ -12,8 +12,6 @@
   max-width: 180px;
 
   height: 100%;
-  /*overflow-x: hidden;*/
-  /*overflow-y: scroll;*/
   overflow: hidden;
   border-right: 1px solid var(--main-darker-2-color);
 }

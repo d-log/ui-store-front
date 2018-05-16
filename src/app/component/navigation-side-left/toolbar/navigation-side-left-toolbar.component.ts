@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-navigation-side-left-toolbar',
@@ -6,10 +6,4 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./navigation-side-left-toolbar.component.css']
 })
 export class NavigationSideLeftToolbarComponent {
-
-  @Output() onTarget = new EventEmitter<boolean>();
-
-  target() {
-    this.onTarget.emit(true);
-  }
 }

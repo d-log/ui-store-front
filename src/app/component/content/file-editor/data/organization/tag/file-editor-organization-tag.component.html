@@ -1,15 +1,15 @@
 <div class="container">
+  <div class="label">TAG</div>
   <div class="selected-tags">
     <div class="tag no_selection" *ngFor="let selectedTagModel of data.tagFileDatas; let i = index"
-         (click)="selectedTagClicked(i)">
+         (click)="onTagModelUnSelect(i)">
       {{selectedTagModel.metadata.name}}
     </div>
+    <i class="fa fa-plus" aria-hidden="true" *ngIf="!showTagSelector" (click)="openTagSelector()"></i>
   </div>
-  <div class="unselected-tags" (scroll)="onScroll()">
-    <div class="tag no_selection" *ngFor="let unselectedTagFileModel of unSelectedTagFileModels; let i = index"
-         (click)="unselectedTagClicked(i)">{{unselectedTagFileModel.metadata.name}}
-    </div>
-    <div #bottom class="bottom"></div>
+  <div *ngIf="showTagSelector" class="tag-select-container">
+    <app-tag-creator-and-selector (tagModelSelected)="onTagModelSelected($event)"
+                                  (closeComponent)="closeTagSelector()"
+                                  [hideTagModelIDs]="data.organization.tagFileIDs"></app-tag-creator-and-selector>
   </div>
 </div>
-

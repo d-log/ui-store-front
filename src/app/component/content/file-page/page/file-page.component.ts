@@ -26,9 +26,9 @@ export class FilePageComponent {
    */
   secretKeyCode = [70, 70];
   keyCodes = [];
+
   @HostListener('window:keyup', ['$event'])
   keyup(event: any) {
-    console.log(event.keyCode);
     this.keyCodes.push();
     if (event.keyCode === this.secretKeyCode[this.keyCodes.length]) {
       this.keyCodes.push(event.keyCode);

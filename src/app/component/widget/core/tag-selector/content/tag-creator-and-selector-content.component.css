@@ -1,12 +1,15 @@
-.label {
-  text-align: center;
-}
-
-.selected-tags {
+.container {
+  overflow: scroll;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.selectable-tags-container {
+  overflow: scroll;
+  height: 100%;
 }
 
 .tag {
@@ -23,18 +26,3 @@
   cursor: pointer;
   background-color: var(--main-darker-2-color);
 }
-
-.tag-select-container {
-  height: 100px;
-}
-
-.fa-plus {
-  margin-left: 5px;
-  color: var(--main-darker-2-color);
-}
-
-.fa-plus:hover {
-  cursor: pointer;
-  color: var(--main-darker-3-color);
-}
-

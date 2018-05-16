@@ -32,8 +32,4 @@ export class NavigationSideLeftComponent {
         'file-types': FileType[FileType.LogDirectoryFileData] + ':' + FileType[FileType.LogFileData],
       }]);
   }
-
-  target() {
-    alert('coming soon');
-  }
 }

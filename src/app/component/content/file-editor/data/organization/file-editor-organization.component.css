@@ -1,9 +1,3 @@
 .label {
   text-align: center;
 }
-
-.tag-label {
-  margin-top: 10px;
-  text-align: center;
-  border-bottom: 1px solid var(--main-darker-color);
-}

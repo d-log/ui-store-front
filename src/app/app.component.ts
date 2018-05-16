@@ -24,6 +24,7 @@ export class AppComponent {
    */
   secretKeyCode = [67, 67];
   keyCodes = [];
+
   @HostListener('window:keyup', ['$event'])
   keyup(event: any) {
     this.keyCodes.push();

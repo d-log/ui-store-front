@@ -13,10 +13,10 @@ import {environment} from '../../../../environments/environment';
 @Injectable()
 export class FileModelService {
 
-  private readonly fileURL: string;
+  private readonly URL: string;
 
   constructor(private http: Http) {
-    this.fileURL = environment.coreEndPoint + '/api/file';
+    this.URL = environment.coreEndPoint + '/api/file';
   }
 
   /**
@@ -25,20 +25,19 @@ export class FileModelService {
    */
   theGetter(getterRequest: GetterRequest): Observable<FileModel[]> {
     return this.http
-      .get(this.generateTheGetterURL(getterRequest))
+      .get(this.generateGetterRequestURL(getterRequest))
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection;
       });
   }
 
-  generateTheGetterURL(getterRequest: GetterRequest): string {
+  generateGetterRequestURL(getterRequest: GetterRequest): string {
     const urlParameters: string[] = [];
 
     if (getterRequest.fileTypes !== undefined) {
-      for (const fileType of getterRequest.fileTypes) {
-        urlParameters.push('file-type=' + FileType[fileType]);
-      }
+      const fileTypes = getterRequest.fileTypes.map((fileType) => FileType[fileType]);
+      urlParameters.push('fileTypes=' + fileTypes.join(','));
     }
     if (getterRequest.sorts !== undefined) {
       for (const s of getterRequest.sorts) {
@@ -47,26 +46,29 @@ export class FileModelService {
         }
       }
     }
+    if (getterRequest.metadataNameRegex !== undefined) {
+      urlParameters.push('metadataNameRegex=' + getterRequest.metadataNameRegex);
+    }
     if (getterRequest.logType !== undefined) {
-      urlParameters.push('log-type=' + LogType[getterRequest.logType]);
+      urlParameters.push('logType=' + LogType[getterRequest.logType]);
     }
     if (getterRequest.pageable !== undefined) {
       urlParameters.push('page=' + getterRequest.pageable.page + '&size=' + getterRequest.pageable.size);
     }
     if (getterRequest.directoryID !== undefined) {
-      urlParameters.push('directory-id=' + getterRequest.directoryID);
+      urlParameters.push('directoryID=' + getterRequest.directoryID);
     }
     if (getterRequest.tagID !== undefined) {
-      urlParameters.push('tag-id=' + getterRequest.tagID);
+      urlParameters.push('tagID=' + getterRequest.tagID);
     }
     if (getterRequest.millisecondThreshold !== undefined) {
-      urlParameters.push('millisecond-threshold=' + getterRequest.millisecondThreshold);
+      urlParameters.push('millisecondThreshold=' + getterRequest.millisecondThreshold);
     }
     if (getterRequest.searchString !== undefined) {
-      urlParameters.push('search=' + encodeURIComponent(getterRequest.searchString));
+      urlParameters.push('searchString=' + encodeURIComponent(getterRequest.searchString));
     }
 
-    let url = this.fileURL + '/the-getter';
+    let url = this.URL + '/the-getter';
     if (urlParameters.length > 0) {
       url += '?' + urlParameters.join('&');
     }
