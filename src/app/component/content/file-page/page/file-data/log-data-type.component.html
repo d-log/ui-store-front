@@ -15,7 +15,5 @@
                                    [data]="logData.data"></app-log-data-text-quote-default>
   <app-log-data-video-youtube-default *ngIf="logData.logDataType === 'VideoYouTubeLogData'"
                                       [data]="logData.data"></app-log-data-video-youtube-default>
-  <div>
-    <app-twitter *ngIf="logData.logDataType === 'TwitterTweetLogData'" [tweetID]="logData.data.tweetID"></app-twitter>
-  </div>
+  <app-twitter *ngIf="logData.logDataType === 'TwitterTweetLogData'" [tweetID]="logData.data.tweetID"></app-twitter>
 </div>

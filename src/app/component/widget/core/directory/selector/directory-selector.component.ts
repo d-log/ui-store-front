@@ -1,14 +1,14 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FileModel} from '../../../service/core/file/model/file-model';
-import {DirectoryModelService} from '../../../service/core/file/type/directory/directory-model.service';
-import {FileType} from '../../../service/core/file/model/extra/file-type';
+import {FileModel} from '../../../../../service/core/file/model/file-model';
+import {DirectoryModelService} from '../../../../../service/core/file/type/directory/directory-model.service';
+import {FileType} from '../../../../../service/core/file/model/extra/file-type';
 
 @Component({
-  selector: 'app-navigation-side-left-column-container',
-  templateUrl: './side-navigation-column-container.component.html',
-  styleUrls: ['./side-navigation-column-container.component.css']
+  selector: 'app-directory-selector-column-container',
+  templateUrl: './directory-selector.component.html',
+  styleUrls: ['./directory-selector.component.css']
 })
-export class SideNavigationColumnContainerComponent implements OnInit {
+export class DirectorySelectorComponent implements OnInit {
   @Input() showColumnToolbar: boolean;
   @Input() fileTypes: FileType[];
   pathLogDirectoryFileModels: FileModel[];

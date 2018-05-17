@@ -11,9 +11,9 @@
     <i class="fa fa-times" aria-hidden="true" (click)="closeDirectorySelector()"></i>
   </div>
   <div class="directory-select-container-content">
-    <app-navigation-side-left-column-container [fileTypes]="fileTypes"
-                                               (directoryFileModelSelectedMoreThanOnce)="addSelectedDirectory($event)">
-    </app-navigation-side-left-column-container>
+    <app-directory-selector-column-container [fileTypes]="fileTypes"
+                                             (directoryFileModelSelectedMoreThanOnce)="addSelectedDirectory($event)">
+    </app-directory-selector-column-container>
   </div>
 </div>
 

@@ -12,10 +12,10 @@ import {NavigationTopComponent} from './component/navigation-top/navigation-top.
 
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
-import {NavigationSideLeftColumnToolbarComponent} from './component/navigation-side-left/column-container/column/toolbar/navigation-side-left-column-toolbar.component';
-import {SideNavigationColumnComponent} from './component/navigation-side-left/column-container/column/side-navigation-column.component';
+import {DirectorySelectorColumnToolbarComponent} from './component/widget/core/directory/selector/column/toolbar/directory-selector-column-toolbar.component';
+import {DirectorySelectorColumnComponent} from './component/widget/core/directory/selector/column/directory-selector-column.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
-import {SideNavigationColumnContainerComponent} from './component/navigation-side-left/column-container/side-navigation-column-container.component';
+import {DirectorySelectorComponent} from './component/widget/core/directory/selector/directory-selector.component';
 
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 
@@ -115,9 +115,9 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
     SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
     NavigationSideLeftToolbarComponent,
-    SideNavigationColumnComponent,
-    SideNavigationColumnContainerComponent,
-    NavigationSideLeftColumnToolbarComponent,
+    DirectorySelectorColumnComponent,
+    DirectorySelectorComponent,
+    DirectorySelectorColumnToolbarComponent,
     HomeComponent,
     HomeTopComponent,
     PageNotFoundComponent,

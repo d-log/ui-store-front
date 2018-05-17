@@ -2,8 +2,8 @@
   <app-navigation-side-left-toolbar></app-navigation-side-left-toolbar>
 </div>
 <section class="container">
-  <app-navigation-side-left-column-container [fileTypes]="fileTypes"
-                                             [showColumnToolbar]="showColumnToolbar"
-                                             (logFileModelSelected)="onLogFileModelSelected($event)"
-                                             (directoryFileModelSelectedMoreThanOnce)="onDirectoryFileModelSelectedMoreThanOnce($event)"></app-navigation-side-left-column-container>
+  <app-directory-selector-column-container [fileTypes]="fileTypes"
+                                           [showColumnToolbar]="showColumnToolbar"
+                                           (logFileModelSelected)="onLogFileModelSelected($event)"
+                                           (directoryFileModelSelectedMoreThanOnce)="onDirectoryFileModelSelectedMoreThanOnce($event)"></app-directory-selector-column-container>
 </section>

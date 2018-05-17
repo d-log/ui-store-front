@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="column" *ngFor="let logDirectoryFileModel of pathLogDirectoryFileModels, let i = index">
+    <app-directory-selector-column [directoryLevel]="i"
+                                   [pathLogDirectoryFileModels]="pathLogDirectoryFileModels"
+                                   [selectedFileModelID]="selectedFileModelID"
+                                   [logDirectoryFileModel]="logDirectoryFileModel"
+                                   [fileTypes]="fileTypes"
+                                   [showColumnToolbar]="showColumnToolbar"
+                                   (fileModelSelected)="onSelectedFileModel($event)"></app-directory-selector-column>
+  </div>
+</div>

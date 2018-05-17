@@ -1,19 +1,19 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {FileType} from '../../../../service/core/file/model/extra/file-type';
-import {FileModel} from '../../../../service/core/file/model/file-model';
-import {GetterRequest} from '../../../../service/core/model/request/getter-request';
-import {FileModelService} from '../../../../service/core/file/file-model.service';
-import {Pageable} from '../../../../service/core/model/request/pageable';
-import {SortOrder} from '../../../../service/core/model/request/sort-order';
-import {Sort} from '../../../../service/core/model/request/sort';
+import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
+import {FileModel} from '../../../../../../service/core/file/model/file-model';
+import {GetterRequest} from '../../../../../../service/core/model/request/getter-request';
+import {FileModelService} from '../../../../../../service/core/file/file-model.service';
+import {Pageable} from '../../../../../../service/core/model/request/pageable';
+import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
+import {Sort} from '../../../../../../service/core/model/request/sort';
 
 @Component({
-  selector: 'app-navigation-side-left-column',
-  templateUrl: './side-navigation-column.component.html',
-  styleUrls: ['./side-navigation-column.component.css']
+  selector: 'app-directory-selector-column',
+  templateUrl: './directory-selector-column.component.html',
+  styleUrls: ['./directory-selector-column.component.css']
 })
-export class SideNavigationColumnComponent implements OnInit {
+export class DirectorySelectorColumnComponent implements OnInit {
 
   @Input() showColumnToolbar: boolean;
   @Input() fileTypes: FileType[];

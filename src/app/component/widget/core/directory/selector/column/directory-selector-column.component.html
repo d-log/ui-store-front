@@ -1,5 +1,5 @@
-<app-navigation-side-left-column-toolbar *ngIf="showColumnToolbar"
-                                         [logDirectoryFileModel]="logDirectoryFileModel"></app-navigation-side-left-column-toolbar>
+<app-directory-selector-column-toolbar *ngIf="showColumnToolbar"
+                                       [logDirectoryFileModel]="logDirectoryFileModel"></app-directory-selector-column-toolbar>
 <div class="column-container" (scroll)="onScroll()">
   <div *ngIf="isEmpty && isEmpty; else templateName">
     <div class="empty">
