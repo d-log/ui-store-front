@@ -1,0 +1,42 @@
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--main-lighter-color);
+  background-color: var(--main-darker-color);
+  border-radius: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin: 3px;
+}
+
+.tag > i {
+  /* text font border */
+  -webkit-text-fill-color: var(--main-lighter-color); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--main-darker-2-color);
+}
+
+.tag > i:hover {
+  cursor: pointer;
+  -webkit-text-fill-color: var(--main-darker-2-color);
+}
+
+.tag-select-container {
+  height: 100px;
+}
+
+.fa-tags {
+  color: var(--main-darker-2-color);
+}
+
+.fa-tags:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}
+

@@ -1,0 +1,10 @@
+<div class="toolbar">
+  <div></div>
+  <i class="fa fa-times" aria-hidden="true" (click)="onClose()"></i>
+</div>
+<div class="container">
+  <input type="text" [(ngModel)]="tagFileModel.metadata.name" placeholder="name">
+  <input type="text" [(ngModel)]="tagFileModel.metadata.description" placeholder="description">
+  <button (click)="createTagFileModel()">save</button>
+</div>
+

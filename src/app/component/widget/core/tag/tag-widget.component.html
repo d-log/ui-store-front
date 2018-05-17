@@ -1,0 +1,10 @@
+<div class="container">
+  <app-tag-selector *ngIf="displayType ==='select'"
+                    [hideTagModelIDs]="hideTagModelIDs"
+                    (close)="onClose()"
+                    (new)="onNew()"
+                    (tagModelSelected)="onTagModelSelected($event)"></app-tag-selector>
+  <app-tag-creator *ngIf="displayType === 'create'"
+                   (close)="onClose()"
+                   (createdTagFileModel)="onCreatedTagFileModel($event)"></app-tag-creator>
+</div>

@@ -1,0 +1,15 @@
+.toolbar {
+  display: grid;
+  grid-template-columns: auto 15px;
+  align-items: center;
+  text-align: center;
+}
+
+.fa-times {
+  color: var(--main-darker-2-color);
+}
+
+.fa-times:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}

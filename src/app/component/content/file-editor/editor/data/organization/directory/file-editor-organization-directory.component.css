@@ -1,0 +1,67 @@
+.fa-folder-open {
+  color: var(--main-darker-2-color);
+}
+
+.fa-folder-open:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}
+
+.selected-directories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.unselected-directories {
+  flex: 1;
+  overflow: scroll;
+}
+
+.directory {
+  display: inline-block;
+  color: var(--main-lighter-color);
+  background-color: var(--main-darker-color);
+  border-radius: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin: 3px;
+}
+
+.directory > i {
+  /* text font border */
+  -webkit-text-fill-color: var(--main-lighter-color); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--main-darker-2-color);
+}
+
+.directory > i:hover {
+  cursor: pointer;
+  -webkit-text-fill-color: var(--main-darker-2-color);
+}
+
+.directory-select-container {
+  height: 100px;
+  border-bottom: 1px solid var(--main-darker-color);
+}
+
+.directory-select-container-close {
+  height: 15px;
+  background-color: var(--main-darker-color);
+  display: grid;
+  grid-template-columns: auto 15px;
+}
+
+.directory-select-container-close > i {
+  color: var(--main-darker-2-color);
+}
+
+.directory-select-container-close > i:hover {
+  cursor: pointer;
+  color: var(--main-darker-3-color);
+}
+
+.directory-select-container-content {
+  height: calc(100% - 15px);
+}

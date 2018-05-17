@@ -1,0 +1,4 @@
+<div class="container">
+  <input #input type="text" [(ngModel)]="link" placeholder="image link" (keypress)="onKeyPress($event)">
+  <button (click)="submitLink()">submit</button>
+</div>

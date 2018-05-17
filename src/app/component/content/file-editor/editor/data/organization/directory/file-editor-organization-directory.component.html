@@ -1,0 +1,21 @@
+<div class="selected-directories">
+  <i class="fa fa-folder-open" aria-hidden="true" (click)="openDirectorySelector()"></i>
+  <div class="directory" *ngFor="let directoryModel of data.parentLogDirectoryFileDatas; let i = index">
+    {{directoryModel.metadata.name}}
+    <i class="fa fa-times" aria-hidden="true" (click)="onDirectoryModelUnSelect(i)"></i>
+  </div>
+</div>
+<div *ngIf="showSelector" class="directory-select-container">
+  <div class="directory-select-container-close">
+    <div></div>
+    <i class="fa fa-times" aria-hidden="true" (click)="closeDirectorySelector()"></i>
+  </div>
+  <div class="directory-select-container-content">
+    <app-navigation-side-left-column-container [fileTypes]="fileTypes"
+                                               (directoryFileModelSelectedMoreThanOnce)="addSelectedDirectory($event)">
+    </app-navigation-side-left-column-container>
+  </div>
+</div>
+
+
+

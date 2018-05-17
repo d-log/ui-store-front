@@ -1,0 +1,10 @@
+<div class="toolbar">
+  <app-selector-toolbar (searchWithNewString)="searchWithNewString($event)"
+                        (new)="onNew()"
+                        (close)="onClose()"></app-selector-toolbar>
+</div>
+<div class="content">
+  <app-tag-selector-content [hideTagModelIDs]="hideTagModelIDs"
+                            [tagNameLikeString]="tagNameLikeString"
+                            (tagModelSelected)="onTagModelSelected($event)"></app-tag-selector-content>
+</div>

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FileModel} from '../../../service/core/file/model/file-model';
-import {LogModelService} from '../../../service/core/file/type/log/log-model.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {LogModelService} from '../../../service/core/file/type/log/log-model.service';
 import {LogType} from '../../../service/core/file/model/extra/data/log/extra/log-type';
 
 @Component({
