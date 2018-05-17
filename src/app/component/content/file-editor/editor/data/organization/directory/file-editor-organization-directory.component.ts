@@ -25,8 +25,8 @@ export class FileEditorOrganizationDirectoryComponent implements OnInit {
     }
   }
 
-  openDirectorySelector() {
-    this.showSelector = true;
+  toggleDirectorySelector() {
+    this.showSelector = !this.showSelector;
   }
 
   closeDirectorySelector() {

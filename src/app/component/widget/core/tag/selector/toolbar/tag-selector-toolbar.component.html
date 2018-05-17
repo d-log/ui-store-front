@@ -1,5 +1,6 @@
 <div class="toolbar">
-  <input type="text" (input)="searchStringChanged($event)" placeholder="search tags">
+  <input #input type="text" [(ngModel)]="tagNameLikeString" (input)="onTagNameLikeStringChange($event)"
+         placeholder="search tags">
   <button class="new" (click)="onNew()">new</button>
   <i class="fa fa-times" aria-hidden="true" (click)="onClose()"></i>
 </div>

@@ -1,10 +1,16 @@
 <div class="container">
   <app-tag-selector *ngIf="displayType ==='select'"
                     [hideTagModelIDs]="hideTagModelIDs"
+                    [(tagNameLikeString)]="tagNameLikeString"
                     (close)="onClose()"
                     (new)="onNew()"
-                    (tagModelSelected)="onTagModelSelected($event)"></app-tag-selector>
+                    (updateTagFileModel)="onUpdateTagFileModel($event)"
+                    (selectTagFileModel)="onTagModelSelected($event)"></app-tag-selector>
   <app-tag-creator *ngIf="displayType === 'create'"
                    (close)="onClose()"
                    (createdTagFileModel)="onCreatedTagFileModel($event)"></app-tag-creator>
+  <app-tag-updator *ngIf="displayType === 'update'"
+                   [fileModel]="selectedTagModel"
+                   (close)="onClose()"
+                   (updatedTagFileModel)="onUpdatedTagFileModel($event)"></app-tag-updator>
 </div>

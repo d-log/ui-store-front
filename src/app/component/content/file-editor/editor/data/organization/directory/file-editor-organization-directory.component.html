@@ -1,5 +1,5 @@
 <div class="selected-directories">
-  <i class="fa fa-folder-open" aria-hidden="true" (click)="openDirectorySelector()"></i>
+  <i class="fa fa-folder-open" aria-hidden="true" (click)="toggleDirectorySelector()"></i>
   <div class="directory" *ngFor="let directoryModel of data.parentLogDirectoryFileDatas; let i = index">
     {{directoryModel.metadata.name}}
     <i class="fa fa-times" aria-hidden="true" (click)="onDirectoryModelUnSelect(i)"></i>

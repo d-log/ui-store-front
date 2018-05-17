@@ -36,13 +36,24 @@ export class TagWidgetComponent implements OnInit {
     }
   }
 
+  onUpdateTagFileModel(tagModel: FileModel) {
+    this.selectedTagModel = tagModel;
+    this.displayType = 'update';
+  }
+
   onTagModelSelected(tagModel: FileModel) {
     this.selectedTagModel = tagModel;
     this.tagModelSelected.emit(this.selectedTagModel);
   }
 
   onCreatedTagFileModel(tagFileModel: FileModel) {
+    this.tagNameLikeString = tagFileModel.metadata.name;
     this.createdTagFileModel.emit(tagFileModel);
+    this.displayType = 'select';
+  }
+
+  onUpdatedTagFileModel(tagFileModel: FileModel) {
+    this.tagNameLikeString = tagFileModel.metadata.name;
     this.displayType = 'select';
   }
 }

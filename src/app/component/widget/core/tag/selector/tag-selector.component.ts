@@ -9,14 +9,13 @@ import {FileModel} from '../../../../../service/core/file/model/file-model';
 export class TagSelectorComponent {
   @Input() hideTagModelIDs: string[];
   @Input() tagNameLikeString: string;
-  @Output() tagModelSelected = new EventEmitter<FileModel>();
+  @Output() selectTagFileModel = new EventEmitter<FileModel>();
+  @Output() updateTagFileModel = new EventEmitter<FileModel>();
   @Output() close = new EventEmitter<boolean>();
   @Output() new = new EventEmitter<boolean>();
 
-  selectedTagModel: FileModel;
-
-  searchWithNewString(string: string) {
-    this.tagNameLikeString = string;
+  onTagNameLikeStringChange(tagName: string) {
+    this.tagNameLikeString = tagName;
   }
 
   onClose() {
@@ -27,8 +26,11 @@ export class TagSelectorComponent {
     this.new.emit(true);
   }
 
-  onTagModelSelected(tagModel: FileModel) {
-    this.selectedTagModel = tagModel;
-    this.tagModelSelected.emit(this.selectedTagModel);
+  onSelectTagModel(tagModel: FileModel) {
+    this.selectTagFileModel.emit(tagModel);
+  }
+
+  onUpdateTagFileModel(tagModel: FileModel) {
+    this.updateTagFileModel.emit(tagModel);
   }
 }

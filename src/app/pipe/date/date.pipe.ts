@@ -6,6 +6,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class DatePipe implements PipeTransform {
 
   transform(unixTime: number): string {
-    return new Date(unixTime).toDateString();
+    if (unixTime != null) {
+      return new Date(unixTime).toDateString();
+    } else {
+      return 'undefined';
+    }
   }
 }

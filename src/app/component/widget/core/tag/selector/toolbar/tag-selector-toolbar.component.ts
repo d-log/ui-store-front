@@ -1,19 +1,23 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-selector-toolbar',
   templateUrl: './tag-selector-toolbar.component.html',
   styleUrls: ['./tag-selector-toolbar.component.css']
 })
-export class TagSelectorToolbarComponent {
-
-  @Output() searchWithNewString = new EventEmitter<string>();
+export class TagSelectorToolbarComponent implements AfterViewInit {
+  @Input() tagNameLikeString: string;
+  @Output() tagNameLikeStringChange = new EventEmitter<string>();
   @Output() close = new EventEmitter<boolean>();
   @Output() new = new EventEmitter<boolean>();
+  @ViewChild('input') inputElement;
 
-  searchStringChanged(event: any) {
-    const string = (<HTMLInputElement>event.srcElement).value;
-    this.searchWithNewString.emit(string);
+  ngAfterViewInit() {
+    this.inputElement.nativeElement.focus();
+  }
+
+  onTagNameLikeStringChange() {
+    this.tagNameLikeStringChange.emit(this.tagNameLikeString);
   }
 
   onClose() {

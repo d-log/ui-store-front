@@ -1,4 +1,19 @@
 <div class="toolbar">
-  <div></div>
+  <div>
+    <button (click)="updateTagFileModel()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+      save
+    </button>
+  </div>
   <i class="fa fa-times" aria-hidden="true" (click)="onClose()"></i>
+</div>
+<div class="container">
+  <div>
+    <input class="name" type="text" [(ngModel)]="fileModel.metadata.name" placeholder="name">
+  </div>
+  <div>
+    description: <input type="text" [(ngModel)]="fileModel.metadata.description" placeholder="description">
+  </div>
+  <div>created: {{fileModel.metadata.created | date}}</div>
+  <div>updated: {{fileModel.metadata.lastUpdated | date}}</div>
 </div>

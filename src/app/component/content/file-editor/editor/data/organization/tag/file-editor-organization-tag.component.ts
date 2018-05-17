@@ -22,8 +22,8 @@ export class FileEditorOrganizationTagComponent implements OnInit {
     this.showTagSelector = false;
   }
 
-  openTagSelector() {
-    this.showTagSelector = true;
+  toggleTagSelector() {
+    this.showTagSelector = !this.showTagSelector;
   }
 
   closeTagSelector() {

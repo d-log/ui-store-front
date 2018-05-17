@@ -13,6 +13,8 @@ import {SortOrder} from '../../../../../../service/core/model/request/sort-order
   styleUrls: ['./tag-selector-content.component.css']
 })
 export class TagSelectorContentComponent {
+  @Output() selectTagFileModel = new EventEmitter<FileModel>();
+  @Output() updateTagFileModel = new EventEmitter<FileModel>();
   @Input() hideTagModelIDs: string[];
 
   @Input() set tagNameLikeString(tagNameLikeString: string) {
@@ -21,8 +23,8 @@ export class TagSelectorContentComponent {
   }
 
   _tagNameLikeString: string;
-  @Output() tagModelSelected = new EventEmitter<FileModel>();
-  selectableTagFileModels: FileModel[];
+
+  tagFileModels: FileModel[];
 
   @ViewChild('bottom') bottom: any;
   moreFilesExist: boolean;
@@ -43,15 +45,19 @@ export class TagSelectorContentComponent {
     }
 
     this.getterRequest = getterRequest;
-    this.selectableTagFileModels = [];
+    this.tagFileModels = [];
     this.moreFilesExist = true;
 
     this.getTagModels();
   }
 
-  onTagModelSelected(index: number) {
-    this.tagModelSelected.emit(this.selectableTagFileModels[index]);
+  onSelectTagModel(index: number) {
+    this.selectTagFileModel.emit(this.tagFileModels[index]);
     this.loadModelsIfEmptySpace();
+  }
+
+  onUpdateTagFileModel(index: number) {
+    this.updateTagFileModel.emit(this.tagFileModels[index]);
   }
 
   getTagModels() {
@@ -60,7 +66,7 @@ export class TagSelectorContentComponent {
       if (tagModels.length === 0) {
         this.moreFilesExist = false;
       } else {
-        this.selectableTagFileModels = this.selectableTagFileModels.concat(tagModels);
+        this.tagFileModels = this.tagFileModels.concat(tagModels);
         this.loadModelsIfEmptySpace();
       }
     });

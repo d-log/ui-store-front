@@ -1,5 +1,5 @@
 <div class="selected-tags">
-  <i class="fa fa-tags" aria-hidden="true" (click)="openTagSelector()"></i>
+  <i class="fa fa-tags" aria-hidden="true" (click)="toggleTagSelector()"></i>
   <div class="tag no_selection" *ngFor="let selectedTagModel of data.tagFileDatas; let i = index">
     {{selectedTagModel.metadata.name}}
     <i class="fa fa-times" aria-hidden="true" (click)="onTagModelUnSelect(i)"></i>

@@ -26,3 +26,11 @@
   cursor: pointer;
   background-color: var(--main-darker-2-color);
 }
+
+.fa-pencil-square-o {
+  font-size: 13px;
+}
+
+.fa-pencil-square-o:hover {
+  color: var(--main-darker-3-color);
+}
