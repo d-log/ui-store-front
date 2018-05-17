@@ -1,15 +1,15 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {FileModel} from '../../../../../../../service/core/file/model/file-model';
-import {MasonryTileDirectoryDefaultTileDefaultComponent} from './default-tile-default/masonry-tile-directory-default-tile-default.component';
-import {MasonryTileComponentTwo} from '../masonry-tile-component-two';
+import {TileDirectoryDefaultComponent} from './tile-directory-default/tile-directory-default.component';
+import {ITileComponent} from '../i-tile-component';
 import {FileType} from '../../../../../../../service/core/file/model/extra/file-type';
 import {Router} from '@angular/router';
 
 @Component({
-  templateUrl: './masonry-tile-directory.component.html',
-  styleUrls: ['./masonry-tile-directory.component.css']
+  templateUrl: './tile-directory.component.html',
+  styleUrls: ['./tile-directory.component.css']
 })
-export class MasonryTileDirectoryComponent implements OnInit {
+export class TileDirectoryComponent implements OnInit {
   @Input() fileModel: FileModel;
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
 
@@ -18,14 +18,14 @@ export class MasonryTileDirectoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    const component = MasonryTileDirectoryDefaultTileDefaultComponent;
+    const component = TileDirectoryDefaultComponent;
     this.loadComponent(this.fileModel, component);
   }
 
   loadComponent(fileModel: FileModel, component: any) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this._container.createComponent(componentFactory);
-    (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
+    (<ITileComponent>componentRef.instance).fileModel = fileModel;
   }
 
   route2Archive() {

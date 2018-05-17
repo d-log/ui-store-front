@@ -1,17 +1,17 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {MasonryTileComponentTwo} from './type/masonry-tile-component-two';
+import {ITileComponent} from './type/i-tile-component';
 import {FileModel} from '../../../../../service/core/file/model/file-model';
 import {FileType} from '../../../../../service/core/file/model/extra/file-type';
-import {MasonryTileDirectoryComponent} from './type/directory/masonry-tile-directory.component';
-import {MasonryTileDefaultComponent} from './type/default/masonry-tile-default.component';
-import {MasonryTileLogComponent} from './type/log/masonry-tile-log.component';
+import {TileDirectoryComponent} from './type/directory/tile-directory.component';
+import {TileDefaultComponent} from './type/default/tile-default.component';
+import {TileLogComponent} from './type/log/tile-log.component';
 
 @Component({
-  selector: 'app-masonry-tile',
-  templateUrl: './masonry-tile.component.html',
-  styleUrls: ['./masonry-tile.component.css']
+  selector: 'app-tile',
+  templateUrl: './tile.component.html',
+  styleUrls: ['./tile.component.css']
 })
-export class MasonryTileComponent implements OnInit {
+export class TileComponent implements OnInit {
   @Input() fileModel: FileModel;
   @ViewChild('vc', {read: ViewContainerRef}) _container: ViewContainerRef;
 
@@ -28,17 +28,17 @@ export class MasonryTileComponent implements OnInit {
     const fileType: string = fileModel.metadata.type;
 
     if (fileType === FileType[FileType.LogFileData]) {
-      return MasonryTileLogComponent;
+      return TileLogComponent;
     } else if (fileType === FileType[FileType.LogDirectoryFileData]) {
-      return MasonryTileDirectoryComponent;
+      return TileDirectoryComponent;
     } else {
-      return MasonryTileDefaultComponent;
+      return TileDefaultComponent;
     }
   }
 
   loadComponent(fileModel: FileModel, component: any) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this._container.createComponent(componentFactory);
-    (<MasonryTileComponentTwo>componentRef.instance).fileModel = fileModel;
+    (<ITileComponent>componentRef.instance).fileModel = fileModel;
   }
 }

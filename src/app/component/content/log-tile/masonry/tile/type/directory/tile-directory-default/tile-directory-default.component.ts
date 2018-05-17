@@ -2,11 +2,11 @@ import {AfterViewChecked, Component, Input, OnInit, ViewChild} from '@angular/co
 import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
 
 @Component({
-  selector: 'app-masonry-tile-directory-default-tile-default',
-  templateUrl: './masonry-tile-directory-default-tile-default.component.html',
-  styleUrls: ['./masonry-tile-directory-default-tile-default.component.css']
+  selector: 'app-tile-directory-default',
+  templateUrl: './tile-directory-default.component.html',
+  styleUrls: ['./tile-directory-default.component.css']
 })
-export class MasonryTileDirectoryDefaultTileDefaultComponent implements OnInit, AfterViewChecked {
+export class TileDirectoryDefaultComponent implements OnInit, AfterViewChecked {
 
   @Input() fileModel: FileModel;
   @ViewChild('element') element: any;

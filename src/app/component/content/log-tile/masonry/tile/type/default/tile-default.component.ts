@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FileModel} from '../../../../../../../service/core/file/model/file-model';
 
 @Component({
-  templateUrl: './masonry-tile-default.component.html',
-  styleUrls: ['./masonry-tile-default.component.css']
+  templateUrl: './tile-default.component.html',
+  styleUrls: ['./tile-default.component.css']
 })
-export class MasonryTileDefaultComponent implements OnInit {
+export class TileDefaultComponent implements OnInit {
 
   @Input() fileModel: FileModel;
 

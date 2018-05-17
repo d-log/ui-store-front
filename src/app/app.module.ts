@@ -24,29 +24,23 @@ import {HomeTopComponent} from './component/content/home/home-top/home-top.compo
 
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {MasonryComponent} from './component/content/log-tile/masonry/masonry.component';
-import {MasonryTileComponent} from './component/content/log-tile/masonry/tile/masonry-tile.component';
-import {MasonryTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default/masonry-tile-default.component';
-import {MasonryTileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/masonry-tile-directory.component';
-import {MasonryTileDirectoryDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/directory/default-tile-default/masonry-tile-directory-default-tile-default.component';
-import {MasonryTileLogComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log.component';
-import {MasonryTileLogBottomComponent} from './component/content/log-tile/masonry/tile/type/log/masonry-tile-log-bottom.component';
-import {MasonryTileDefaultTileDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/default-tile-default/masonry-tile-default-tile-default.component';
-import {MasonryTileTextPlainDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-plain-default/masonry-tile-text-plain-default.component';
-import {MasonryTileImageDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/image-default/masonry-tile-image-default.component';
-import {MasonryTileVideoYoutubeDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/video-youtube-default/masonry-tile-video-youtube-default.component';
-import {MasonryTileTextMarkdownDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-markdown-default/masonry-tile-text-markdown-default.component';
-import {MasonryTileTextQuoteDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/text-quote-default/masonry-tile-text-quote-default.component';
+import {TileComponent} from './component/content/log-tile/masonry/tile/tile.component';
+import {TileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default/tile-default.component';
+import {TileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/tile-directory.component';
+import {TileDirectoryDefaultComponent} from './component/content/log-tile/masonry/tile/type/directory/tile-directory-default/tile-directory-default.component';
+import {TileLogComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log.component';
+import {TileLogDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log-default/tile-log-default.component';
+import {TileLogExtraComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log-extra/tile-log-extra.component';
 
 import {FilePageIdComponent} from './component/content/file-page/file-page-id/file-page-id.component';
 import {FilePageComponent} from './component/content/file-page/page/file-page.component';
 import {FilePageContentHeaderComponent} from './component/content/file-page/page/file-page-content-header/file-page-content-header.component';
-import {LogDataDefaultDefaultComponent} from './component/content/file-page/page/file-data/default-default/log-data-default-default.component';
-import {LogDataVideoYoutubeDefaultComponent} from './component/content/file-page/page/file-data/video-youtube-default/log-data-video-youtube-default.component';
-import {LogDataTextPlainDefaultComponent} from './component/content/file-page/page/file-data/text-plain-default/log-data-text-plain-default.component';
-import {LogDataImageDefaultComponent} from './component/content/file-page/page/file-data/image-default/log-data-image-default.component';
-import {LogDataTextMarkdownDefaultComponent} from './component/content/file-page/page/file-data/text-markdown-default/log-data-text-markdown-default.component';
-import {LogDataTextQuoteDefaultComponent} from './component/content/file-page/page/file-data/text-quote-default/log-data-text-quote-default.component';
-import {LogDataTextCodeDefaultComponent} from './component/content/file-page/page/file-data/text-code-default/log-data-text-code-default.component';
+import {LogDataVideoYoutubeDefaultComponent} from './component/widget/core/log/log-data/video-youtube-default/log-data-video-youtube-default.component';
+import {LogDataTextPlainDefaultComponent} from './component/widget/core/log/log-data/text-plain-default/log-data-text-plain-default.component';
+import {LogDataImageDefaultComponent} from './component/widget/core/log/log-data/image-default/log-data-image-default.component';
+import {LogDataTextMarkdownDefaultComponent} from './component/widget/core/log/log-data/text-markdown-default/log-data-text-markdown-default.component';
+import {LogDataTextQuoteDefaultComponent} from './component/widget/core/log/log-data/text-quote-default/log-data-text-quote-default.component';
+import {LogDataTextCodeDefaultComponent} from './component/widget/core/log/log-data/text-code-default/log-data-text-code-default.component';
 import {LogDataTypeComponent} from './component/content/file-page/page/file-data/log-data-type.component';
 
 import {SafePipe} from './pipe/safe.pipe';
@@ -152,24 +146,18 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
     FilePageCommentSectionComponent,
     ArchiveComponent,
     MasonryComponent,
-    MasonryTileComponent,
-    MasonryTileDefaultComponent,
-    MasonryTileDirectoryComponent,
-    MasonryTileLogComponent,
-    MasonryTileLogBottomComponent,
-    MasonryTileTextPlainDefaultComponent,
-    MasonryTileImageDefaultComponent,
-    MasonryTileVideoYoutubeDefaultComponent,
-    MasonryTileDefaultTileDefaultComponent,
-    MasonryTileTextQuoteDefaultComponent,
-    MasonryTileTextMarkdownDefaultComponent,
-    MasonryTileDirectoryDefaultTileDefaultComponent,
+    TileComponent,
+    TileDefaultComponent,
+    TileDirectoryComponent,
+    TileLogComponent,
+    TileLogExtraComponent,
+    TileLogDefaultComponent,
+    TileDirectoryDefaultComponent,
     SafePipe,
     MarkdownPipe,
     CodePipe,
     DatePipe,
     LogDataTypeComponent,
-    LogDataDefaultDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,
@@ -178,17 +166,11 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
     LogDataTextCodeDefaultComponent,
   ],
   entryComponents: [
-    MasonryTileDefaultComponent,
-    MasonryTileDirectoryComponent,
-    MasonryTileLogComponent,
-    MasonryTileDefaultTileDefaultComponent,
-    MasonryTileImageDefaultComponent,
-    MasonryTileTextPlainDefaultComponent,
-    MasonryTileVideoYoutubeDefaultComponent,
-    MasonryTileTextQuoteDefaultComponent,
-    MasonryTileTextMarkdownDefaultComponent,
-    MasonryTileDirectoryDefaultTileDefaultComponent,
-    LogDataDefaultDefaultComponent,
+    TileDefaultComponent,
+    TileDirectoryComponent,
+    TileLogComponent,
+    TileLogDefaultComponent,
+    TileDirectoryDefaultComponent,
     LogDataVideoYoutubeDefaultComponent,
     LogDataTextPlainDefaultComponent,
     LogDataImageDefaultComponent,

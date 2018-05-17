@@ -1,5 +1,5 @@
 import {FileModel} from '../../../../../../service/core/file/model/file-model';
 
-export interface MasonryTileComponentTwo {
+export interface ITileComponent {
   fileModel: FileModel;
 }

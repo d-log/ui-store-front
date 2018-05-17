@@ -4,7 +4,6 @@
   background-color: var(--main-darker-color);
   text-align: center;
   text-overflow: ellipsis;
-  border-radius: 10px;
   color: var(--main-darker-3-color);
 }
 

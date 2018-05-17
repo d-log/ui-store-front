@@ -1,12 +1,12 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {FileModel} from '../../../../../../../service/core/file/model/file-model';
+import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
 
 @Component({
-  selector: 'app-masonry-tile-log-bottom',
-  templateUrl: './masonry-tile-log-bottom.component.html',
-  styleUrls: ['./masonry-tile-log-bottom.component.css']
+  selector: 'app-tile-log-extra',
+  templateUrl: './tile-log-extra.component.html',
+  styleUrls: ['./tile-log-extra.component.css']
 })
-export class MasonryTileLogBottomComponent implements OnInit {
+export class TileLogExtraComponent implements OnInit {
 
   @Input() fileModel: FileModel;
   @ViewChild('container') containerElement: any;
