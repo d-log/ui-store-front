@@ -9,13 +9,13 @@
   <div class="directory-tag-container">
     <div class="directory-container">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
-      <span *ngFor="let model of fileModel.data.parentLogModels">
+      <span *ngFor="let model of fileModel.parentLogModels">
         · <a class="tag-or-directory" (click)="viewLogsWithParentLogIDInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>
     <div class="tag-container">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <span *ngFor="let model of fileModel.data.tagModels">
+      <span *ngFor="let model of fileModel.tagModels">
         · <a class="tag-or-directory" (click)="viewLogsWithTagIDInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>

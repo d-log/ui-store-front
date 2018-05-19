@@ -1,7 +1,7 @@
 <div class="masonry">
   <div class="masonry-item-sizer"></div>
-  <div class="masonry-item" *ngFor="let fileModel of logModels">
-    <app-tile-log [fileModel]="fileModel"></app-tile-log>
+  <div class="masonry-item" *ngFor="let logModel of logModels">
+    <app-tile-log [logModel]="logModel"></app-tile-log>
   </div>
 </div>
 <div #bottom style="min-height: 120px">

@@ -7,7 +7,7 @@ import {LogContent} from '../../../../../../../service/core/file/model/extra/dat
   styleUrls: ['./log-editor-content-css.component.css']
 })
 export class LogEditorContentCssComponent implements OnInit {
-  @Input() logData: LogContent;
+  @Input() logContent: LogContent;
 
   keys: string[];
   values: string[];
@@ -18,19 +18,19 @@ export class LogEditorContentCssComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.logData.css) {
-      this.logData.css = {};
+    if (!this.logContent.css) {
+      this.logContent.css = {};
     }
 
-    for (const property in this.logData.css) {
+    for (const property in this.logContent.css) {
       this.keys.push(property);
-      this.values.push(this.logData.css[property]);
+      this.values.push(this.logContent.css[property]);
     }
   }
 
   onDeleteCssDirective(index: number) {
     const key = this.keys[index];
-    delete this.logData.css[key];
+    delete this.logContent.css[key];
     this.values.splice(index, 1);
     this.keys.splice(index, 1);
   }
@@ -39,20 +39,20 @@ export class LogEditorContentCssComponent implements OnInit {
     const newKey: string = (<HTMLInputElement>event.srcElement).value;
     const oldKey = this.keys[index];
     const sameValue = this.values[index];
-    delete this.logData.css[oldKey];
-    this.logData.css[newKey] = sameValue;
+    delete this.logContent.css[oldKey];
+    this.logContent.css[newKey] = sameValue;
     this.keys[index] = newKey;
   }
 
   valueChanged(event: Event, index: number) {
     const element: HTMLInputElement = <HTMLInputElement>event.srcElement;
     const key = this.keys[index];
-    this.logData.css[key] = element.value;
+    this.logContent.css[key] = element.value;
   }
 
   add() {
-    this.logData.css[''] = '';
-    if (Object.keys(this.logData.css).length > this.keys.length) {
+    this.logContent.css[''] = '';
+    if (Object.keys(this.logContent.css).length > this.keys.length) {
       this.values.push('');
       this.keys.push('');
     }

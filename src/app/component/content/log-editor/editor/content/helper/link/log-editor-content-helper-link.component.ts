@@ -89,7 +89,7 @@ export class LogEditorContentHelperLinkComponent implements AfterViewInit {
     if (videoID !== undefined) {
       const videoYouTubeLogData = new VideoYoutubeLogContent();
       videoYouTubeLogData.videoID = videoID;
-      this.data.logContents.push(new LogContent('VideoYouTubeLogData', this.generateDefaultCSS(), videoYouTubeLogData));
+      this.data.logContents.push(new LogContent('VideoYouTubeLogContent', this.generateDefaultCSS(), videoYouTubeLogData));
       this.onCloseHelper();
     } else {
       alert('youtube link missing URL parameter \'v\'');

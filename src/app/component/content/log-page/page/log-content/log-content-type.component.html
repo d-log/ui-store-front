@@ -13,7 +13,8 @@
                                       [data]="logContent.data"></app-log-content-text-plain-default>
   <app-log-content-text-quote-default *ngIf="logContent.logContentType === 'TextQuoteLogContent'"
                                       [data]="logContent.data"></app-log-content-text-quote-default>
-  <app-log-content-video-youtube-default *ngIf="logContent.logContentType === 'VideoYouTubeLogData'"
+  <app-log-content-video-youtube-default *ngIf="logContent.logContentType === 'VideoYouTubeLogContent'"
                                          [data]="logContent.data"></app-log-content-video-youtube-default>
-  <app-twitter *ngIf="logContent.logContentType === 'TwitterTweetLogContent'" [tweetID]="logContent.data.tweetID"></app-twitter>
+  <app-twitter *ngIf="logContent.logContentType === 'TwitterTweetLogContent'"
+               [tweetID]="logContent.data.tweetID"></app-twitter>
 </div>

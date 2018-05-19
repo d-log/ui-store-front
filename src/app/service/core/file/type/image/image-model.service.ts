@@ -26,7 +26,7 @@ export class ImageModelService {
       .get(this.URL + '/all')
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
-        return hateoasResponse._embedded.collection[0];
+        return hateoasResponse._embedded.collection;
       });
   }
 }

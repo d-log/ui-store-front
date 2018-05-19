@@ -42,6 +42,7 @@ export class LogEditorContentHelperImageExistingComponent implements OnInit {
       } else {
         const imageInternalLogContents: LogContent[] = imageModels.map((imageModel: ImageModel) => {
           const imageInternalLogContent = new ImageInternalLogContent();
+          imageInternalLogContent.imageModelID = imageModel.id;
           imageInternalLogContent.imageModel = imageModel;
           return new LogContent('ImageInternalLogContent', null, imageInternalLogContent);
         });

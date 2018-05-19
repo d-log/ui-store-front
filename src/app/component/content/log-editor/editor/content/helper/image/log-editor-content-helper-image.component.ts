@@ -40,6 +40,7 @@ export class LogEditorContentHelperImageComponent implements OnInit {
 
   addImageModel(imageModel: ImageModel) {
     const imageInternalLogData = new ImageInternalLogContent();
+    imageInternalLogData.imageModelID = imageModel.id;
     imageInternalLogData.imageModel = imageModel;
     this.logModel.logContents.push(new LogContent('ImageInternalLogContent', this.generateDefaultCSS(), imageInternalLogData));
     this.onCloseHelper();

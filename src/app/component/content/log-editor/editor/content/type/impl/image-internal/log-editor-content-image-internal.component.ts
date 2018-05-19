@@ -7,5 +7,5 @@ import {ImageInternalLogContent} from '../../../../../../../../service/core/file
   styleUrls: ['./log-editor-content-image-internal.component.css']
 })
 export class LogEditorContentImageInternalComponent {
-  @Input() imageInternalLogData: ImageInternalLogContent;
+  @Input() imageInternalLogContent: ImageInternalLogContent;
 }

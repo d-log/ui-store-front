@@ -7,7 +7,6 @@ import {HeaderSectionLogContent} from '../../../../service/core/file/model/extra
 import {CommentSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-content';
 import {LogDisplayOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/log-display-override';
 import {TileLogModelOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-model-override';
-import {ImageModel} from '../../../../service/core/file/model/extra/data/image/image-model';
 
 @Component({
   selector: 'app-log-editor',
@@ -124,9 +123,7 @@ export class LogEditorComponent implements OnInit {
 
     clone.logContents.map((logContent: LogContent) => {
       if (logContent.logContentType === 'ImageInternalLogContent') {
-        const imageModel: ImageModel = new ImageModel();
-        imageModel.id = logContent.data.imageModel.id;
-        logContent.data.imageModel = imageModel;
+        logContent.data.imageModel = undefined;
       }
     });
 

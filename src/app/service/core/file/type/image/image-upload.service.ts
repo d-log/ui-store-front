@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import {environment} from '../../../../../../environments/environment';
 import {HateoasResponse} from '../../../model/response/hateoas-response';
 import {ImageModel} from '../../model/extra/data/image/image-model';
-import {Pageable} from '../../../model/request/pageable';
 
 @Injectable()
 export class ImageUploadService {

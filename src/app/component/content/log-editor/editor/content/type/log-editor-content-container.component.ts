@@ -10,7 +10,7 @@ import {LogContent} from '../../../../../../service/core/file/model/extra/data/l
 export class LogEditorContentContainerComponent {
   @Output() deleteThisLogContent = new EventEmitter<number>();
   @Input() index: number;
-  @Input() logData: LogContent;
+  @Input() logContent: LogContent;
   @Input() logModel: LogModel;
 
   collapse: boolean;

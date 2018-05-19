@@ -4,6 +4,7 @@ import {Pageable} from '../../../../../../service/core/model/request/pageable';
 import {Sort} from '../../../../../../service/core/model/request/sort';
 import {TagModelService} from '../../../../../../service/core/file/type/tag/tag-model.service';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
+import {TagGetterRequest} from '../../../../../../service/core/file/type/tag/tag-getter-request';
 
 @Component({
   selector: 'app-tag-selector-content',
@@ -27,20 +28,22 @@ export class TagSelectorContentComponent {
   @ViewChild('bottom') bottom: any;
   moreFilesExist: boolean;
 
-  pageable: Pageable;
-  sorts: Sort[];
+  getterRequest: TagGetterRequest;
 
   constructor(private tagModelService: TagModelService) {
   }
 
   initialize() {
-    this.pageable = new Pageable(-1, 20);
-    this.sorts = [new Sort('metadata.name', SortOrder.asc)];
+    const getterRequest = new TagGetterRequest();
+    getterRequest.metadataNameLike = this._tagNameLikeString;
+    getterRequest.pageable = new Pageable(-1, 20);
+    getterRequest.sorts = [new Sort('metadata.name', SortOrder.asc)];
 
     if (this.hideTagModelIDs == null) {
       this.hideTagModelIDs = [];
     }
 
+    this.getterRequest = getterRequest;
     this.tagModels = [];
     this.moreFilesExist = true;
 
@@ -57,8 +60,8 @@ export class TagSelectorContentComponent {
   }
 
   getTagModels() {
-    this.pageable.page++;
-    this.tagModelService.findAll().subscribe((tagModels: TagModel[]) => {
+    this.getterRequest.pageable.page++;
+    this.tagModelService.theGetter(this.getterRequest).subscribe((tagModels: TagModel[]) => {
       if (tagModels.length === 0) {
         this.moreFilesExist = false;
       } else {
