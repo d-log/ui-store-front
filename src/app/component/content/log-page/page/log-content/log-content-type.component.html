@@ -1,0 +1,19 @@
+<div [ngStyle]="logContent.css">
+  <app-log-content-header-section *ngIf="logContent.logContentType === 'HeaderSectionLogContent'"
+                                  [fileModel]="logModel"></app-log-content-header-section>
+  <app-log-content-comment-section *ngIf="logContent.logContentType === 'CommentSectionLogContent'"
+                                   [fileModel]="logModel"></app-log-content-comment-section>
+  <app-log-content-image-default *ngIf="logContent.logContentType === 'ImageInternalLogContent'"
+                                 [data]="logContent.data"></app-log-content-image-default>
+  <app-log-content-text-code-default *ngIf="logContent.logContentType === 'TextCodeLogContent'"
+                                     [data]="logContent.data"></app-log-content-text-code-default>
+  <app-log-content-text-markdown-default *ngIf="logContent.logContentType === 'TextMarkdownLogContent'"
+                                         [data]="logContent.data"></app-log-content-text-markdown-default>
+  <app-log-content-text-plain-default *ngIf="logContent.logContentType === 'TextPlainLogContent'"
+                                      [data]="logContent.data"></app-log-content-text-plain-default>
+  <app-log-content-text-quote-default *ngIf="logContent.logContentType === 'TextQuoteLogContent'"
+                                      [data]="logContent.data"></app-log-content-text-quote-default>
+  <app-log-content-video-youtube-default *ngIf="logContent.logContentType === 'VideoYouTubeLogData'"
+                                         [data]="logContent.data"></app-log-content-video-youtube-default>
+  <app-twitter *ngIf="logContent.logContentType === 'TwitterTweetLogContent'" [tweetID]="logContent.data.tweetID"></app-twitter>
+</div>

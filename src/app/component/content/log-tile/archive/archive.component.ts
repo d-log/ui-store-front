@@ -1,14 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {Pageable} from '../../../../service/core/model/request/pageable';
-import {Observable} from 'rxjs/Observable';
-import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {MasonryComponent} from '../masonry/masonry.component';
-import {FileModelService} from '../../../../service/core/file/file-model.service';
-import {FileModel} from '../../../../service/core/file/model/file-model';
-import {LogType} from '../../../../service/core/file/model/extra/data/log/extra/log-type';
-import {GetterRequest} from '../../../../service/core/model/request/getter-request';
-import {FileType} from '../../../../service/core/file/model/extra/file-type';
+import {Observable} from 'rxjs/Observable';
+import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
+import {LogGetterRequest} from '../../../../service/core/file/type/log/log-getter-request';
+import {LogModelService} from '../../../../service/core/file/type/log/log-model.service';
+import {ActivatedRoute} from '@angular/router';
+import {Pageable} from '../../../../service/core/model/request/pageable';
+import {LogDisplayType} from '../../../../service/core/file/model/extra/data/log/extra/log-display-type';
 
 @Component({
   selector: 'app-archive',
@@ -19,13 +18,13 @@ export class ArchiveComponent {
 
   @ViewChild(MasonryComponent) masonryComponent: MasonryComponent;
 
-  fileModelsObservable: Observable<FileModel[]>;
+  fileModelsObservable: Observable<LogModel[]>;
 
-  getterRequest: GetterRequest;
+  getterRequest: LogGetterRequest;
   moreFilesExist: boolean;
   isEmptyResponse: boolean;
 
-  constructor(private fileModelService: FileModelService,
+  constructor(private logModelService: LogModelService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
       this.initialize(params);
@@ -51,32 +50,20 @@ export class ArchiveComponent {
   }
 
   private generateGetterRequest(params) {
-    const getterRequest = new GetterRequest();
+    const getterRequest = new LogGetterRequest();
     getterRequest.millisecondThreshold = new Date().getTime();
     getterRequest.pageable = new Pageable(-1, 10);
-    getterRequest.logType = LogType.TILE;
+    getterRequest.logDisplayType = LogDisplayType.TILE;
 
     // grab value of URL parameters (example `q` in `localhost:4200/search?q=something`)
     // getterRequest.searchString = this.activatedRoute.snapshot.queryParams['q'];
-    // getterRequest.directoryID = this.activatedRoute.snapshot.queryParams['directory-id'];
+    // getterRequest.parentLogID = this.activatedRoute.snapshot.queryParams['directory-id'];
     // getterRequest.tagID = this.activatedRoute.snapshot.queryParams['tag-id'];
 
     // grab the matrix URL values (example `q` in `localhost:4200/log-page/archive;q=something;r=something/more/url`)
     getterRequest.searchString = params['q'];
-    getterRequest.directoryID = params['directory-id'];
+    getterRequest.parentLogID = params['parent-log-id'];
     getterRequest.tagID = params['tag-id'];
-    const fileTypes: string = params['file-types'];
-
-    if (!!fileTypes) {
-      getterRequest.fileTypes = [];
-      const fileTypesArray = fileTypes.split(':');
-      for (const t of fileTypesArray) {
-        const fileType: FileType = FileType[t];
-        getterRequest.fileTypes.push(fileType);
-      }
-    } else {
-      getterRequest.fileTypes = [FileType.LogFileData];
-    }
 
     return getterRequest;
   }
@@ -86,6 +73,6 @@ export class ArchiveComponent {
    */
   getMoreFiles() {
     this.getterRequest.pageable.page++;
-    this.fileModelsObservable = this.fileModelService.theGetter(this.getterRequest);
+    this.fileModelsObservable = this.logModelService.theGetter(this.getterRequest);
   }
 }

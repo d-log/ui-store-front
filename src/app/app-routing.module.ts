@@ -3,17 +3,17 @@ import {NgModule} from '@angular/core';
 import {HomeComponent} from './component/content/home/home.component';
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
-import {FilePageIdComponent} from './component/content/file-page/file-page-id/file-page-id.component';
-import {FileCreateComponent} from './component/content/file-editor/file-create.component';
-import {FileUpdateComponent} from './component/content/file-editor/file-update.component';
+import {LogPageIdComponent} from './component/content/log-page/page-id/log-page-id.component';
+import {LogCreateComponent} from './component/content/log-editor/log-create.component';
+import {LogUpdateComponent} from './component/content/log-editor/log-update.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'file/create', component: FileCreateComponent},
-  {path: 'file/update/:id', component: FileUpdateComponent},
+  {path: 'file/create', component: LogCreateComponent},
+  {path: 'file/update/:id', component: LogUpdateComponent},
   {path: 'log-tile/archive', component: ArchiveComponent},
-  {path: 'log-page/:id', component: FilePageIdComponent},
+  {path: 'log-page/:id', component: LogPageIdComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
 

@@ -1,12 +1,11 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
-import {FileModel} from '../../../../../../service/core/file/model/file-model';
-import {GetterRequest} from '../../../../../../service/core/model/request/getter-request';
-import {FileModelService} from '../../../../../../service/core/file/file-model.service';
+import {LogModel} from '../../../../../../service/core/file/model/extra/data/log/log-model';
+import {LogGetterRequest} from '../../../../../../service/core/file/type/log/log-getter-request';
+import {LogModelService} from '../../../../../../service/core/file/type/log/log-model.service';
 import {Pageable} from '../../../../../../service/core/model/request/pageable';
-import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
 import {Sort} from '../../../../../../service/core/model/request/sort';
+import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
 
 @Component({
   selector: 'app-directory-selector-column',
@@ -16,53 +15,47 @@ import {Sort} from '../../../../../../service/core/model/request/sort';
 export class DirectorySelectorColumnComponent implements OnInit {
 
   @Input() showColumnToolbar: boolean;
-  @Input() fileTypes: FileType[];
-  @Input() directoryLevel: number;
-  @Input() logDirectoryFileModel: FileModel;
-  @Output() fileModelSelected = new EventEmitter<any>();
+  @Input() logLevel: number;
+  @Input() parentLogModel: LogModel;
+  @Output() logModelSelected = new EventEmitter<any>();
   @ViewChild('bottom') bottom: any;
-  fileModels: FileModel[];
-  fileModelsObservable: Observable<FileModel[]>;
+  childLogModels: LogModel[];
+  logModelsObservable: Observable<LogModel[]>;
   isEmpty: boolean;
-  moreFilesExist: boolean;
+  moreExist: boolean;
 
-  @Input() selectedFileModelID: string;
+  @Input() selectedLogModelID: string;
 
-  @Input() set pathLogDirectoryFileModels(pathLogDirectoryFileModels: FileModel[]) {
-    if (pathLogDirectoryFileModels.length > (this.directoryLevel + 1)) {
-      this.directoryPathID = pathLogDirectoryFileModels[this.directoryLevel + 1].id;
+  @Input() set pathLogModels(pathLogModels: LogModel[]) {
+    if (pathLogModels.length > (this.logLevel + 1)) {
+      this.logPathID = pathLogModels[this.logLevel + 1].id;
     } else {
-      this.directoryPathID = undefined;
+      this.logPathID = undefined;
     }
   }
 
-  directoryPathID: string;
+  logPathID: string;
 
-  getterRequest: GetterRequest;
+  getterRequest: LogGetterRequest;
 
-  constructor(private fileModelService: FileModelService) {
+  constructor(private logModelService: LogModelService) {
     this.showColumnToolbar = false;
-    this.fileTypes = [];
-    this.fileModelsObservable = null;
-    this.fileModels = [];
+    this.logModelsObservable = null;
+    this.childLogModels = [];
     this.isEmpty = false;
-    this.moreFilesExist = true;
+    this.moreExist = true;
   }
 
   ngOnInit() {
-    const getterRequest = new GetterRequest();
-    getterRequest.fileTypes = this.fileTypes;
-    getterRequest.directoryID = this.logDirectoryFileModel.id;
+    const getterRequest = new LogGetterRequest();
+    getterRequest.parentLogID = this.parentLogModel.id;
     getterRequest.pageable = new Pageable(-1, 20);
-    getterRequest.sorts = [
-      new Sort('metadata.type', SortOrder.asc),
-      new Sort('metadata.created', SortOrder.desc),
-    ];
+    getterRequest.sorts = [new Sort('metadata.created', SortOrder.desc)];
     this.getterRequest = getterRequest;
 
     this.getFileModels();
-    this.fileModelsObservable.subscribe(fileModels => {
-      if (fileModels.length === 0) {
+    this.logModelsObservable.subscribe((logModels: LogModel[]) => {
+      if (logModels.length === 0) {
         this.isEmpty = true;
       } else {
         this.loadModelsIfEmptySpace();
@@ -70,8 +63,8 @@ export class DirectorySelectorColumnComponent implements OnInit {
     });
   }
 
-  selectFileModel(index: number) {
-    this.fileModelSelected.emit([this.directoryLevel, this.fileModels[index]]);
+  selectLogModel(index: number) {
+    this.logModelSelected.emit([this.logLevel, this.childLogModels[index]]);
   }
 
   onScroll() {
@@ -82,7 +75,7 @@ export class DirectorySelectorColumnComponent implements OnInit {
    * checks if more logs exist if so check if there is space in viewport
    */
   loadModelsIfEmptySpace() {
-    if (this.moreFilesExist) {
+    if (this.moreExist) {
       if (this.isElementInViewport(this.bottom.nativeElement)) {
         this.getFileModels();
       }
@@ -97,12 +90,12 @@ export class DirectorySelectorColumnComponent implements OnInit {
 
   getFileModels() {
     this.getterRequest.pageable.page++;
-    this.fileModelsObservable = this.fileModelService.theGetter(this.getterRequest);
-    this.fileModelsObservable.subscribe(fileModels => {
-      if (fileModels.length === 0) {
-        this.moreFilesExist = false;
+    this.logModelsObservable = this.logModelService.theGetter(this.getterRequest);
+    this.logModelsObservable.subscribe((logModels: LogModel[]) => {
+      if (logModels.length === 0) {
+        this.moreExist = false;
       } else {
-        this.fileModels = this.fileModels.concat(fileModels);
+        this.childLogModels = this.childLogModels.concat(logModels);
       }
     });
   }

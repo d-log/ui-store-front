@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FileModel} from '../../../../../service/core/file/model/file-model';
-import {DirectoryModelService} from '../../../../../service/core/file/type/directory/directory-model.service';
-import {FileType} from '../../../../../service/core/file/model/extra/file-type';
+import {LogModel} from '../../../../../service/core/file/model/extra/data/log/log-model';
+import {LogModelService} from '../../../../../service/core/file/type/log/log-model.service';
 
 @Component({
   selector: 'app-directory-selector-column-container',
@@ -10,45 +9,38 @@ import {FileType} from '../../../../../service/core/file/model/extra/file-type';
 })
 export class DirectorySelectorComponent implements OnInit {
   @Input() showColumnToolbar: boolean;
-  @Input() fileTypes: FileType[];
-  pathLogDirectoryFileModels: FileModel[];
-  selectedFileModel: FileModel;
-  selectedFileModelID: string;
+  pathLogModels: LogModel[];
+  selectedLogModel: LogModel;
+  selectedLogModelID: string;
 
-  @Output() directoryFileModelSelectedMoreThanOnce = new EventEmitter<FileModel>();
-  @Output() directoryFileModelSelected = new EventEmitter<FileModel>();
-  @Output() logFileModelSelected = new EventEmitter<FileModel>();
-  @Output() tagFileModelSelected = new EventEmitter<FileModel>();
+  @Output() logModelSelectedAgain = new EventEmitter<LogModel>();
+  @Output() logModelSelectedOnce = new EventEmitter<LogModel>();
 
-  constructor(private directoryModelService: DirectoryModelService) {
+  constructor(private logModelService: LogModelService) {
     this.showColumnToolbar = false;
-    this.pathLogDirectoryFileModels = [];
+    this.pathLogModels = [];
   }
 
   ngOnInit() {
-    this.directoryModelService.getRoot().subscribe(directoryModel => {
-      this.pathLogDirectoryFileModels = [directoryModel];
+    this.logModelService.getRoot().subscribe((rootLogModel: LogModel) => {
+      this.pathLogModels = [rootLogModel];
     });
   }
 
   onSelectedFileModel(event: EventEmitter<any>) {
-    const oldSelectedFileModel = this.selectedFileModel;
+    const oldSelectedFileModel = this.selectedLogModel;
     this.setSelectedFileModel(event[1]);
-    if (this.selectedFileModel.metadata.type === 'LogDirectoryFileData') {
-      if (oldSelectedFileModel !== undefined && this.selectedFileModel.id === oldSelectedFileModel.id) {
-        this.directoryFileModelSelectedMoreThanOnce.emit(this.selectedFileModel);
-      } else {
-        this.pathLogDirectoryFileModels = this.pathLogDirectoryFileModels.slice(0, event[0] + 1);
-        this.pathLogDirectoryFileModels.push(event[1]);
-      }
-      this.directoryFileModelSelected.emit(this.selectedFileModel);
-    } else if (this.selectedFileModel.metadata.type === 'LogFileData') {
-      this.logFileModelSelected.emit(this.selectedFileModel);
+    if (oldSelectedFileModel !== undefined && this.selectedLogModel.id === oldSelectedFileModel.id) {
+      this.logModelSelectedAgain.emit(this.selectedLogModel);
+    } else {
+      this.pathLogModels = this.pathLogModels.slice(0, event[0] + 1);
+      this.pathLogModels.push(event[1]);
+      this.logModelSelectedOnce.emit(this.selectedLogModel);
     }
   }
 
-  setSelectedFileModel(selectedModel: FileModel) {
-    this.selectedFileModel = selectedModel;
-    this.selectedFileModelID = selectedModel.id;
+  setSelectedFileModel(selectedModel: LogModel) {
+    this.selectedLogModel = selectedModel;
+    this.selectedLogModelID = selectedModel.id;
   }
 }

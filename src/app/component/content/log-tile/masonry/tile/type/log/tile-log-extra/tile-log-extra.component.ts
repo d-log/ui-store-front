@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {FileModel} from '../../../../../../../../service/core/file/model/file-model';
+import {LogModel} from '../../../../../../../../service/core/file/model/extra/data/log/log-model';
 
 @Component({
   selector: 'app-tile-log-extra',
@@ -8,7 +8,7 @@ import {FileModel} from '../../../../../../../../service/core/file/model/file-mo
 })
 export class TileLogExtraComponent implements OnInit {
 
-  @Input() fileModel: FileModel;
+  @Input() fileModel: LogModel;
   @ViewChild('container') containerElement: any;
 
   name: string;

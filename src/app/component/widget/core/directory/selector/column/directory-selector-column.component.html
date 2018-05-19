@@ -1,5 +1,5 @@
-<app-directory-selector-column-toolbar *ngIf="showColumnToolbar"
-                                       [logDirectoryFileModel]="logDirectoryFileModel"></app-directory-selector-column-toolbar>
+<app-log-selector-column-toolbar *ngIf="showColumnToolbar"
+                                 [logModel]="parentLogModel"></app-log-selector-column-toolbar>
 <div class="column-container" (scroll)="onScroll()">
   <div *ngIf="isEmpty && isEmpty; else templateName">
     <div class="empty">
@@ -7,27 +7,12 @@
     </div>
   </div>
   <ng-template #templateName>
-    <div *ngFor="let fileModel of fileModels, let i = index;">
+    <div *ngFor="let logModel of childLogModels, let i = index;">
       <div class="item"
-           [ngClass]="{'item-path': fileModel.id === directoryPathID, 'item-selected': fileModel.id === selectedFileModelID}">
-        <div *ngIf="fileModel.metadata.type === 'LogDirectoryFileData'">
-          <div class="directory-icon-container" (click)="selectFileModel(i)">
-            <i class="fa fa-folder"></i>
-            <div class="item-name">{{fileModel.metadata.name}}</div>
-            <i class="fa fa-play"></i>
-          </div>
-        </div>
-        <div *ngIf="fileModel.metadata.type === 'LogFileData'">
-          <div class="log" (click)="selectFileModel(i)">
-            <i class="fa fa-file-o"></i>
-            <div class="item-name">{{fileModel.metadata.name}}</div>
-          </div>
-        </div>
-        <div *ngIf="fileModel.metadata.type === 'TagFileData'">
-          <div class="tag" (click)="selectFileModel(i)">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <div class="item-name">{{fileModel.metadata.name}}</div>
-          </div>
+           [ngClass]="{'item-path': logModel.id === logPathID, 'item-selected': logModel.id === selectedLogModelID}">
+        <div class="log-container" (click)="selectLogModel(i)">
+          <div class="item-name">{{logModel.metadata.name}}</div>
+          <i class="fa fa-play"></i>
         </div>
       </div>
     </div>

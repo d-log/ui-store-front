@@ -1,15 +1,15 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {MarkdownService} from '../../service/markdown/markdown.service';
+
+// https://daringfireball.net/projects/markdown/syntax
+// requires in index.html <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+declare var marked: any;
 
 @Pipe({
   name: 'markdown'
 })
 export class MarkdownPipe implements PipeTransform {
 
-  constructor(private markdownService: MarkdownService) {
-  }
-
   transform(markdown: string): string {
-    return this.markdownService.marked(markdown);
+    return marked(markdown);
   }
 }

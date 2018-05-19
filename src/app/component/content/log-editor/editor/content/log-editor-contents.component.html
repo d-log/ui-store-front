@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="toolbar">
+    <div *ngIf="displayAddHeader" (click)="addHeaderSection()">header</div>
+    <div *ngIf="displayAddComment" (click)="addCommentSection()">comment</div>
+    <div (click)="toggleHelper('text')" [ngClass]="{'helper-selected': displayHelperType === 'text'}">text</div>
+    <div (click)="toggleHelper('image')" [ngClass]="{'helper-selected': displayHelperType === 'image'}">image</div>
+    <div (click)="toggleHelper('link')" [ngClass]="{'helper-selected': displayHelperType === 'link'}">link</div>
+  </div>
+  <div class="helper-container" *ngIf="displayHelperType !== undefined">
+    <app-log-editor-content-helper-image *ngIf="displayHelperType === 'image'" [logModel]="_data"
+                                         (closeHelper)="closeHelper()"></app-log-editor-content-helper-image>
+    <app-log-editor-content-helper-text *ngIf="displayHelperType === 'text'" [data]="_data"
+                                        (closeHelper)="closeHelper()"></app-log-editor-content-helper-text>
+    <app-log-editor-content-helper-link *ngIf="displayHelperType === 'link'" [data]="_data"
+                                        (closeHelper)="closeHelper()"></app-log-editor-content-helper-link>
+  </div>
+  <div [sortablejs]="_data.logContents" [sortablejsOptions]="{}">
+    <div class="log-data-type-container" *ngFor="let logData of _data.logContents; let i = index">
+      <app-log-editor-content-container [logData]="logData"
+                                        [logModel]="_data"
+                                        [index]="i"
+                                        (deleteThisLogContent)="deleteLogData($event)">
+      </app-log-editor-content-container>
+    </div>
+  </div>
+</div>

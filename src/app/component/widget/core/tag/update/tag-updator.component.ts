@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FileModel} from '../../../../../service/core/file/model/file-model';
 import {TagModelService} from '../../../../../service/core/file/type/tag/tag-model.service';
+import {TagModel} from '../../../../../service/core/file/model/extra/data/tag/tag-model';
 
 @Component({
   selector: 'app-tag-updator',
@@ -8,9 +8,9 @@ import {TagModelService} from '../../../../../service/core/file/type/tag/tag-mod
   styleUrls: ['./tag-updator.component.css']
 })
 export class TagUpdatorComponent {
-  @Input() fileModel: FileModel;
+  @Input() tagModel: TagModel;
   @Output() close = new EventEmitter<boolean>();
-  @Output() updatedTagFileModel = new EventEmitter<FileModel>();
+  @Output() updatedTagFileModel = new EventEmitter<TagModel>();
 
   constructor(private tagModelService: TagModelService) {
   }
@@ -20,8 +20,8 @@ export class TagUpdatorComponent {
   }
 
   updateTagFileModel() {
-    this.tagModelService.update(this.fileModel)
-      .subscribe((model: FileModel) => {
+    this.tagModelService.update(this.tagModel)
+      .subscribe((model: TagModel) => {
         this.updatedTagFileModel.emit(model);
       });
   }

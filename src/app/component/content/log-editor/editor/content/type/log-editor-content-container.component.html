@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="log-data-type-toolbar">
+    <div class="log-data-type-toolbar-name" (click)="toggle()">
+      {{logData.logContentType}}
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </div>
+    <div>
+      tile display<input type="checkbox" [ngModel]="logModel.logDisplayOverride.tile.logContentToDisplayIndex === index"
+                         (change)="onChangeThisLogContentAsTileDisplay($event)">
+    </div>
+    <i class="fa fa-times" (click)="onDeleteThisLogContent()" aria-hidden="true"></i>
+  </div>
+  <div class="typed-log-data" [ngClass]="{'typed-log-data-collapse': collapse, 'typed-log-data-none': displayNone}">
+    <app-log-editor-content-css [logData]="logData"></app-log-editor-content-css>
+    <app-log-editor-content-image-internal *ngIf="logData.logContentType === 'ImageInternalLogContent'"
+                                           [imageInternalLogData]="logData.data"></app-log-editor-content-image-internal>
+    <app-log-editor-content-image-quote *ngIf="logData.logContentType === 'ImageQuoteLogContent'"
+                                        [imageQuoteLogData]="logData.data"></app-log-editor-content-image-quote>
+    <app-log-editor-content-text-code *ngIf="logData.logContentType === 'TextCodeLogContent'"
+                                      [textCodeLogData]="logData.data"></app-log-editor-content-text-code>
+    <app-log-editor-content-text-markdown *ngIf="logData.logContentType === 'TextMarkdownLogContent'"
+                                          [textMarkdownLogData]="logData.data"></app-log-editor-content-text-markdown>
+    <app-log-editor-content-text-plain *ngIf="logData.logContentType === 'TextPlainLogContent'"
+                                       [textPlainLogData]="logData.data"></app-log-editor-content-text-plain>
+    <app-log-editor-content-text-quote *ngIf="logData.logContentType === 'TextQuoteLogContent'"
+                                       [textQuoteLogData]="logData.data"></app-log-editor-content-text-quote>
+    <app-log-editor-content-video-youtube *ngIf="logData.logContentType === 'VideoYouTubeLogData'"
+                                          [videoYoutubeLogData]="logData.data"></app-log-editor-content-video-youtube>
+    <app-log-editor-content-twitter-tweet *ngIf="logData.logContentType === 'TwitterTweetLogContent'"
+                                          [twitterTweetLogData]="logData.data"></app-log-editor-content-twitter-tweet>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {TextCodeLogData} from '../../service/core/file/model/extra/data/log/extra/log-data/type/text-code/text-code-log-data';
+import {TextCodeLogContent} from '../../service/core/file/model/extra/data/log/extra/log-data/type/text-code/text-code-log-content';
 
 declare var PR: any;
 
@@ -9,7 +9,7 @@ declare var PR: any;
 export class CodePipe implements PipeTransform {
 
   transform(dataString: string): string {
-    const data: TextCodeLogData = JSON.parse(dataString);
-    return PR.prettyPrintOne(data.code, data.language, data.showLineNumber);
+    const data: TextCodeLogContent = JSON.parse(dataString);
+    return PR.prettyPrintOne(data.text, data.language, data.showLineNumber);
   }
 }

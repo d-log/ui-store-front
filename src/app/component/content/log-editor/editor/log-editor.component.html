@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="workspace">
+    <button class="print-raw" (click)="consoleFileModelJSON()">
+      <i class="fa fa-code" aria-hidden="true"></i>
+      Console Log Raw
+    </button>
+    <button class="print-raw" (click)="onDoneEditing()">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+    </button>
+    <div class="metadata">
+      <app-log-editor-metadata [(metadata)]="_logModel.metadata"></app-log-editor-metadata>
+    </div>
+    <div class="data">
+      <app-log-editor-organization [(data)]="_logModel"></app-log-editor-organization>
+      <br>
+      <app-log-editor-contents [(data)]="_logModel"></app-log-editor-contents>
+    </div>
+  </div>
+  <div class="result">
+    <app-log-page [(fileModel)]="_logModel"></app-log-page>
+  </div>
+</div>

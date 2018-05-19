@@ -1,0 +1,6 @@
+<div class="images" (scroll)="onScroll()">
+  <div class="image" *ngFor="let logData of selectableImageLogContents; let i = index">
+    <app-log-content-image-default (click)="onSelectImage(i)" [data]="logData.data"></app-log-content-image-default>
+  </div>
+  <div #bottom></div>
+</div>

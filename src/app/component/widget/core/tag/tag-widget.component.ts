@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FileModel} from '../../../../service/core/file/model/file-model';
+import {TagModel} from '../../../../service/core/file/model/extra/data/tag/tag-model';
 
 @Component({
   selector: 'app-tag-widget',
@@ -9,11 +9,11 @@ import {FileModel} from '../../../../service/core/file/model/file-model';
 export class TagWidgetComponent implements OnInit {
   @Input() hideTagModelIDs: string[];
   @Input() tagNameLikeString: string;
-  @Output() tagModelSelected = new EventEmitter<FileModel>();
-  @Output() createdTagFileModel = new EventEmitter<FileModel>();
+  @Output() tagModelSelected = new EventEmitter<TagModel>();
+  @Output() createdTagFileModel = new EventEmitter<TagModel>();
   @Output() close = new EventEmitter<boolean>();
 
-  selectedTagModel: FileModel;
+  selectedTagModel: TagModel;
 
   displayType: string; // select | create | update
 
@@ -36,24 +36,24 @@ export class TagWidgetComponent implements OnInit {
     }
   }
 
-  onUpdateTagFileModel(tagModel: FileModel) {
+  onUpdateTagFileModel(tagModel: TagModel) {
     this.selectedTagModel = tagModel;
     this.displayType = 'update';
   }
 
-  onTagModelSelected(tagModel: FileModel) {
+  onTagModelSelected(tagModel: TagModel) {
     this.selectedTagModel = tagModel;
     this.tagModelSelected.emit(this.selectedTagModel);
   }
 
-  onCreatedTagFileModel(tagFileModel: FileModel) {
-    this.tagNameLikeString = tagFileModel.metadata.name;
-    this.createdTagFileModel.emit(tagFileModel);
+  onCreatedTagFileModel(tagModel: TagModel) {
+    this.tagNameLikeString = tagModel.metadata.name;
+    this.createdTagFileModel.emit(tagModel);
     this.displayType = 'select';
   }
 
-  onUpdatedTagFileModel(tagFileModel: FileModel) {
-    this.tagNameLikeString = tagFileModel.metadata.name;
+  onUpdatedTagFileModel(tagModel: TagModel) {
+    this.tagNameLikeString = tagModel.metadata.name;
     this.displayType = 'select';
   }
 }

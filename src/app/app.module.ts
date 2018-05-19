@@ -12,7 +12,7 @@ import {NavigationTopComponent} from './component/navigation-top/navigation-top.
 
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
-import {DirectorySelectorColumnToolbarComponent} from './component/widget/core/directory/selector/column/toolbar/directory-selector-column-toolbar.component';
+import {LogSelectorColumnToolbarComponent} from './component/widget/core/directory/selector/column/toolbar/log-selector-column-toolbar.component';
 import {DirectorySelectorColumnComponent} from './component/widget/core/directory/selector/column/directory-selector-column.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {DirectorySelectorComponent} from './component/widget/core/directory/selector/directory-selector.component';
@@ -24,24 +24,21 @@ import {HomeTopComponent} from './component/content/home/home-top/home-top.compo
 
 import {ArchiveComponent} from './component/content/log-tile/archive/archive.component';
 import {MasonryComponent} from './component/content/log-tile/masonry/masonry.component';
-import {TileComponent} from './component/content/log-tile/masonry/tile/tile.component';
-import {TileDefaultComponent} from './component/content/log-tile/masonry/tile/type/default/tile-default.component';
-import {TileDirectoryComponent} from './component/content/log-tile/masonry/tile/type/directory/tile-directory.component';
-import {TileDirectoryDefaultComponent} from './component/content/log-tile/masonry/tile/type/directory/tile-directory-default/tile-directory-default.component';
 import {TileLogComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log.component';
 import {TileLogDefaultComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log-default/tile-log-default.component';
 import {TileLogExtraComponent} from './component/content/log-tile/masonry/tile/type/log/tile-log-extra/tile-log-extra.component';
 
-import {FilePageIdComponent} from './component/content/file-page/file-page-id/file-page-id.component';
-import {FilePageComponent} from './component/content/file-page/page/file-page.component';
-import {FilePageContentHeaderComponent} from './component/content/file-page/page/file-page-content-header/file-page-content-header.component';
-import {LogDataVideoYoutubeDefaultComponent} from './component/widget/core/log/log-data/video-youtube-default/log-data-video-youtube-default.component';
-import {LogDataTextPlainDefaultComponent} from './component/widget/core/log/log-data/text-plain-default/log-data-text-plain-default.component';
-import {LogDataImageDefaultComponent} from './component/widget/core/log/log-data/image-default/log-data-image-default.component';
-import {LogDataTextMarkdownDefaultComponent} from './component/widget/core/log/log-data/text-markdown-default/log-data-text-markdown-default.component';
-import {LogDataTextQuoteDefaultComponent} from './component/widget/core/log/log-data/text-quote-default/log-data-text-quote-default.component';
-import {LogDataTextCodeDefaultComponent} from './component/widget/core/log/log-data/text-code-default/log-data-text-code-default.component';
-import {LogDataTypeComponent} from './component/content/file-page/page/file-data/log-data-type.component';
+import {LogPageIdComponent} from './component/content/log-page/page-id/log-page-id.component';
+import {LogPageComponent} from './component/content/log-page/page/log-page.component';
+import {LogContentHeaderSectionComponent} from './component/content/log-page/page/log-content-header-section/log-content-header-section.component';
+import {LogContentCommentSectionComponent} from './component/content/log-page/page/log-content-comment-section/log-content-comment-section.component';
+import {LogContentVideoYoutubeDefaultComponent} from './component/widget/core/log/log-content/video-youtube-default/log-content-video-youtube-default.component';
+import {LogContentTextPlainDefaultComponent} from './component/widget/core/log/log-content/text-plain-default/log-content-text-plain-default.component';
+import {LogContentImageDefaultComponent} from './component/widget/core/log/log-content/image-default/log-content-image-default.component';
+import {LogContentTextMarkdownDefaultComponent} from './component/widget/core/log/log-content/text-markdown-default/log-content-text-markdown-default.component';
+import {LogContentTextQuoteDefaultComponent} from './component/widget/core/log/log-content/text-quote-default/log-content-text-quote-default.component';
+import {LogContentTextCodeDefaultComponent} from './component/widget/core/log/log-content/text-code-default/log-content-text-code-default.component';
+import {LogContentTypeComponent} from './component/content/log-page/page/log-content/log-content-type.component';
 
 import {SafePipe} from './pipe/safe.pipe';
 import {MarkdownPipe} from './pipe/markdown/markdown.pipe';
@@ -51,10 +48,8 @@ import {DatePipe} from './pipe/date/date.pipe';
 import {TwitterService} from './service/twitter/twitter.service';
 import {TagModelService} from './service/core/file/type/tag/tag-model.service';
 import {ImageModelService} from './service/core/file/type/image/image-model.service';
-import {FileModelService} from './service/core/file/file-model.service';
+import {ImageUploadService} from './service/core/file/type/image/image-upload.service';
 import {LogModelService} from './service/core/file/type/log/log-model.service';
-import {DirectoryModelService} from './service/core/file/type/directory/directory-model.service';
-import {MarkdownService} from './service/markdown/markdown.service';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 
 import {ScriptHackComponent} from './component/widget/util/script-hack/script-hack.component';
@@ -67,32 +62,30 @@ import {TagCreatorComponent} from './component/widget/core/tag/create/tag-creato
 import {TagUpdatorComponent} from './component/widget/core/tag/update/tag-updator.component';
 import {TagWidgetComponent} from './component/widget/core/tag/tag-widget.component';
 
-import {FileCreateComponent} from './component/content/file-editor/file-create.component';
-import {FileUpdateComponent} from './component/content/file-editor/file-update.component';
-import {FileEditorComponent} from './component/content/file-editor/editor/file-editor.component';
-import {FileEditorDataComponent} from './component/content/file-editor/editor/data/file-editor-data.component';
-import {FileEditorOrganizationDirectoryComponent} from './component/content/file-editor/editor/data/organization/directory/file-editor-organization-directory.component';
-import {FileEditorLogDataHelperImageComponent} from './component/content/file-editor/editor/data/log-data/helper/image/file-editor-log-data-helper-image.component';
-import {FileEditorLogDataHelperImageUploadComponent} from './component/content/file-editor/editor/data/log-data/helper/image/upload/file-editor-log-data-helper-image-upload.component';
-import {FileEditorLogDataImageQuoteComponent} from './component/content/file-editor/editor/data/log-data/type/impl/image-quote/file-editor-log-data-image-quote.component';
-import {FileEditorLogDataTextQuoteComponent} from './component/content/file-editor/editor/data/log-data/type/impl/text-quote/file-editor-log-data-text-quote.component';
-import {FileEditorOrganizationTagComponent} from './component/content/file-editor/editor/data/organization/tag/file-editor-organization-tag.component';
-import {FileEditorLogDataHelperTextComponent} from './component/content/file-editor/editor/data/log-data/helper/text/file-editor-log-data-helper-text.component';
-import {FileEditorLogDataHelperImageExistingComponent} from './component/content/file-editor/editor/data/log-data/helper/image/existing/file-editor-log-data-helper-image-existing.component';
-import {FileEditorLogDataTextPlainComponent} from './component/content/file-editor/editor/data/log-data/type/impl/text-plain/file-editor-log-data-text-plain.component';
-import {FileEditorLogDataTextMarkdownComponent} from './component/content/file-editor/editor/data/log-data/type/impl/text-markdown/file-editor-log-data-text-markdown.component';
-import {FileEditorLogDataImageInternalComponent} from './component/content/file-editor/editor/data/log-data/type/impl/image-internal/file-editor-log-data-image-internal.component';
-import {FileEditorLogDataTextCodeComponent} from './component/content/file-editor/editor/data/log-data/type/impl/text-code/file-editor-log-data-text-code.component';
-import {FileEditorLogDataContainerComponent} from './component/content/file-editor/editor/data/log-data/type/file-editor-log-data-container.component';
-import {FileEditorLogDataCssComponent} from './component/content/file-editor/editor/data/log-data/type/css/file-editor-log-data-css.component';
-import {FileEditorLogDataHelperImageLinkComponent} from './component/content/file-editor/editor/data/log-data/helper/image/link/file-editor-log-data-helper-image-link.component';
-import {FileEditorOrganizationComponent} from './component/content/file-editor/editor/data/organization/file-editor-organization.component';
-import {FileEditorLogDataComponent} from './component/content/file-editor/editor/data/log-data/file-editor-log-data.component';
-import {FileEditorLogDataHelperLinkComponent} from './component/content/file-editor/editor/data/log-data/helper/link/file-editor-log-data-helper-link.component';
-import {FileEditorMetadataComponent} from './component/content/file-editor/editor/metadata/file-editor-metadata.component';
-import {FileEditorLogDataTwitterTweetComponent} from './component/content/file-editor/editor/data/log-data/type/impl/twitter-tweet/file-editor-log-data-twitter-tweet.component';
-import {FileEditorLogDataVideoYoutubeComponent} from './component/content/file-editor/editor/data/log-data/type/impl/video-youtube/file-editor-log-data-video-youtube.component';
-import {FilePageCommentSectionComponent} from './component/content/file-page/page/file-page-comment-section/file-page-comment-section.component';
+import {LogCreateComponent} from './component/content/log-editor/log-create.component';
+import {LogUpdateComponent} from './component/content/log-editor/log-update.component';
+import {LogEditorComponent} from './component/content/log-editor/editor/log-editor.component';
+import {LogEditorMetadataComponent} from './component/content/log-editor/editor/metadata/log-editor-metadata.component';
+import {LogEditorOrganizationComponent} from './component/content/log-editor/editor/organization/log-editor-organization.component';
+import {LogEditorOrganizationTagComponent} from './component/content/log-editor/editor/organization/tag/log-editor-organization-tag.component';
+import {LogEditorOrganizationDirectoryComponent} from './component/content/log-editor/editor/organization/directory/log-editor-organization-directory.component';
+import {LogEditorContentsComponent} from './component/content/log-editor/editor/content/log-editor-contents.component';
+import {LogEditorContentHelperTextComponent} from './component/content/log-editor/editor/content/helper/text/log-editor-content-helper-text.component';
+import {LogEditorContentHelperLinkComponent} from './component/content/log-editor/editor/content/helper/link/log-editor-content-helper-link.component';
+import {LogEditorContentHelperImageComponent} from './component/content/log-editor/editor/content/helper/image/log-editor-content-helper-image.component';
+import {LogEditorContentHelperImageLinkComponent} from './component/content/log-editor/editor/content/helper/image/link/log-editor-content-helper-image-link.component';
+import {LogEditorContentHelperImageExistingComponent} from './component/content/log-editor/editor/content/helper/image/existing/log-editor-content-helper-image-existing.component';
+import {LogEditorContentTextCodeComponent} from './component/content/log-editor/editor/content/type/impl/text-code/log-editor-content-text-code.component';
+import {LogEditorContentTextQuoteComponent} from './component/content/log-editor/editor/content/type/impl/text-quote/log-editor-content-text-quote.component';
+import {LogEditorContentVideoYoutubeComponent} from './component/content/log-editor/editor/content/type/impl/video-youtube/log-editor-content-video-youtube.component';
+import {LogEditorContentTwitterTweetComponent} from './component/content/log-editor/editor/content/type/impl/twitter-tweet/log-editor-content-twitter-tweet.component';
+import {LogEditorContentHelperImageUploadComponent} from './component/content/log-editor/editor/content/helper/image/upload/log-editor-content-helper-image-upload.component';
+import {LogEditorContentCssComponent} from './component/content/log-editor/editor/content/type/css/log-editor-content-css.component';
+import {LogEditorContentContainerComponent} from './component/content/log-editor/editor/content/type/log-editor-content-container.component';
+import {LogEditorContentTextPlainComponent} from './component/content/log-editor/editor/content/type/impl/text-plain/log-editor-content-text-plain.component';
+import {LogEditorContentTextMarkdownComponent} from './component/content/log-editor/editor/content/type/impl/text-markdown/log-editor-content-text-markdown.component';
+import {LogEditorContentImageInternalComponent} from './component/content/log-editor/editor/content/type/impl/image-internal/log-editor-content-image-internal.component';
+import {LogEditorContentImageQuoteComponent} from './component/content/log-editor/editor/content/type/impl/image-quote/log-editor-content-image-quote.component';
 
 @NgModule({
   declarations: [
@@ -111,72 +104,64 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
     NavigationSideLeftToolbarComponent,
     DirectorySelectorColumnComponent,
     DirectorySelectorComponent,
-    DirectorySelectorColumnToolbarComponent,
+    LogSelectorColumnToolbarComponent,
     HomeComponent,
     HomeTopComponent,
     PageNotFoundComponent,
-    FileCreateComponent,
-    FileUpdateComponent,
-    FileEditorComponent,
-    FileEditorDataComponent,
-    FileEditorOrganizationComponent,
-    FileEditorOrganizationTagComponent,
-    FileEditorOrganizationDirectoryComponent,
-    FileEditorMetadataComponent,
-    FileEditorLogDataComponent,
-    FileEditorLogDataHelperTextComponent,
-    FileEditorLogDataHelperLinkComponent,
-    FileEditorLogDataHelperImageComponent,
-    FileEditorLogDataHelperImageLinkComponent,
-    FileEditorLogDataHelperImageExistingComponent,
-    FileEditorLogDataHelperImageUploadComponent,
-    FileEditorLogDataCssComponent,
-    FileEditorLogDataContainerComponent,
-    FileEditorLogDataTextPlainComponent,
-    FileEditorLogDataTextCodeComponent,
-    FileEditorLogDataImageQuoteComponent,
-    FileEditorLogDataImageInternalComponent,
-    FileEditorLogDataTextMarkdownComponent,
-    FileEditorLogDataTextQuoteComponent,
-    FileEditorLogDataTwitterTweetComponent,
-    FileEditorLogDataVideoYoutubeComponent,
-    FilePageIdComponent,
-    FilePageComponent,
-    FilePageContentHeaderComponent,
-    FilePageCommentSectionComponent,
+    LogCreateComponent,
+    LogUpdateComponent,
+    LogEditorComponent,
+    LogEditorOrganizationComponent,
+    LogEditorOrganizationTagComponent,
+    LogEditorOrganizationDirectoryComponent,
+    LogEditorMetadataComponent,
+    LogEditorContentsComponent,
+    LogEditorContentHelperTextComponent,
+    LogEditorContentHelperLinkComponent,
+    LogEditorContentHelperImageComponent,
+    LogEditorContentHelperImageLinkComponent,
+    LogEditorContentHelperImageExistingComponent,
+    LogEditorContentHelperImageUploadComponent,
+    LogEditorContentCssComponent,
+    LogEditorContentContainerComponent,
+    LogEditorContentTextPlainComponent,
+    LogEditorContentTextCodeComponent,
+    LogEditorContentImageQuoteComponent,
+    LogEditorContentImageInternalComponent,
+    LogEditorContentTextMarkdownComponent,
+    LogEditorContentTextQuoteComponent,
+    LogEditorContentTwitterTweetComponent,
+    LogEditorContentVideoYoutubeComponent,
+    LogPageIdComponent,
+    LogPageComponent,
+    LogContentHeaderSectionComponent,
+    LogContentCommentSectionComponent,
     ArchiveComponent,
     MasonryComponent,
-    TileComponent,
-    TileDefaultComponent,
-    TileDirectoryComponent,
     TileLogComponent,
     TileLogExtraComponent,
     TileLogDefaultComponent,
-    TileDirectoryDefaultComponent,
     SafePipe,
     MarkdownPipe,
     CodePipe,
     DatePipe,
-    LogDataTypeComponent,
-    LogDataVideoYoutubeDefaultComponent,
-    LogDataTextPlainDefaultComponent,
-    LogDataImageDefaultComponent,
-    LogDataTextMarkdownDefaultComponent,
-    LogDataTextQuoteDefaultComponent,
-    LogDataTextCodeDefaultComponent,
+    LogContentTypeComponent,
+    LogContentVideoYoutubeDefaultComponent,
+    LogContentTextPlainDefaultComponent,
+    LogContentImageDefaultComponent,
+    LogContentTextMarkdownDefaultComponent,
+    LogContentTextQuoteDefaultComponent,
+    LogContentTextCodeDefaultComponent,
   ],
   entryComponents: [
-    TileDefaultComponent,
-    TileDirectoryComponent,
     TileLogComponent,
     TileLogDefaultComponent,
-    TileDirectoryDefaultComponent,
-    LogDataVideoYoutubeDefaultComponent,
-    LogDataTextPlainDefaultComponent,
-    LogDataImageDefaultComponent,
-    LogDataTextMarkdownDefaultComponent,
-    LogDataTextQuoteDefaultComponent,
-    LogDataTextCodeDefaultComponent,
+    LogContentVideoYoutubeDefaultComponent,
+    LogContentTextPlainDefaultComponent,
+    LogContentImageDefaultComponent,
+    LogContentTextMarkdownDefaultComponent,
+    LogContentTextQuoteDefaultComponent,
+    LogContentTextCodeDefaultComponent,
   ],
   imports: [
     FormsModule,
@@ -188,12 +173,10 @@ import {FilePageCommentSectionComponent} from './component/content/file-page/pag
   ],
   providers: [
     TwitterService,
-    FileModelService,
     LogModelService,
     TagModelService,
     ImageModelService,
-    DirectoryModelService,
-    MarkdownService,
+    ImageUploadService,
     EventBrokerService,
   ],
   bootstrap: [AppComponent]

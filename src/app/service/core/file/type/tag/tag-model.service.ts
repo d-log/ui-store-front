@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {FileModel} from '../../model/file-model';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../../../../../environments/environment';
 import {Http, Response} from '@angular/http';
 import {HateoasResponse} from '../../../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
+import {TagModel} from '../../model/extra/data/tag/tag-model';
 
 @Injectable()
 export class TagModelService {
@@ -12,22 +12,31 @@ export class TagModelService {
   private readonly URL: string;
 
   constructor(private http: Http) {
-    this.URL = environment.coreEndPoint + '/api/file/tag';
+    this.URL = environment.coreEndPoint + '/api/tag';
   }
 
-  create(tagFileModel: FileModel): Observable<FileModel> {
-    tagFileModel.id = undefined;
+  findAll(): Observable<TagModel[]> {
     return this.http
-      .post(this.URL, tagFileModel)
+      .get(this.URL + 'all')
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection;
+      });
+  }
+
+  create(tagModel: TagModel): Observable<TagModel> {
+    tagModel.id = undefined;
+    return this.http
+      .post(this.URL, tagModel)
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection[0];
       });
   }
 
-  update(tagFileModel: FileModel): Observable<FileModel> {
+  update(tagModel: TagModel): Observable<TagModel> {
     return this.http
-      .put(this.URL, tagFileModel)
+      .put(this.URL, tagModel)
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection[0];

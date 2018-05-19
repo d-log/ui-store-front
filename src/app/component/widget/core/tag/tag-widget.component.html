@@ -10,7 +10,7 @@
                    (close)="onClose()"
                    (createdTagFileModel)="onCreatedTagFileModel($event)"></app-tag-creator>
   <app-tag-updator *ngIf="displayType === 'update'"
-                   [fileModel]="selectedTagModel"
+                   [tagModel]="selectedTagModel"
                    (close)="onClose()"
                    (updatedTagFileModel)="onUpdatedTagFileModel($event)"></app-tag-updator>
 </div>

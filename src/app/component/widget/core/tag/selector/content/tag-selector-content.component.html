@@ -1,5 +1,5 @@
 <div class="container" (scroll)="onScroll()">
-  <span *ngFor="let model of tagFileModels; let i = index">
+  <span *ngFor="let model of tagModels; let i = index">
     <div class="tag no_selection" *ngIf="hideTagModelIDs.indexOf(model.id) === -1">
       <span (click)="onSelectTagModel(i)">{{model.metadata.name}}</span>
       <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="onUpdateTagFileModel(i)"></i>

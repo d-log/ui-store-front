@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="toolbar">
+    <div class="image-add-type" (click)="changeImageAddType('link')"
+         [ngClass]="{'selected-type': imageAddType === 'link'}">link
+    </div>
+    <div class="image-add-type" (click)="changeImageAddType('upload')"
+         [ngClass]="{'selected-type': imageAddType === 'upload'}">upload
+    </div>
+    <div class="image-add-type" (click)="changeImageAddType('existing')"
+         [ngClass]="{'selected-type': imageAddType === 'existing'}">existing
+    </div>
+    <i class="fa fa-chevron-up" (click)="onCloseHelper()" aria-hidden="true"></i>
+  </div>
+  <div *ngIf="imageAddType === 'link'">
+    <app-log-editor-content-helper-image-link
+      (receivedImageModel)="uploadedImageModel($event)"></app-log-editor-content-helper-image-link>
+  </div>
+  <div *ngIf="imageAddType === 'upload'">
+    <app-file-editor-log-data-helper-image-upload
+      (receivedImageModel)="uploadedImageModel($event)"></app-file-editor-log-data-helper-image-upload>
+  </div>
+  <div *ngIf="imageAddType === 'existing'">
+    <app-log-editor-content-helper-image-existing
+      (doubleClickedImageLogContent)="selectedExistingImageLogData($event)"></app-log-editor-content-helper-image-existing>
+  </div>
+</div>

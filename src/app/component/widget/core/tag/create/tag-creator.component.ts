@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FileModel} from '../../../../../service/core/file/model/file-model';
+import {TagModel} from '../../../../../service/core/file/model/extra/data/tag/tag-model';
 import {TagModelService} from '../../../../../service/core/file/type/tag/tag-model.service';
-import {TagFileData} from '../../../../../service/core/file/model/extra/data/tag/tag-file-data';
 import {Metadata} from '../../../../../service/core/file/model/extra/metadata';
 
 @Component({
@@ -11,35 +10,29 @@ import {Metadata} from '../../../../../service/core/file/model/extra/metadata';
 })
 export class TagCreatorComponent implements OnInit {
   @Output() close = new EventEmitter<boolean>();
-  @Output() createdTagFileModel = new EventEmitter<FileModel>();
+  @Output() createdTagFileModel = new EventEmitter<TagModel>();
 
-  tagFileModel: FileModel;
+  tagModel: TagModel;
 
   constructor(private tagModelService: TagModelService) {
   }
 
   ngOnInit() {
-    if (this.tagFileModel === undefined) {
-      this.tagFileModel = new FileModel();
+    if (this.tagModel === undefined) {
+      this.tagModel = new TagModel();
     }
-    if (this.tagFileModel.metadata === undefined) {
-      this.tagFileModel.metadata = new Metadata();
+    if (this.tagModel.metadata === undefined) {
+      this.tagModel.metadata = new Metadata();
     }
-    if (this.tagFileModel.data === undefined) {
-      this.tagFileModel.data = new TagFileData();
-    }
-    if (this.tagFileModel.data.logFileIDs === undefined) {
-      this.tagFileModel.data.logFileIDs = [];
-    }
-    if (this.tagFileModel.data.logDirectoryIDs === undefined) {
-      this.tagFileModel.data.logDirectoryIDs = [];
+    if (this.tagModel.logIDs === undefined) {
+      this.tagModel.logIDs = [];
     }
   }
 
   createTagFileModel() {
-    this.tagModelService.create(this.tagFileModel)
-      .subscribe((createdModel: FileModel) => {
-        this.createdTagFileModel.emit(createdModel);
+    this.tagModelService.create(this.tagModel)
+      .subscribe((tagModel: TagModel) => {
+        this.createdTagFileModel.emit(tagModel);
       });
   }
 

@@ -1,23 +1,24 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {FileModel} from '../../../../../../../service/core/file/model/file-model';
-import {LogData} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-data';
 import {Router} from '@angular/router';
+import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
+import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-content';
+import {ILogContentComponent} from '../../../../../../widget/core/log/log-content/i-log-content-component';
 import {TileLogDefaultComponent} from './tile-log-default/tile-log-default.component';
-import {ITileComponent} from '../i-tile-component';
-import {ILogDataComponent} from '../../../../../../widget/core/log/log-data/i-log-data-component';
-import {LogDataImageDefaultComponent} from '../../../../../../widget/core/log/log-data/image-default/log-data-image-default.component';
-import {LogDataTextMarkdownDefaultComponent} from '../../../../../../widget/core/log/log-data/text-markdown-default/log-data-text-markdown-default.component';
-import {LogDataTextCodeDefaultComponent} from '../../../../../../widget/core/log/log-data/text-code-default/log-data-text-code-default.component';
-import {LogDataTextPlainDefaultComponent} from '../../../../../../widget/core/log/log-data/text-plain-default/log-data-text-plain-default.component';
-import {LogDataTextQuoteDefaultComponent} from '../../../../../../widget/core/log/log-data/text-quote-default/log-data-text-quote-default.component';
-import {LogDataVideoYoutubeDefaultComponent} from '../../../../../../widget/core/log/log-data/video-youtube-default/log-data-video-youtube-default.component';
+import {LogContentImageDefaultComponent} from '../../../../../../widget/core/log/log-content/image-default/log-content-image-default.component';
+import {LogContentTextCodeDefaultComponent} from '../../../../../../widget/core/log/log-content/text-code-default/log-content-text-code-default.component';
+import {LogContentTextMarkdownDefaultComponent} from '../../../../../../widget/core/log/log-content/text-markdown-default/log-content-text-markdown-default.component';
+import {LogContentTextPlainDefaultComponent} from '../../../../../../widget/core/log/log-content/text-plain-default/log-content-text-plain-default.component';
+import {LogContentTextQuoteDefaultComponent} from '../../../../../../widget/core/log/log-content/text-quote-default/log-content-text-quote-default.component';
+import {LogContentVideoYoutubeDefaultComponent} from '../../../../../../widget/core/log/log-content/video-youtube-default/log-content-video-youtube-default.component';
+import {ITileLogComponent} from '../i-tile-log-component';
 
 @Component({
+  selector: 'app-tile-log',
   templateUrl: './tile-log.component.html',
   styleUrls: ['./tile-log.component.css']
 })
 export class TileLogComponent implements OnInit {
-  @Input() fileModel: FileModel;
+  @Input() logModel: LogModel;
   @ViewChild('vc', {read: ViewContainerRef}) vc: ViewContainerRef;
 
   showBottom: boolean;
@@ -27,51 +28,43 @@ export class TileLogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showBottom = this.shouldDisplayBottom(this.fileModel);
-
-    if (!this.loadComponentFromLogData(this.fileModel.data.logDatas[0])) {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TileLogDefaultComponent);
-      const componentRef = this.vc.createComponent(componentFactory);
-      (<ITileComponent>componentRef.instance).fileModel = this.fileModel;
-    }
+    this.showBottom = false;
+    this.loadComponent(this.logModel.logContents[0]);
   }
 
-  shouldDisplayBottom(fileModel: FileModel) {
-    return false;
-  }
-
-  loadComponentFromLogData(logData: LogData) {
-    const component: any = this.getComponentFromLogDataType(logData.logDataType);
+  loadComponent(logContent: LogContent) {
+    const component: any = this.getComponent(logContent.logContentType);
     if (component != null) {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
       const componentRef = this.vc.createComponent(componentFactory);
-      (<ILogDataComponent>componentRef.instance).data = logData.data;
-      return true;
+      (<ILogContentComponent>componentRef.instance).data = logContent.data;
     } else {
-      return false;
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TileLogDefaultComponent);
+      const componentRef = this.vc.createComponent(componentFactory);
+      (<ITileLogComponent>componentRef.instance).logModel = this.logModel;
     }
   }
 
   // TODO turn into service to map logData types to Masonry Tile Components
-  private getComponentFromLogDataType(logDataType: string) {
-    switch (logDataType) {
-      case 'ImageInternalLogData': {
-        return LogDataImageDefaultComponent;
+  private getComponent(logContentType: string) {
+    switch (logContentType) {
+      case 'ImageInternalLogContent': {
+        return LogContentImageDefaultComponent;
       }
-      case 'TextCodeLogData': {
-        return LogDataTextCodeDefaultComponent;
+      case 'TextCodeLogContent': {
+        return LogContentTextCodeDefaultComponent;
       }
-      case 'TextMarkdownLogData': {
-        return LogDataTextMarkdownDefaultComponent;
+      case 'TextMarkdownLogContent': {
+        return LogContentTextMarkdownDefaultComponent;
       }
-      case 'TextPlainLogData': {
-        return LogDataTextPlainDefaultComponent;
+      case 'TextPlainLogContent': {
+        return LogContentTextPlainDefaultComponent;
       }
-      case 'TextQuoteLogData': {
-        return LogDataTextQuoteDefaultComponent;
+      case 'TextQuoteLogContent': {
+        return LogContentTextQuoteDefaultComponent;
       }
       case 'VideoYouTubeLogData': {
-        return LogDataVideoYoutubeDefaultComponent;
+        return LogContentVideoYoutubeDefaultComponent;
       }
     }
   }
@@ -79,6 +72,6 @@ export class TileLogComponent implements OnInit {
   route2FilePage() {
     // window.location.href = '/log-page/' + this.fileModel.id;
     // passing directory id as matrix parameter
-    this.router.navigate(['/log-page/' + this.fileModel.id]);
+    this.router.navigate(['/log-page/' + this.logModel.id]);
   }
 }

@@ -1,11 +1,11 @@
 <div class="masonry">
   <div class="masonry-item-sizer"></div>
-  <div class="masonry-item" *ngFor="let fileModel of fileModels">
-    <app-tile [fileModel]="fileModel"></app-tile>
+  <div class="masonry-item" *ngFor="let fileModel of logModels">
+    <app-tile-log [fileModel]="fileModel"></app-tile-log>
   </div>
 </div>
 <div #bottom style="min-height: 120px">
-  <div class="end" *ngIf="!moreFilesExist; else spinner">END</div>
+  <div class="end" *ngIf="!moreExist; else spinner">END</div>
   <ng-template #spinner>
     <div class="spinner-container">
       <i class="fa fa-spinner" aria-hidden="true"></i>

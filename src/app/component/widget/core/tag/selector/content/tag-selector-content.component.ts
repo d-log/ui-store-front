@@ -1,10 +1,8 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {FileModel} from '../../../../../../service/core/file/model/file-model';
-import {FileModelService} from '../../../../../../service/core/file/file-model.service';
-import {GetterRequest} from '../../../../../../service/core/model/request/getter-request';
-import {FileType} from '../../../../../../service/core/file/model/extra/file-type';
+import {TagModel} from '../../../../../../service/core/file/model/extra/data/tag/tag-model';
 import {Pageable} from '../../../../../../service/core/model/request/pageable';
 import {Sort} from '../../../../../../service/core/model/request/sort';
+import {TagModelService} from '../../../../../../service/core/file/type/tag/tag-model.service';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
 
 @Component({
@@ -13,8 +11,8 @@ import {SortOrder} from '../../../../../../service/core/model/request/sort-order
   styleUrls: ['./tag-selector-content.component.css']
 })
 export class TagSelectorContentComponent {
-  @Output() selectTagFileModel = new EventEmitter<FileModel>();
-  @Output() updateTagFileModel = new EventEmitter<FileModel>();
+  @Output() selectTagFileModel = new EventEmitter<TagModel>();
+  @Output() updateTagFileModel = new EventEmitter<TagModel>();
   @Input() hideTagModelIDs: string[];
 
   @Input() set tagNameLikeString(tagNameLikeString: string) {
@@ -24,49 +22,47 @@ export class TagSelectorContentComponent {
 
   _tagNameLikeString: string;
 
-  tagFileModels: FileModel[];
+  tagModels: TagModel[];
 
   @ViewChild('bottom') bottom: any;
   moreFilesExist: boolean;
-  getterRequest: GetterRequest;
 
-  constructor(private fileModelService: FileModelService) {
+  pageable: Pageable;
+  sorts: Sort[];
+
+  constructor(private tagModelService: TagModelService) {
   }
 
   initialize() {
-    const getterRequest = new GetterRequest();
-    getterRequest.fileTypes = [FileType.TagFileData];
-    getterRequest.metadataNameRegex = this._tagNameLikeString;
-    getterRequest.pageable = new Pageable(-1, 20);
-    getterRequest.sorts = [new Sort('metadata.name', SortOrder.asc)];
+    this.pageable = new Pageable(-1, 20);
+    this.sorts = [new Sort('metadata.name', SortOrder.asc)];
 
     if (this.hideTagModelIDs == null) {
       this.hideTagModelIDs = [];
     }
 
-    this.getterRequest = getterRequest;
-    this.tagFileModels = [];
+    this.tagModels = [];
     this.moreFilesExist = true;
 
     this.getTagModels();
   }
 
   onSelectTagModel(index: number) {
-    this.selectTagFileModel.emit(this.tagFileModels[index]);
+    this.selectTagFileModel.emit(this.tagModels[index]);
     this.loadModelsIfEmptySpace();
   }
 
   onUpdateTagFileModel(index: number) {
-    this.updateTagFileModel.emit(this.tagFileModels[index]);
+    this.updateTagFileModel.emit(this.tagModels[index]);
   }
 
   getTagModels() {
-    this.getterRequest.pageable.page++;
-    this.fileModelService.theGetter(this.getterRequest).subscribe((tagModels: FileModel[]) => {
+    this.pageable.page++;
+    this.tagModelService.findAll().subscribe((tagModels: TagModel[]) => {
       if (tagModels.length === 0) {
         this.moreFilesExist = false;
       } else {
-        this.tagFileModels = this.tagFileModels.concat(tagModels);
+        this.tagModels = this.tagModels.concat(tagModels);
         this.loadModelsIfEmptySpace();
       }
     });

@@ -3,7 +3,7 @@
   overflow: scroll;
 }
 
-app-directory-selector-column-toolbar {
+app-log-selector-column-toolbar {
   width: 100%;
   overflow: hidden;
 }
@@ -40,54 +40,15 @@ app-directory-selector-column-toolbar {
   background-color: var(--selected-color);
 }
 
-.directory-icon-container {
+.log-container {
   display: grid;
-  grid-template-columns: 25px auto 25px;
+  grid-template-columns: auto 25px;
 }
 
 .item-name {
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.log {
-  display: grid;
-  grid-template-columns: 25px auto;
-}
-
-.tag {
-  display: grid;
-  grid-template-columns: 25px auto;
-}
-
-.fa {
-  text-align: center;
-  align-self: center;
-}
-
-.fa:hover {
-  color: var(--main-darker-2-color);
-}
-
-.fa-folder {
-  font-size: 15px;
-  /* text font border */
-  -webkit-text-fill-color: var(--main-darker-color); /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--main-darker-2-color);
-}
-
-.fa-play {
-  font-size: 10px;
-}
-
-.fa-file-o {
-  font-size: 12px;
-}
-
-.fa-tags {
-  font-size: 12px;
 }
 
 .bottom {

@@ -1,8 +1,8 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
 import {EventBrokerService} from '../../../../service/event-broker-shared-service/event-broker-service';
 import {BrokerEvent} from '../../../../service/event-broker-shared-service/broker-event';
-import {FileModel} from '../../../../service/core/file/model/file-model';
 
 declare var Masonry: any;
 
@@ -14,19 +14,19 @@ declare var Masonry: any;
   styleUrls: ['./masonry.component.css']
 })
 export class MasonryComponent implements OnInit {
-  @Input() set fileModelsObservable(fileModelsObservable: Observable<FileModel[]>) {
-    this._fileModelsObservable = fileModelsObservable;
+  @Input() set logModelsObservable(logModelsObservable: Observable<LogModel[]>) {
+    this._logModelsObservable = logModelsObservable;
     this.getLogModels();
   }
 
-  private _fileModelsObservable: Observable<FileModel[]>;
+  private _logModelsObservable: Observable<LogModel[]>;
 
   @Output() getMoreFiles = new EventEmitter<boolean>();
   @ViewChild('bottom') bottom: any;
 
   _masonry: any = null;
-  fileModels: FileModel[];
-  moreFilesExist: boolean;
+  logModels: LogModel[];
+  moreExist: boolean;
 
   constructor(private _eventBroker: EventBrokerService) {
     this._masonry = null;
@@ -68,15 +68,15 @@ export class MasonryComponent implements OnInit {
    * also called from ArchiveComponent :/
    */
   initialize() {
-    this.fileModels = [];
-    this.moreFilesExist = true;
+    this.logModels = [];
+    this.moreExist = true;
   }
 
   /**
    * checks if more logs exist if so check if there is space in viewport
    */
   loadModelsIfEmptySpace() {
-    if (this.moreFilesExist) {
+    if (this.moreExist) {
       if (this.isElementInViewport(this.bottom.nativeElement)) {
         this.getMoreFiles.emit(true);
       }
@@ -109,11 +109,11 @@ export class MasonryComponent implements OnInit {
   }
 
   getLogModels() {
-    this._fileModelsObservable.subscribe(fileModels => {
+    this._logModelsObservable.subscribe(fileModels => {
       if (fileModels.length === 0) {
-        this.moreFilesExist = false;
+        this.moreExist = false;
       } else {
-        this.fileModels = this.fileModels.concat(fileModels);
+        this.logModels = this.logModels.concat(fileModels);
         this.generateMasonry();
       }
     });

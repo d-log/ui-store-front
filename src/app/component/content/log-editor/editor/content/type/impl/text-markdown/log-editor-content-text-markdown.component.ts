@@ -1,0 +1,11 @@
+import {Component, Input} from '@angular/core';
+import {TextMarkdownLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-markdown/text-markdown-log-content';
+
+@Component({
+  selector: 'app-log-editor-content-text-markdown',
+  templateUrl: './log-editor-content-text-markdown.component.html',
+  styleUrls: ['./log-editor-content-text-markdown.component.css']
+})
+export class LogEditorContentTextMarkdownComponent {
+  @Input() textMarkdownLogData: TextMarkdownLogContent;
+}

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FileModel} from '../../../../../service/core/file/model/file-model';
+import {TagModel} from '../../../../../service/core/file/model/extra/data/tag/tag-model';
 
 @Component({
   selector: 'app-tag-selector',
@@ -9,8 +9,8 @@ import {FileModel} from '../../../../../service/core/file/model/file-model';
 export class TagSelectorComponent {
   @Input() hideTagModelIDs: string[];
   @Input() tagNameLikeString: string;
-  @Output() selectTagFileModel = new EventEmitter<FileModel>();
-  @Output() updateTagFileModel = new EventEmitter<FileModel>();
+  @Output() selectTagFileModel = new EventEmitter<TagModel>();
+  @Output() updateTagFileModel = new EventEmitter<TagModel>();
   @Output() close = new EventEmitter<boolean>();
   @Output() new = new EventEmitter<boolean>();
 
@@ -26,11 +26,11 @@ export class TagSelectorComponent {
     this.new.emit(true);
   }
 
-  onSelectTagModel(tagModel: FileModel) {
+  onSelectTagModel(tagModel: TagModel) {
     this.selectTagFileModel.emit(tagModel);
   }
 
-  onUpdateTagFileModel(tagModel: FileModel) {
+  onUpdateTagFileModel(tagModel: TagModel) {
     this.updateTagFileModel.emit(tagModel);
   }
 }
