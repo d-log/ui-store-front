@@ -58,6 +58,7 @@ export class TileLogComponent implements OnInit {
         return LogContentTextMarkdownDefaultComponent;
       }
       case 'TextPlainLogContent': {
+        debugger;
         return LogContentTextPlainDefaultComponent;
       }
       case 'TextQuoteLogContent': {

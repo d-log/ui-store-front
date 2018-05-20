@@ -20,4 +20,37 @@ export class LogContent {
     this.css = css;
     this.data = data;
   }
+
+  static defaultHeader() {
+    return new LogContent(
+      'HeaderSectionLogContent',
+      this.generateDefaultCSS(),
+      new HeaderSectionLogContent()
+    );
+  }
+
+  static defaultComment() {
+    return new LogContent(
+      'CommentSectionLogContent',
+      this.generateDefaultCSS(),
+      new CommentSectionLogContent()
+    );
+  }
+
+  static defaultChildLogs() {
+    return new LogContent(
+      'ChildLogsSectionLogContent',
+      this.generateDefaultCSS(),
+      new ChildLogsSectionLogContent()
+    );
+  }
+
+  static generateDefaultCSS() {
+    return {
+      'margin-top': '20px',
+      'margin-left': 'auto',
+      'margin-right': 'auto',
+      'max-width': '800px'
+    };
+  }
 }

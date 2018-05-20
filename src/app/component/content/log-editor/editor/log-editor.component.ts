@@ -3,11 +3,8 @@ import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-m
 import {Metadata} from '../../../../service/core/file/model/extra/metadata';
 import {LogOrganization} from '../../../../service/core/file/model/extra/data/log/extra/log-organization';
 import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {HeaderSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/header-section-log-content';
-import {CommentSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/comment-section-log-content';
 import {LogDisplayOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/log-display-override';
 import {TileLogModelOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-model-override';
-import {ChildLogsSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/child-logs-section-log-content';
 
 @Component({
   selector: 'app-log-editor',
@@ -15,13 +12,12 @@ import {ChildLogsSectionLogContent} from '../../../../service/core/file/model/ex
   styleUrls: ['./log-editor.component.css']
 })
 export class LogEditorComponent implements OnInit {
-
-  _logModel: LogModel;
-  @Output() doneEditing = new EventEmitter<LogModel>();
-
   @Input() set logModel(logModel: LogModel) {
     this.updateLogModel(logModel);
   }
+
+  _logModel: LogModel;
+  @Output() doneEditing = new EventEmitter<LogModel>();
 
   ngOnInit() {
     this.updateLogModel(undefined);
@@ -36,40 +32,37 @@ export class LogEditorComponent implements OnInit {
   }
 
   scrubLogModel(logModel: LogModel) {
+    const defaultLogModel = this.generateDefaultLogFileModel();
+
     if (logModel == null) {
-      logModel = new LogModel();
-    }
-    if (logModel.metadata == null) {
-      const metadata = new Metadata();
-      metadata.name = 'Name';
-      metadata.description = 'description';
-      metadata.created = +new Date();
-      logModel.metadata = metadata;
-    }
-    if (logModel.logOrganization == null) {
-      logModel.logOrganization = new LogOrganization();
-    }
-    if (logModel.logOrganization.parentLogIDs == null) {
-      logModel.logOrganization.parentLogIDs = [];
-    }
-    if (logModel.logOrganization.tagIDs == null) {
-      logModel.logOrganization.tagIDs = [];
-    }
-    if (logModel.logOrganization.childLogIDs == null) {
-      logModel.logOrganization.childLogIDs = [];
-    }
-    if (logModel.logContents == null) {
-      logModel.logContents = [
-        new LogContent('HeaderSectionLogContent', this.generateDefaultCSS(), new HeaderSectionLogContent()),
-        new LogContent('ChildLogsSectionLogContent', ChildLogsSectionLogContent.generateDefaultCSS(), new ChildLogsSectionLogContent()),
-        new LogContent('CommentSectionLogContent', this.generateDefaultCSS(), new CommentSectionLogContent()),
-      ];
-    }
-    if (logModel.logDisplayOverride == null) {
-      logModel.logDisplayOverride = new LogDisplayOverride();
-    }
-    if (logModel.logDisplayOverride.tile == null) {
-      logModel.logDisplayOverride.tile = new TileLogModelOverride();
+      logModel = defaultLogModel;
+    } else {
+      if (logModel.metadata == null) {
+        logModel.metadata = defaultLogModel.metadata;
+      }
+      if (logModel.logOrganization == null) {
+        logModel.logOrganization = defaultLogModel.logOrganization;
+      } else {
+        if (logModel.logOrganization.parentLogIDs == null) {
+          logModel.logOrganization.parentLogIDs = defaultLogModel.logOrganization.parentLogIDs;
+        }
+        if (logModel.logOrganization.tagIDs == null) {
+          logModel.logOrganization.tagIDs = defaultLogModel.logOrganization.tagIDs;
+        }
+        if (logModel.logOrganization.childLogIDs == null) {
+          logModel.logOrganization.childLogIDs = defaultLogModel.logOrganization.childLogIDs;
+        }
+      }
+      if (logModel.logContents == null) {
+        logModel.logContents = defaultLogModel.logContents;
+      }
+      if (logModel.logDisplayOverride == null) {
+        logModel.logDisplayOverride = defaultLogModel.logDisplayOverride;
+      } else {
+        if (logModel.logDisplayOverride.tile == null) {
+          logModel.logDisplayOverride.tile = defaultLogModel.logDisplayOverride.tile;
+        }
+      }
     }
 
     return logModel;
@@ -90,23 +83,14 @@ export class LogEditorComponent implements OnInit {
     logModel.logOrganization.childLogIDs = [];
 
     logModel.logContents = [
-      new LogContent('HeaderSectionLogContent', this.generateDefaultCSS(), new HeaderSectionLogContent()),
-      new LogContent('ChildLogsSectionLogContent', ChildLogsSectionLogContent.generateDefaultCSS(), new ChildLogsSectionLogContent()),
-      new LogContent('CommentSectionLogContent', this.generateDefaultCSS(), new CommentSectionLogContent()),
+      LogContent.defaultHeader(),
+      LogContent.defaultChildLogs(),
+      LogContent.defaultComment(),
     ];
     logModel.logDisplayOverride = new LogDisplayOverride();
     logModel.logDisplayOverride.tile = new TileLogModelOverride();
 
     return logModel;
-  }
-
-  generateDefaultCSS() {
-    return {
-      'margin-top': '20px',
-      'margin-left': 'auto',
-      'margin-right': 'auto',
-      'max-width': '800px'
-    };
   }
 
   onDoneEditing() {

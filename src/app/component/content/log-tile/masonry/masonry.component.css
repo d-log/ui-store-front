@@ -27,6 +27,7 @@
 }
 
 .masonry {
+  width: calc(100% - 24px);
   margin-top: 12px;
   margin-left: 12px;
   margin-right: 12px;

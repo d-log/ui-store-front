@@ -7,5 +7,5 @@ import {LogModel} from '../../../../../service/core/file/model/extra/data/log/lo
   styleUrls: ['./log-editor-organization.component.css']
 })
 export class LogEditorOrganizationComponent {
-  @Input() data: LogModel;
+  @Input() logModel: LogModel;
 }

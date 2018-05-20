@@ -11,12 +11,12 @@
       <app-log-editor-metadata [(metadata)]="_logModel.metadata"></app-log-editor-metadata>
     </div>
     <div class="data">
-      <app-log-editor-organization [(data)]="_logModel"></app-log-editor-organization>
+      <app-log-editor-organization [logModel]="_logModel"></app-log-editor-organization>
       <br>
-      <app-log-editor-contents [(data)]="_logModel"></app-log-editor-contents>
+      <app-log-editor-contents [logModel]="_logModel"></app-log-editor-contents>
     </div>
   </div>
   <div class="result">
-    <app-log-page [(logModel)]="_logModel"></app-log-page>
+    <app-log-page [logModel]="_logModel"></app-log-page>
   </div>
 </div>

@@ -11,12 +11,12 @@ import {ChildLogsSectionLogContent} from '../../../../../service/core/file/model
   styleUrls: ['./log-editor-contents.component.css']
 })
 export class LogEditorContentsComponent implements OnInit {
-  @Input() set data(data: LogModel) {
-    this._data = data;
+  @Input() set logModel(logModel: LogModel) {
+    this._logModel = logModel;
     this.ngOnInit();
   }
 
-  _data: LogModel;
+  _logModel: LogModel;
   displayAddHeader: boolean;
   displayAddComment: boolean;
   displayAddChildLogs: boolean;
@@ -31,13 +31,13 @@ export class LogEditorContentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this._data.logContents.filter((logData: LogContent) => logData.logContentType === 'HeaderSectionLogContent').length === 0) {
+    if (this._logModel.logContents.filter((content: LogContent) => content.logContentType === 'HeaderSectionLogContent').length === 0) {
       this.displayAddHeader = true;
     }
-    if (this._data.logContents.filter((logData: LogContent) => logData.logContentType === 'CommentSectionLogContent').length === 0) {
+    if (this._logModel.logContents.filter((content: LogContent) => content.logContentType === 'CommentSectionLogContent').length === 0) {
       this.displayAddComment = true;
     }
-    if (this._data.logContents.filter((logData: LogContent) => logData.logContentType === 'ChildLogsSectionLogContent').length === 0) {
+    if (this._logModel.logContents.filter((content: LogContent) => content.logContentType === 'ChildLogsSectionLogContent').length === 0) {
       this.displayAddChildLogs = true;
     }
   }
@@ -54,35 +54,23 @@ export class LogEditorContentsComponent implements OnInit {
     }
   }
 
-  generateDefaultCSS() {
-    return {
-      'margin-top': '20px',
-      'margin-left': 'auto',
-      'margin-right': 'auto',
-      'max-width': '800px'
-    };
-  }
-
   addHeaderSection() {
-    const header = new HeaderSectionLogContent();
-    this._data.logContents.push(new LogContent('HeaderSectionLogContent', this.generateDefaultCSS(), header));
+    this._logModel.logContents.push(LogContent.defaultHeader());
     this.displayAddHeader = false;
   }
 
   addCommentSection() {
-    const comment = new CommentSectionLogContent();
-    this._data.logContents.push(new LogContent('CommentSectionLogContent', this.generateDefaultCSS(), comment));
+    this._logModel.logContents.push(LogContent.defaultComment());
     this.displayAddComment = false;
   }
 
   addChildLogSection() {
-    const childLogs = new ChildLogsSectionLogContent();
-    this._data.logContents.push(new LogContent('ChildLogsSectionLogContent', ChildLogsSectionLogContent.generateDefaultCSS(), childLogs));
+    this._logModel.logContents.push(LogContent.defaultChildLogs());
     this.displayAddChildLogs = false;
   }
 
   deleteLogData(index: number) {
-    const logContentType = this._data.logContents[index].logContentType;
+    const logContentType = this._logModel.logContents[index].logContentType;
 
     if (logContentType === 'HeaderSectionLogContent') {
       this.displayAddHeader = true;
@@ -92,6 +80,6 @@ export class LogEditorContentsComponent implements OnInit {
       this.displayAddChildLogs = true;
     }
 
-    this._data.logContents.splice(index, 1);
+    this._logModel.logContents.splice(index, 1);
   }
 }

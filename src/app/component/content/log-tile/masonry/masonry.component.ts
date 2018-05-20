@@ -58,10 +58,18 @@ export class MasonryComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    // // masonry auto call layout, so no need to call viewportResize
+    // Even though layout() is called automatically "sometimes"
+    // However it fails in one edge case:
+    //  Layout is not called when masonry container is within a
+    //  fixed width/max-width container and there are css media
+    //  queries that modify the masonry-items width
+    // So here we are calling it every time on window resize
+    this._masonry.layout();
+
+    // wait for masonry layoutComplete
     setTimeout(() => {
       this.loadModelsIfEmptySpace();
-    }, 500); // wait for masonry layoutComplete
+    }, 500);
   }
 
   /**
