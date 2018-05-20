@@ -1,4 +1,14 @@
 .container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.t {
+  overflow: scroll;
+}
+
+.tweet {
   display: flex;
   justify-content: center;
 }

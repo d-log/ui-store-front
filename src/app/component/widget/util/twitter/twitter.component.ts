@@ -10,12 +10,12 @@ declare var twttr: any;
 export class TwitterComponent implements OnInit {
 
   @Input() tweetID: string;
-  @ViewChild('container') containerElement;
+  @ViewChild('tweet') tweetElement;
 
   ngOnInit() {
     twttr.widgets.createTweet(
       this.tweetID,
-      this.containerElement.nativeElement,
+      this.tweetElement.nativeElement,
       {
         theme: 'default' // default | dark
       }

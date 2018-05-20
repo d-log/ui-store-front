@@ -12,7 +12,7 @@ import {LogDisplayType} from '../../../../service/core/model/data/log/extra/log-
 })
 export class LogPageIdComponent {
 
-  fileModel: LogModel;
+  logModel: LogModel;
 
   constructor(private logFileService: LogModelService,
               private activatedRoute: ActivatedRoute) {
@@ -24,7 +24,7 @@ export class LogPageIdComponent {
     const id = params['id'];
     if (!!id) {
       this.logFileService.findOne(id, LogDisplayType.PAGE).subscribe((fileModel: LogModel) => {
-        this.fileModel = fileModel;
+        this.logModel = fileModel;
       });
     }
   }
