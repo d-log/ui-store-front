@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ImageInternalLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-internal/image-internal-log-content';
+import {ImageInternalLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/image-internal/image-internal-log-content';
 
 @Component({
   selector: 'app-log-editor-content-image-internal',

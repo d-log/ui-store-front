@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="column" *ngFor="let logModel of pathLogModels, let i = index">
+    <app-log-selector-column [logLevel]="i"
+                             [pathLogModels]="pathLogModels"
+                             [selectedLogModelID]="selectedLogModelID"
+                             [parentLogModel]="logModel"
+                             [showColumnToolbar]="showColumnToolbar"
+                             [logModelIDsToHide]="logModelIDsToHide"
+                             (logModelSelected)="onSelectedFileModel($event)"></app-log-selector-column>
+  </div>
+</div>

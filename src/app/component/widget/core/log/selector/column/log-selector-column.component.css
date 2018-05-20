@@ -42,10 +42,11 @@ app-log-selector-column-toolbar {
 
 .log-container {
   display: grid;
-  grid-template-columns: auto 25px;
+  grid-template-columns: auto 15px;
 }
 
 .item-name {
+  padding-left: 3px;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -53,4 +54,9 @@ app-log-selector-column-toolbar {
 
 .bottom {
   height: 70px;
+}
+
+.fa-play {
+  font-size: 10px;
+  align-self: center;
 }

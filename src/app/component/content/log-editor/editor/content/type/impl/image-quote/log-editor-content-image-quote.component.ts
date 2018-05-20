@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ImageQuoteLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/image-quote/image-quote-log-content';
+import {ImageQuoteLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/image-quote/image-quote-log-content';
 
 @Component({
   selector: 'app-log-editor-content-image-quote',

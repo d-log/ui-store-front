@@ -5,9 +5,11 @@ import {Sort} from '../../../model/request/sort';
 export class LogGetterRequest {
   logDisplayType: LogDisplayType;
 
-  millisecondThreshold: number;
-  metadataNameRegex: string;
   searchString: string;
+
+  createdBefore: number; // unix milliseconds
+  metadataNameLike: string;
+
   parentLogID: string;
   tagID: string;
 

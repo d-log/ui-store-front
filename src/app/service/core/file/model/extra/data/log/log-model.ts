@@ -1,7 +1,7 @@
 import {LogOrganization} from './extra/log-organization';
 import {LogDisplayOverride} from './extra/log-type-override/log-display-override';
 import {TagModel} from '../tag/tag-model';
-import {LogContent} from './extra/log-data/log-content';
+import {LogContent} from './extra/log-content/log-content';
 import {Metadata} from '../../metadata';
 
 export class LogModel {

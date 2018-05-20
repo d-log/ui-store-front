@@ -1,8 +1,10 @@
 <div [ngStyle]="logContent.css">
+  <app-log-content-child-logs-section *ngIf="logContent.logContentType === 'ChildLogsSectionLogContent'"
+                                      [logModel]="logModel"></app-log-content-child-logs-section>
   <app-log-content-header-section *ngIf="logContent.logContentType === 'HeaderSectionLogContent'"
-                                  [fileModel]="logModel"></app-log-content-header-section>
+                                  [logModel]="logModel"></app-log-content-header-section>
   <app-log-content-comment-section *ngIf="logContent.logContentType === 'CommentSectionLogContent'"
-                                   [fileModel]="logModel"></app-log-content-comment-section>
+                                   [logModel]="logModel"></app-log-content-comment-section>
   <app-log-content-image-default *ngIf="logContent.logContentType === 'ImageInternalLogContent'"
                                  [data]="logContent.data"></app-log-content-image-default>
   <app-log-content-text-code-default *ngIf="logContent.logContentType === 'TextCodeLogContent'"

@@ -11,8 +11,8 @@
     <i class="fa fa-times" aria-hidden="true" (click)="closeDirectorySelector()"></i>
   </div>
   <div class="directory-select-container-content">
-    <app-directory-selector-column-container (logModelSelectedAgain)="addSelectedParentLogModel($event)">
-    </app-directory-selector-column-container>
+    <app-log-selector [logModelIDsToHide]="[logModel.id]" (logModelSelectedAgain)="addSelectedParentLogModel($event)">
+    </app-log-selector>
   </div>
 </div>
 

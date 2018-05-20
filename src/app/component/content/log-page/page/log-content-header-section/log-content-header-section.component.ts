@@ -8,7 +8,7 @@ import {LogModel} from '../../../../../service/core/file/model/extra/data/log/lo
   styleUrls: ['./log-content-header-section.component.css']
 })
 export class LogContentHeaderSectionComponent {
-  @Input() fileModel: LogModel;
+  @Input() logModel: LogModel;
 
   constructor(private router: Router) {
   }

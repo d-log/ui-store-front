@@ -2,6 +2,7 @@
   <div class="toolbar">
     <div *ngIf="displayAddHeader" (click)="addHeaderSection()">header</div>
     <div *ngIf="displayAddComment" (click)="addCommentSection()">comment</div>
+    <div *ngIf="displayAddChildLogs" (click)="addChildLogSection()">child</div>
     <div (click)="toggleHelper('text')" [ngClass]="{'helper-selected': displayHelperType === 'text'}">text</div>
     <div (click)="toggleHelper('image')" [ngClass]="{'helper-selected': displayHelperType === 'image'}">image</div>
     <div (click)="toggleHelper('link')" [ngClass]="{'helper-selected': displayHelperType === 'link'}">link</div>

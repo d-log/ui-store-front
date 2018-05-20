@@ -8,6 +8,8 @@ import {LogModelService} from '../../../../service/core/file/type/log/log-model.
 import {ActivatedRoute} from '@angular/router';
 import {Pageable} from '../../../../service/core/model/request/pageable';
 import {LogDisplayType} from '../../../../service/core/file/model/extra/data/log/extra/log-display-type';
+import {Sort} from '../../../../service/core/model/request/sort';
+import {SortOrder} from '../../../../service/core/model/request/sort-order';
 
 @Component({
   selector: 'app-archive',
@@ -51,8 +53,9 @@ export class ArchiveComponent {
 
   private generateGetterRequest(params) {
     const getterRequest = new LogGetterRequest();
-    getterRequest.millisecondThreshold = new Date().getTime();
+    getterRequest.createdBefore = new Date().getTime();
     getterRequest.pageable = new Pageable(-1, 10);
+    getterRequest.sorts = [new Sort('metadata.created', SortOrder.desc)];
     getterRequest.logDisplayType = LogDisplayType.TILE;
 
     // grab value of URL parameters (example `q` in `localhost:4200/search?q=something`)

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {TextPlainLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-data/type/text-plain/text-plain-log-content';
+import {TextPlainLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-plain/text-plain-log-content';
 
 @Component({
   selector: 'app-log-editor-content-text-plain',

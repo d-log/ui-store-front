@@ -3,11 +3,12 @@ import {LogModel} from '../../../../../service/core/file/model/extra/data/log/lo
 import {LogModelService} from '../../../../../service/core/file/type/log/log-model.service';
 
 @Component({
-  selector: 'app-directory-selector-column-container',
-  templateUrl: './directory-selector.component.html',
-  styleUrls: ['./directory-selector.component.css']
+  selector: 'app-log-selector',
+  templateUrl: './log-selector.component.html',
+  styleUrls: ['./log-selector.component.css']
 })
-export class DirectorySelectorComponent implements OnInit {
+export class LogSelectorComponent implements OnInit {
+  @Input() logModelIDsToHide: string[];
   @Input() showColumnToolbar: boolean;
   pathLogModels: LogModel[];
   selectedLogModel: LogModel;

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LogModel} from '../../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-content';
+import {LogContent} from '../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
 
 @Component({
   selector: 'app-log-editor-content-container',

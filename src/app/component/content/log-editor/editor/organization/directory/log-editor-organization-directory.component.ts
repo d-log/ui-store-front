@@ -30,6 +30,7 @@ export class LogEditorOrganizationDirectoryComponent implements OnInit {
   }
 
   addSelectedParentLogModel(parentLogModel: LogModel) {
+    this.onParentLogModelUnSelect(0);
     if (!this.logModel.logOrganization.parentLogIDs.includes(parentLogModel.id)) {
       this.logModel.parentLogModels.push(parentLogModel);
       this.logModel.logOrganization.parentLogIDs.push(parentLogModel.id);

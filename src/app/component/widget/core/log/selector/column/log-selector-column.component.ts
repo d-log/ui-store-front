@@ -8,11 +8,11 @@ import {Sort} from '../../../../../../service/core/model/request/sort';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
 
 @Component({
-  selector: 'app-directory-selector-column',
-  templateUrl: './directory-selector-column.component.html',
-  styleUrls: ['./directory-selector-column.component.css']
+  selector: 'app-log-selector-column',
+  templateUrl: './log-selector-column.component.html',
+  styleUrls: ['./log-selector-column.component.css']
 })
-export class DirectorySelectorColumnComponent implements OnInit {
+export class LogSelectorColumnComponent implements OnInit {
 
   @Input() showColumnToolbar: boolean;
   @Input() logLevel: number;
@@ -24,6 +24,7 @@ export class DirectorySelectorColumnComponent implements OnInit {
   isEmpty: boolean;
   moreExist: boolean;
 
+  @Input() logModelIDsToHide: string[];
   @Input() selectedLogModelID: string;
 
   @Input() set pathLogModels(pathLogModels: LogModel[]) {
@@ -47,6 +48,10 @@ export class DirectorySelectorColumnComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.logModelIDsToHide == null) {
+      this.logModelIDsToHide = [];
+    }
+
     const getterRequest = new LogGetterRequest();
     getterRequest.parentLogID = this.parentLogModel.id;
     getterRequest.pageable = new Pageable(-1, 20);

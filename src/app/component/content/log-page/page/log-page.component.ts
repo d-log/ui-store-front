@@ -2,7 +2,7 @@ import {Component, HostListener, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import {Router} from '@angular/router';
 import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-data/log-content';
+import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
 
 @Component({
   selector: 'app-log-page',

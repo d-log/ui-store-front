@@ -7,5 +7,5 @@ import {LogModel} from '../../../../../service/core/file/model/extra/data/log/lo
   styleUrls: ['./log-content-comment-section.component.css']
 })
 export class LogContentCommentSectionComponent {
-  @Input() fileModel: LogModel;
+  @Input() logModel: LogModel;
 }

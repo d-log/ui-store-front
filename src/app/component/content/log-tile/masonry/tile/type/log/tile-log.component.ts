@@ -1,7 +1,7 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-data/log-content';
+import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
 import {ILogContentComponent} from '../../../../../../widget/core/log/log-content/i-log-content-component';
 import {TileLogDefaultComponent} from './tile-log-default/tile-log-default.component';
 import {LogContentImageDefaultComponent} from '../../../../../../widget/core/log/log-content/image-default/log-content-image-default.component';

@@ -12,10 +12,10 @@ import {NavigationTopComponent} from './component/navigation-top/navigation-top.
 
 import {NavigationSideLeftComponent} from './component/navigation-side-left/navigation-side-left.component';
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
-import {LogSelectorColumnToolbarComponent} from './component/widget/core/directory/selector/column/toolbar/log-selector-column-toolbar.component';
-import {DirectorySelectorColumnComponent} from './component/widget/core/directory/selector/column/directory-selector-column.component';
+import {LogSelectorColumnToolbarComponent} from './component/widget/core/log/selector/column/toolbar/log-selector-column-toolbar.component';
+import {LogSelectorColumnComponent} from './component/widget/core/log/selector/column/log-selector-column.component';
 import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
-import {DirectorySelectorComponent} from './component/widget/core/directory/selector/directory-selector.component';
+import {LogSelectorComponent} from './component/widget/core/log/selector/log-selector.component';
 
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
 
@@ -86,6 +86,7 @@ import {LogEditorContentTextPlainComponent} from './component/content/log-editor
 import {LogEditorContentTextMarkdownComponent} from './component/content/log-editor/editor/content/type/impl/text-markdown/log-editor-content-text-markdown.component';
 import {LogEditorContentImageInternalComponent} from './component/content/log-editor/editor/content/type/impl/image-internal/log-editor-content-image-internal.component';
 import {LogEditorContentImageQuoteComponent} from './component/content/log-editor/editor/content/type/impl/image-quote/log-editor-content-image-quote.component';
+import {LogContentChildLogsSectionComponent} from './component/content/log-page/page/log-content-child-logs-section/log-content-child-logs-section.component';
 
 @NgModule({
   declarations: [
@@ -102,8 +103,8 @@ import {LogEditorContentImageQuoteComponent} from './component/content/log-edito
     SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
     NavigationSideLeftToolbarComponent,
-    DirectorySelectorColumnComponent,
-    DirectorySelectorComponent,
+    LogSelectorColumnComponent,
+    LogSelectorComponent,
     LogSelectorColumnToolbarComponent,
     HomeComponent,
     HomeTopComponent,
@@ -136,6 +137,14 @@ import {LogEditorContentImageQuoteComponent} from './component/content/log-edito
     LogPageComponent,
     LogContentHeaderSectionComponent,
     LogContentCommentSectionComponent,
+    LogContentChildLogsSectionComponent,
+    LogContentTypeComponent,
+    LogContentVideoYoutubeDefaultComponent,
+    LogContentTextPlainDefaultComponent,
+    LogContentImageDefaultComponent,
+    LogContentTextMarkdownDefaultComponent,
+    LogContentTextQuoteDefaultComponent,
+    LogContentTextCodeDefaultComponent,
     ArchiveComponent,
     MasonryComponent,
     TileLogComponent,
@@ -145,13 +154,6 @@ import {LogEditorContentImageQuoteComponent} from './component/content/log-edito
     MarkdownPipe,
     CodePipe,
     DatePipe,
-    LogContentTypeComponent,
-    LogContentVideoYoutubeDefaultComponent,
-    LogContentTextPlainDefaultComponent,
-    LogContentImageDefaultComponent,
-    LogContentTextMarkdownDefaultComponent,
-    LogContentTextQuoteDefaultComponent,
-    LogContentTextCodeDefaultComponent,
   ],
   entryComponents: [
     TileLogComponent,

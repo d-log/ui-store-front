@@ -2,7 +2,6 @@
   <app-navigation-side-left-toolbar></app-navigation-side-left-toolbar>
 </div>
 <section class="container">
-  <app-directory-selector-column-container [showColumnToolbar]="showColumnToolbar"
-                                           (logFileModelSelected)="onLogFileModelSelected($event)"
-                                           (logModelSelectedAgain)="onDirectoryFileModelSelectedMoreThanOnce($event)"></app-directory-selector-column-container>
+  <app-log-selector [showColumnToolbar]="true"
+                    (logModelSelectedAgain)="navigateToLogPage($event)"></app-log-selector>
 </section>

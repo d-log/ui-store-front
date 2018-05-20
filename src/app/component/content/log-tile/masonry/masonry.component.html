@@ -4,7 +4,8 @@
     <app-tile-log [logModel]="logModel"></app-tile-log>
   </div>
 </div>
-<div #bottom style="min-height: 120px">
+<div #bottom></div>
+<div *ngIf="showSpinner" style="min-height: 120px">
   <div class="end" *ngIf="!moreExist; else spinner">END</div>
   <ng-template #spinner>
     <div class="spinner-container">

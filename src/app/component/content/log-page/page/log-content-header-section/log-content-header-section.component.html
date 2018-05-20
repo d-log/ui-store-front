@@ -1,21 +1,21 @@
 <div class="meta-data-container">
   <div class="views-created-updated">
     <span class="views">views 13</span>
-    <span class="created border-left">{{fileModel.metadata.created | date}}</span>
-    <span *ngIf="fileModel.metadata.lastUpdated" class="updated border-left">updated {{fileModel.metadata.lastUpdated | date}}</span>
+    <span class="created border-left">{{logModel.metadata.created | date}}</span>
+    <span *ngIf="logModel.metadata.lastUpdated" class="updated border-left">updated {{logModel.metadata.lastUpdated | date}}</span>
   </div>
-  <div class="name dont-break-out">{{fileModel.metadata.name}}</div>
-  <div class="description dont-break-out">{{fileModel.metadata.description}}</div>
+  <div class="name dont-break-out">{{logModel.metadata.name}}</div>
+  <div class="description dont-break-out">{{logModel.metadata.description}}</div>
   <div class="directory-tag-container">
     <div class="directory-container">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
-      <span *ngFor="let model of fileModel.parentLogModels">
+      <span *ngFor="let model of logModel.parentLogModels">
         · <a class="tag-or-directory" (click)="viewLogsWithParentLogIDInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>
     <div class="tag-container">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <span *ngFor="let model of fileModel.tagModels">
+      <span *ngFor="let model of logModel.tagModels">
         · <a class="tag-or-directory" (click)="viewLogsWithTagIDInContent(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>

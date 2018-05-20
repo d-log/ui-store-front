@@ -2,11 +2,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
 import {Metadata} from '../../../../service/core/file/model/extra/metadata';
 import {LogOrganization} from '../../../../service/core/file/model/extra/data/log/extra/log-organization';
-import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-data/log-content';
-import {HeaderSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/header-section-log-content';
-import {CommentSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-data/type/_noncontent/comment-section-log-content';
+import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
+import {HeaderSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/header-section-log-content';
+import {CommentSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/comment-section-log-content';
 import {LogDisplayOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/log-display-override';
 import {TileLogModelOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-model-override';
+import {ChildLogsSectionLogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/child-logs-section-log-content';
 
 @Component({
   selector: 'app-log-editor',
@@ -60,6 +61,7 @@ export class LogEditorComponent implements OnInit {
     if (logModel.logContents == null) {
       logModel.logContents = [
         new LogContent('HeaderSectionLogContent', this.generateDefaultCSS(), new HeaderSectionLogContent()),
+        new LogContent('ChildLogsSectionLogContent', ChildLogsSectionLogContent.generateDefaultCSS(), new ChildLogsSectionLogContent()),
         new LogContent('CommentSectionLogContent', this.generateDefaultCSS(), new CommentSectionLogContent()),
       ];
     }
@@ -89,6 +91,7 @@ export class LogEditorComponent implements OnInit {
 
     logModel.logContents = [
       new LogContent('HeaderSectionLogContent', this.generateDefaultCSS(), new HeaderSectionLogContent()),
+      new LogContent('ChildLogsSectionLogContent', ChildLogsSectionLogContent.generateDefaultCSS(), new ChildLogsSectionLogContent()),
       new LogContent('CommentSectionLogContent', this.generateDefaultCSS(), new CommentSectionLogContent()),
     ];
     logModel.logDisplayOverride = new LogDisplayOverride();

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
 import {EventBrokerService} from '../../../../service/event-broker-shared-service/event-broker-service';
@@ -13,7 +13,9 @@ declare var Masonry: any;
   templateUrl: './masonry.component.html',
   styleUrls: ['./masonry.component.css']
 })
-export class MasonryComponent implements OnInit {
+export class MasonryComponent {
+  @Input() showSpinner: boolean;
+
   @Input() set logModelsObservable(logModelsObservable: Observable<LogModel[]>) {
     this._logModelsObservable = logModelsObservable;
     this.getLogModels();
@@ -29,6 +31,8 @@ export class MasonryComponent implements OnInit {
   moreExist: boolean;
 
   constructor(private _eventBroker: EventBrokerService) {
+    this.showSpinner = true;
+    this.initialize();
     this._masonry = null;
     this._eventBroker.listen<boolean>(String(BrokerEvent.NAVIGATION_SIDE_LEFT_STATE_CHANGED), (data: boolean) => {
       this.viewportResize();
@@ -58,10 +62,6 @@ export class MasonryComponent implements OnInit {
     setTimeout(() => {
       this.loadModelsIfEmptySpace();
     }, 500); // wait for masonry layoutComplete
-  }
-
-  ngOnInit() {
-    this.initialize();
   }
 
   /**

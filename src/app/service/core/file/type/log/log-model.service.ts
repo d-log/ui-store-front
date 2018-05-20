@@ -42,23 +42,23 @@ export class LogModelService {
         }
       }
     }
-    if (getterRequest.metadataNameRegex !== undefined) {
-      urlParameters.push('metadataNameRegex=' + getterRequest.metadataNameRegex);
+    if (getterRequest.metadataNameLike !== undefined) {
+      urlParameters.push('metadataNameLike=' + getterRequest.metadataNameLike);
     }
     if (getterRequest.logDisplayType !== undefined) {
-      urlParameters.push('logType=' + LogDisplayType[getterRequest.logDisplayType]);
+      urlParameters.push('logDisplayType=' + LogDisplayType[getterRequest.logDisplayType]);
     }
     if (getterRequest.pageable !== undefined) {
       urlParameters.push('page=' + getterRequest.pageable.page + '&size=' + getterRequest.pageable.size);
     }
     if (getterRequest.parentLogID !== undefined) {
-      urlParameters.push('directoryID=' + getterRequest.parentLogID);
+      urlParameters.push('parentLogID=' + getterRequest.parentLogID);
     }
     if (getterRequest.tagID !== undefined) {
       urlParameters.push('tagID=' + getterRequest.tagID);
     }
-    if (getterRequest.millisecondThreshold !== undefined) {
-      urlParameters.push('millisecondThreshold=' + getterRequest.millisecondThreshold);
+    if (getterRequest.createdBefore !== undefined) {
+      urlParameters.push('createdBefore=' + getterRequest.createdBefore);
     }
     if (getterRequest.searchString !== undefined) {
       urlParameters.push('searchString=' + encodeURIComponent(getterRequest.searchString));

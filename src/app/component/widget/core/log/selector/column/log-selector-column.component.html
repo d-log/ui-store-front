@@ -8,11 +8,13 @@
   </div>
   <ng-template #templateName>
     <div *ngFor="let logModel of childLogModels, let i = index;">
-      <div class="item"
-           [ngClass]="{'item-path': logModel.id === logPathID, 'item-selected': logModel.id === selectedLogModelID}">
-        <div class="log-container" (click)="selectLogModel(i)">
-          <div class="item-name">{{logModel.metadata.name}}</div>
-          <i class="fa fa-play"></i>
+      <div *ngIf="logModelIDsToHide.indexOf(logModel.id) === -1">
+        <div class="item"
+             [ngClass]="{'item-path': logModel.id === logPathID, 'item-selected': logModel.id === selectedLogModelID}">
+          <div class="log-container" (click)="selectLogModel(i)">
+            <div class="item-name">{{logModel.metadata.name}}</div>
+            <i class="fa fa-play"></i>
+          </div>
         </div>
       </div>
     </div>
