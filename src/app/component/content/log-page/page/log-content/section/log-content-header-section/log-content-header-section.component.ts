@@ -13,13 +13,11 @@ export class LogContentHeaderSectionComponent {
   constructor(private router: Router) {
   }
 
-  viewLogsWithParentLogIDInContent(parentLogID: string) {
-    // passing directory id as matrix parameter
-    this.router.navigate(['log-tile/archive', {'parent-log-id': parentLogID}]);
+  viewLogPage(parentLogID: string) {
+    this.router.navigate(['/log-page/' + parentLogID]);
   }
 
   viewLogsWithTagIDInContent(tagID: string) {
-    // passing tag id as matrix parameter
     this.router.navigate(['log-tile/archive', {'tag-id': tagID}]);
   }
 }

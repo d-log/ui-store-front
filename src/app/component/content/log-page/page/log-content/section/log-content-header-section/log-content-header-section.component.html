@@ -10,7 +10,7 @@
     <div class="directory-container">
       <i class="fa fa-folder-open" aria-hidden="true"></i>
       <span *ngFor="let model of logModel.parentLogModels">
-        · <a class="tag-or-directory" (click)="viewLogsWithParentLogIDInContent(model.id)">{{model.metadata.name}}</a>
+        · <a class="tag-or-directory" (click)="viewLogPage(model.id)">{{model.metadata.name}}</a>
       </span>
     </div>
     <div class="tag-container">
