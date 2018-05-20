@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ImageInternalLogContent} from '../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/image-internal/image-internal-log-content';
-import {ImageModel} from '../../../../../../service/core/file/model/extra/data/image/image-model';
+import {ImageModel} from '../../../../../../service/core/model/data/image/image-model';
+import {ImageInternalLogContent} from '../../../../../../service/core/model/data/log/extra/log-content/type/image-internal/image-internal-log-content';
 
 @Component({
   selector: 'app-log-content-image-default',

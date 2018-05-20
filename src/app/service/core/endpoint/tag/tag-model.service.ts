@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {environment} from '../../../../../../environments/environment';
 import {Http, Response} from '@angular/http';
-import {HateoasResponse} from '../../../model/response/hateoas-response';
 import 'rxjs/add/operator/map';
-import {TagModel} from '../../model/extra/data/tag/tag-model';
-import {SortOrder} from '../../../model/request/sort-order';
+import {environment} from '../../../../../environments/environment';
+import {TagModel} from '../../model/data/tag/tag-model';
 import {TagGetterRequest} from './tag-getter-request';
+import {HateoasResponse} from '../../model/response/hateoas-response';
+import {SortOrder} from '../../model/request/sort-order';
 
 @Injectable()
 export class TagModelService {

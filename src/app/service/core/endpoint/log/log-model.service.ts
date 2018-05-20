@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {environment} from '../../../../../../environments/environment';
-import {LogGetterRequest} from './log-getter-request';
 import {Observable} from 'rxjs/Observable';
-import {LogModel} from '../../model/extra/data/log/log-model';
-import {HateoasResponse} from '../../../model/response/hateoas-response';
-import {SortOrder} from '../../../model/request/sort-order';
-import {LogDisplayType} from '../../model/extra/data/log/extra/log-display-type';
-
+import {environment} from '../../../../../environments/environment';
+import {LogGetterRequest} from './log-getter-request';
+import {LogModel} from '../../model/data/log/log-model';
+import {HateoasResponse} from '../../model/response/hateoas-response';
+import {SortOrder} from '../../model/request/sort-order';
+import {LogDisplayType} from '../../model/data/log/extra/log-display-type';
 
 @Injectable()
 export class LogModelService {

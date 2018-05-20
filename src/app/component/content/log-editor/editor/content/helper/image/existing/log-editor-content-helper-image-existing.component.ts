@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {Pageable} from '../../../../../../../../service/core/model/request/pageable';
-import {LogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
 import {Sort} from '../../../../../../../../service/core/model/request/sort';
-import {ImageModelService} from '../../../../../../../../service/core/file/type/image/image-model.service';
+import {LogContent} from '../../../../../../../../service/core/model/data/log/extra/log-content/log-content';
+import {Pageable} from '../../../../../../../../service/core/model/request/pageable';
+import {ImageModelService} from '../../../../../../../../service/core/endpoint/image/image-model.service';
 import {SortOrder} from '../../../../../../../../service/core/model/request/sort-order';
-import {ImageModel} from '../../../../../../../../service/core/file/model/extra/data/image/image-model';
-import {ImageInternalLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/image-internal/image-internal-log-content';
+import {ImageModel} from '../../../../../../../../service/core/model/data/image/image-model';
+import {ImageInternalLogContent} from '../../../../../../../../service/core/model/data/log/extra/log-content/type/image-internal/image-internal-log-content';
 
 @Component({
   selector: 'app-log-editor-content-helper-image-existing',

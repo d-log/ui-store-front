@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
+import {LogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/log-content';
 
 @Component({
   selector: 'app-log-editor-content-css',

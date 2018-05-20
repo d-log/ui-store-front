@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
-import {Metadata} from '../../../../service/core/file/model/extra/metadata';
-import {LogOrganization} from '../../../../service/core/file/model/extra/data/log/extra/log-organization';
-import {LogContent} from '../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {LogDisplayOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/log-display-override';
-import {TileLogModelOverride} from '../../../../service/core/file/model/extra/data/log/extra/log-type-override/extra/tile-log-model-override';
+import {LogModel} from '../../../../service/core/model/data/log/log-model';
+import {TileLogModelOverride} from '../../../../service/core/model/data/log/extra/log-type-override/extra/tile-log-model-override';
+import {LogDisplayOverride} from '../../../../service/core/model/data/log/extra/log-type-override/log-display-override';
+import {LogContent} from '../../../../service/core/model/data/log/extra/log-content/log-content';
+import {LogOrganization} from '../../../../service/core/model/data/log/extra/log-organization';
+import {Metadata} from '../../../../service/core/model/data/metadata';
 
 @Component({
   selector: 'app-log-editor',

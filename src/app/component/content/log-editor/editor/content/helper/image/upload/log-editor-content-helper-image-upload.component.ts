@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {ImageUploadService} from '../../../../../../../../service/core/file/type/image/image-upload.service';
-import {ImageModel} from '../../../../../../../../service/core/file/model/extra/data/image/image-model';
+import {ImageModel} from '../../../../../../../../service/core/model/data/image/image-model';
+import {ImageUploadService} from '../../../../../../../../service/core/endpoint/image/image-upload.service';
 
 @Component({
   selector: 'app-file-editor-log-data-helper-image-upload',

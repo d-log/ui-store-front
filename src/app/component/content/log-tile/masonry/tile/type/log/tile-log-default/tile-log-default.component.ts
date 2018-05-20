@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../../../service/core/file/model/extra/data/log/log-model';
+import {LogModel} from '../../../../../../../../service/core/model/data/log/log-model';
 
 @Component({
   selector: 'app-tile-log-default',

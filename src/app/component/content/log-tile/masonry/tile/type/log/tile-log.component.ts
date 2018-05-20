@@ -1,16 +1,16 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Router} from '@angular/router';
-import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
+import {LogModel} from '../../../../../../../service/core/model/data/log/log-model';
+import {LogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/log-content';
 import {ILogContentComponent} from '../../../../../../widget/core/log/log-content/i-log-content-component';
 import {TileLogDefaultComponent} from './tile-log-default/tile-log-default.component';
+import {ITileLogComponent} from '../i-tile-log-component';
 import {LogContentImageDefaultComponent} from '../../../../../../widget/core/log/log-content/image-default/log-content-image-default.component';
 import {LogContentTextCodeDefaultComponent} from '../../../../../../widget/core/log/log-content/text-code-default/log-content-text-code-default.component';
 import {LogContentTextMarkdownDefaultComponent} from '../../../../../../widget/core/log/log-content/text-markdown-default/log-content-text-markdown-default.component';
 import {LogContentTextPlainDefaultComponent} from '../../../../../../widget/core/log/log-content/text-plain-default/log-content-text-plain-default.component';
 import {LogContentTextQuoteDefaultComponent} from '../../../../../../widget/core/log/log-content/text-quote-default/log-content-text-quote-default.component';
 import {LogContentVideoYoutubeDefaultComponent} from '../../../../../../widget/core/log/log-content/video-youtube-default/log-content-video-youtube-default.component';
-import {ITileLogComponent} from '../i-tile-log-component';
 
 @Component({
   selector: 'app-tile-log',
@@ -58,7 +58,6 @@ export class TileLogComponent implements OnInit {
         return LogContentTextMarkdownDefaultComponent;
       }
       case 'TextPlainLogContent': {
-        debugger;
         return LogContentTextPlainDefaultComponent;
       }
       case 'TextQuoteLogContent': {

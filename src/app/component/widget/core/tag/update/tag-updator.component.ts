@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {TagModelService} from '../../../../../service/core/file/type/tag/tag-model.service';
-import {TagModel} from '../../../../../service/core/file/model/extra/data/tag/tag-model';
+import {TagModelService} from '../../../../../service/core/endpoint/tag/tag-model.service';
+import {TagModel} from '../../../../../service/core/model/data/tag/tag-model';
 
 @Component({
   selector: 'app-tag-updator',

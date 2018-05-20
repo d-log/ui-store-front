@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {TextQuoteLogContent} from '../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-quote/text-quote-log-content';
+import {TextQuoteLogContent} from '../../../../../../service/core/model/data/log/extra/log-content/type/text-quote/text-quote-log-content';
 
 @Component({
   selector: 'app-log-content-text-quote-default',

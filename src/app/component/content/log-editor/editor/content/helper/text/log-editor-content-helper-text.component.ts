@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
-import {TextCodeLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-code/text-code-log-content';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {TextMarkdownLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-markdown/text-markdown-log-content';
-import {TextPlainLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-plain/text-plain-log-content';
-import {TextQuoteLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/text-quote/text-quote-log-content';
+import {TextCodeLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/text-code/text-code-log-content';
+import {LogModel} from '../../../../../../../service/core/model/data/log/log-model';
+import {LogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/log-content';
+import {TextMarkdownLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/text-markdown/text-markdown-log-content';
+import {TextPlainLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/text-plain/text-plain-log-content';
+import {TextQuoteLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/text-quote/text-quote-log-content';
 
 @Component({
   selector: 'app-log-editor-content-helper-text',

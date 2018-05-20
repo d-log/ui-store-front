@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../../service/core/file/model/extra/data/log/log-model';
-import {TagModel} from '../../../../../../service/core/file/model/extra/data/tag/tag-model';
+import {LogModel} from '../../../../../../service/core/model/data/log/log-model';
+import {TagModel} from '../../../../../../service/core/model/data/tag/tag-model';
 
 @Component({
   selector: 'app-log-editor-organization-tag',

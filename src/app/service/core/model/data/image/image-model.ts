@@ -1,5 +1,5 @@
+import {Metadata} from '../metadata';
 import {ImageSource} from './extra/image-source';
-import {Metadata} from '../../metadata';
 
 export class ImageModel {
   id: string;

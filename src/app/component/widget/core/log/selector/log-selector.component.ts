@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LogModel} from '../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogModelService} from '../../../../../service/core/file/type/log/log-model.service';
+import {LogModel} from '../../../../../service/core/model/data/log/log-model';
+import {LogModelService} from '../../../../../service/core/endpoint/log/log-model.service';
 
 @Component({
   selector: 'app-log-selector',

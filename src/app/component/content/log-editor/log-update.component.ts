@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LogModel} from '../../../service/core/file/model/extra/data/log/log-model';
-import {LogModelService} from '../../../service/core/file/type/log/log-model.service';
-import {LogDisplayType} from '../../../service/core/file/model/extra/data/log/extra/log-display-type';
+import {LogModel} from '../../../service/core/model/data/log/log-model';
+import {LogModelService} from '../../../service/core/endpoint/log/log-model.service';
+import {LogDisplayType} from '../../../service/core/model/data/log/extra/log-display-type';
 
 @Component({
   templateUrl: './log-update.component.html',

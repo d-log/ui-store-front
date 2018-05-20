@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {ImageModel} from '../../../../../../../service/core/file/model/extra/data/image/image-model';
-import {ImageInternalLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/image-internal/image-internal-log-content';
+import {LogModel} from '../../../../../../../service/core/model/data/log/log-model';
+import {LogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/log-content';
+import {ImageModel} from '../../../../../../../service/core/model/data/image/image-model';
+import {ImageInternalLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/image-internal/image-internal-log-content';
+
 
 @Component({
   selector: 'app-log-editor-content-helper-image',

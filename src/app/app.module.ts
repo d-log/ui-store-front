@@ -30,8 +30,8 @@ import {TileLogExtraComponent} from './component/content/log-tile/masonry/tile/t
 
 import {LogPageIdComponent} from './component/content/log-page/page-id/log-page-id.component';
 import {LogPageComponent} from './component/content/log-page/page/log-page.component';
-import {LogContentHeaderSectionComponent} from './component/content/log-page/page/log-content-header-section/log-content-header-section.component';
-import {LogContentCommentSectionComponent} from './component/content/log-page/page/log-content-comment-section/log-content-comment-section.component';
+import {LogContentHeaderSectionComponent} from './component/content/log-page/page/log-content/section/log-content-header-section/log-content-header-section.component';
+import {LogContentCommentSectionComponent} from './component/content/log-page/page/log-content/section/log-content-comment-section/log-content-comment-section.component';
 import {LogContentVideoYoutubeDefaultComponent} from './component/widget/core/log/log-content/video-youtube-default/log-content-video-youtube-default.component';
 import {LogContentTextPlainDefaultComponent} from './component/widget/core/log/log-content/text-plain-default/log-content-text-plain-default.component';
 import {LogContentImageDefaultComponent} from './component/widget/core/log/log-content/image-default/log-content-image-default.component';
@@ -46,10 +46,10 @@ import {CodePipe} from './pipe/code/code.pipe';
 import {DatePipe} from './pipe/date/date.pipe';
 
 import {TwitterService} from './service/twitter/twitter.service';
-import {TagModelService} from './service/core/file/type/tag/tag-model.service';
-import {ImageModelService} from './service/core/file/type/image/image-model.service';
-import {ImageUploadService} from './service/core/file/type/image/image-upload.service';
-import {LogModelService} from './service/core/file/type/log/log-model.service';
+import {TagModelService} from './service/core/endpoint/tag/tag-model.service';
+import {ImageModelService} from './service/core/endpoint/image/image-model.service';
+import {ImageUploadService} from './service/core/endpoint/image/image-upload.service';
+import {LogModelService} from './service/core/endpoint/log/log-model.service';
 import {EventBrokerService} from './service/event-broker-shared-service/event-broker-service';
 
 import {ScriptHackComponent} from './component/widget/util/script-hack/script-hack.component';
@@ -86,7 +86,7 @@ import {LogEditorContentTextPlainComponent} from './component/content/log-editor
 import {LogEditorContentTextMarkdownComponent} from './component/content/log-editor/editor/content/type/impl/text-markdown/log-editor-content-text-markdown.component';
 import {LogEditorContentImageInternalComponent} from './component/content/log-editor/editor/content/type/impl/image-internal/log-editor-content-image-internal.component';
 import {LogEditorContentImageQuoteComponent} from './component/content/log-editor/editor/content/type/impl/image-quote/log-editor-content-image-quote.component';
-import {LogContentChildLogsSectionComponent} from './component/content/log-page/page/log-content-child-logs-section/log-content-child-logs-section.component';
+import {LogContentChildLogsSectionComponent} from './component/content/log-page/page/log-content/section/log-content-child-logs-section/log-content-child-logs-section.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TagModel} from '../../../../../service/core/file/model/extra/data/tag/tag-model';
-import {TagModelService} from '../../../../../service/core/file/type/tag/tag-model.service';
-import {Metadata} from '../../../../../service/core/file/model/extra/metadata';
+import {TagModel} from '../../../../../service/core/model/data/tag/tag-model';
+import {TagModelService} from '../../../../../service/core/endpoint/tag/tag-model.service';
+import {Metadata} from '../../../../../service/core/model/data/metadata';
 
 @Component({
   selector: 'app-tag-creator',

@@ -1,8 +1,8 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {LogModel} from '../../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogGetterRequest} from '../../../../../../service/core/file/type/log/log-getter-request';
-import {LogModelService} from '../../../../../../service/core/file/type/log/log-model.service';
+import {LogModel} from '../../../../../../service/core/model/data/log/log-model';
+import {LogGetterRequest} from '../../../../../../service/core/endpoint/log/log-getter-request';
+import {LogModelService} from '../../../../../../service/core/endpoint/log/log-model.service';
 import {Pageable} from '../../../../../../service/core/model/request/pageable';
 import {Sort} from '../../../../../../service/core/model/request/sort';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {TagModel} from '../../../../service/core/file/model/extra/data/tag/tag-model';
+import {TagModel} from '../../../../service/core/model/data/tag/tag-model';
 
 @Component({
   selector: 'app-tag-widget',

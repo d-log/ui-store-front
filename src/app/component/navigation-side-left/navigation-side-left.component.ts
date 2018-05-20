@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {LogModel} from '../../service/core/file/model/extra/data/log/log-model';
+import {LogModel} from '../../service/core/model/data/log/log-model';
 
 @Component({
   selector: 'app-navigation-side-left',

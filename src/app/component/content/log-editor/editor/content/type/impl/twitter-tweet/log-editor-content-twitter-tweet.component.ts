@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
-import {TwitterTweetLogContent} from '../../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/twitter-tweet/twitter-tweet-log-content';
+import {TwitterTweetLogContent} from '../../../../../../../../service/core/model/data/log/extra/log-content/type/twitter-tweet/twitter-tweet-log-content';
 import {TwitterService} from '../../../../../../../../service/twitter/twitter.service';
 
 @Component({

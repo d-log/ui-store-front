@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {environment} from '../../../../../../environments/environment';
-import {HateoasResponse} from '../../../model/response/hateoas-response';
-import {ImageModel} from '../../model/extra/data/image/image-model';
-import {Pageable} from '../../../model/request/pageable';
+import {environment} from '../../../../../environments/environment';
+import {Pageable} from '../../model/request/pageable';
+import {ImageModel} from '../../model/data/image/image-model';
+import {HateoasResponse} from '../../model/response/hateoas-response';
 
 @Injectable()
 export class ImageModelService {

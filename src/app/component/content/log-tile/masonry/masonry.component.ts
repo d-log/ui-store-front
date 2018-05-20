@@ -1,6 +1,6 @@
 import {Component, EventEmitter, HostListener, Input, Output, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
+import {LogModel} from '../../../../service/core/model/data/log/log-model';
 import {EventBrokerService} from '../../../../service/event-broker-shared-service/event-broker-service';
 import {BrokerEvent} from '../../../../service/event-broker-shared-service/broker-event';
 

@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
-import {LogModelService} from '../../../../service/core/file/type/log/log-model.service';
-import {LogDisplayType} from '../../../../service/core/file/model/extra/data/log/extra/log-display-type';
+import {LogModelService} from '../../../../service/core/endpoint/log/log-model.service';
+import {LogModel} from '../../../../service/core/model/data/log/log-model';
+import {LogDisplayType} from '../../../../service/core/model/data/log/extra/log-display-type';
 
 @Component({
   selector: 'app-log-page-id',

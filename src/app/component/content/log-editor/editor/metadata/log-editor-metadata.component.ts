@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Metadata} from '../../../../../service/core/file/model/extra/metadata';
+import {Metadata} from '../../../../../service/core/model/data/metadata';
 
 @Component({
   selector: 'app-log-editor-metadata',

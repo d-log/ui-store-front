@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {TagModel} from '../../../../../../service/core/file/model/extra/data/tag/tag-model';
-import {Pageable} from '../../../../../../service/core/model/request/pageable';
-import {Sort} from '../../../../../../service/core/model/request/sort';
-import {TagModelService} from '../../../../../../service/core/file/type/tag/tag-model.service';
+import {TagModel} from '../../../../../../service/core/model/data/tag/tag-model';
+import {TagGetterRequest} from '../../../../../../service/core/endpoint/tag/tag-getter-request';
+import {TagModelService} from '../../../../../../service/core/endpoint/tag/tag-model.service';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
-import {TagGetterRequest} from '../../../../../../service/core/file/type/tag/tag-getter-request';
+import {Sort} from '../../../../../../service/core/model/request/sort';
+import {Pageable} from '../../../../../../service/core/model/request/pageable';
 
 @Component({
   selector: 'app-tag-selector-content',

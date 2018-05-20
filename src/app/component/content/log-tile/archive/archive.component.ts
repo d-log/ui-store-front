@@ -1,15 +1,15 @@
 import {Component, ViewChild} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {MasonryComponent} from '../masonry/masonry.component';
 import {Observable} from 'rxjs/Observable';
-import {LogModel} from '../../../../service/core/file/model/extra/data/log/log-model';
-import {LogGetterRequest} from '../../../../service/core/file/type/log/log-getter-request';
-import {LogModelService} from '../../../../service/core/file/type/log/log-model.service';
 import {ActivatedRoute} from '@angular/router';
+import {MasonryComponent} from '../masonry/masonry.component';
+import {LogModel} from '../../../../service/core/model/data/log/log-model';
+import {LogGetterRequest} from '../../../../service/core/endpoint/log/log-getter-request';
+import {LogModelService} from '../../../../service/core/endpoint/log/log-model.service';
 import {Pageable} from '../../../../service/core/model/request/pageable';
-import {LogDisplayType} from '../../../../service/core/file/model/extra/data/log/extra/log-display-type';
 import {Sort} from '../../../../service/core/model/request/sort';
 import {SortOrder} from '../../../../service/core/model/request/sort-order';
+import {LogDisplayType} from '../../../../service/core/model/data/log/extra/log-display-type';
 
 @Component({
   selector: 'app-archive',

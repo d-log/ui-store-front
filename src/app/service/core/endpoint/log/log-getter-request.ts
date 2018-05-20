@@ -1,6 +1,6 @@
-import {LogDisplayType} from '../../model/extra/data/log/extra/log-display-type';
-import {Pageable} from '../../../model/request/pageable';
-import {Sort} from '../../../model/request/sort';
+import {Sort} from '../../model/request/sort';
+import {Pageable} from '../../model/request/pageable';
+import {LogDisplayType} from '../../model/data/log/extra/log-display-type';
 
 export class LogGetterRequest {
   logDisplayType: LogDisplayType;

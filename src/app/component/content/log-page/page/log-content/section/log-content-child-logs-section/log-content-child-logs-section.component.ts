@@ -1,8 +1,8 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import {LogModel} from '../../../../../service/core/file/model/extra/data/log/log-model';
 import {of} from 'rxjs/observable/of';
 import {Observable} from 'rxjs/Observable';
-import {MasonryComponent} from '../../../log-tile/masonry/masonry.component';
+import {LogModel} from '../../../../../../../service/core/model/data/log/log-model';
+import {MasonryComponent} from '../../../../../log-tile/masonry/masonry.component';
 
 @Component({
   selector: 'app-log-content-child-logs-section',

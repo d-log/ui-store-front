@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LogModel} from '../../../../../service/core/file/model/extra/data/log/log-model';
-import {LogContent} from '../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {HeaderSectionLogContent} from '../../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/header-section-log-content';
-import {CommentSectionLogContent} from '../../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/comment-section-log-content';
-import {ChildLogsSectionLogContent} from '../../../../../service/core/file/model/extra/data/log/extra/log-content/type/_section/child-logs-section-log-content';
+import {LogModel} from '../../../../../service/core/model/data/log/log-model';
+import {LogContent} from '../../../../../service/core/model/data/log/extra/log-content/log-content';
 
 @Component({
   selector: 'app-log-editor-contents',

@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {LogModel} from '../../../../../../../service/core/file/model/extra/data/log/log-model';
 import {TwitterService} from '../../../../../../../service/twitter/twitter.service';
-import {VideoYoutubeLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/video-youtube/video-youtube-log-content';
-import {LogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/log-content';
-import {TwitterTweetLogContent} from '../../../../../../../service/core/file/model/extra/data/log/extra/log-content/type/twitter-tweet/twitter-tweet-log-content';
+import {LogModel} from '../../../../../../../service/core/model/data/log/log-model';
+import {VideoYoutubeLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/video-youtube/video-youtube-log-content';
+import {LogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/log-content';
+import {TwitterTweetLogContent} from '../../../../../../../service/core/model/data/log/extra/log-content/type/twitter-tweet/twitter-tweet-log-content';
 
 @Component({
   selector: 'app-log-editor-content-helper-link',
