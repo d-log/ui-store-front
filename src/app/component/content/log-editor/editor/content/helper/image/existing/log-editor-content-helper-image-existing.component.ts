@@ -6,6 +6,7 @@ import {ImageModelService} from '../../../../../../../../service/core/endpoint/i
 import {SortOrder} from '../../../../../../../../service/core/model/request/sort-order';
 import {ImageModel} from '../../../../../../../../service/core/model/data/image/image-model';
 import {ImageInternalLogContent} from '../../../../../../../../service/core/model/data/log/extra/log-content/type/image-internal/image-internal-log-content';
+import {ImageGetterRequest} from '../../../../../../../../service/core/endpoint/image/image-getter-request';
 
 @Component({
   selector: 'app-log-editor-content-helper-image-existing',
@@ -16,8 +17,7 @@ export class LogEditorContentHelperImageExistingComponent implements OnInit {
   @Output() doubleClickedImageLogContent = new EventEmitter<LogContent>();
   @ViewChild('bottom') bottom: any;
 
-  pageable: Pageable;
-  sorts: Sort[];
+  getterRequest: ImageGetterRequest;
   moreFilesExist: boolean;
 
   selectableImageLogContents: LogContent[];
@@ -26,8 +26,10 @@ export class LogEditorContentHelperImageExistingComponent implements OnInit {
   constructor(private imageModelService: ImageModelService) {
     this.selectableImageLogContents = [];
     this.moreFilesExist = true;
-    this.pageable = new Pageable(-1, 20);
-    this.sorts = [new Sort('metadata.created', SortOrder.desc)];
+    const getterRequest = new ImageGetterRequest();
+    getterRequest.pageable = new Pageable(-1, 20);
+    getterRequest.sorts = [new Sort('metadata.created', SortOrder.desc)];
+    this.getterRequest = getterRequest;
   }
 
   ngOnInit() {
@@ -35,8 +37,8 @@ export class LogEditorContentHelperImageExistingComponent implements OnInit {
   }
 
   getImageModels() {
-    this.pageable.page++;
-    this.imageModelService.findAll(this.pageable).subscribe((imageModels: ImageModel[]) => {
+    this.getterRequest.pageable.page++;
+    this.imageModelService.theGetter(this.getterRequest).subscribe((imageModels: ImageModel[]) => {
       if (imageModels.length === 0) {
         this.moreFilesExist = false;
       } else {
