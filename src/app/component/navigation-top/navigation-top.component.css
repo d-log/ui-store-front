@@ -3,7 +3,7 @@
   width: 100%;
   background-color: var(--main-darker-3-color);
   display: grid;
-  grid-template-columns: 50px auto 50px;
+  grid-template-columns: 50px auto;
 }
 
 .link {

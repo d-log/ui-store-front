@@ -14,7 +14,6 @@ import {NavigationSideLeftComponent} from './component/navigation-side-left/navi
 import {NavigationSideLeftToolbarComponent} from './component/navigation-side-left/toolbar/navigation-side-left-toolbar.component';
 import {LogSelectorColumnToolbarComponent} from './component/widget/core/log/selector/column/toolbar/log-selector-column-toolbar.component';
 import {LogSelectorColumnComponent} from './component/widget/core/log/selector/column/log-selector-column.component';
-import {SideNavigationTopSearchComponent} from './component/navigation-top/navigation-top-search/side-navigation-top-search.component';
 import {LogSelectorComponent} from './component/widget/core/log/selector/log-selector.component';
 
 import {PageNotFoundComponent} from './component/content/page-not-found/page-not-found.component';
@@ -100,7 +99,6 @@ import {LogContentChildLogsSectionComponent} from './component/content/log-page/
     TwitterComponent,
     ScriptHackComponent,
     NavigationTopComponent,
-    SideNavigationTopSearchComponent,
     NavigationSideLeftComponent,
     NavigationSideLeftToolbarComponent,
     LogSelectorColumnComponent,
