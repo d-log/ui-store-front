@@ -6,6 +6,7 @@ import {LogModelService} from '../../../../../../service/core/endpoint/log/log-m
 import {Pageable} from '../../../../../../service/core/model/request/pageable';
 import {Sort} from '../../../../../../service/core/model/request/sort';
 import {SortOrder} from '../../../../../../service/core/model/request/sort-order';
+import {OnLogModelDrop} from '../on-log-model-drop';
 
 @Component({
   selector: 'app-log-selector-column',
@@ -18,6 +19,7 @@ export class LogSelectorColumnComponent implements OnInit {
   @Input() logLevel: number;
   @Input() parentLogModel: LogModel;
   @Output() logModelSelected = new EventEmitter<any>();
+  @Output() logModelDropped = new EventEmitter<OnLogModelDrop>();
   @ViewChild('bottom') bottom: any;
   childLogModels: LogModel[];
   logModelsObservable: Observable<LogModel[]>;
@@ -36,18 +38,19 @@ export class LogSelectorColumnComponent implements OnInit {
   }
 
   logPathID: string;
-
   getterRequest: LogGetterRequest;
 
   constructor(private logModelService: LogModelService) {
-    this.showColumnToolbar = false;
-    this.logModelsObservable = null;
-    this.childLogModels = [];
-    this.isEmpty = false;
-    this.moreExist = true;
   }
 
   ngOnInit() {
+    if (this.showColumnToolbar === undefined) {
+      this.showColumnToolbar = false;
+    }
+    this.childLogModels = [];
+    this.isEmpty = false;
+    this.moreExist = true;
+
     if (this.logModelIDsToHide == null) {
       this.logModelIDsToHide = [];
     }
@@ -107,9 +110,31 @@ export class LogSelectorColumnComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    // // masonry auto call layout, so no need to call viewportResize
     setTimeout(() => {
       this.loadModelsIfEmptySpace();
-    }, 500); // wait for masonry layoutComplete
+    }, 500);
+  }
+
+  onDragStart(event: any, logModelID: string) {
+    event.dataTransfer.setData('id', logModelID);
+  }
+
+  onDrop(event: any, logModelID: string) {
+    event.preventDefault();
+    event.stopPropagation();
+    const onLogModelDrop = new OnLogModelDrop();
+    onLogModelDrop.id = event.dataTransfer.getData('id');
+    onLogModelDrop.parentID = logModelID;
+    this.logModelDropped.emit(onLogModelDrop);
+  }
+
+  onDragOver(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+
+  onDragLeave(evt) {
+    evt.preventDefault();
+    evt.stopPropagation();
   }
 }

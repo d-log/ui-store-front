@@ -1,6 +1,7 @@
 <app-log-selector-column-toolbar *ngIf="showColumnToolbar"
                                  [logModel]="parentLogModel"></app-log-selector-column-toolbar>
-<div class="column-container" (scroll)="onScroll()">
+<div class="column-container" (scroll)="onScroll()" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)"
+     (drop)="onDrop($event, parentLogModel.id)">
   <div *ngIf="isEmpty && isEmpty; else templateName">
     <div class="empty">
       EMPTY
@@ -8,7 +9,9 @@
   </div>
   <ng-template #templateName>
     <div *ngFor="let logModel of childLogModels, let i = index;">
-      <div *ngIf="logModelIDsToHide.indexOf(logModel.id) === -1">
+      <div *ngIf="logModelIDsToHide.indexOf(logModel.id) === -1" draggable="true"
+           (dragstart)="onDragStart($event, logModel.id)" (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)" (drop)="onDrop($event, logModel.id)">
         <div class="item"
              [ngClass]="{'item-path': logModel.id === logPathID, 'item-selected': logModel.id === selectedLogModelID}">
           <div class="log-container" (click)="selectLogModel(i)">

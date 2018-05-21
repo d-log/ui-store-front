@@ -67,7 +67,6 @@ export class LogModelService {
     if (urlParameters.length > 0) {
       url += '?' + urlParameters.join('&');
     }
-    // console.log(url);
 
     return url;
   }
@@ -113,6 +112,15 @@ export class LogModelService {
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection;
+      });
+  }
+
+  assignNewParent(id: string, parentID: string): Observable<LogModel> {
+    return this.http
+      .put(this.URL + '/' + id + '/parent/' + parentID, null)
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection[0];
       });
   }
 

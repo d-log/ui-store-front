@@ -114,7 +114,6 @@ export class LogEditorComponent implements OnInit {
       }
     });
 
-    // this console.log is used, unless there's a better way to display the json
     console.log(JSON.stringify(clone, null, '\t'));
   }
 }
