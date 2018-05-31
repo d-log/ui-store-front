@@ -41,3 +41,7 @@
 .tag-or-directory:hover {
   text-decoration: underline;
 }
+
+.current-directory {
+  color: var(--main-darker-color);
+}

@@ -17,6 +17,7 @@ export class LogEditorContentsComponent implements OnInit {
   displayAddHeader: boolean;
   displayAddComment: boolean;
   displayAddChildLogs: boolean;
+  displayAddDescendantLogs: boolean;
 
   displayHelperType: string;
 
@@ -24,6 +25,7 @@ export class LogEditorContentsComponent implements OnInit {
     this.displayAddHeader = false;
     this.displayAddComment = false;
     this.displayAddChildLogs = false;
+    this.displayAddDescendantLogs = false;
     this.displayHelperType = undefined;
   }
 
@@ -36,6 +38,9 @@ export class LogEditorContentsComponent implements OnInit {
     }
     if (this._logModel.logContents.filter((content: LogContent) => content.logContentType === 'ChildLogsSectionLogContent').length === 0) {
       this.displayAddChildLogs = true;
+    }
+    if (this._logModel.logContents.filter((content: LogContent) => content.logContentType === 'DescendantLogsSectionLogContent').length === 0) {
+      this.displayAddDescendantLogs = true;
     }
   }
 
@@ -66,6 +71,11 @@ export class LogEditorContentsComponent implements OnInit {
     this.displayAddChildLogs = false;
   }
 
+  addDescendantLogSection() {
+    this._logModel.logContents.push(LogContent.defaultDescendantLogs());
+    this.displayAddChildLogs = false;
+  }
+
   deleteLogData(index: number) {
     const logContentType = this._logModel.logContents[index].logContentType;
 
@@ -75,6 +85,8 @@ export class LogEditorContentsComponent implements OnInit {
       this.displayAddComment = true;
     } else if (logContentType === 'ChildLogsSectionLogContent') {
       this.displayAddChildLogs = true;
+    } else if (logContentType === 'DescendantLogsSectionLogContent') {
+      this.displayAddDescendantLogs = true;
     }
 
     this._logModel.logContents.splice(index, 1);

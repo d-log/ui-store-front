@@ -9,6 +9,7 @@ import {TextQuoteLogContent} from './type/text-quote/text-quote-log-content';
 import {TwitterTweetLogContent} from './type/twitter-tweet/twitter-tweet-log-content';
 import {VideoYoutubeLogContent} from './type/video-youtube/video-youtube-log-content';
 import {ChildLogsSectionLogContent} from './type/_section/child-logs-section-log-content';
+import {DescendantLogsSectionLogContent} from './type/_section/descendant-logs-section-log-content';
 
 export class LogContent {
   logContentType: string;
@@ -42,6 +43,14 @@ export class LogContent {
       'ChildLogsSectionLogContent',
       this.generateDefaultCSS(),
       new ChildLogsSectionLogContent()
+    );
+  }
+
+  static defaultDescendantLogs() {
+    return new LogContent(
+      'DescendantLogsSectionLogContent',
+      this.generateDefaultCSS(),
+      new DescendantLogsSectionLogContent()
     );
   }
 

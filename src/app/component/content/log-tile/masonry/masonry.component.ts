@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Input, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {LogModel} from '../../../../service/core/model/data/log/log-model';
 import {EventBrokerService} from '../../../../service/event-broker-shared-service/event-broker-service';
@@ -24,13 +24,14 @@ export class MasonryComponent {
   private _logModelsObservable: Observable<LogModel[]>;
 
   @Output() getMoreFiles = new EventEmitter<boolean>();
-  @ViewChild('bottom') bottom: any;
 
   _masonry: any = null;
   logModels: LogModel[];
   moreExist: boolean;
+  uniqueID: string; // allows for multiple instances of MasonryComponent without colliding ids
 
   constructor(private _eventBroker: EventBrokerService) {
+    this.uniqueID = this.guidGenerator();
     this.showSpinner = true;
     this.initialize();
     this._masonry = null;
@@ -40,6 +41,13 @@ export class MasonryComponent {
     this._eventBroker.listen(String(BrokerEvent.CONTENT_SCROLLED), (data: boolean) => {
       this.loadModelsIfEmptySpace();
     });
+  }
+
+  private guidGenerator() {
+    const S4 = function () {
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4());
   }
 
   private viewportResize() {
@@ -85,7 +93,8 @@ export class MasonryComponent {
    */
   loadModelsIfEmptySpace() {
     if (this.moreExist) {
-      if (this.isElementInViewport(this.bottom.nativeElement)) {
+      const bottom = document.getElementById('bottom-' + this.uniqueID);
+      if (this.isElementInViewport(bottom)) {
         this.getMoreFiles.emit(true);
       }
     }
@@ -93,7 +102,7 @@ export class MasonryComponent {
 
   generateMasonry() {
     setTimeout(() => {
-      const grid = document.querySelector('.masonry');
+      const grid = document.getElementById(this.uniqueID);
 
       // imagesLoaded(grid, () => {
       this._masonry = new Masonry(grid, {

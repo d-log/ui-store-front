@@ -3,6 +3,7 @@
     <span *ngFor="let model of logModel.ancestryLogModels">
         / <a class="tag-or-directory" routerLink="/log-page/{{model.id}}" routerLinkActive="active">{{model.metadata.name}}</a>
     </span>
+    <span class="current-directory">/ {{logModel.metadata.name}}</span>
   </div>
   <div class="views-created-updated">
     <span class="views">views 13</span>

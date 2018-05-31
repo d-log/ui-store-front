@@ -50,6 +50,9 @@ export class LogModelService {
     if (getterRequest.pageable !== undefined) {
       urlParameters.push('page=' + getterRequest.pageable.page + '&size=' + getterRequest.pageable.size);
     }
+    if (getterRequest.ancestryLogID !== undefined) {
+      urlParameters.push('ancestryLogID=' + getterRequest.ancestryLogID);
+    }
     if (getterRequest.parentLogID !== undefined) {
       urlParameters.push('parentLogID=' + getterRequest.parentLogID);
     }
@@ -85,16 +88,12 @@ export class LogModelService {
   }
 
   ancestry(id: string): Observable<LogModel[]> {
-    if (!!id) {
-      return this.http
-        .get(this.URL + '/' + id + '/ancestry')
-        .map((response: Response) => {
-          const hateoasResponse = <HateoasResponse>response.json();
-          return hateoasResponse._embedded.collection;
-        });
-    } else {
-      return [];
-    }
+    return this.http
+      .get(this.URL + '/' + id + '/ancestry')
+      .map((response: Response) => {
+        const hateoasResponse = <HateoasResponse>response.json();
+        return hateoasResponse._embedded.collection;
+      });
   }
 
   getRoot(): Observable<LogModel> {

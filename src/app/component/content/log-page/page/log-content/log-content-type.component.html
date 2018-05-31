@@ -1,4 +1,6 @@
 <div [ngStyle]="logContent.css">
+  <app-log-content-descendant-logs-section *ngIf="logContent.logContentType === 'DescendantLogsSectionLogContent'"
+                                           [logModel]="logModel"></app-log-content-descendant-logs-section>
   <app-log-content-child-logs-section *ngIf="logContent.logContentType === 'ChildLogsSectionLogContent'"
                                       [logModel]="logModel"></app-log-content-child-logs-section>
   <app-log-content-header-section *ngIf="logContent.logContentType === 'HeaderSectionLogContent'"

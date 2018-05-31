@@ -10,6 +10,7 @@ export class LogGetterRequest {
   createdBefore: number; // unix milliseconds
   metadataNameLike: string;
 
+  ancestryLogID: string;
   parentLogID: string;
   tagID: string;
 

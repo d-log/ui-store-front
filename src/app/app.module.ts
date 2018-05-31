@@ -29,6 +29,7 @@ import {TileLogExtraComponent} from './component/content/log-tile/masonry/tile/t
 
 import {LogPageIdComponent} from './component/content/log-page/page-id/log-page-id.component';
 import {LogPageComponent} from './component/content/log-page/page/log-page.component';
+import {LogContentDescendantLogsSectionComponent} from './component/content/log-page/page/log-content/section/log-content-descendant-logs-section/log-content-descendant-logs-section.component';
 import {LogContentHeaderSectionComponent} from './component/content/log-page/page/log-content/section/log-content-header-section/log-content-header-section.component';
 import {LogContentCommentSectionComponent} from './component/content/log-page/page/log-content/section/log-content-comment-section/log-content-comment-section.component';
 import {LogContentVideoYoutubeDefaultComponent} from './component/widget/core/log/log-content/video-youtube-default/log-content-video-youtube-default.component';
@@ -136,6 +137,7 @@ import {LogContentChildLogsSectionComponent} from './component/content/log-page/
     LogContentHeaderSectionComponent,
     LogContentCommentSectionComponent,
     LogContentChildLogsSectionComponent,
+    LogContentDescendantLogsSectionComponent,
     LogContentTypeComponent,
     LogContentVideoYoutubeDefaultComponent,
     LogContentTextPlainDefaultComponent,
