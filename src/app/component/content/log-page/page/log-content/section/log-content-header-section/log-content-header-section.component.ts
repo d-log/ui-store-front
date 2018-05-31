@@ -13,10 +13,6 @@ export class LogContentHeaderSectionComponent {
   constructor(private router: Router) {
   }
 
-  viewLogPage(parentLogID: string) {
-    this.router.navigate(['/log-page/' + parentLogID]);
-  }
-
   viewLogsWithTagIDInContent(tagID: string) {
     this.router.navigate(['log-tile/archive', {'tag-id': tagID}]);
   }

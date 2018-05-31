@@ -17,4 +17,5 @@ export class LogModel {
   childLogModels: LogModel[];
   tagModels: TagModel[];
   numLogContents: number;
+  ancestryLogModels: LogModel[];
 }

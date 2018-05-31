@@ -63,6 +63,9 @@ export class LogEditorComponent implements OnInit {
           logModel.logDisplayOverride.tile = defaultLogModel.logDisplayOverride.tile;
         }
       }
+      if (logModel.ancestryLogModels == null) {
+        logModel.ancestryLogModels = defaultLogModel.ancestryLogModels;
+      }
     }
 
     return logModel;
@@ -89,6 +92,7 @@ export class LogEditorComponent implements OnInit {
     ];
     logModel.logDisplayOverride = new LogDisplayOverride();
     logModel.logDisplayOverride.tile = new TileLogModelOverride();
+    logModel.ancestryLogModels = [];
 
     return logModel;
   }

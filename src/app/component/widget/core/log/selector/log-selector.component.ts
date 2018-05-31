@@ -51,4 +51,8 @@ export class LogSelectorComponent implements OnInit {
       });
     });
   }
+
+  getPathLogModels() {
+    return this.pathLogModels;
+  }
 }

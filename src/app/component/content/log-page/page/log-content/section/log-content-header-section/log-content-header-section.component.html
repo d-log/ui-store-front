@@ -1,4 +1,9 @@
 <div class="meta-data-container">
+  <div class="directory-container">
+    <span *ngFor="let model of logModel.ancestryLogModels">
+        / <a class="tag-or-directory" routerLink="/log-page/{{model.id}}" routerLinkActive="active">{{model.metadata.name}}</a>
+    </span>
+  </div>
   <div class="views-created-updated">
     <span class="views">views 13</span>
     <span class="created border-left">{{logModel.metadata.created | date}}</span>
@@ -6,18 +11,10 @@
   </div>
   <div class="name dont-break-out">{{logModel.metadata.name}}</div>
   <div class="description dont-break-out">{{logModel.metadata.description}}</div>
-  <div class="directory-tag-container">
-    <div class="directory-container">
-      <i class="fa fa-folder-open" aria-hidden="true"></i>
-      <span *ngFor="let model of logModel.parentLogModels">
-        · <a class="tag-or-directory" (click)="viewLogPage(model.id)">{{model.metadata.name}}</a>
-      </span>
-    </div>
-    <div class="tag-container">
-      <i class="fa fa-tags" aria-hidden="true"></i>
-      <span *ngFor="let model of logModel.tagModels">
-        · <a class="tag-or-directory" (click)="viewLogsWithTagIDInContent(model.id)">{{model.metadata.name}}</a>
-      </span>
-    </div>
+  <div class="tag-container">
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <span *ngFor="let model of logModel.tagModels">
+      · <a class="tag-or-directory" (click)="viewLogsWithTagIDInContent(model.id)">{{model.metadata.name}}</a>
+    </span>
   </div>
 </div>

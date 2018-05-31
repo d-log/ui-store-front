@@ -84,6 +84,19 @@ export class LogModelService {
     }
   }
 
+  ancestry(id: string): Observable<LogModel[]> {
+    if (!!id) {
+      return this.http
+        .get(this.URL + '/' + id + '/ancestry')
+        .map((response: Response) => {
+          const hateoasResponse = <HateoasResponse>response.json();
+          return hateoasResponse._embedded.collection;
+        });
+    } else {
+      return [];
+    }
+  }
+
   getRoot(): Observable<LogModel> {
     return this.http
       .get(this.URL + '/root')

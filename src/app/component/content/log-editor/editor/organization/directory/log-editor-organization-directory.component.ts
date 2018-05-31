@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {LogModel} from '../../../../../../service/core/model/data/log/log-model';
+import {LogSelectorComponent} from '../../../../../widget/core/log/selector/log-selector.component';
 
 @Component({
   selector: 'app-log-editor-organization-directory',
@@ -8,7 +9,7 @@ import {LogModel} from '../../../../../../service/core/model/data/log/log-model'
 })
 export class LogEditorOrganizationDirectoryComponent implements OnInit {
   @Input() logModel: LogModel;
-
+  @ViewChild(LogSelectorComponent) logSelectorComponent: LogSelectorComponent;
   showSelector: boolean;
 
   ngOnInit() {
@@ -29,16 +30,18 @@ export class LogEditorOrganizationDirectoryComponent implements OnInit {
     this.showSelector = false;
   }
 
-  addSelectedParentLogModel(parentLogModel: LogModel) {
+  selectedParentLogModel(parentLogModel: LogModel) {
     this.onParentLogModelUnSelect(0);
     if (!this.logModel.logOrganization.parentLogIDs.includes(parentLogModel.id)) {
       this.logModel.parentLogModels.push(parentLogModel);
       this.logModel.logOrganization.parentLogIDs.push(parentLogModel.id);
+      this.logModel.ancestryLogModels = this.logSelectorComponent.getPathLogModels();
     }
   }
 
   onParentLogModelUnSelect(index: number) {
     this.logModel.parentLogModels.splice(index, 1);
     this.logModel.logOrganization.parentLogIDs = Array.from(this.logModel.parentLogModels, (logModel: LogModel) => logModel.id);
+    this.logModel.ancestryLogModels.splice(0, this.logModel.ancestryLogModels.length);
   }
 }
