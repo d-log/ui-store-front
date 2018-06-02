@@ -45,3 +45,15 @@
 .current-directory {
   color: var(--main-darker-color);
 }
+
+a {
+  text-decoration: none; /* no underline */
+}
+
+a:visited {
+  color: var(--main-darker-2-color);
+}
+
+a:link {
+  color: var(--main-darker-2-color);
+}

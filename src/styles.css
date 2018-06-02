@@ -5,18 +5,6 @@ body {
   background-color: var(--main-color);
 }
 
-a {
-  text-decoration: none; /* no underline */
-}
-
-a:visited {
-  color: var(--main-darker-2-color);
-}
-
-a:link {
-  color: var(--main-darker-2-color);
-}
-
 :root {
   --main-lighter-color: white;
   --main-color: #e5e5e5;
