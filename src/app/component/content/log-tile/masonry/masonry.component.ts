@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {LogModel} from '../../../../service/core/model/data/log/log-model';
 import {EventBrokerService} from '../../../../service/event-broker-shared-service/event-broker-service';
@@ -13,7 +13,7 @@ declare var Masonry: any;
   templateUrl: './masonry.component.html',
   styleUrls: ['./masonry.component.css']
 })
-export class MasonryComponent {
+export class MasonryComponent implements AfterViewInit {
   @Input() showSpinner: boolean;
 
   @Input() set logModelsObservable(logModelsObservable: Observable<LogModel[]>) {
@@ -25,12 +25,14 @@ export class MasonryComponent {
 
   @Output() getMoreFiles = new EventEmitter<boolean>();
 
+  bottom: any;
   _masonry: any = null;
   logModels: LogModel[];
   moreExist: boolean;
   uniqueID: string; // allows for multiple instances of MasonryComponent without colliding ids
 
   constructor(private _eventBroker: EventBrokerService) {
+    this.bottom = null;
     this.uniqueID = this.guidGenerator();
     this.showSpinner = true;
     this.initialize();
@@ -41,6 +43,10 @@ export class MasonryComponent {
     this._eventBroker.listen(String(BrokerEvent.CONTENT_SCROLLED), (data: boolean) => {
       this.loadModelsIfEmptySpace();
     });
+  }
+
+  ngAfterViewInit() {
+    this.bottom = document.getElementById('bottom-' + this.uniqueID);
   }
 
   private guidGenerator() {
@@ -93,9 +99,8 @@ export class MasonryComponent {
    */
   loadModelsIfEmptySpace() {
     if (this.moreExist) {
-      const bottom = document.getElementById('bottom-' + this.uniqueID);
-      if (bottom != null) {
-        if (this.isElementInViewport(bottom)) {
+      if (this.bottom != null) {
+        if (this.isElementInViewport(this.bottom)) {
           this.getMoreFiles.emit(true);
         }
       }
