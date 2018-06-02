@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  coreEndPoint: 'http://192.168.1.8:8888',
+  coreEndPoint: 'http://10.0.0.8:8888',
 };
