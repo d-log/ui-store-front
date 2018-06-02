@@ -94,8 +94,10 @@ export class MasonryComponent {
   loadModelsIfEmptySpace() {
     if (this.moreExist) {
       const bottom = document.getElementById('bottom-' + this.uniqueID);
-      if (this.isElementInViewport(bottom)) {
-        this.getMoreFiles.emit(true);
+      if (bottom != null) {
+        if (this.isElementInViewport(bottom)) {
+          this.getMoreFiles.emit(true);
+        }
       }
     }
   }
