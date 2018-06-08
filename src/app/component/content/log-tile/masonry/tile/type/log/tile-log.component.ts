@@ -63,7 +63,7 @@ export class TileLogComponent implements OnInit {
       case 'TextQuoteLogContent': {
         return LogContentTextQuoteDefaultComponent;
       }
-      case 'VideoYouTubeLogData': {
+      case 'VideoYouTubeLogContent': {
         return LogContentVideoYoutubeDefaultComponent;
       }
     }
