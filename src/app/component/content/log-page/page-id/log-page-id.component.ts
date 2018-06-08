@@ -23,7 +23,7 @@ export class LogPageIdComponent {
     // grab value of url param `id` in `localhost:4200/log-page/:id
     const id = params['id'];
     if (!!id) {
-      this.logFileService.findOne(id, LogDisplayType.PAGE).subscribe((fileModel: LogModel) => {
+      this.logFileService.findOne(id, LogDisplayType.PAGE, LogDisplayType.TILE).subscribe((fileModel: LogModel) => {
         this.logModel = fileModel;
       });
     }

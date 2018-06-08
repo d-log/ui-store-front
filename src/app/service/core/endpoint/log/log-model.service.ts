@@ -74,10 +74,14 @@ export class LogModelService {
     return url;
   }
 
-  findOne(id: string, logDisplayType: LogDisplayType): Observable<LogModel> {
+  findOne(id: string, logDisplayType: LogDisplayType, childLogDisplayType: LogDisplayType): Observable<LogModel> {
     if (!!id) {
       return this.http
-        .get(this.URL + '/' + id + '/' + LogDisplayType[logDisplayType])
+        .get(this.URL + '/' + id + '/' + LogDisplayType[logDisplayType], {
+          params: {
+            'child-log-display-type': LogDisplayType[childLogDisplayType]
+          }
+        })
         .map((response: Response) => {
           const hateoasResponse = <HateoasResponse>response.json();
           return hateoasResponse._embedded.collection[0];

@@ -22,7 +22,7 @@ export class LogUpdateComponent {
     // grab value of url param `id` in `localhost:4200/file/update/:id
     const id = params['id'];
     if (!!id) {
-      this.logModelService.findOne(id, LogDisplayType.FORUPDATE).subscribe((fileModel: LogModel) => {
+      this.logModelService.findOne(id, LogDisplayType.FORUPDATE, LogDisplayType.TILE).subscribe((fileModel: LogModel) => {
         this.fileModel = fileModel;
       });
     }
