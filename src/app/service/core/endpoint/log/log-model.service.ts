@@ -100,9 +100,13 @@ export class LogModelService {
       });
   }
 
-  getRoot(): Observable<LogModel> {
+  getRoot(logDisplayType: LogDisplayType, childLogDisplayType: LogDisplayType): Observable<LogModel> {
     return this.http
-      .get(this.URL + '/root')
+      .get(this.URL + '/root' + '/' + LogDisplayType[logDisplayType], {
+        params: {
+          'child-log-display-type': LogDisplayType[childLogDisplayType]
+        }
+      })
       .map((response: Response) => {
         const hateoasResponse = <HateoasResponse>response.json();
         return hateoasResponse._embedded.collection[0];

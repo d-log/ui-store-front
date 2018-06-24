@@ -18,19 +18,7 @@ export class NavigationTopComponent {
     window.location.href = '/home';
   }
 
-  archive() {
-    this.router.navigate(['log-tile/archive']);
-  }
-
   search() {
     alert('coming soon');
-  }
-
-  settings() {
-    alert('coming soon');
-  }
-
-  toggle() {
-    this.onToggleNavigationSideLeft.emit(true);
   }
 }

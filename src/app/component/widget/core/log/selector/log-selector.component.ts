@@ -3,6 +3,7 @@ import {LogModel} from '../../../../../service/core/model/data/log/log-model';
 import {LogModelService} from '../../../../../service/core/endpoint/log/log-model.service';
 import {OnLogModelDrop} from './on-log-model-drop';
 import {LogSelectorColumnComponent} from './column/log-selector-column.component';
+import {LogDisplayType} from '../../../../../service/core/model/data/log/extra/log-display-type';
 
 @Component({
   selector: 'app-log-selector',
@@ -27,7 +28,7 @@ export class LogSelectorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logModelService.getRoot().subscribe((rootLogModel: LogModel) => {
+    this.logModelService.getRoot(LogDisplayType.DEFAULT, null).subscribe((rootLogModel: LogModel) => {
       this.pathLogModels = [rootLogModel];
     });
   }

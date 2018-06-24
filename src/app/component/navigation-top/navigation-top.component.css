@@ -1,9 +1,10 @@
 #navigation-top {
+  padding-left: 10px;
   height: 100%;
   width: 100%;
   background-color: var(--main-darker-3-color);
-  display: grid;
-  grid-template-columns: 50px auto;
+  display: flex;
+  align-items: center;
 }
 
 .link {
@@ -17,25 +18,12 @@
   color: var(--main-darker-2-color);
 }
 
-.home-search {
-  display: flex;
-  align-items: center;
-}
-
 .link-home {
   font-size: 25px;
   font-style: normal;
 }
 
-.fa-bars {
-  font-size: 15px;
-}
-
 .fa-search {
   margin-left: 15px;
   font-size: 15px;
-}
-
-.fa-cog {
-  font-size: 20px;
 }
