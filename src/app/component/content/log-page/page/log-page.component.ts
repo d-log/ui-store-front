@@ -24,7 +24,7 @@ export class LogPageComponent {
    * when secretKeyCode is pressed within a second redirect to hidden /file/update
    * @type {number[]}
    */
-  secretKeyCode = [70, 70];
+  secretKeyCode = [70, 70, 70];
   keyCodes = [];
 
   @HostListener('window:keyup', ['$event'])

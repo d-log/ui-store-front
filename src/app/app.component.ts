@@ -22,7 +22,7 @@ export class AppComponent {
    * when secretKeyCode is pressed within a second redirect to hidden /file/create
    * @type {number[]}
    */
-  secretKeyCode = [67, 67];
+  secretKeyCode = [67, 67, 67];
   keyCodes = [];
 
   @HostListener('window:keyup', ['$event'])
