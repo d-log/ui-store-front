@@ -7,6 +7,31 @@
   align-items: center;
 }
 
+.migration-message {
+  padding-left: 50px;
+  color: var(--main-lighter-color);
+}
+
+/* unvisited link */
+.migration-link:link {
+  color: rgb(255, 165, 0);
+}
+
+/* visited link */
+.migration-link:visited {
+  color: rgb(255, 165, 0);
+}
+
+/* mouse over link */
+.migration-link:hover {
+  color: rgb(188, 122, 1);
+}
+
+/* selected link */
+.migration-link:active {
+  color: rgb(188, 122, 1);
+}
+
 .link {
   text-align: center;
   align-self: center;
