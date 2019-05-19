@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# use case
+# ./bin/update_production.sh
+
 rm -rf dist/
 git push origin master
 ng build --env=prod
