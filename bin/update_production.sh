@@ -13,7 +13,7 @@ git commit -am "initial commit"
 git remote add origin git@github.com:d-log/ui-store-front-build.git
 git push origin master -f
 
-ssh -i ~/.ssh/aws-marcuschiu.pem ec2-user@www.marcuschiu.com << EOF
+ssh ec2-user@3.95.18.164 << EOF
   rm -rf ui-store-front-build/
   git clone https://github.com/d-log/ui-store-front-build.git
 EOF
